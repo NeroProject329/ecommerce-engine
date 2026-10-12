@@ -1,0 +1,1402 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum StoreStatus {
+  ACTIVE
+  SUSPENDED
+  ARCHIVED
+}
+
+enum DomainStatus {
+  PENDING
+  VERIFIED
+  DISABLED
+}
+
+enum CatalogStatus {
+  ACTIVE
+  INACTIVE
+  ARCHIVED
+}
+
+enum ProductPublicationStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+enum ProductSourceMode {
+  MANUAL
+  IMPORTED
+  HYBRID
+}
+
+enum VariantStatus {
+  ACTIVE
+  INACTIVE
+  ARCHIVED
+}
+
+enum OutboxStatus {
+  PENDING
+  PROCESSING
+  PUBLISHED
+  FAILED
+}
+
+enum AccountStatus {
+  INVITED
+  ACTIVE
+  DISABLED
+}
+
+enum MembershipStatus {
+  ACTIVE
+  SUSPENDED
+  REVOKED
+}
+
+enum CustomerStatus {
+  ACTIVE
+  BLOCKED
+  ANONYMIZED
+}
+
+enum AttributeDataType {
+  TEXT
+  NUMBER
+  BOOLEAN
+  OPTION
+  MULTI_OPTION
+}
+
+enum MediaProcessingStatus {
+  PENDING
+  PROCESSING
+  READY
+  FAILED
+}
+
+enum MediaRole {
+  PRIMARY
+  GALLERY
+  THUMBNAIL
+  SWATCH
+}
+
+enum InventoryReservationStatus {
+  ACTIVE
+  CONSUMED
+  RELEASED
+  EXPIRED
+}
+
+enum PromotionStatus {
+  DRAFT
+  ACTIVE
+  PAUSED
+  ENDED
+}
+
+enum PromotionTargetType {
+  STORE
+  CATEGORY
+  PRODUCT
+  VARIANT
+}
+
+enum CartStatus {
+  ACTIVE
+  CONVERTED
+  ABANDONED
+  EXPIRED
+}
+
+enum CheckoutStatus {
+  OPEN
+  SUBMITTED
+  COMPLETED
+  EXPIRED
+  FAILED
+}
+
+enum OrderStatus {
+  PENDING_PAYMENT
+  PAID
+  FULFILLING
+  SHIPPED
+  DELIVERED
+  CANCELED
+  PAYMENT_FAILED
+  REFUND_PENDING
+  PARTIALLY_REFUNDED
+  REFUNDED
+}
+
+enum ShipmentStatus {
+  PENDING
+  READY
+  SHIPPED
+  DELIVERED
+  CANCELED
+}
+
+enum PaymentStatus {
+  PENDING
+  AUTHORIZED
+  CAPTURED
+  FAILED
+  CANCELED
+  PARTIALLY_REFUNDED
+  REFUNDED
+}
+
+enum PaymentAttemptStatus {
+  PENDING
+  SUCCEEDED
+  FAILED
+}
+
+enum WebhookSignatureState {
+  VALID
+  INVALID
+  NOT_CHECKED
+}
+
+enum RefundStatus {
+  PENDING
+  PROCESSING
+  SUCCEEDED
+  FAILED
+  CANCELED
+}
+
+enum IntegrationStatus {
+  ACTIVE
+  DISABLED
+  ROTATING
+}
+
+enum ImportBatchStatus {
+  RECEIVED
+  QUEUED
+  PROCESSING
+  COMPLETED
+  PARTIALLY_COMPLETED
+  FAILED
+  RETRYING
+}
+
+enum ImportItemStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+  SKIPPED
+}
+
+enum OverridePolicy {
+  MANUAL_WINS
+  IMPORT_WINS
+  REVIEW_REQUIRED
+}
+
+enum ContentStatus {
+  DRAFT
+  ACTIVE
+  INACTIVE
+  ARCHIVED
+}
+
+model Store {
+  id          String        @id @default(uuid()) @db.Uuid
+  slug        String        @unique @db.VarChar(120)
+  displayName String        @db.VarChar(160)
+  status      StoreStatus   @default(ACTIVE)
+  currency    String        @default("BRL") @db.Char(3)
+  timezone    String        @default("America/Sao_Paulo") @db.VarChar(80)
+  settings    Json          @default("{}")
+  createdAt   DateTime      @default(now()) @db.Timestamptz(3)
+  updatedAt   DateTime      @updatedAt @db.Timestamptz(3)
+  domains     StoreDomain[]
+  brands      Brand[]
+  categories  Category[]
+  products    Product[]
+  variants    ProductVariant[]
+  productCategories ProductCategory[]
+  inventoryLocations InventoryLocation[]
+  inventory   Inventory[]
+  prices      Price[]
+  outboxEvents OutboxEvent[]
+  roles       Role[]
+  adminMemberships AdminMembership[]
+  customers   Customer[]
+  customerSessions CustomerSession[]
+  addresses   Address[]
+  attributeDefinitions AttributeDefinition[]
+  categoryAttributes CategoryAttribute[]
+  productAttributeValues ProductAttributeValue[]
+  variantAttributeValues VariantAttributeValue[]
+  mediaAssets MediaAsset[]
+  productMedia ProductMedia[]
+  variantMedia VariantMedia[]
+  inventoryReservations InventoryReservation[]
+  inventoryMovements InventoryMovement[]
+  priceHistory PriceHistory[]
+  promotions Promotion[]
+  promotionTargets PromotionTarget[]
+  coupons Coupon[]
+  couponRedemptions CouponRedemption[]
+  carts Cart[]
+  cartItems CartItem[]
+  shippingQuotes ShippingQuote[]
+  checkoutSessions CheckoutSession[]
+  orders Order[]
+  orderItems OrderItem[]
+  orderStatusHistory OrderStatusHistory[]
+  shipments Shipment[]
+  payments Payment[]
+  paymentAttempts PaymentAttempt[]
+  paymentWebhookEvents PaymentWebhookEvent[]
+  refunds Refund[]
+  integrationClients IntegrationClient[]
+  importSources ImportSource[]
+  importBatches ImportBatch[]
+  importItems ImportItem[]
+  importFieldOverrides ImportFieldOverride[]
+  externalIdentities ExternalIdentity[]
+  idempotencyRecords IdempotencyRecord[]
+  auditLogs AuditLog[]
+  consentRecords ConsentRecord[]
+  storefrontBanners StorefrontBanner[]
+  storefrontSections StorefrontSection[]
+
+  @@index([status, createdAt])
+  @@map("stores")
+}
+
+model StoreDomain {
+  id         String       @id @default(uuid()) @db.Uuid
+  storeId    String       @db.Uuid
+  hostname   String       @unique @db.VarChar(253)
+  status     DomainStatus @default(PENDING)
+  isPrimary  Boolean      @default(false)
+  verifiedAt DateTime?    @db.Timestamptz(3)
+  createdAt  DateTime     @default(now()) @db.Timestamptz(3)
+  updatedAt  DateTime     @updatedAt @db.Timestamptz(3)
+  store      Store        @relation(fields: [storeId], references: [id], onDelete: Restrict)
+
+  @@index([storeId, status])
+  @@map("store_domains")
+}
+
+model Brand {
+  id        String        @id @default(uuid()) @db.Uuid
+  storeId   String        @db.Uuid
+  slug      String        @db.VarChar(140)
+  name      String        @db.VarChar(160)
+  status    CatalogStatus @default(ACTIVE)
+  createdAt DateTime      @default(now()) @db.Timestamptz(3)
+  updatedAt DateTime      @updatedAt @db.Timestamptz(3)
+  store     Store         @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  products  Product[]
+
+  @@unique([storeId, slug])
+  @@unique([id, storeId])
+  @@index([storeId, status, name])
+  @@map("brands")
+}
+
+model Category {
+  id              String        @id @default(uuid()) @db.Uuid
+  storeId         String        @db.Uuid
+  parentId        String?       @db.Uuid
+  slug            String        @db.VarChar(140)
+  name            String        @db.VarChar(160)
+  path            String        @db.VarChar(1000)
+  position        Int           @default(0)
+  status          CatalogStatus @default(ACTIVE)
+  createdAt       DateTime      @default(now()) @db.Timestamptz(3)
+  updatedAt       DateTime      @updatedAt @db.Timestamptz(3)
+  store           Store         @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  parent          Category?     @relation("CategoryTree", fields: [parentId, storeId], references: [id, storeId], onDelete: Restrict)
+  children        Category[]    @relation("CategoryTree")
+  primaryProducts Product[]     @relation("PrimaryCategory")
+  productLinks    ProductCategory[]
+  attributeRules  CategoryAttribute[]
+
+  @@unique([storeId, slug])
+  @@unique([id, storeId])
+  @@index([storeId, parentId, position])
+  @@index([storeId, status, path])
+  @@map("categories")
+}
+
+model Product {
+  id                String                   @id @default(uuid()) @db.Uuid
+  storeId           String                   @db.Uuid
+  brandId           String?                  @db.Uuid
+  primaryCategoryId String                   @db.Uuid
+  slug              String                   @db.VarChar(180)
+  title             String                   @db.VarChar(240)
+  description       String                   @default("") @db.Text
+  seo               Json                     @default("{}")
+  publicationStatus ProductPublicationStatus @default(DRAFT)
+  sourceMode        ProductSourceMode        @default(MANUAL)
+  publishedAt       DateTime?                @db.Timestamptz(3)
+  createdAt         DateTime                 @default(now()) @db.Timestamptz(3)
+  updatedAt         DateTime                 @updatedAt @db.Timestamptz(3)
+  store             Store                    @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  brand             Brand?                   @relation(fields: [brandId, storeId], references: [id, storeId], onDelete: Restrict)
+  primaryCategory   Category                 @relation("PrimaryCategory", fields: [primaryCategoryId, storeId], references: [id, storeId], onDelete: Restrict)
+  categories        ProductCategory[]
+  variants          ProductVariant[]
+  attributeValues   ProductAttributeValue[]
+  media             ProductMedia[]
+  importFieldOverrides ImportFieldOverride[]
+  externalIdentities ExternalIdentity[]
+
+  @@unique([storeId, slug])
+  @@unique([id, storeId])
+  @@index([storeId, publicationStatus, createdAt, id])
+  @@index([storeId, primaryCategoryId, id])
+  @@index([storeId, brandId, id])
+  @@map("products")
+}
+
+model ProductCategory {
+  storeId   String   @db.Uuid
+  productId String   @db.Uuid
+  categoryId String  @db.Uuid
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  store     Store    @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  product   Product  @relation(fields: [productId, storeId], references: [id, storeId], onDelete: Cascade)
+  category  Category @relation(fields: [categoryId, storeId], references: [id, storeId], onDelete: Restrict)
+
+  @@id([storeId, productId, categoryId])
+  @@index([storeId, categoryId, productId])
+  @@map("product_categories")
+}
+
+model ProductVariant {
+  id                String        @id @default(uuid()) @db.Uuid
+  storeId           String        @db.Uuid
+  productId         String        @db.Uuid
+  sku               String?       @db.VarChar(120)
+  externalKey       String?       @db.VarChar(180)
+  ean               String?       @db.VarChar(14)
+  variantAttributes Json          @default("{}")
+  weightGrams       Int?
+  lengthMm          Int?
+  widthMm           Int?
+  heightMm          Int?
+  status            VariantStatus @default(ACTIVE)
+  createdAt         DateTime      @default(now()) @db.Timestamptz(3)
+  updatedAt         DateTime      @updatedAt @db.Timestamptz(3)
+  store             Store         @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  product           Product       @relation(fields: [productId, storeId], references: [id, storeId], onDelete: Cascade)
+  inventory         Inventory[]
+  prices            Price[]
+  attributeValues   VariantAttributeValue[]
+  media             VariantMedia[]
+  reservations      InventoryReservation[]
+  movements         InventoryMovement[]
+  priceHistory      PriceHistory[]
+  cartItems         CartItem[]
+  orderItems        OrderItem[]
+  externalIdentities ExternalIdentity[]
+
+  @@unique([storeId, sku])
+  @@unique([id, storeId])
+  @@index([storeId, productId, status])
+  @@map("product_variants")
+}
+
+model InventoryLocation {
+  id        String      @id @default(uuid()) @db.Uuid
+  storeId   String      @db.Uuid
+  code      String      @db.VarChar(80)
+  name      String      @db.VarChar(160)
+  active    Boolean     @default(true)
+  createdAt DateTime    @default(now()) @db.Timestamptz(3)
+  updatedAt DateTime    @updatedAt @db.Timestamptz(3)
+  store     Store       @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  inventory Inventory[]
+  movements InventoryMovement[]
+
+  @@unique([storeId, code])
+  @@unique([id, storeId])
+  @@index([storeId, active, name])
+  @@map("inventory_locations")
+}
+
+model Inventory {
+  id         String            @id @default(uuid()) @db.Uuid
+  storeId    String            @db.Uuid
+  variantId  String            @db.Uuid
+  locationId String            @db.Uuid
+  onHand     Int               @default(0)
+  reserved   Int               @default(0)
+  version    Int               @default(1)
+  createdAt  DateTime          @default(now()) @db.Timestamptz(3)
+  updatedAt  DateTime          @updatedAt @db.Timestamptz(3)
+  store      Store             @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  variant    ProductVariant    @relation(fields: [variantId, storeId], references: [id, storeId], onDelete: Restrict)
+  location   InventoryLocation @relation(fields: [locationId, storeId], references: [id, storeId], onDelete: Restrict)
+
+  @@unique([storeId, variantId, locationId])
+  @@index([storeId, locationId, variantId])
+  @@map("inventory")
+}
+
+model Price {
+  id             String         @id @default(uuid()) @db.Uuid
+  storeId        String         @db.Uuid
+  variantId      String         @db.Uuid
+  currency       String         @default("BRL") @db.Char(3)
+  amountCents    BigInt
+  compareAtCents BigInt?
+  validFrom      DateTime?      @db.Timestamptz(3)
+  validTo        DateTime?      @db.Timestamptz(3)
+  createdAt      DateTime       @default(now()) @db.Timestamptz(3)
+  updatedAt      DateTime       @updatedAt @db.Timestamptz(3)
+  store          Store          @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  variant        ProductVariant @relation(fields: [variantId, storeId], references: [id, storeId], onDelete: Restrict)
+
+  @@index([storeId, variantId, currency, validFrom])
+  @@map("prices")
+}
+
+model OutboxEvent {
+  id            String       @id @default(uuid()) @db.Uuid
+  storeId       String?      @db.Uuid
+  aggregateType String       @db.VarChar(120)
+  aggregateId   String       @db.VarChar(180)
+  eventType     String       @db.VarChar(180)
+  eventVersion  Int          @default(1)
+  payloadJson   Json
+  status        OutboxStatus @default(PENDING)
+  attempts      Int          @default(0)
+  availableAt   DateTime     @default(now()) @db.Timestamptz(3)
+  publishedAt   DateTime?    @db.Timestamptz(3)
+  createdAt     DateTime     @default(now()) @db.Timestamptz(3)
+  store         Store?       @relation(fields: [storeId], references: [id], onDelete: Restrict)
+
+  @@index([status, availableAt, id])
+  @@index([storeId, aggregateType, aggregateId])
+  @@map("outbox_events")
+}
+
+model AdminUser {
+  id              String        @id @default(uuid()) @db.Uuid
+  emailNormalized String        @unique @db.VarChar(320)
+  passwordHash    String        @db.VarChar(255)
+  status          AccountStatus @default(INVITED)
+  mfaState        Json          @default("{}")
+  createdAt       DateTime      @default(now()) @db.Timestamptz(3)
+  updatedAt       DateTime      @updatedAt @db.Timestamptz(3)
+  memberships     AdminMembership[]
+  sessions        AdminSession[]
+  recoveryTokens  AdminRecoveryToken[]
+
+  @@index([status, createdAt])
+  @@map("admin_users")
+}
+
+model Role {
+  id          String           @id @default(uuid()) @db.Uuid
+  storeId     String?          @db.Uuid
+  name        String           @db.VarChar(120)
+  immutable   Boolean          @default(false)
+  createdAt   DateTime         @default(now()) @db.Timestamptz(3)
+  updatedAt   DateTime         @updatedAt @db.Timestamptz(3)
+  store       Store?           @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  permissions RolePermission[]
+  memberships AdminMembership[]
+
+  @@unique([storeId, name])
+  @@index([storeId, name])
+  @@map("roles")
+}
+
+model RolePermission {
+  roleId         String   @db.Uuid
+  permissionCode String   @db.VarChar(160)
+  createdAt      DateTime @default(now()) @db.Timestamptz(3)
+  role           Role     @relation(fields: [roleId], references: [id], onDelete: Cascade)
+
+  @@id([roleId, permissionCode])
+  @@index([permissionCode, roleId])
+  @@map("role_permissions")
+}
+
+model AdminMembership {
+  id          String           @id @default(uuid()) @db.Uuid
+  storeId     String           @db.Uuid
+  adminUserId String           @db.Uuid
+  roleId      String           @db.Uuid
+  status      MembershipStatus @default(ACTIVE)
+  createdAt   DateTime         @default(now()) @db.Timestamptz(3)
+  updatedAt   DateTime         @updatedAt @db.Timestamptz(3)
+  store       Store            @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  adminUser   AdminUser        @relation(fields: [adminUserId], references: [id], onDelete: Restrict)
+  role        Role             @relation(fields: [roleId], references: [id], onDelete: Restrict)
+
+  @@unique([storeId, adminUserId, roleId])
+  @@index([adminUserId, status])
+  @@index([storeId, status])
+  @@map("admin_memberships")
+}
+
+model AdminSession {
+  id            String    @id @default(uuid()) @db.Uuid
+  adminUserId   String    @db.Uuid
+  tokenHash     String    @unique @db.VarChar(255)
+  expiresAt     DateTime  @db.Timestamptz(3)
+  revokedAt     DateTime? @db.Timestamptz(3)
+  mfaVerifiedAt DateTime? @db.Timestamptz(3)
+  createdAt     DateTime  @default(now()) @db.Timestamptz(3)
+  adminUser     AdminUser @relation(fields: [adminUserId], references: [id], onDelete: Cascade)
+
+  @@index([adminUserId, expiresAt])
+  @@map("admin_sessions")
+}
+
+model AdminRecoveryToken {
+  id          String    @id @default(uuid()) @db.Uuid
+  adminUserId String    @db.Uuid
+  tokenHash   String    @unique @db.VarChar(255)
+  expiresAt   DateTime  @db.Timestamptz(3)
+  usedAt      DateTime? @db.Timestamptz(3)
+  createdAt   DateTime  @default(now()) @db.Timestamptz(3)
+  adminUser   AdminUser @relation(fields: [adminUserId], references: [id], onDelete: Cascade)
+
+  @@index([adminUserId, expiresAt])
+  @@map("admin_recovery_tokens")
+}
+
+model Customer {
+  id              String         @id @default(uuid()) @db.Uuid
+  storeId         String         @db.Uuid
+  emailNormalized String         @db.VarChar(320)
+  name            String         @db.VarChar(180)
+  status          CustomerStatus @default(ACTIVE)
+  createdAt       DateTime       @default(now()) @db.Timestamptz(3)
+  updatedAt       DateTime       @updatedAt @db.Timestamptz(3)
+  store           Store          @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  credential      CustomerCredential?
+  sessions        CustomerSession[]
+  addresses       Address[]
+  carts           Cart[]
+  checkoutSessions CheckoutSession[]
+  orders          Order[]
+  couponRedemptions CouponRedemption[]
+  consentRecords ConsentRecord[]
+
+  @@unique([storeId, emailNormalized])
+  @@unique([id, storeId])
+  @@index([storeId, status, createdAt])
+  @@map("customers")
+}
+
+model CustomerCredential {
+  customerId       String    @id @db.Uuid
+  passwordHash     String    @db.VarChar(255)
+  verifiedAt       DateTime? @db.Timestamptz(3)
+  resetTokenHash   String?   @unique @db.VarChar(255)
+  resetExpiresAt   DateTime? @db.Timestamptz(3)
+  passwordChangedAt DateTime @default(now()) @db.Timestamptz(3)
+  customer         Customer  @relation(fields: [customerId], references: [id], onDelete: Cascade)
+
+  @@map("customer_credentials")
+}
+
+model CustomerSession {
+  id         String    @id @default(uuid()) @db.Uuid
+  storeId    String    @db.Uuid
+  customerId String    @db.Uuid
+  tokenHash  String    @unique @db.VarChar(255)
+  expiresAt  DateTime  @db.Timestamptz(3)
+  revokedAt  DateTime? @db.Timestamptz(3)
+  createdAt  DateTime  @default(now()) @db.Timestamptz(3)
+  store      Store     @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  customer   Customer  @relation(fields: [customerId, storeId], references: [id, storeId], onDelete: Cascade)
+
+  @@index([storeId, customerId, expiresAt])
+  @@map("customer_sessions")
+}
+
+model Address {
+  id         String   @id @default(uuid()) @db.Uuid
+  storeId    String   @db.Uuid
+  customerId String   @db.Uuid
+  recipient  String   @db.VarChar(180)
+  postalCode String   @db.VarChar(12)
+  street     String   @db.VarChar(220)
+  number     String   @db.VarChar(40)
+  complement String?  @db.VarChar(120)
+  district   String   @db.VarChar(120)
+  city       String   @db.VarChar(120)
+  state      String   @db.Char(2)
+  country    String   @default("BR") @db.Char(2)
+  isDefault  Boolean  @default(false)
+  createdAt  DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt  DateTime @updatedAt @db.Timestamptz(3)
+  store      Store    @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  customer   Customer @relation(fields: [customerId, storeId], references: [id, storeId], onDelete: Cascade)
+
+  @@index([storeId, customerId, isDefault])
+  @@map("addresses")
+}
+
+model AttributeDefinition {
+  id            String                @id @default(uuid()) @db.Uuid
+  storeId       String                @db.Uuid
+  code          String                @db.VarChar(100)
+  name          String                @db.VarChar(160)
+  dataType      AttributeDataType
+  unit          String?               @db.VarChar(40)
+  optionsJson   Json                  @default("[]")
+  version       Int                   @default(1)
+  active        Boolean               @default(true)
+  createdAt     DateTime              @default(now()) @db.Timestamptz(3)
+  updatedAt     DateTime              @updatedAt @db.Timestamptz(3)
+  store         Store                 @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  categoryRules CategoryAttribute[]
+  productValues ProductAttributeValue[]
+  variantValues VariantAttributeValue[]
+
+  @@unique([storeId, code])
+  @@unique([id, storeId])
+  @@index([storeId, active, name])
+  @@map("attribute_definitions")
+}
+
+model CategoryAttribute {
+  storeId     String              @db.Uuid
+  categoryId  String              @db.Uuid
+  definitionId String             @db.Uuid
+  required    Boolean             @default(false)
+  filterable  Boolean             @default(false)
+  sortOrder   Int                 @default(0)
+  createdAt   DateTime            @default(now()) @db.Timestamptz(3)
+  store       Store               @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  category    Category            @relation(fields: [categoryId, storeId], references: [id, storeId], onDelete: Cascade)
+  definition  AttributeDefinition @relation(fields: [definitionId, storeId], references: [id, storeId], onDelete: Restrict)
+
+  @@id([storeId, categoryId, definitionId])
+  @@index([storeId, definitionId, categoryId])
+  @@map("category_attributes")
+}
+
+model ProductAttributeValue {
+  storeId     String              @db.Uuid
+  productId   String              @db.Uuid
+  definitionId String             @db.Uuid
+  valueJson   Json
+  createdAt   DateTime            @default(now()) @db.Timestamptz(3)
+  updatedAt   DateTime            @updatedAt @db.Timestamptz(3)
+  store       Store               @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  product     Product             @relation(fields: [productId, storeId], references: [id, storeId], onDelete: Cascade)
+  definition  AttributeDefinition @relation(fields: [definitionId, storeId], references: [id, storeId], onDelete: Restrict)
+
+  @@id([storeId, productId, definitionId])
+  @@index([storeId, definitionId, productId])
+  @@map("product_attribute_values")
+}
+
+model VariantAttributeValue {
+  storeId     String              @db.Uuid
+  variantId   String              @db.Uuid
+  definitionId String             @db.Uuid
+  valueJson   Json
+  createdAt   DateTime            @default(now()) @db.Timestamptz(3)
+  updatedAt   DateTime            @updatedAt @db.Timestamptz(3)
+  store       Store               @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  variant     ProductVariant      @relation(fields: [variantId, storeId], references: [id, storeId], onDelete: Cascade)
+  definition  AttributeDefinition @relation(fields: [definitionId, storeId], references: [id, storeId], onDelete: Restrict)
+
+  @@id([storeId, variantId, definitionId])
+  @@index([storeId, definitionId, variantId])
+  @@map("variant_attribute_values")
+}
+
+model MediaAsset {
+  id               String                @id @default(uuid()) @db.Uuid
+  storeId          String                @db.Uuid
+  storageKey       String                @db.VarChar(1024)
+  sha256           String                @db.Char(64)
+  mimeType         String                @db.VarChar(120)
+  bytes            BigInt
+  width            Int?
+  height           Int?
+  durationMs       Int?
+  processingStatus MediaProcessingStatus @default(PENDING)
+  createdAt        DateTime              @default(now()) @db.Timestamptz(3)
+  updatedAt        DateTime              @updatedAt @db.Timestamptz(3)
+  store            Store                 @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  renditions       MediaRendition[]
+  products         ProductMedia[]
+  variants         VariantMedia[]
+  storefrontBanners StorefrontBanner[]
+
+  @@unique([storeId, storageKey])
+  @@unique([storeId, sha256])
+  @@unique([id, storeId])
+  @@index([storeId, processingStatus, createdAt])
+  @@map("media_assets")
+}
+
+model MediaRendition {
+  id           String     @id @default(uuid()) @db.Uuid
+  storeId      String     @db.Uuid
+  mediaAssetId String     @db.Uuid
+  format       String     @db.VarChar(20)
+  width        Int
+  height       Int
+  storageKey   String     @db.VarChar(1024)
+  bytes        BigInt
+  createdAt    DateTime   @default(now()) @db.Timestamptz(3)
+  asset        MediaAsset @relation(fields: [mediaAssetId, storeId], references: [id, storeId], onDelete: Cascade)
+
+  @@unique([storeId, mediaAssetId, format, width, height])
+  @@unique([storeId, storageKey])
+  @@map("media_renditions")
+}
+
+model ProductMedia {
+  storeId     String     @db.Uuid
+  productId   String     @db.Uuid
+  mediaAssetId String    @db.Uuid
+  role        MediaRole  @default(GALLERY)
+  sortOrder   Int        @default(0)
+  createdAt   DateTime   @default(now()) @db.Timestamptz(3)
+  store       Store      @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  product     Product    @relation(fields: [productId, storeId], references: [id, storeId], onDelete: Cascade)
+  asset       MediaAsset @relation(fields: [mediaAssetId, storeId], references: [id, storeId], onDelete: Restrict)
+
+  @@id([storeId, productId, mediaAssetId, role])
+  @@index([storeId, productId, role, sortOrder])
+  @@map("product_media")
+}
+
+model VariantMedia {
+  storeId     String         @db.Uuid
+  variantId   String         @db.Uuid
+  mediaAssetId String        @db.Uuid
+  role        MediaRole      @default(GALLERY)
+  sortOrder   Int            @default(0)
+  createdAt   DateTime       @default(now()) @db.Timestamptz(3)
+  store       Store          @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  variant     ProductVariant @relation(fields: [variantId, storeId], references: [id, storeId], onDelete: Cascade)
+  asset       MediaAsset     @relation(fields: [mediaAssetId, storeId], references: [id, storeId], onDelete: Restrict)
+
+  @@id([storeId, variantId, mediaAssetId, role])
+  @@index([storeId, variantId, role, sortOrder])
+  @@map("variant_media")
+}
+
+model InventoryReservation {
+  id         String                     @id @default(uuid()) @db.Uuid
+  storeId    String                     @db.Uuid
+  variantId  String                     @db.Uuid
+  orderId    String?                    @db.Uuid
+  cartId     String?                    @db.Uuid
+  quantity   Int
+  expiresAt  DateTime                   @db.Timestamptz(3)
+  status     InventoryReservationStatus @default(ACTIVE)
+  releasedAt DateTime?                  @db.Timestamptz(3)
+  createdAt  DateTime                   @default(now()) @db.Timestamptz(3)
+  updatedAt  DateTime                   @updatedAt @db.Timestamptz(3)
+  store      Store                      @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  variant    ProductVariant             @relation(fields: [variantId, storeId], references: [id, storeId], onDelete: Restrict)
+  order      Order?                      @relation(fields: [orderId, storeId], references: [id, storeId], onDelete: Restrict)
+  cart       Cart?                       @relation(fields: [cartId, storeId], references: [id, storeId], onDelete: Restrict)
+
+  @@index([storeId, status, expiresAt, id])
+  @@index([storeId, variantId, status])
+  @@map("inventory_reservations")
+}
+
+model InventoryMovement {
+  id               String            @id @default(uuid()) @db.Uuid
+  storeId          String            @db.Uuid
+  variantId        String            @db.Uuid
+  locationId       String            @db.Uuid
+  delta            Int
+  reason           String            @db.VarChar(120)
+  actorRef         String?           @db.VarChar(180)
+  deduplicationKey String            @db.VarChar(180)
+  metadataJson     Json              @default("{}")
+  createdAt        DateTime          @default(now()) @db.Timestamptz(3)
+  store            Store             @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  variant          ProductVariant    @relation(fields: [variantId, storeId], references: [id, storeId], onDelete: Restrict)
+  location         InventoryLocation @relation(fields: [locationId, storeId], references: [id, storeId], onDelete: Restrict)
+
+  @@unique([storeId, deduplicationKey])
+  @@index([storeId, variantId, createdAt, id])
+  @@index([storeId, locationId, createdAt, id])
+  @@map("inventory_movements")
+}
+
+model PriceHistory {
+  id            String         @id @default(uuid()) @db.Uuid
+  storeId       String         @db.Uuid
+  variantId     String         @db.Uuid
+  previousCents BigInt?
+  newCents      BigInt
+  currency      String         @default("BRL") @db.Char(3)
+  changedBy     String         @db.VarChar(180)
+  reason        String?        @db.VarChar(500)
+  changedAt     DateTime       @default(now()) @db.Timestamptz(3)
+  store         Store          @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  variant       ProductVariant @relation(fields: [variantId, storeId], references: [id, storeId], onDelete: Restrict)
+
+  @@index([storeId, variantId, changedAt, id])
+  @@map("price_history")
+}
+
+model Promotion {
+  id                String          @id @default(uuid()) @db.Uuid
+  storeId           String          @db.Uuid
+  name              String          @db.VarChar(180)
+  status            PromotionStatus @default(DRAFT)
+  startsAt          DateTime?       @db.Timestamptz(3)
+  endsAt            DateTime?       @db.Timestamptz(3)
+  percentageDecimal Decimal         @db.Decimal(7, 4)
+  priority          Int             @default(0)
+  createdAt         DateTime        @default(now()) @db.Timestamptz(3)
+  updatedAt         DateTime        @updatedAt @db.Timestamptz(3)
+  store             Store           @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  targets           PromotionTarget[]
+
+  @@unique([id, storeId])
+  @@index([storeId, status, startsAt, endsAt])
+  @@map("promotions")
+}
+
+model PromotionTarget {
+  id          String              @id @default(uuid()) @db.Uuid
+  storeId     String              @db.Uuid
+  promotionId String              @db.Uuid
+  targetType  PromotionTargetType
+  targetId    String?             @db.Uuid
+  createdAt   DateTime            @default(now()) @db.Timestamptz(3)
+  store       Store               @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  promotion   Promotion           @relation(fields: [promotionId, storeId], references: [id, storeId], onDelete: Cascade)
+
+  @@unique([storeId, promotionId, targetType, targetId])
+  @@index([storeId, targetType, targetId])
+  @@map("promotion_targets")
+}
+
+model Coupon {
+  id          String    @id @default(uuid()) @db.Uuid
+  storeId     String    @db.Uuid
+  code        String    @db.VarChar(80)
+  rulesJson   Json
+  maxUses     Int?
+  startsAt    DateTime? @db.Timestamptz(3)
+  endsAt      DateTime? @db.Timestamptz(3)
+  active      Boolean   @default(true)
+  createdAt   DateTime  @default(now()) @db.Timestamptz(3)
+  updatedAt   DateTime  @updatedAt @db.Timestamptz(3)
+  store       Store     @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  redemptions CouponRedemption[]
+
+  @@unique([storeId, code])
+  @@unique([id, storeId])
+  @@index([storeId, active, startsAt, endsAt])
+  @@map("coupons")
+}
+
+model CouponRedemption {
+  id         String   @id @default(uuid()) @db.Uuid
+  storeId    String   @db.Uuid
+  couponId   String   @db.Uuid
+  orderId    String   @db.Uuid
+  customerId String?  @db.Uuid
+  redeemedAt DateTime @default(now()) @db.Timestamptz(3)
+  store      Store    @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  coupon     Coupon   @relation(fields: [couponId, storeId], references: [id, storeId], onDelete: Restrict)
+  order      Order    @relation(fields: [orderId, storeId], references: [id, storeId], onDelete: Restrict)
+  customer   Customer? @relation(fields: [customerId, storeId], references: [id, storeId], onDelete: Restrict)
+
+  @@unique([storeId, couponId, orderId])
+  @@index([storeId, customerId, redeemedAt])
+  @@map("coupon_redemptions")
+}
+
+model Cart {
+  id String @id @default(uuid()) @db.Uuid
+  storeId String @db.Uuid
+  customerId String? @db.Uuid
+  anonymousKeyHash String? @db.VarChar(255)
+  currency String @default("BRL") @db.Char(3)
+  status CartStatus @default(ACTIVE)
+  expiresAt DateTime @db.Timestamptz(3)
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt @db.Timestamptz(3)
+  store Store @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  customer Customer? @relation(fields: [customerId, storeId], references: [id, storeId], onDelete: Restrict)
+  items CartItem[]
+  shippingQuotes ShippingQuote[]
+  checkoutSessions CheckoutSession[]
+  reservations InventoryReservation[]
+
+  @@unique([id, storeId])
+  @@index([storeId, customerId, status])
+  @@index([storeId, anonymousKeyHash, status])
+  @@index([storeId, status, expiresAt])
+  @@map("carts")
+}
+
+model CartItem {
+  id String @id @default(uuid()) @db.Uuid
+  storeId String @db.Uuid
+  cartId String @db.Uuid
+  variantId String @db.Uuid
+  quantity Int
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt @db.Timestamptz(3)
+  store Store @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  cart Cart @relation(fields: [cartId, storeId], references: [id, storeId], onDelete: Cascade)
+  variant ProductVariant @relation(fields: [variantId, storeId], references: [id, storeId], onDelete: Restrict)
+
+  @@unique([storeId, cartId, variantId])
+  @@index([storeId, variantId, cartId])
+  @@map("cart_items")
+}
+
+model ShippingQuote {
+  id String @id @default(uuid()) @db.Uuid
+  storeId String @db.Uuid
+  cartId String? @db.Uuid
+  destinationPostalCode String @db.VarChar(12)
+  carrier String @db.VarChar(120)
+  service String @db.VarChar(120)
+  amountCents BigInt
+  currency String @default("BRL") @db.Char(3)
+  providerQuoteId String? @db.VarChar(180)
+  expiresAt DateTime @db.Timestamptz(3)
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  store Store @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  cart Cart? @relation(fields: [cartId, storeId], references: [id, storeId], onDelete: Cascade)
+
+  @@index([storeId, cartId, expiresAt])
+  @@map("shipping_quotes")
+}
+
+model CheckoutSession {
+  id String @id @default(uuid()) @db.Uuid
+  storeId String @db.Uuid
+  cartId String @db.Uuid
+  customerId String? @db.Uuid
+  status CheckoutStatus @default(OPEN)
+  idempotencyKey String @db.VarChar(180)
+  pricingSnapshot Json
+  expiresAt DateTime @db.Timestamptz(3)
+  submittedAt DateTime? @db.Timestamptz(3)
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt @db.Timestamptz(3)
+  store Store @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  cart Cart @relation(fields: [cartId, storeId], references: [id, storeId], onDelete: Restrict)
+  customer Customer? @relation(fields: [customerId, storeId], references: [id, storeId], onDelete: Restrict)
+
+  @@unique([storeId, idempotencyKey])
+  @@index([storeId, status, expiresAt])
+  @@map("checkout_sessions")
+}
+
+model Order {
+  id String @id @default(uuid()) @db.Uuid
+  storeId String @db.Uuid
+  number String @db.VarChar(80)
+  customerId String? @db.Uuid
+  status OrderStatus @default(PENDING_PAYMENT)
+  subtotalCents BigInt
+  discountCents BigInt @default(0)
+  shippingCents BigInt @default(0)
+  taxCents BigInt @default(0)
+  totalCents BigInt
+  currency String @default("BRL") @db.Char(3)
+  addressSnapshotJson Json
+  pricingSnapshotJson Json
+  placedAt DateTime @default(now()) @db.Timestamptz(3)
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt @db.Timestamptz(3)
+  store Store @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  customer Customer? @relation(fields: [customerId, storeId], references: [id, storeId], onDelete: Restrict)
+  items OrderItem[]
+  statusHistory OrderStatusHistory[]
+  shipments Shipment[]
+  payments Payment[]
+  reservations InventoryReservation[]
+  couponRedemptions CouponRedemption[]
+
+  @@unique([storeId, number])
+  @@unique([id, storeId])
+  @@index([storeId, status, placedAt, id])
+  @@index([storeId, customerId, placedAt, id])
+  @@map("orders")
+}
+
+model OrderItem {
+  id String @id @default(uuid()) @db.Uuid
+  storeId String @db.Uuid
+  orderId String @db.Uuid
+  variantId String? @db.Uuid
+  skuSnapshot String? @db.VarChar(120)
+  titleSnapshot String @db.VarChar(240)
+  attributesSnapshot Json @default("{}")
+  quantity Int
+  unitPriceCents BigInt
+  discountCents BigInt @default(0)
+  taxCents BigInt @default(0)
+  totalCents BigInt
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  store Store @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  order Order @relation(fields: [orderId, storeId], references: [id, storeId], onDelete: Cascade)
+  variant ProductVariant? @relation(fields: [variantId, storeId], references: [id, storeId], onDelete: Restrict)
+
+  @@index([storeId, orderId, id])
+  @@index([storeId, variantId])
+  @@map("order_items")
+}
+
+model OrderStatusHistory {
+  id String @id @default(uuid()) @db.Uuid
+  storeId String @db.Uuid
+  orderId String @db.Uuid
+  fromStatus OrderStatus?
+  toStatus OrderStatus
+  actorType String @db.VarChar(80)
+  actorId String? @db.VarChar(180)
+  reason String? @db.VarChar(500)
+  changedAt DateTime @default(now()) @db.Timestamptz(3)
+  store Store @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  order Order @relation(fields: [orderId, storeId], references: [id, storeId], onDelete: Cascade)
+
+  @@index([storeId, orderId, changedAt, id])
+  @@map("order_status_history")
+}
+
+model Shipment {
+  id String @id @default(uuid()) @db.Uuid
+  storeId String @db.Uuid
+  orderId String @db.Uuid
+  carrier String @db.VarChar(120)
+  service String @db.VarChar(120)
+  shippingAmountCents BigInt
+  trackingCode String? @db.VarChar(180)
+  trackingUrl String? @db.VarChar(2048)
+  status ShipmentStatus @default(PENDING)
+  shippedAt DateTime? @db.Timestamptz(3)
+  deliveredAt DateTime? @db.Timestamptz(3)
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt @db.Timestamptz(3)
+  store Store @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  order Order @relation(fields: [orderId, storeId], references: [id, storeId], onDelete: Restrict)
+
+  @@index([storeId, orderId, status])
+  @@index([storeId, trackingCode])
+  @@map("shipments")
+}
+
+model Payment {
+  id String @id @default(uuid()) @db.Uuid
+  storeId String @db.Uuid
+  orderId String @db.Uuid
+  providerCode String @db.VarChar(80)
+  providerAccountRef String? @db.VarChar(180)
+  status PaymentStatus @default(PENDING)
+  authorizedCents BigInt @default(0)
+  capturedCents BigInt @default(0)
+  refundedCents BigInt @default(0)
+  currency String @default("BRL") @db.Char(3)
+  externalPaymentId String? @db.VarChar(180)
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt @db.Timestamptz(3)
+  store Store @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  order Order @relation(fields: [orderId, storeId], references: [id, storeId], onDelete: Restrict)
+  attempts PaymentAttempt[]
+  refunds Refund[]
+
+  @@unique([id, storeId])
+  @@unique([storeId, providerCode, externalPaymentId])
+  @@index([storeId, orderId, status])
+  @@map("payments")
+}
+
+model PaymentAttempt {
+  id String @id @default(uuid()) @db.Uuid
+  storeId String @db.Uuid
+  paymentId String @db.Uuid
+  requestKey String @db.VarChar(180)
+  attempt Int
+  status PaymentAttemptStatus @default(PENDING)
+  providerResponseSafe Json @default("{}")
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt @db.Timestamptz(3)
+  store Store @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  payment Payment @relation(fields: [paymentId, storeId], references: [id, storeId], onDelete: Cascade)
+
+  @@unique([storeId, requestKey])
+  @@unique([storeId, paymentId, attempt])
+  @@index([storeId, paymentId, status])
+  @@map("payment_attempts")
+}
+
+model PaymentWebhookEvent {
+  id String @id @default(uuid()) @db.Uuid
+  storeId String @db.Uuid
+  providerCode String @db.VarChar(80)
+  providerEventId String @db.VarChar(180)
+  signatureState WebhookSignatureState @default(NOT_CHECKED)
+  payloadHash String @db.Char(64)
+  payloadSafe Json @default("{}")
+  receivedAt DateTime @default(now()) @db.Timestamptz(3)
+  processedAt DateTime? @db.Timestamptz(3)
+  store Store @relation(fields: [storeId], references: [id], onDelete: Restrict)
+
+  @@unique([providerCode, providerEventId])
+  @@index([storeId, processedAt, receivedAt])
+  @@map("payment_webhook_events")
+}
+
+model Refund {
+  id String @id @default(uuid()) @db.Uuid
+  storeId String @db.Uuid
+  paymentId String @db.Uuid
+  amountCents BigInt
+  reason String @db.VarChar(500)
+  externalRefundId String? @db.VarChar(180)
+  status RefundStatus @default(PENDING)
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt @db.Timestamptz(3)
+  store Store @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  payment Payment @relation(fields: [paymentId, storeId], references: [id, storeId], onDelete: Restrict)
+
+  @@unique([storeId, externalRefundId])
+  @@index([storeId, paymentId, status])
+  @@map("refunds")
+}
+
+model IntegrationClient {
+  id String @id @default(uuid()) @db.Uuid
+  storeId String @db.Uuid
+  clientId String @db.VarChar(180)
+  secretHash String @db.VarChar(255)
+  scopes Json @default("[]")
+  status IntegrationStatus @default(ACTIVE)
+  rotatedAt DateTime? @db.Timestamptz(3)
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt @db.Timestamptz(3)
+  store Store @relation(fields: [storeId], references: [id], onDelete: Restrict)
+
+  @@unique([storeId, clientId])
+  @@index([storeId, status])
+  @@map("integration_clients")
+}
+
+model ImportSource {
+  id String @id @default(uuid()) @db.Uuid
+  storeId String @db.Uuid
+  code String @db.VarChar(100)
+  name String @db.VarChar(180)
+  allowedDomains Json @default("[]")
+  provenancePolicy Json @default("{}")
+  active Boolean @default(true)
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt @db.Timestamptz(3)
+  store Store @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  batches ImportBatch[]
+  externalIdentities ExternalIdentity[]
+
+  @@unique([storeId, code])
+  @@unique([id, storeId])
+  @@map("import_sources")
+}
+
+model ImportBatch {
+  id String @id @default(uuid()) @db.Uuid
+  storeId String @db.Uuid
+  sourceId String @db.Uuid
+  externalBatchId String @db.VarChar(180)
+  payloadHash String @db.Char(64)
+  status ImportBatchStatus @default(RECEIVED)
+  total Int @default(0)
+  processed Int @default(0)
+  failed Int @default(0)
+  submittedAt DateTime @default(now()) @db.Timestamptz(3)
+  completedAt DateTime? @db.Timestamptz(3)
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt @db.Timestamptz(3)
+  store Store @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  source ImportSource @relation(fields: [sourceId, storeId], references: [id, storeId], onDelete: Restrict)
+  items ImportItem[]
+
+  @@unique([storeId, sourceId, externalBatchId])
+  @@unique([id, storeId])
+  @@index([storeId, status, submittedAt, id])
+  @@map("import_batches")
+}
+
+model ImportItem {
+  id String @id @default(uuid()) @db.Uuid
+  storeId String @db.Uuid
+  batchId String @db.Uuid
+  externalProductId String @db.VarChar(180)
+  status ImportItemStatus @default(PENDING)
+  attempts Int @default(0)
+  payloadJson Json
+  errorCode String? @db.VarChar(120)
+  errorDetailsSafe Json?
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt @db.Timestamptz(3)
+  store Store @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  batch ImportBatch @relation(fields: [batchId, storeId], references: [id, storeId], onDelete: Cascade)
+
+  @@unique([storeId, batchId, externalProductId])
+  @@index([storeId, batchId, status, id])
+  @@map("import_items")
+}
+
+model ImportFieldOverride {
+  id String @id @default(uuid()) @db.Uuid
+  storeId String @db.Uuid
+  productId String @db.Uuid
+  fieldPath String @db.VarChar(240)
+  policy OverridePolicy @default(MANUAL_WINS)
+  editedBy String @db.VarChar(180)
+  editedAt DateTime @default(now()) @db.Timestamptz(3)
+  store Store @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  product Product @relation(fields: [productId, storeId], references: [id, storeId], onDelete: Cascade)
+
+  @@unique([storeId, productId, fieldPath])
+  @@map("import_field_overrides")
+}
+
+model ExternalIdentity {
+  id String @id @default(uuid()) @db.Uuid
+  storeId String @db.Uuid
+  sourceId String @db.Uuid
+  productId String? @db.Uuid
+  variantId String? @db.Uuid
+  externalId String @db.VarChar(240)
+  groupExternalId String? @db.VarChar(240)
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt @db.Timestamptz(3)
+  store Store @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  source ImportSource @relation(fields: [sourceId, storeId], references: [id, storeId], onDelete: Restrict)
+  product Product? @relation(fields: [productId, storeId], references: [id, storeId], onDelete: Restrict)
+  variant ProductVariant? @relation(fields: [variantId, storeId], references: [id, storeId], onDelete: Restrict)
+
+  @@unique([storeId, sourceId, externalId])
+  @@index([storeId, groupExternalId])
+  @@map("external_identities")
+}
+
+model InboxEvent {
+  consumerName String @db.VarChar(160)
+  eventId String @db.Uuid
+  processedAt DateTime @default(now()) @db.Timestamptz(3)
+
+  @@id([consumerName, eventId])
+  @@map("inbox_events")
+}
+
+model IdempotencyRecord {
+  id String @id @default(uuid()) @db.Uuid
+  storeId String @db.Uuid
+  scope String @db.VarChar(160)
+  requestKey String @db.VarChar(180)
+  requestHash String @db.Char(64)
+  responseCode Int
+  responseSnapshot Json
+  expiresAt DateTime @db.Timestamptz(3)
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  store Store @relation(fields: [storeId], references: [id], onDelete: Restrict)
+
+  @@unique([storeId, scope, requestKey])
+  @@index([expiresAt])
+  @@map("idempotency_records")
+}
+
+model AuditLog {
+  id String @id @default(uuid()) @db.Uuid
+  storeId String? @db.Uuid
+  actorType String @db.VarChar(80)
+  actorId String? @db.VarChar(180)
+  action String @db.VarChar(160)
+  objectType String @db.VarChar(120)
+  objectId String @db.VarChar(180)
+  diffRedactedJson Json @default("{}")
+  requestId String? @db.VarChar(180)
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  store Store? @relation(fields: [storeId], references: [id], onDelete: Restrict)
+
+  @@index([storeId, createdAt, id])
+  @@index([storeId, objectType, objectId, createdAt])
+  @@map("audit_logs")
+}
+
+model ConsentRecord {
+  id String @id @default(uuid()) @db.Uuid
+  storeId String @db.Uuid
+  customerId String @db.Uuid
+  purpose String @db.VarChar(160)
+  channel String @db.VarChar(80)
+  granted Boolean
+  source String @db.VarChar(120)
+  version String @db.VarChar(80)
+  recordedAt DateTime @default(now()) @db.Timestamptz(3)
+  store Store @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  customer Customer @relation(fields: [customerId, storeId], references: [id, storeId], onDelete: Restrict)
+
+  @@index([storeId, customerId, purpose, channel, recordedAt])
+  @@map("consent_records")
+}
+
+model StorefrontBanner {
+  id String @id @default(uuid()) @db.Uuid
+  storeId String @db.Uuid
+  placement String @db.VarChar(100)
+  mediaId String? @db.Uuid
+  title String? @db.VarChar(180)
+  linkTarget String? @db.VarChar(2048)
+  position Int @default(0)
+  startsAt DateTime? @db.Timestamptz(3)
+  endsAt DateTime? @db.Timestamptz(3)
+  status ContentStatus @default(DRAFT)
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt @db.Timestamptz(3)
+  store Store @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  media MediaAsset? @relation(fields: [mediaId, storeId], references: [id, storeId], onDelete: Restrict)
+
+  @@index([storeId, placement, status, position])
+  @@map("storefront_banners")
+}
+
+model StorefrontSection {
+  id String @id @default(uuid()) @db.Uuid
+  storeId String @db.Uuid
+  type String @db.VarChar(100)
+  title String? @db.VarChar(180)
+  configJson Json @default("{}")
+  position Int @default(0)
+  status ContentStatus @default(DRAFT)
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt @db.Timestamptz(3)
+  store Store @relation(fields: [storeId], references: [id], onDelete: Restrict)
+
+  @@unique([storeId, position])
+  @@index([storeId, status, position])
+  @@map("storefront_sections")
+}

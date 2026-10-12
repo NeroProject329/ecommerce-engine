@@ -1,0 +1,19 @@
+:root { color-scheme: light; --ink: #172117; --cream: #f5f2e8; --lime: #d9ff70; --line: rgba(23, 33, 23, 0.16); }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--cream); color: var(--ink); font-family: Arial, Helvetica, sans-serif; }
+main { min-height: 100vh; padding: 24px clamp(20px, 5vw, 80px) 72px; }
+nav { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); padding-bottom: 20px; font-size: 14px; }
+.brand { color: inherit; font-size: 20px; font-weight: 800; letter-spacing: -0.05em; text-decoration: none; }
+.hero { min-height: 62vh; display: grid; align-content: center; max-width: 1040px; padding: 72px 0; }
+.kicker, .status-card__eyebrow { text-transform: uppercase; letter-spacing: 0.16em; font-size: 12px; font-weight: 700; }
+h1 { margin: 20px 0; font-size: clamp(48px, 8.5vw, 126px); line-height: 0.9; letter-spacing: -0.065em; max-width: 11ch; }
+.lead { max-width: 600px; font-size: clamp(18px, 2vw, 26px); line-height: 1.45; }
+.cta { width: fit-content; margin-top: 28px; background: var(--ink); color: white; padding: 16px 22px; border-radius: 999px; text-decoration: none; font-weight: 700; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.status-card { min-height: 230px; border: 1px solid var(--line); border-radius: 22px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between; background: rgba(255,255,255,.38); }
+.status-card:first-child { background: var(--lime); }
+.status-card h2 { margin: auto 0 12px; font-size: 28px; letter-spacing: -0.04em; }
+.status-card p { line-height: 1.5; }
+@media (max-width: 760px) { main { padding-inline: 18px; } .hero { min-height: auto; } .grid { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

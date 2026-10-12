@@ -1,0 +1,19 @@
+packages:
+  - "apps/*"
+  - "packages/*"
+
+allowBuilds:
+  '@prisma/engines': true
+  esbuild: true
+  msgpackr-extract: false
+  prisma: true
+  sharp: true
+
+catalog:
+  next: 16.4.0
+  react: 19.3.0
+  react-dom: 19.3.0
+  zod: 4.6.6
+
+minimumReleaseAgeExclude:
+  - zod@4.6.6
