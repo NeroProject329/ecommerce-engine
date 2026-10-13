@@ -1,0 +1,1 @@
+export default function Loading(){return <div className="route-loading"><div className="brand-rule"/><div className="loading-header"/><main className="container"><div className="loading-hero"/><div className="catalog-grid">{Array.from({length:5},(_,i)=><div className="product-skeleton" key={i}/>)}</div></main></div>;}

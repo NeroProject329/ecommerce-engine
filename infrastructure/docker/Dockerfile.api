@@ -1,0 +1,8 @@
+FROM node:24-bookworm-slim
+WORKDIR /app
+RUN corepack enable && corepack prepare pnpm@11.18.0 --activate
+COPY . .
+RUN pnpm install --frozen-lockfile && pnpm --filter @ecommerce/api... build
+ENV NODE_ENV=production API_PORT=4000
+EXPOSE 4000
+CMD ["node", "apps/api/dist/main.js"]

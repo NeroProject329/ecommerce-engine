@@ -13,13 +13,14 @@ import type {
   RecoveryRequestInput,
   RecoveryResetInput,
 } from './schemas';
+import { EmailService } from './email.service';
 
 const SESSION_DURATION_MS = 30 * 24 * 60 * 60 * 1000;
 const RECOVERY_DURATION_MS = 30 * 60 * 1000;
 
 @Injectable()
 export class CustomerAuthService {
-  constructor(@Inject(PrismaService) private readonly prisma: PrismaService) {}
+  constructor(@Inject(PrismaService) private readonly prisma: PrismaService, @Inject(EmailService) private readonly email: EmailService) {}
 
   async register(input: CustomerRegisterInput) {
     const emailNormalized = normalizeEmail(input.email);
@@ -41,6 +42,7 @@ export class CustomerAuthService {
       },
       select: { id: true, storeId: true, name: true, emailNormalized: true },
     });
+    await this.prisma.client.outboxEvent.create({ data: { storeId: store.id, aggregateType: 'Customer', aggregateId: customer.id, eventType: 'customer.registered', payloadJson: { customerId: customer.id } } });
     return { customer };
   }
 
@@ -71,6 +73,25 @@ export class CustomerAuthService {
     });
   }
 
+  async authorize(rawToken: string, storeId: string) {
+    const session = await this.authenticate(rawToken);
+    if (!session || session.storeId !== storeId || session.revokedAt || session.expiresAt <= new Date() || session.customer.status !== 'ACTIVE') {
+      throw new UnauthorizedException('CUSTOMER_SESSION_INVALID');
+    }
+    return { customerId: session.customerId, storeId };
+  }
+
+  async authenticate(rawToken: string) {
+    const session = await this.prisma.client.customerSession.findUnique({
+      where: { tokenHash: hashOpaqueToken(rawToken) },
+      include: { customer: true },
+    });
+    if (!session || session.revokedAt || session.expiresAt <= new Date() || session.customer.status !== 'ACTIVE') {
+      throw new UnauthorizedException('CUSTOMER_SESSION_INVALID');
+    }
+    return session;
+  }
+
   async requestRecovery(input: RecoveryRequestInput): Promise<void> {
     const store = await this.prisma.client.store.findUnique({ where: { slug: input.storeSlug } });
     if (!store) return;
@@ -85,7 +106,7 @@ export class CustomerAuthService {
       where: { customerId: customer.id },
       data: { resetTokenHash: token.hash, resetExpiresAt: new Date(Date.now() + RECOVERY_DURATION_MS) },
     });
-    // Delivery is delegated to the communication adapter; raw tokens are never logged.
+    await this.email.sendRecovery(store.id, customer.emailNormalized, token.raw, 'customer').catch(() => false);
   }
 
   async resetPassword(input: RecoveryResetInput): Promise<void> {

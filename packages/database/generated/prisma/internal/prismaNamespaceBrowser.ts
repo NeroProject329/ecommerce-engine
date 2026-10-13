@@ -109,6 +109,12 @@ export const ModelName = {
   IdempotencyRecord: 'IdempotencyRecord',
   AuditLog: 'AuditLog',
   ConsentRecord: 'ConsentRecord',
+  CustomerFavorite: 'CustomerFavorite',
+  ShippingRule: 'ShippingRule',
+  WebhookEndpoint: 'WebhookEndpoint',
+  WebhookDelivery: 'WebhookDelivery',
+  NotificationTemplate: 'NotificationTemplate',
+  MarketingCampaign: 'MarketingCampaign',
   StorefrontBanner: 'StorefrontBanner',
   StorefrontSection: 'StorefrontSection'
 } as const
@@ -292,6 +298,9 @@ export const OutboxEventScalarFieldEnum = {
   attempts: 'attempts',
   availableAt: 'availableAt',
   publishedAt: 'publishedAt',
+  lastError: 'lastError',
+  lockedAt: 'lockedAt',
+  deadLetteredAt: 'deadLetteredAt',
   createdAt: 'createdAt'
 } as const
 
@@ -544,6 +553,7 @@ export const InventoryReservationScalarFieldEnum = {
   id: 'id',
   storeId: 'storeId',
   variantId: 'variantId',
+  locationId: 'locationId',
   orderId: 'orderId',
   cartId: 'cartId',
   quantity: 'quantity',
@@ -710,6 +720,7 @@ export const OrderScalarFieldEnum = {
   id: 'id',
   storeId: 'storeId',
   number: 'number',
+  accessKeyHash: 'accessKeyHash',
   customerId: 'customerId',
   status: 'status',
   subtotalCents: 'subtotalCents',
@@ -774,6 +785,7 @@ export const ShipmentScalarFieldEnum = {
   status: 'status',
   shippedAt: 'shippedAt',
   deliveredAt: 'deliveredAt',
+  estimatedDeliveryAt: 'estimatedDeliveryAt',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -992,6 +1004,107 @@ export const ConsentRecordScalarFieldEnum = {
 } as const
 
 export type ConsentRecordScalarFieldEnum = (typeof ConsentRecordScalarFieldEnum)[keyof typeof ConsentRecordScalarFieldEnum]
+
+
+export const CustomerFavoriteScalarFieldEnum = {
+  id: 'id',
+  storeId: 'storeId',
+  customerId: 'customerId',
+  productId: 'productId',
+  createdAt: 'createdAt'
+} as const
+
+export type CustomerFavoriteScalarFieldEnum = (typeof CustomerFavoriteScalarFieldEnum)[keyof typeof CustomerFavoriteScalarFieldEnum]
+
+
+export const ShippingRuleScalarFieldEnum = {
+  id: 'id',
+  storeId: 'storeId',
+  name: 'name',
+  code: 'code',
+  enabled: 'enabled',
+  priority: 'priority',
+  type: 'type',
+  carrier: 'carrier',
+  service: 'service',
+  amountCents: 'amountCents',
+  freeAboveCents: 'freeAboveCents',
+  minSubtotalCents: 'minSubtotalCents',
+  maxSubtotalCents: 'maxSubtotalCents',
+  postalCodePrefixes: 'postalCodePrefixes',
+  estimatedDaysMin: 'estimatedDaysMin',
+  estimatedDaysMax: 'estimatedDaysMax',
+  handlingDays: 'handlingDays',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ShippingRuleScalarFieldEnum = (typeof ShippingRuleScalarFieldEnum)[keyof typeof ShippingRuleScalarFieldEnum]
+
+
+export const WebhookEndpointScalarFieldEnum = {
+  id: 'id',
+  storeId: 'storeId',
+  name: 'name',
+  url: 'url',
+  secretEncrypted: 'secretEncrypted',
+  eventTypes: 'eventTypes',
+  enabled: 'enabled',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type WebhookEndpointScalarFieldEnum = (typeof WebhookEndpointScalarFieldEnum)[keyof typeof WebhookEndpointScalarFieldEnum]
+
+
+export const WebhookDeliveryScalarFieldEnum = {
+  id: 'id',
+  storeId: 'storeId',
+  endpointId: 'endpointId',
+  outboxEventId: 'outboxEventId',
+  status: 'status',
+  attempts: 'attempts',
+  responseStatus: 'responseStatus',
+  lastError: 'lastError',
+  nextAttemptAt: 'nextAttemptAt',
+  deliveredAt: 'deliveredAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type WebhookDeliveryScalarFieldEnum = (typeof WebhookDeliveryScalarFieldEnum)[keyof typeof WebhookDeliveryScalarFieldEnum]
+
+
+export const NotificationTemplateScalarFieldEnum = {
+  id: 'id',
+  storeId: 'storeId',
+  code: 'code',
+  channel: 'channel',
+  subject: 'subject',
+  bodyMarkdown: 'bodyMarkdown',
+  enabled: 'enabled',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type NotificationTemplateScalarFieldEnum = (typeof NotificationTemplateScalarFieldEnum)[keyof typeof NotificationTemplateScalarFieldEnum]
+
+
+export const MarketingCampaignScalarFieldEnum = {
+  id: 'id',
+  storeId: 'storeId',
+  name: 'name',
+  channel: 'channel',
+  subject: 'subject',
+  bodyMarkdown: 'bodyMarkdown',
+  status: 'status',
+  scheduledAt: 'scheduledAt',
+  sentAt: 'sentAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type MarketingCampaignScalarFieldEnum = (typeof MarketingCampaignScalarFieldEnum)[keyof typeof MarketingCampaignScalarFieldEnum]
 
 
 export const StorefrontBannerScalarFieldEnum = {

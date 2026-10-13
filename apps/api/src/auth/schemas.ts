@@ -38,9 +38,14 @@ export const adminLoginSchema = z.object({
 });
 
 export const totpVerificationSchema = z.object({ code: z.string().regex(/^\d{6}$/u) });
+export const adminPasswordChangeSchema = z.object({
+  currentPassword: z.string().min(1).max(1024),
+  newPassword: password,
+}).refine((value) => value.currentPassword !== value.newPassword, { path: ['newPassword'], message: 'NEW_PASSWORD_MUST_DIFFER' });
 
 export type AdminLoginInput = z.infer<typeof adminLoginSchema>;
 export type TotpVerificationInput = z.infer<typeof totpVerificationSchema>;
+export type AdminPasswordChangeInput = z.infer<typeof adminPasswordChangeSchema>;
 
 export const adminRecoveryRequestSchema = z.object({
   storeSlug: z.string().trim().min(2).max(120),

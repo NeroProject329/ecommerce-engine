@@ -1,9 +1,10 @@
-import { BadRequestException, Body, Controller, Get, Headers, Inject, Param, Post, Put, Res } from '@nestjs/common';
+import { BadRequestException, Body, Controller, Delete, Get, Headers, HttpCode, Inject, Param, Post, Put, Query, Res } from '@nestjs/common';
 import type { FastifyReply } from 'fastify';
 import { ZodError } from 'zod';
 import { AdminAuthService } from '../auth/admin-auth.service';
 import { MediaService } from './media.service';
 import { attachMediaSchema, importMediaSchema, uploadMediaSchema } from './schemas';
+import { pageEnvelope, pagination } from '../platform/pagination';
 
 function bearer(value: string | undefined): string {
   if (!value?.startsWith('Bearer ') || value.length <= 7) throw new BadRequestException('BEARER_TOKEN_REQUIRED');
@@ -25,6 +26,13 @@ export class AdminMediaController {
     @Inject(MediaService) private readonly media: MediaService,
     @Inject(AdminAuthService) private readonly auth: AdminAuthService,
   ) {}
+
+  @Get()
+  async list(@Param('storeId') storeId: string, @Headers('authorization') authorization: string | undefined, @Query() query: unknown): Promise<{ data: unknown; meta: { nextCursor: string | null; hasMore: boolean } }> {
+    await this.auth.authorize(bearer(authorization), storeId, 'catalog:read', false);
+    return pageEnvelope(await this.media.list(storeId, pagination(query)));
+  }
+  @Delete(':mediaId') @HttpCode(204) async delete(@Param('storeId') storeId: string, @Param('mediaId') mediaId: string, @Headers('authorization') authorization?: string): Promise<void> { await this.auth.authorize(bearer(authorization), storeId, 'catalog:write'); await this.media.delete(storeId, mediaId); }
 
   @Post('uploads')
   async upload(@Param('storeId') storeId: string, @Headers('authorization') authorization: string | undefined, @Body() body: unknown) {

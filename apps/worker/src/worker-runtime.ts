@@ -3,12 +3,15 @@ import { Worker } from 'bullmq';
 import { parseRedisUrl } from './redis-connection';
 import { createPrismaClient } from '@ecommerce/database';
 import { processImportItem } from './import-processor';
+import { runMaintenance } from './maintenance';
+import { processOutbox } from './outbox-processor';
 
 export type WorkerState = 'idle' | 'running' | 'stopped';
 
 export class WorkerRuntime {
   private state: WorkerState = 'idle';
   private heartbeat: NodeJS.Timeout | undefined;
+  private maintenance: NodeJS.Timeout | undefined;
   private queueWorker: Worker | undefined;
   private importWorker: Worker | undefined;
   private database: ReturnType<typeof createPrismaClient> | undefined;
@@ -40,6 +43,12 @@ export class WorkerRuntime {
         }, { connection: parseRedisUrl(this.redisUrl), concurrency: 5 });
         this.importWorker.on('error', (error) => console.error(JSON.stringify(createLogRecord(this.name, 'error', 'worker.import.error', { message: error.message }))));
         await this.importWorker.waitUntilReady();
+        await runMaintenance(this.database);
+        await processOutbox(this.database);
+        this.maintenance = setInterval(() => {
+          if (!this.database) return;
+          void Promise.all([runMaintenance(this.database), processOutbox(this.database)]).catch((error: unknown) => console.error(JSON.stringify(createLogRecord(this.name, 'error', 'worker.maintenance.error', { message: error instanceof Error ? error.message : 'unknown' }))));
+        }, 60_000);
       }
     }
     this.state = 'running';
@@ -52,6 +61,8 @@ export class WorkerRuntime {
     await this.queueWorker?.close();
     await this.importWorker?.close();
     await this.database?.$disconnect();
+    if (this.maintenance) clearInterval(this.maintenance);
+    this.maintenance = undefined;
     this.queueWorker = undefined;
     this.importWorker = undefined;
     this.database = undefined;

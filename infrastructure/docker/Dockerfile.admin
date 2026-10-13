@@ -1,0 +1,10 @@
+FROM node:24-bookworm-slim
+WORKDIR /app
+RUN corepack enable && corepack prepare pnpm@11.18.0 --activate
+COPY . .
+RUN pnpm install --frozen-lockfile && pnpm --filter @ecommerce/admin... build \
+  && mkdir -p apps/admin/.next/standalone/apps/admin/.next \
+  && cp -r apps/admin/.next/static apps/admin/.next/standalone/apps/admin/.next/static
+ENV NODE_ENV=production PORT=3001
+EXPOSE 3001
+CMD ["node", "apps/admin/.next/standalone/apps/admin/server.js"]

@@ -262,6 +262,12 @@ export type StoreWhereInput = {
   consentRecords?: Prisma.ConsentRecordListRelationFilter
   storefrontBanners?: Prisma.StorefrontBannerListRelationFilter
   storefrontSections?: Prisma.StorefrontSectionListRelationFilter
+  favorites?: Prisma.CustomerFavoriteListRelationFilter
+  shippingRules?: Prisma.ShippingRuleListRelationFilter
+  webhookEndpoints?: Prisma.WebhookEndpointListRelationFilter
+  webhookDeliveries?: Prisma.WebhookDeliveryListRelationFilter
+  notificationTemplates?: Prisma.NotificationTemplateListRelationFilter
+  marketingCampaigns?: Prisma.MarketingCampaignListRelationFilter
 }
 
 export type StoreOrderByWithRelationInput = {
@@ -326,6 +332,12 @@ export type StoreOrderByWithRelationInput = {
   consentRecords?: Prisma.ConsentRecordOrderByRelationAggregateInput
   storefrontBanners?: Prisma.StorefrontBannerOrderByRelationAggregateInput
   storefrontSections?: Prisma.StorefrontSectionOrderByRelationAggregateInput
+  favorites?: Prisma.CustomerFavoriteOrderByRelationAggregateInput
+  shippingRules?: Prisma.ShippingRuleOrderByRelationAggregateInput
+  webhookEndpoints?: Prisma.WebhookEndpointOrderByRelationAggregateInput
+  webhookDeliveries?: Prisma.WebhookDeliveryOrderByRelationAggregateInput
+  notificationTemplates?: Prisma.NotificationTemplateOrderByRelationAggregateInput
+  marketingCampaigns?: Prisma.MarketingCampaignOrderByRelationAggregateInput
 }
 
 export type StoreWhereUniqueInput = Prisma.AtLeast<{
@@ -393,6 +405,12 @@ export type StoreWhereUniqueInput = Prisma.AtLeast<{
   consentRecords?: Prisma.ConsentRecordListRelationFilter
   storefrontBanners?: Prisma.StorefrontBannerListRelationFilter
   storefrontSections?: Prisma.StorefrontSectionListRelationFilter
+  favorites?: Prisma.CustomerFavoriteListRelationFilter
+  shippingRules?: Prisma.ShippingRuleListRelationFilter
+  webhookEndpoints?: Prisma.WebhookEndpointListRelationFilter
+  webhookDeliveries?: Prisma.WebhookDeliveryListRelationFilter
+  notificationTemplates?: Prisma.NotificationTemplateListRelationFilter
+  marketingCampaigns?: Prisma.MarketingCampaignListRelationFilter
 }, "id" | "slug">
 
 export type StoreOrderByWithAggregationInput = {
@@ -487,6 +505,12 @@ export type StoreCreateInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateInput = {
@@ -551,6 +575,12 @@ export type StoreUncheckedCreateInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUpdateInput = {
@@ -615,6 +645,12 @@ export type StoreUpdateInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateInput = {
@@ -679,6 +715,12 @@ export type StoreUncheckedUpdateInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateManyInput = {
@@ -1479,6 +1521,90 @@ export type StoreUpdateOneRequiredWithoutConsentRecordsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.StoreUpdateToOneWithWhereWithoutConsentRecordsInput, Prisma.StoreUpdateWithoutConsentRecordsInput>, Prisma.StoreUncheckedUpdateWithoutConsentRecordsInput>
 }
 
+export type StoreCreateNestedOneWithoutFavoritesInput = {
+  create?: Prisma.XOR<Prisma.StoreCreateWithoutFavoritesInput, Prisma.StoreUncheckedCreateWithoutFavoritesInput>
+  connectOrCreate?: Prisma.StoreCreateOrConnectWithoutFavoritesInput
+  connect?: Prisma.StoreWhereUniqueInput
+}
+
+export type StoreUpdateOneRequiredWithoutFavoritesNestedInput = {
+  create?: Prisma.XOR<Prisma.StoreCreateWithoutFavoritesInput, Prisma.StoreUncheckedCreateWithoutFavoritesInput>
+  connectOrCreate?: Prisma.StoreCreateOrConnectWithoutFavoritesInput
+  upsert?: Prisma.StoreUpsertWithoutFavoritesInput
+  connect?: Prisma.StoreWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.StoreUpdateToOneWithWhereWithoutFavoritesInput, Prisma.StoreUpdateWithoutFavoritesInput>, Prisma.StoreUncheckedUpdateWithoutFavoritesInput>
+}
+
+export type StoreCreateNestedOneWithoutShippingRulesInput = {
+  create?: Prisma.XOR<Prisma.StoreCreateWithoutShippingRulesInput, Prisma.StoreUncheckedCreateWithoutShippingRulesInput>
+  connectOrCreate?: Prisma.StoreCreateOrConnectWithoutShippingRulesInput
+  connect?: Prisma.StoreWhereUniqueInput
+}
+
+export type StoreUpdateOneRequiredWithoutShippingRulesNestedInput = {
+  create?: Prisma.XOR<Prisma.StoreCreateWithoutShippingRulesInput, Prisma.StoreUncheckedCreateWithoutShippingRulesInput>
+  connectOrCreate?: Prisma.StoreCreateOrConnectWithoutShippingRulesInput
+  upsert?: Prisma.StoreUpsertWithoutShippingRulesInput
+  connect?: Prisma.StoreWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.StoreUpdateToOneWithWhereWithoutShippingRulesInput, Prisma.StoreUpdateWithoutShippingRulesInput>, Prisma.StoreUncheckedUpdateWithoutShippingRulesInput>
+}
+
+export type StoreCreateNestedOneWithoutWebhookEndpointsInput = {
+  create?: Prisma.XOR<Prisma.StoreCreateWithoutWebhookEndpointsInput, Prisma.StoreUncheckedCreateWithoutWebhookEndpointsInput>
+  connectOrCreate?: Prisma.StoreCreateOrConnectWithoutWebhookEndpointsInput
+  connect?: Prisma.StoreWhereUniqueInput
+}
+
+export type StoreUpdateOneRequiredWithoutWebhookEndpointsNestedInput = {
+  create?: Prisma.XOR<Prisma.StoreCreateWithoutWebhookEndpointsInput, Prisma.StoreUncheckedCreateWithoutWebhookEndpointsInput>
+  connectOrCreate?: Prisma.StoreCreateOrConnectWithoutWebhookEndpointsInput
+  upsert?: Prisma.StoreUpsertWithoutWebhookEndpointsInput
+  connect?: Prisma.StoreWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.StoreUpdateToOneWithWhereWithoutWebhookEndpointsInput, Prisma.StoreUpdateWithoutWebhookEndpointsInput>, Prisma.StoreUncheckedUpdateWithoutWebhookEndpointsInput>
+}
+
+export type StoreCreateNestedOneWithoutWebhookDeliveriesInput = {
+  create?: Prisma.XOR<Prisma.StoreCreateWithoutWebhookDeliveriesInput, Prisma.StoreUncheckedCreateWithoutWebhookDeliveriesInput>
+  connectOrCreate?: Prisma.StoreCreateOrConnectWithoutWebhookDeliveriesInput
+  connect?: Prisma.StoreWhereUniqueInput
+}
+
+export type StoreUpdateOneRequiredWithoutWebhookDeliveriesNestedInput = {
+  create?: Prisma.XOR<Prisma.StoreCreateWithoutWebhookDeliveriesInput, Prisma.StoreUncheckedCreateWithoutWebhookDeliveriesInput>
+  connectOrCreate?: Prisma.StoreCreateOrConnectWithoutWebhookDeliveriesInput
+  upsert?: Prisma.StoreUpsertWithoutWebhookDeliveriesInput
+  connect?: Prisma.StoreWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.StoreUpdateToOneWithWhereWithoutWebhookDeliveriesInput, Prisma.StoreUpdateWithoutWebhookDeliveriesInput>, Prisma.StoreUncheckedUpdateWithoutWebhookDeliveriesInput>
+}
+
+export type StoreCreateNestedOneWithoutNotificationTemplatesInput = {
+  create?: Prisma.XOR<Prisma.StoreCreateWithoutNotificationTemplatesInput, Prisma.StoreUncheckedCreateWithoutNotificationTemplatesInput>
+  connectOrCreate?: Prisma.StoreCreateOrConnectWithoutNotificationTemplatesInput
+  connect?: Prisma.StoreWhereUniqueInput
+}
+
+export type StoreUpdateOneRequiredWithoutNotificationTemplatesNestedInput = {
+  create?: Prisma.XOR<Prisma.StoreCreateWithoutNotificationTemplatesInput, Prisma.StoreUncheckedCreateWithoutNotificationTemplatesInput>
+  connectOrCreate?: Prisma.StoreCreateOrConnectWithoutNotificationTemplatesInput
+  upsert?: Prisma.StoreUpsertWithoutNotificationTemplatesInput
+  connect?: Prisma.StoreWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.StoreUpdateToOneWithWhereWithoutNotificationTemplatesInput, Prisma.StoreUpdateWithoutNotificationTemplatesInput>, Prisma.StoreUncheckedUpdateWithoutNotificationTemplatesInput>
+}
+
+export type StoreCreateNestedOneWithoutMarketingCampaignsInput = {
+  create?: Prisma.XOR<Prisma.StoreCreateWithoutMarketingCampaignsInput, Prisma.StoreUncheckedCreateWithoutMarketingCampaignsInput>
+  connectOrCreate?: Prisma.StoreCreateOrConnectWithoutMarketingCampaignsInput
+  connect?: Prisma.StoreWhereUniqueInput
+}
+
+export type StoreUpdateOneRequiredWithoutMarketingCampaignsNestedInput = {
+  create?: Prisma.XOR<Prisma.StoreCreateWithoutMarketingCampaignsInput, Prisma.StoreUncheckedCreateWithoutMarketingCampaignsInput>
+  connectOrCreate?: Prisma.StoreCreateOrConnectWithoutMarketingCampaignsInput
+  upsert?: Prisma.StoreUpsertWithoutMarketingCampaignsInput
+  connect?: Prisma.StoreWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.StoreUpdateToOneWithWhereWithoutMarketingCampaignsInput, Prisma.StoreUpdateWithoutMarketingCampaignsInput>, Prisma.StoreUncheckedUpdateWithoutMarketingCampaignsInput>
+}
+
 export type StoreCreateNestedOneWithoutStorefrontBannersInput = {
   create?: Prisma.XOR<Prisma.StoreCreateWithoutStorefrontBannersInput, Prisma.StoreUncheckedCreateWithoutStorefrontBannersInput>
   connectOrCreate?: Prisma.StoreCreateOrConnectWithoutStorefrontBannersInput
@@ -1568,6 +1694,12 @@ export type StoreCreateWithoutDomainsInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutDomainsInput = {
@@ -1631,6 +1763,12 @@ export type StoreUncheckedCreateWithoutDomainsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutDomainsInput = {
@@ -1710,6 +1848,12 @@ export type StoreUpdateWithoutDomainsInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutDomainsInput = {
@@ -1773,6 +1917,12 @@ export type StoreUncheckedUpdateWithoutDomainsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutBrandsInput = {
@@ -1836,6 +1986,12 @@ export type StoreCreateWithoutBrandsInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutBrandsInput = {
@@ -1899,6 +2055,12 @@ export type StoreUncheckedCreateWithoutBrandsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutBrandsInput = {
@@ -1978,6 +2140,12 @@ export type StoreUpdateWithoutBrandsInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutBrandsInput = {
@@ -2041,6 +2209,12 @@ export type StoreUncheckedUpdateWithoutBrandsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutCategoriesInput = {
@@ -2104,6 +2278,12 @@ export type StoreCreateWithoutCategoriesInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutCategoriesInput = {
@@ -2167,6 +2347,12 @@ export type StoreUncheckedCreateWithoutCategoriesInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutCategoriesInput = {
@@ -2246,6 +2432,12 @@ export type StoreUpdateWithoutCategoriesInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutCategoriesInput = {
@@ -2309,6 +2501,12 @@ export type StoreUncheckedUpdateWithoutCategoriesInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutProductsInput = {
@@ -2372,6 +2570,12 @@ export type StoreCreateWithoutProductsInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutProductsInput = {
@@ -2435,6 +2639,12 @@ export type StoreUncheckedCreateWithoutProductsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutProductsInput = {
@@ -2514,6 +2724,12 @@ export type StoreUpdateWithoutProductsInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutProductsInput = {
@@ -2577,6 +2793,12 @@ export type StoreUncheckedUpdateWithoutProductsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutProductCategoriesInput = {
@@ -2640,6 +2862,12 @@ export type StoreCreateWithoutProductCategoriesInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutProductCategoriesInput = {
@@ -2703,6 +2931,12 @@ export type StoreUncheckedCreateWithoutProductCategoriesInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutProductCategoriesInput = {
@@ -2782,6 +3016,12 @@ export type StoreUpdateWithoutProductCategoriesInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutProductCategoriesInput = {
@@ -2845,6 +3085,12 @@ export type StoreUncheckedUpdateWithoutProductCategoriesInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutVariantsInput = {
@@ -2908,6 +3154,12 @@ export type StoreCreateWithoutVariantsInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutVariantsInput = {
@@ -2971,6 +3223,12 @@ export type StoreUncheckedCreateWithoutVariantsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutVariantsInput = {
@@ -3050,6 +3308,12 @@ export type StoreUpdateWithoutVariantsInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutVariantsInput = {
@@ -3113,6 +3377,12 @@ export type StoreUncheckedUpdateWithoutVariantsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutInventoryLocationsInput = {
@@ -3176,6 +3446,12 @@ export type StoreCreateWithoutInventoryLocationsInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutInventoryLocationsInput = {
@@ -3239,6 +3515,12 @@ export type StoreUncheckedCreateWithoutInventoryLocationsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutInventoryLocationsInput = {
@@ -3318,6 +3600,12 @@ export type StoreUpdateWithoutInventoryLocationsInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutInventoryLocationsInput = {
@@ -3381,6 +3669,12 @@ export type StoreUncheckedUpdateWithoutInventoryLocationsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutInventoryInput = {
@@ -3444,6 +3738,12 @@ export type StoreCreateWithoutInventoryInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutInventoryInput = {
@@ -3507,6 +3807,12 @@ export type StoreUncheckedCreateWithoutInventoryInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutInventoryInput = {
@@ -3586,6 +3892,12 @@ export type StoreUpdateWithoutInventoryInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutInventoryInput = {
@@ -3649,6 +3961,12 @@ export type StoreUncheckedUpdateWithoutInventoryInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutPricesInput = {
@@ -3712,6 +4030,12 @@ export type StoreCreateWithoutPricesInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutPricesInput = {
@@ -3775,6 +4099,12 @@ export type StoreUncheckedCreateWithoutPricesInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutPricesInput = {
@@ -3854,6 +4184,12 @@ export type StoreUpdateWithoutPricesInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutPricesInput = {
@@ -3917,6 +4253,12 @@ export type StoreUncheckedUpdateWithoutPricesInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutOutboxEventsInput = {
@@ -3980,6 +4322,12 @@ export type StoreCreateWithoutOutboxEventsInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutOutboxEventsInput = {
@@ -4043,6 +4391,12 @@ export type StoreUncheckedCreateWithoutOutboxEventsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutOutboxEventsInput = {
@@ -4122,6 +4476,12 @@ export type StoreUpdateWithoutOutboxEventsInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutOutboxEventsInput = {
@@ -4185,6 +4545,12 @@ export type StoreUncheckedUpdateWithoutOutboxEventsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutRolesInput = {
@@ -4248,6 +4614,12 @@ export type StoreCreateWithoutRolesInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutRolesInput = {
@@ -4311,6 +4683,12 @@ export type StoreUncheckedCreateWithoutRolesInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutRolesInput = {
@@ -4390,6 +4768,12 @@ export type StoreUpdateWithoutRolesInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutRolesInput = {
@@ -4453,6 +4837,12 @@ export type StoreUncheckedUpdateWithoutRolesInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutAdminMembershipsInput = {
@@ -4516,6 +4906,12 @@ export type StoreCreateWithoutAdminMembershipsInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutAdminMembershipsInput = {
@@ -4579,6 +4975,12 @@ export type StoreUncheckedCreateWithoutAdminMembershipsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutAdminMembershipsInput = {
@@ -4658,6 +5060,12 @@ export type StoreUpdateWithoutAdminMembershipsInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutAdminMembershipsInput = {
@@ -4721,6 +5129,12 @@ export type StoreUncheckedUpdateWithoutAdminMembershipsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutCustomersInput = {
@@ -4784,6 +5198,12 @@ export type StoreCreateWithoutCustomersInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutCustomersInput = {
@@ -4847,6 +5267,12 @@ export type StoreUncheckedCreateWithoutCustomersInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutCustomersInput = {
@@ -4926,6 +5352,12 @@ export type StoreUpdateWithoutCustomersInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutCustomersInput = {
@@ -4989,6 +5421,12 @@ export type StoreUncheckedUpdateWithoutCustomersInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutCustomerSessionsInput = {
@@ -5052,6 +5490,12 @@ export type StoreCreateWithoutCustomerSessionsInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutCustomerSessionsInput = {
@@ -5115,6 +5559,12 @@ export type StoreUncheckedCreateWithoutCustomerSessionsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutCustomerSessionsInput = {
@@ -5194,6 +5644,12 @@ export type StoreUpdateWithoutCustomerSessionsInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutCustomerSessionsInput = {
@@ -5257,6 +5713,12 @@ export type StoreUncheckedUpdateWithoutCustomerSessionsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutAddressesInput = {
@@ -5320,6 +5782,12 @@ export type StoreCreateWithoutAddressesInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutAddressesInput = {
@@ -5383,6 +5851,12 @@ export type StoreUncheckedCreateWithoutAddressesInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutAddressesInput = {
@@ -5462,6 +5936,12 @@ export type StoreUpdateWithoutAddressesInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutAddressesInput = {
@@ -5525,6 +6005,12 @@ export type StoreUncheckedUpdateWithoutAddressesInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutAttributeDefinitionsInput = {
@@ -5588,6 +6074,12 @@ export type StoreCreateWithoutAttributeDefinitionsInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutAttributeDefinitionsInput = {
@@ -5651,6 +6143,12 @@ export type StoreUncheckedCreateWithoutAttributeDefinitionsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutAttributeDefinitionsInput = {
@@ -5730,6 +6228,12 @@ export type StoreUpdateWithoutAttributeDefinitionsInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutAttributeDefinitionsInput = {
@@ -5793,6 +6297,12 @@ export type StoreUncheckedUpdateWithoutAttributeDefinitionsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutCategoryAttributesInput = {
@@ -5856,6 +6366,12 @@ export type StoreCreateWithoutCategoryAttributesInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutCategoryAttributesInput = {
@@ -5919,6 +6435,12 @@ export type StoreUncheckedCreateWithoutCategoryAttributesInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutCategoryAttributesInput = {
@@ -5998,6 +6520,12 @@ export type StoreUpdateWithoutCategoryAttributesInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutCategoryAttributesInput = {
@@ -6061,6 +6589,12 @@ export type StoreUncheckedUpdateWithoutCategoryAttributesInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutProductAttributeValuesInput = {
@@ -6124,6 +6658,12 @@ export type StoreCreateWithoutProductAttributeValuesInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutProductAttributeValuesInput = {
@@ -6187,6 +6727,12 @@ export type StoreUncheckedCreateWithoutProductAttributeValuesInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutProductAttributeValuesInput = {
@@ -6266,6 +6812,12 @@ export type StoreUpdateWithoutProductAttributeValuesInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutProductAttributeValuesInput = {
@@ -6329,6 +6881,12 @@ export type StoreUncheckedUpdateWithoutProductAttributeValuesInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutVariantAttributeValuesInput = {
@@ -6392,6 +6950,12 @@ export type StoreCreateWithoutVariantAttributeValuesInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutVariantAttributeValuesInput = {
@@ -6455,6 +7019,12 @@ export type StoreUncheckedCreateWithoutVariantAttributeValuesInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutVariantAttributeValuesInput = {
@@ -6534,6 +7104,12 @@ export type StoreUpdateWithoutVariantAttributeValuesInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutVariantAttributeValuesInput = {
@@ -6597,6 +7173,12 @@ export type StoreUncheckedUpdateWithoutVariantAttributeValuesInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutMediaAssetsInput = {
@@ -6660,6 +7242,12 @@ export type StoreCreateWithoutMediaAssetsInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutMediaAssetsInput = {
@@ -6723,6 +7311,12 @@ export type StoreUncheckedCreateWithoutMediaAssetsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutMediaAssetsInput = {
@@ -6802,6 +7396,12 @@ export type StoreUpdateWithoutMediaAssetsInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutMediaAssetsInput = {
@@ -6865,6 +7465,12 @@ export type StoreUncheckedUpdateWithoutMediaAssetsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutProductMediaInput = {
@@ -6928,6 +7534,12 @@ export type StoreCreateWithoutProductMediaInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutProductMediaInput = {
@@ -6991,6 +7603,12 @@ export type StoreUncheckedCreateWithoutProductMediaInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutProductMediaInput = {
@@ -7070,6 +7688,12 @@ export type StoreUpdateWithoutProductMediaInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutProductMediaInput = {
@@ -7133,6 +7757,12 @@ export type StoreUncheckedUpdateWithoutProductMediaInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutVariantMediaInput = {
@@ -7196,6 +7826,12 @@ export type StoreCreateWithoutVariantMediaInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutVariantMediaInput = {
@@ -7259,6 +7895,12 @@ export type StoreUncheckedCreateWithoutVariantMediaInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutVariantMediaInput = {
@@ -7338,6 +7980,12 @@ export type StoreUpdateWithoutVariantMediaInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutVariantMediaInput = {
@@ -7401,6 +8049,12 @@ export type StoreUncheckedUpdateWithoutVariantMediaInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutInventoryReservationsInput = {
@@ -7464,6 +8118,12 @@ export type StoreCreateWithoutInventoryReservationsInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutInventoryReservationsInput = {
@@ -7527,6 +8187,12 @@ export type StoreUncheckedCreateWithoutInventoryReservationsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutInventoryReservationsInput = {
@@ -7606,6 +8272,12 @@ export type StoreUpdateWithoutInventoryReservationsInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutInventoryReservationsInput = {
@@ -7669,6 +8341,12 @@ export type StoreUncheckedUpdateWithoutInventoryReservationsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutInventoryMovementsInput = {
@@ -7732,6 +8410,12 @@ export type StoreCreateWithoutInventoryMovementsInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutInventoryMovementsInput = {
@@ -7795,6 +8479,12 @@ export type StoreUncheckedCreateWithoutInventoryMovementsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutInventoryMovementsInput = {
@@ -7874,6 +8564,12 @@ export type StoreUpdateWithoutInventoryMovementsInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutInventoryMovementsInput = {
@@ -7937,6 +8633,12 @@ export type StoreUncheckedUpdateWithoutInventoryMovementsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutPriceHistoryInput = {
@@ -8000,6 +8702,12 @@ export type StoreCreateWithoutPriceHistoryInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutPriceHistoryInput = {
@@ -8063,6 +8771,12 @@ export type StoreUncheckedCreateWithoutPriceHistoryInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutPriceHistoryInput = {
@@ -8142,6 +8856,12 @@ export type StoreUpdateWithoutPriceHistoryInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutPriceHistoryInput = {
@@ -8205,6 +8925,12 @@ export type StoreUncheckedUpdateWithoutPriceHistoryInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutPromotionsInput = {
@@ -8268,6 +8994,12 @@ export type StoreCreateWithoutPromotionsInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutPromotionsInput = {
@@ -8331,6 +9063,12 @@ export type StoreUncheckedCreateWithoutPromotionsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutPromotionsInput = {
@@ -8410,6 +9148,12 @@ export type StoreUpdateWithoutPromotionsInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutPromotionsInput = {
@@ -8473,6 +9217,12 @@ export type StoreUncheckedUpdateWithoutPromotionsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutPromotionTargetsInput = {
@@ -8536,6 +9286,12 @@ export type StoreCreateWithoutPromotionTargetsInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutPromotionTargetsInput = {
@@ -8599,6 +9355,12 @@ export type StoreUncheckedCreateWithoutPromotionTargetsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutPromotionTargetsInput = {
@@ -8678,6 +9440,12 @@ export type StoreUpdateWithoutPromotionTargetsInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutPromotionTargetsInput = {
@@ -8741,6 +9509,12 @@ export type StoreUncheckedUpdateWithoutPromotionTargetsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutCouponsInput = {
@@ -8804,6 +9578,12 @@ export type StoreCreateWithoutCouponsInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutCouponsInput = {
@@ -8867,6 +9647,12 @@ export type StoreUncheckedCreateWithoutCouponsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutCouponsInput = {
@@ -8946,6 +9732,12 @@ export type StoreUpdateWithoutCouponsInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutCouponsInput = {
@@ -9009,6 +9801,12 @@ export type StoreUncheckedUpdateWithoutCouponsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutCouponRedemptionsInput = {
@@ -9072,6 +9870,12 @@ export type StoreCreateWithoutCouponRedemptionsInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutCouponRedemptionsInput = {
@@ -9135,6 +9939,12 @@ export type StoreUncheckedCreateWithoutCouponRedemptionsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutCouponRedemptionsInput = {
@@ -9214,6 +10024,12 @@ export type StoreUpdateWithoutCouponRedemptionsInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutCouponRedemptionsInput = {
@@ -9277,6 +10093,12 @@ export type StoreUncheckedUpdateWithoutCouponRedemptionsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutCartsInput = {
@@ -9340,6 +10162,12 @@ export type StoreCreateWithoutCartsInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutCartsInput = {
@@ -9403,6 +10231,12 @@ export type StoreUncheckedCreateWithoutCartsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutCartsInput = {
@@ -9482,6 +10316,12 @@ export type StoreUpdateWithoutCartsInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutCartsInput = {
@@ -9545,6 +10385,12 @@ export type StoreUncheckedUpdateWithoutCartsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutCartItemsInput = {
@@ -9608,6 +10454,12 @@ export type StoreCreateWithoutCartItemsInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutCartItemsInput = {
@@ -9671,6 +10523,12 @@ export type StoreUncheckedCreateWithoutCartItemsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutCartItemsInput = {
@@ -9750,6 +10608,12 @@ export type StoreUpdateWithoutCartItemsInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutCartItemsInput = {
@@ -9813,6 +10677,12 @@ export type StoreUncheckedUpdateWithoutCartItemsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutShippingQuotesInput = {
@@ -9876,6 +10746,12 @@ export type StoreCreateWithoutShippingQuotesInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutShippingQuotesInput = {
@@ -9939,6 +10815,12 @@ export type StoreUncheckedCreateWithoutShippingQuotesInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutShippingQuotesInput = {
@@ -10018,6 +10900,12 @@ export type StoreUpdateWithoutShippingQuotesInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutShippingQuotesInput = {
@@ -10081,6 +10969,12 @@ export type StoreUncheckedUpdateWithoutShippingQuotesInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutCheckoutSessionsInput = {
@@ -10144,6 +11038,12 @@ export type StoreCreateWithoutCheckoutSessionsInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutCheckoutSessionsInput = {
@@ -10207,6 +11107,12 @@ export type StoreUncheckedCreateWithoutCheckoutSessionsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutCheckoutSessionsInput = {
@@ -10286,6 +11192,12 @@ export type StoreUpdateWithoutCheckoutSessionsInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutCheckoutSessionsInput = {
@@ -10349,6 +11261,12 @@ export type StoreUncheckedUpdateWithoutCheckoutSessionsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutOrdersInput = {
@@ -10412,6 +11330,12 @@ export type StoreCreateWithoutOrdersInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutOrdersInput = {
@@ -10475,6 +11399,12 @@ export type StoreUncheckedCreateWithoutOrdersInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutOrdersInput = {
@@ -10554,6 +11484,12 @@ export type StoreUpdateWithoutOrdersInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutOrdersInput = {
@@ -10617,6 +11553,12 @@ export type StoreUncheckedUpdateWithoutOrdersInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutOrderItemsInput = {
@@ -10680,6 +11622,12 @@ export type StoreCreateWithoutOrderItemsInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutOrderItemsInput = {
@@ -10743,6 +11691,12 @@ export type StoreUncheckedCreateWithoutOrderItemsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutOrderItemsInput = {
@@ -10822,6 +11776,12 @@ export type StoreUpdateWithoutOrderItemsInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutOrderItemsInput = {
@@ -10885,6 +11845,12 @@ export type StoreUncheckedUpdateWithoutOrderItemsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutOrderStatusHistoryInput = {
@@ -10948,6 +11914,12 @@ export type StoreCreateWithoutOrderStatusHistoryInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutOrderStatusHistoryInput = {
@@ -11011,6 +11983,12 @@ export type StoreUncheckedCreateWithoutOrderStatusHistoryInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutOrderStatusHistoryInput = {
@@ -11090,6 +12068,12 @@ export type StoreUpdateWithoutOrderStatusHistoryInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutOrderStatusHistoryInput = {
@@ -11153,6 +12137,12 @@ export type StoreUncheckedUpdateWithoutOrderStatusHistoryInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutShipmentsInput = {
@@ -11216,6 +12206,12 @@ export type StoreCreateWithoutShipmentsInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutShipmentsInput = {
@@ -11279,6 +12275,12 @@ export type StoreUncheckedCreateWithoutShipmentsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutShipmentsInput = {
@@ -11358,6 +12360,12 @@ export type StoreUpdateWithoutShipmentsInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutShipmentsInput = {
@@ -11421,6 +12429,12 @@ export type StoreUncheckedUpdateWithoutShipmentsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutPaymentsInput = {
@@ -11484,6 +12498,12 @@ export type StoreCreateWithoutPaymentsInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutPaymentsInput = {
@@ -11547,6 +12567,12 @@ export type StoreUncheckedCreateWithoutPaymentsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutPaymentsInput = {
@@ -11626,6 +12652,12 @@ export type StoreUpdateWithoutPaymentsInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutPaymentsInput = {
@@ -11689,6 +12721,12 @@ export type StoreUncheckedUpdateWithoutPaymentsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutPaymentAttemptsInput = {
@@ -11752,6 +12790,12 @@ export type StoreCreateWithoutPaymentAttemptsInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutPaymentAttemptsInput = {
@@ -11815,6 +12859,12 @@ export type StoreUncheckedCreateWithoutPaymentAttemptsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutPaymentAttemptsInput = {
@@ -11894,6 +12944,12 @@ export type StoreUpdateWithoutPaymentAttemptsInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutPaymentAttemptsInput = {
@@ -11957,6 +13013,12 @@ export type StoreUncheckedUpdateWithoutPaymentAttemptsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutPaymentWebhookEventsInput = {
@@ -12020,6 +13082,12 @@ export type StoreCreateWithoutPaymentWebhookEventsInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutPaymentWebhookEventsInput = {
@@ -12083,6 +13151,12 @@ export type StoreUncheckedCreateWithoutPaymentWebhookEventsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutPaymentWebhookEventsInput = {
@@ -12162,6 +13236,12 @@ export type StoreUpdateWithoutPaymentWebhookEventsInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutPaymentWebhookEventsInput = {
@@ -12225,6 +13305,12 @@ export type StoreUncheckedUpdateWithoutPaymentWebhookEventsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutRefundsInput = {
@@ -12288,6 +13374,12 @@ export type StoreCreateWithoutRefundsInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutRefundsInput = {
@@ -12351,6 +13443,12 @@ export type StoreUncheckedCreateWithoutRefundsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutRefundsInput = {
@@ -12430,6 +13528,12 @@ export type StoreUpdateWithoutRefundsInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutRefundsInput = {
@@ -12493,6 +13597,12 @@ export type StoreUncheckedUpdateWithoutRefundsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutIntegrationClientsInput = {
@@ -12556,6 +13666,12 @@ export type StoreCreateWithoutIntegrationClientsInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutIntegrationClientsInput = {
@@ -12619,6 +13735,12 @@ export type StoreUncheckedCreateWithoutIntegrationClientsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutIntegrationClientsInput = {
@@ -12698,6 +13820,12 @@ export type StoreUpdateWithoutIntegrationClientsInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutIntegrationClientsInput = {
@@ -12761,6 +13889,12 @@ export type StoreUncheckedUpdateWithoutIntegrationClientsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutImportSourcesInput = {
@@ -12824,6 +13958,12 @@ export type StoreCreateWithoutImportSourcesInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutImportSourcesInput = {
@@ -12887,6 +14027,12 @@ export type StoreUncheckedCreateWithoutImportSourcesInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutImportSourcesInput = {
@@ -12966,6 +14112,12 @@ export type StoreUpdateWithoutImportSourcesInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutImportSourcesInput = {
@@ -13029,6 +14181,12 @@ export type StoreUncheckedUpdateWithoutImportSourcesInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutImportBatchesInput = {
@@ -13092,6 +14250,12 @@ export type StoreCreateWithoutImportBatchesInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutImportBatchesInput = {
@@ -13155,6 +14319,12 @@ export type StoreUncheckedCreateWithoutImportBatchesInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutImportBatchesInput = {
@@ -13234,6 +14404,12 @@ export type StoreUpdateWithoutImportBatchesInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutImportBatchesInput = {
@@ -13297,6 +14473,12 @@ export type StoreUncheckedUpdateWithoutImportBatchesInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutImportItemsInput = {
@@ -13360,6 +14542,12 @@ export type StoreCreateWithoutImportItemsInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutImportItemsInput = {
@@ -13423,6 +14611,12 @@ export type StoreUncheckedCreateWithoutImportItemsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutImportItemsInput = {
@@ -13502,6 +14696,12 @@ export type StoreUpdateWithoutImportItemsInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutImportItemsInput = {
@@ -13565,6 +14765,12 @@ export type StoreUncheckedUpdateWithoutImportItemsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutImportFieldOverridesInput = {
@@ -13628,6 +14834,12 @@ export type StoreCreateWithoutImportFieldOverridesInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutImportFieldOverridesInput = {
@@ -13691,6 +14903,12 @@ export type StoreUncheckedCreateWithoutImportFieldOverridesInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutImportFieldOverridesInput = {
@@ -13770,6 +14988,12 @@ export type StoreUpdateWithoutImportFieldOverridesInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutImportFieldOverridesInput = {
@@ -13833,6 +15057,12 @@ export type StoreUncheckedUpdateWithoutImportFieldOverridesInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutExternalIdentitiesInput = {
@@ -13896,6 +15126,12 @@ export type StoreCreateWithoutExternalIdentitiesInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutExternalIdentitiesInput = {
@@ -13959,6 +15195,12 @@ export type StoreUncheckedCreateWithoutExternalIdentitiesInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutExternalIdentitiesInput = {
@@ -14038,6 +15280,12 @@ export type StoreUpdateWithoutExternalIdentitiesInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutExternalIdentitiesInput = {
@@ -14101,6 +15349,12 @@ export type StoreUncheckedUpdateWithoutExternalIdentitiesInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutIdempotencyRecordsInput = {
@@ -14164,6 +15418,12 @@ export type StoreCreateWithoutIdempotencyRecordsInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutIdempotencyRecordsInput = {
@@ -14227,6 +15487,12 @@ export type StoreUncheckedCreateWithoutIdempotencyRecordsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutIdempotencyRecordsInput = {
@@ -14306,6 +15572,12 @@ export type StoreUpdateWithoutIdempotencyRecordsInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutIdempotencyRecordsInput = {
@@ -14369,6 +15641,12 @@ export type StoreUncheckedUpdateWithoutIdempotencyRecordsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutAuditLogsInput = {
@@ -14432,6 +15710,12 @@ export type StoreCreateWithoutAuditLogsInput = {
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutAuditLogsInput = {
@@ -14495,6 +15779,12 @@ export type StoreUncheckedCreateWithoutAuditLogsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutAuditLogsInput = {
@@ -14574,6 +15864,12 @@ export type StoreUpdateWithoutAuditLogsInput = {
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutAuditLogsInput = {
@@ -14637,6 +15933,12 @@ export type StoreUncheckedUpdateWithoutAuditLogsInput = {
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutConsentRecordsInput = {
@@ -14700,6 +16002,12 @@ export type StoreCreateWithoutConsentRecordsInput = {
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutConsentRecordsInput = {
@@ -14763,6 +16071,12 @@ export type StoreUncheckedCreateWithoutConsentRecordsInput = {
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutConsentRecordsInput = {
@@ -14842,6 +16156,12 @@ export type StoreUpdateWithoutConsentRecordsInput = {
   auditLogs?: Prisma.AuditLogUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutConsentRecordsInput = {
@@ -14905,6 +16225,1764 @@ export type StoreUncheckedUpdateWithoutConsentRecordsInput = {
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
+}
+
+export type StoreCreateWithoutFavoritesInput = {
+  id?: string
+  slug: string
+  displayName: string
+  status?: $Enums.StoreStatus
+  currency?: string
+  timezone?: string
+  settings?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  domains?: Prisma.StoreDomainCreateNestedManyWithoutStoreInput
+  brands?: Prisma.BrandCreateNestedManyWithoutStoreInput
+  categories?: Prisma.CategoryCreateNestedManyWithoutStoreInput
+  products?: Prisma.ProductCreateNestedManyWithoutStoreInput
+  variants?: Prisma.ProductVariantCreateNestedManyWithoutStoreInput
+  productCategories?: Prisma.ProductCategoryCreateNestedManyWithoutStoreInput
+  inventoryLocations?: Prisma.InventoryLocationCreateNestedManyWithoutStoreInput
+  inventory?: Prisma.InventoryCreateNestedManyWithoutStoreInput
+  prices?: Prisma.PriceCreateNestedManyWithoutStoreInput
+  outboxEvents?: Prisma.OutboxEventCreateNestedManyWithoutStoreInput
+  roles?: Prisma.RoleCreateNestedManyWithoutStoreInput
+  adminMemberships?: Prisma.AdminMembershipCreateNestedManyWithoutStoreInput
+  customers?: Prisma.CustomerCreateNestedManyWithoutStoreInput
+  customerSessions?: Prisma.CustomerSessionCreateNestedManyWithoutStoreInput
+  addresses?: Prisma.AddressCreateNestedManyWithoutStoreInput
+  attributeDefinitions?: Prisma.AttributeDefinitionCreateNestedManyWithoutStoreInput
+  categoryAttributes?: Prisma.CategoryAttributeCreateNestedManyWithoutStoreInput
+  productAttributeValues?: Prisma.ProductAttributeValueCreateNestedManyWithoutStoreInput
+  variantAttributeValues?: Prisma.VariantAttributeValueCreateNestedManyWithoutStoreInput
+  mediaAssets?: Prisma.MediaAssetCreateNestedManyWithoutStoreInput
+  productMedia?: Prisma.ProductMediaCreateNestedManyWithoutStoreInput
+  variantMedia?: Prisma.VariantMediaCreateNestedManyWithoutStoreInput
+  inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutStoreInput
+  inventoryMovements?: Prisma.InventoryMovementCreateNestedManyWithoutStoreInput
+  priceHistory?: Prisma.PriceHistoryCreateNestedManyWithoutStoreInput
+  promotions?: Prisma.PromotionCreateNestedManyWithoutStoreInput
+  promotionTargets?: Prisma.PromotionTargetCreateNestedManyWithoutStoreInput
+  coupons?: Prisma.CouponCreateNestedManyWithoutStoreInput
+  couponRedemptions?: Prisma.CouponRedemptionCreateNestedManyWithoutStoreInput
+  carts?: Prisma.CartCreateNestedManyWithoutStoreInput
+  cartItems?: Prisma.CartItemCreateNestedManyWithoutStoreInput
+  shippingQuotes?: Prisma.ShippingQuoteCreateNestedManyWithoutStoreInput
+  checkoutSessions?: Prisma.CheckoutSessionCreateNestedManyWithoutStoreInput
+  orders?: Prisma.OrderCreateNestedManyWithoutStoreInput
+  orderItems?: Prisma.OrderItemCreateNestedManyWithoutStoreInput
+  orderStatusHistory?: Prisma.OrderStatusHistoryCreateNestedManyWithoutStoreInput
+  shipments?: Prisma.ShipmentCreateNestedManyWithoutStoreInput
+  payments?: Prisma.PaymentCreateNestedManyWithoutStoreInput
+  paymentAttempts?: Prisma.PaymentAttemptCreateNestedManyWithoutStoreInput
+  paymentWebhookEvents?: Prisma.PaymentWebhookEventCreateNestedManyWithoutStoreInput
+  refunds?: Prisma.RefundCreateNestedManyWithoutStoreInput
+  integrationClients?: Prisma.IntegrationClientCreateNestedManyWithoutStoreInput
+  importSources?: Prisma.ImportSourceCreateNestedManyWithoutStoreInput
+  importBatches?: Prisma.ImportBatchCreateNestedManyWithoutStoreInput
+  importItems?: Prisma.ImportItemCreateNestedManyWithoutStoreInput
+  importFieldOverrides?: Prisma.ImportFieldOverrideCreateNestedManyWithoutStoreInput
+  externalIdentities?: Prisma.ExternalIdentityCreateNestedManyWithoutStoreInput
+  idempotencyRecords?: Prisma.IdempotencyRecordCreateNestedManyWithoutStoreInput
+  auditLogs?: Prisma.AuditLogCreateNestedManyWithoutStoreInput
+  consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
+  storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
+  storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
+}
+
+export type StoreUncheckedCreateWithoutFavoritesInput = {
+  id?: string
+  slug: string
+  displayName: string
+  status?: $Enums.StoreStatus
+  currency?: string
+  timezone?: string
+  settings?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  domains?: Prisma.StoreDomainUncheckedCreateNestedManyWithoutStoreInput
+  brands?: Prisma.BrandUncheckedCreateNestedManyWithoutStoreInput
+  categories?: Prisma.CategoryUncheckedCreateNestedManyWithoutStoreInput
+  products?: Prisma.ProductUncheckedCreateNestedManyWithoutStoreInput
+  variants?: Prisma.ProductVariantUncheckedCreateNestedManyWithoutStoreInput
+  productCategories?: Prisma.ProductCategoryUncheckedCreateNestedManyWithoutStoreInput
+  inventoryLocations?: Prisma.InventoryLocationUncheckedCreateNestedManyWithoutStoreInput
+  inventory?: Prisma.InventoryUncheckedCreateNestedManyWithoutStoreInput
+  prices?: Prisma.PriceUncheckedCreateNestedManyWithoutStoreInput
+  outboxEvents?: Prisma.OutboxEventUncheckedCreateNestedManyWithoutStoreInput
+  roles?: Prisma.RoleUncheckedCreateNestedManyWithoutStoreInput
+  adminMemberships?: Prisma.AdminMembershipUncheckedCreateNestedManyWithoutStoreInput
+  customers?: Prisma.CustomerUncheckedCreateNestedManyWithoutStoreInput
+  customerSessions?: Prisma.CustomerSessionUncheckedCreateNestedManyWithoutStoreInput
+  addresses?: Prisma.AddressUncheckedCreateNestedManyWithoutStoreInput
+  attributeDefinitions?: Prisma.AttributeDefinitionUncheckedCreateNestedManyWithoutStoreInput
+  categoryAttributes?: Prisma.CategoryAttributeUncheckedCreateNestedManyWithoutStoreInput
+  productAttributeValues?: Prisma.ProductAttributeValueUncheckedCreateNestedManyWithoutStoreInput
+  variantAttributeValues?: Prisma.VariantAttributeValueUncheckedCreateNestedManyWithoutStoreInput
+  mediaAssets?: Prisma.MediaAssetUncheckedCreateNestedManyWithoutStoreInput
+  productMedia?: Prisma.ProductMediaUncheckedCreateNestedManyWithoutStoreInput
+  variantMedia?: Prisma.VariantMediaUncheckedCreateNestedManyWithoutStoreInput
+  inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutStoreInput
+  inventoryMovements?: Prisma.InventoryMovementUncheckedCreateNestedManyWithoutStoreInput
+  priceHistory?: Prisma.PriceHistoryUncheckedCreateNestedManyWithoutStoreInput
+  promotions?: Prisma.PromotionUncheckedCreateNestedManyWithoutStoreInput
+  promotionTargets?: Prisma.PromotionTargetUncheckedCreateNestedManyWithoutStoreInput
+  coupons?: Prisma.CouponUncheckedCreateNestedManyWithoutStoreInput
+  couponRedemptions?: Prisma.CouponRedemptionUncheckedCreateNestedManyWithoutStoreInput
+  carts?: Prisma.CartUncheckedCreateNestedManyWithoutStoreInput
+  cartItems?: Prisma.CartItemUncheckedCreateNestedManyWithoutStoreInput
+  shippingQuotes?: Prisma.ShippingQuoteUncheckedCreateNestedManyWithoutStoreInput
+  checkoutSessions?: Prisma.CheckoutSessionUncheckedCreateNestedManyWithoutStoreInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutStoreInput
+  orderItems?: Prisma.OrderItemUncheckedCreateNestedManyWithoutStoreInput
+  orderStatusHistory?: Prisma.OrderStatusHistoryUncheckedCreateNestedManyWithoutStoreInput
+  shipments?: Prisma.ShipmentUncheckedCreateNestedManyWithoutStoreInput
+  payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutStoreInput
+  paymentAttempts?: Prisma.PaymentAttemptUncheckedCreateNestedManyWithoutStoreInput
+  paymentWebhookEvents?: Prisma.PaymentWebhookEventUncheckedCreateNestedManyWithoutStoreInput
+  refunds?: Prisma.RefundUncheckedCreateNestedManyWithoutStoreInput
+  integrationClients?: Prisma.IntegrationClientUncheckedCreateNestedManyWithoutStoreInput
+  importSources?: Prisma.ImportSourceUncheckedCreateNestedManyWithoutStoreInput
+  importBatches?: Prisma.ImportBatchUncheckedCreateNestedManyWithoutStoreInput
+  importItems?: Prisma.ImportItemUncheckedCreateNestedManyWithoutStoreInput
+  importFieldOverrides?: Prisma.ImportFieldOverrideUncheckedCreateNestedManyWithoutStoreInput
+  externalIdentities?: Prisma.ExternalIdentityUncheckedCreateNestedManyWithoutStoreInput
+  idempotencyRecords?: Prisma.IdempotencyRecordUncheckedCreateNestedManyWithoutStoreInput
+  auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutStoreInput
+  consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
+  storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
+  storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
+}
+
+export type StoreCreateOrConnectWithoutFavoritesInput = {
+  where: Prisma.StoreWhereUniqueInput
+  create: Prisma.XOR<Prisma.StoreCreateWithoutFavoritesInput, Prisma.StoreUncheckedCreateWithoutFavoritesInput>
+}
+
+export type StoreUpsertWithoutFavoritesInput = {
+  update: Prisma.XOR<Prisma.StoreUpdateWithoutFavoritesInput, Prisma.StoreUncheckedUpdateWithoutFavoritesInput>
+  create: Prisma.XOR<Prisma.StoreCreateWithoutFavoritesInput, Prisma.StoreUncheckedCreateWithoutFavoritesInput>
+  where?: Prisma.StoreWhereInput
+}
+
+export type StoreUpdateToOneWithWhereWithoutFavoritesInput = {
+  where?: Prisma.StoreWhereInput
+  data: Prisma.XOR<Prisma.StoreUpdateWithoutFavoritesInput, Prisma.StoreUncheckedUpdateWithoutFavoritesInput>
+}
+
+export type StoreUpdateWithoutFavoritesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumStoreStatusFieldUpdateOperationsInput | $Enums.StoreStatus
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  settings?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  domains?: Prisma.StoreDomainUpdateManyWithoutStoreNestedInput
+  brands?: Prisma.BrandUpdateManyWithoutStoreNestedInput
+  categories?: Prisma.CategoryUpdateManyWithoutStoreNestedInput
+  products?: Prisma.ProductUpdateManyWithoutStoreNestedInput
+  variants?: Prisma.ProductVariantUpdateManyWithoutStoreNestedInput
+  productCategories?: Prisma.ProductCategoryUpdateManyWithoutStoreNestedInput
+  inventoryLocations?: Prisma.InventoryLocationUpdateManyWithoutStoreNestedInput
+  inventory?: Prisma.InventoryUpdateManyWithoutStoreNestedInput
+  prices?: Prisma.PriceUpdateManyWithoutStoreNestedInput
+  outboxEvents?: Prisma.OutboxEventUpdateManyWithoutStoreNestedInput
+  roles?: Prisma.RoleUpdateManyWithoutStoreNestedInput
+  adminMemberships?: Prisma.AdminMembershipUpdateManyWithoutStoreNestedInput
+  customers?: Prisma.CustomerUpdateManyWithoutStoreNestedInput
+  customerSessions?: Prisma.CustomerSessionUpdateManyWithoutStoreNestedInput
+  addresses?: Prisma.AddressUpdateManyWithoutStoreNestedInput
+  attributeDefinitions?: Prisma.AttributeDefinitionUpdateManyWithoutStoreNestedInput
+  categoryAttributes?: Prisma.CategoryAttributeUpdateManyWithoutStoreNestedInput
+  productAttributeValues?: Prisma.ProductAttributeValueUpdateManyWithoutStoreNestedInput
+  variantAttributeValues?: Prisma.VariantAttributeValueUpdateManyWithoutStoreNestedInput
+  mediaAssets?: Prisma.MediaAssetUpdateManyWithoutStoreNestedInput
+  productMedia?: Prisma.ProductMediaUpdateManyWithoutStoreNestedInput
+  variantMedia?: Prisma.VariantMediaUpdateManyWithoutStoreNestedInput
+  inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutStoreNestedInput
+  inventoryMovements?: Prisma.InventoryMovementUpdateManyWithoutStoreNestedInput
+  priceHistory?: Prisma.PriceHistoryUpdateManyWithoutStoreNestedInput
+  promotions?: Prisma.PromotionUpdateManyWithoutStoreNestedInput
+  promotionTargets?: Prisma.PromotionTargetUpdateManyWithoutStoreNestedInput
+  coupons?: Prisma.CouponUpdateManyWithoutStoreNestedInput
+  couponRedemptions?: Prisma.CouponRedemptionUpdateManyWithoutStoreNestedInput
+  carts?: Prisma.CartUpdateManyWithoutStoreNestedInput
+  cartItems?: Prisma.CartItemUpdateManyWithoutStoreNestedInput
+  shippingQuotes?: Prisma.ShippingQuoteUpdateManyWithoutStoreNestedInput
+  checkoutSessions?: Prisma.CheckoutSessionUpdateManyWithoutStoreNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutStoreNestedInput
+  orderItems?: Prisma.OrderItemUpdateManyWithoutStoreNestedInput
+  orderStatusHistory?: Prisma.OrderStatusHistoryUpdateManyWithoutStoreNestedInput
+  shipments?: Prisma.ShipmentUpdateManyWithoutStoreNestedInput
+  payments?: Prisma.PaymentUpdateManyWithoutStoreNestedInput
+  paymentAttempts?: Prisma.PaymentAttemptUpdateManyWithoutStoreNestedInput
+  paymentWebhookEvents?: Prisma.PaymentWebhookEventUpdateManyWithoutStoreNestedInput
+  refunds?: Prisma.RefundUpdateManyWithoutStoreNestedInput
+  integrationClients?: Prisma.IntegrationClientUpdateManyWithoutStoreNestedInput
+  importSources?: Prisma.ImportSourceUpdateManyWithoutStoreNestedInput
+  importBatches?: Prisma.ImportBatchUpdateManyWithoutStoreNestedInput
+  importItems?: Prisma.ImportItemUpdateManyWithoutStoreNestedInput
+  importFieldOverrides?: Prisma.ImportFieldOverrideUpdateManyWithoutStoreNestedInput
+  externalIdentities?: Prisma.ExternalIdentityUpdateManyWithoutStoreNestedInput
+  idempotencyRecords?: Prisma.IdempotencyRecordUpdateManyWithoutStoreNestedInput
+  auditLogs?: Prisma.AuditLogUpdateManyWithoutStoreNestedInput
+  consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
+  storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
+  storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
+}
+
+export type StoreUncheckedUpdateWithoutFavoritesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumStoreStatusFieldUpdateOperationsInput | $Enums.StoreStatus
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  settings?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  domains?: Prisma.StoreDomainUncheckedUpdateManyWithoutStoreNestedInput
+  brands?: Prisma.BrandUncheckedUpdateManyWithoutStoreNestedInput
+  categories?: Prisma.CategoryUncheckedUpdateManyWithoutStoreNestedInput
+  products?: Prisma.ProductUncheckedUpdateManyWithoutStoreNestedInput
+  variants?: Prisma.ProductVariantUncheckedUpdateManyWithoutStoreNestedInput
+  productCategories?: Prisma.ProductCategoryUncheckedUpdateManyWithoutStoreNestedInput
+  inventoryLocations?: Prisma.InventoryLocationUncheckedUpdateManyWithoutStoreNestedInput
+  inventory?: Prisma.InventoryUncheckedUpdateManyWithoutStoreNestedInput
+  prices?: Prisma.PriceUncheckedUpdateManyWithoutStoreNestedInput
+  outboxEvents?: Prisma.OutboxEventUncheckedUpdateManyWithoutStoreNestedInput
+  roles?: Prisma.RoleUncheckedUpdateManyWithoutStoreNestedInput
+  adminMemberships?: Prisma.AdminMembershipUncheckedUpdateManyWithoutStoreNestedInput
+  customers?: Prisma.CustomerUncheckedUpdateManyWithoutStoreNestedInput
+  customerSessions?: Prisma.CustomerSessionUncheckedUpdateManyWithoutStoreNestedInput
+  addresses?: Prisma.AddressUncheckedUpdateManyWithoutStoreNestedInput
+  attributeDefinitions?: Prisma.AttributeDefinitionUncheckedUpdateManyWithoutStoreNestedInput
+  categoryAttributes?: Prisma.CategoryAttributeUncheckedUpdateManyWithoutStoreNestedInput
+  productAttributeValues?: Prisma.ProductAttributeValueUncheckedUpdateManyWithoutStoreNestedInput
+  variantAttributeValues?: Prisma.VariantAttributeValueUncheckedUpdateManyWithoutStoreNestedInput
+  mediaAssets?: Prisma.MediaAssetUncheckedUpdateManyWithoutStoreNestedInput
+  productMedia?: Prisma.ProductMediaUncheckedUpdateManyWithoutStoreNestedInput
+  variantMedia?: Prisma.VariantMediaUncheckedUpdateManyWithoutStoreNestedInput
+  inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutStoreNestedInput
+  inventoryMovements?: Prisma.InventoryMovementUncheckedUpdateManyWithoutStoreNestedInput
+  priceHistory?: Prisma.PriceHistoryUncheckedUpdateManyWithoutStoreNestedInput
+  promotions?: Prisma.PromotionUncheckedUpdateManyWithoutStoreNestedInput
+  promotionTargets?: Prisma.PromotionTargetUncheckedUpdateManyWithoutStoreNestedInput
+  coupons?: Prisma.CouponUncheckedUpdateManyWithoutStoreNestedInput
+  couponRedemptions?: Prisma.CouponRedemptionUncheckedUpdateManyWithoutStoreNestedInput
+  carts?: Prisma.CartUncheckedUpdateManyWithoutStoreNestedInput
+  cartItems?: Prisma.CartItemUncheckedUpdateManyWithoutStoreNestedInput
+  shippingQuotes?: Prisma.ShippingQuoteUncheckedUpdateManyWithoutStoreNestedInput
+  checkoutSessions?: Prisma.CheckoutSessionUncheckedUpdateManyWithoutStoreNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutStoreNestedInput
+  orderItems?: Prisma.OrderItemUncheckedUpdateManyWithoutStoreNestedInput
+  orderStatusHistory?: Prisma.OrderStatusHistoryUncheckedUpdateManyWithoutStoreNestedInput
+  shipments?: Prisma.ShipmentUncheckedUpdateManyWithoutStoreNestedInput
+  payments?: Prisma.PaymentUncheckedUpdateManyWithoutStoreNestedInput
+  paymentAttempts?: Prisma.PaymentAttemptUncheckedUpdateManyWithoutStoreNestedInput
+  paymentWebhookEvents?: Prisma.PaymentWebhookEventUncheckedUpdateManyWithoutStoreNestedInput
+  refunds?: Prisma.RefundUncheckedUpdateManyWithoutStoreNestedInput
+  integrationClients?: Prisma.IntegrationClientUncheckedUpdateManyWithoutStoreNestedInput
+  importSources?: Prisma.ImportSourceUncheckedUpdateManyWithoutStoreNestedInput
+  importBatches?: Prisma.ImportBatchUncheckedUpdateManyWithoutStoreNestedInput
+  importItems?: Prisma.ImportItemUncheckedUpdateManyWithoutStoreNestedInput
+  importFieldOverrides?: Prisma.ImportFieldOverrideUncheckedUpdateManyWithoutStoreNestedInput
+  externalIdentities?: Prisma.ExternalIdentityUncheckedUpdateManyWithoutStoreNestedInput
+  idempotencyRecords?: Prisma.IdempotencyRecordUncheckedUpdateManyWithoutStoreNestedInput
+  auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutStoreNestedInput
+  consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
+  storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
+  storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
+}
+
+export type StoreCreateWithoutShippingRulesInput = {
+  id?: string
+  slug: string
+  displayName: string
+  status?: $Enums.StoreStatus
+  currency?: string
+  timezone?: string
+  settings?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  domains?: Prisma.StoreDomainCreateNestedManyWithoutStoreInput
+  brands?: Prisma.BrandCreateNestedManyWithoutStoreInput
+  categories?: Prisma.CategoryCreateNestedManyWithoutStoreInput
+  products?: Prisma.ProductCreateNestedManyWithoutStoreInput
+  variants?: Prisma.ProductVariantCreateNestedManyWithoutStoreInput
+  productCategories?: Prisma.ProductCategoryCreateNestedManyWithoutStoreInput
+  inventoryLocations?: Prisma.InventoryLocationCreateNestedManyWithoutStoreInput
+  inventory?: Prisma.InventoryCreateNestedManyWithoutStoreInput
+  prices?: Prisma.PriceCreateNestedManyWithoutStoreInput
+  outboxEvents?: Prisma.OutboxEventCreateNestedManyWithoutStoreInput
+  roles?: Prisma.RoleCreateNestedManyWithoutStoreInput
+  adminMemberships?: Prisma.AdminMembershipCreateNestedManyWithoutStoreInput
+  customers?: Prisma.CustomerCreateNestedManyWithoutStoreInput
+  customerSessions?: Prisma.CustomerSessionCreateNestedManyWithoutStoreInput
+  addresses?: Prisma.AddressCreateNestedManyWithoutStoreInput
+  attributeDefinitions?: Prisma.AttributeDefinitionCreateNestedManyWithoutStoreInput
+  categoryAttributes?: Prisma.CategoryAttributeCreateNestedManyWithoutStoreInput
+  productAttributeValues?: Prisma.ProductAttributeValueCreateNestedManyWithoutStoreInput
+  variantAttributeValues?: Prisma.VariantAttributeValueCreateNestedManyWithoutStoreInput
+  mediaAssets?: Prisma.MediaAssetCreateNestedManyWithoutStoreInput
+  productMedia?: Prisma.ProductMediaCreateNestedManyWithoutStoreInput
+  variantMedia?: Prisma.VariantMediaCreateNestedManyWithoutStoreInput
+  inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutStoreInput
+  inventoryMovements?: Prisma.InventoryMovementCreateNestedManyWithoutStoreInput
+  priceHistory?: Prisma.PriceHistoryCreateNestedManyWithoutStoreInput
+  promotions?: Prisma.PromotionCreateNestedManyWithoutStoreInput
+  promotionTargets?: Prisma.PromotionTargetCreateNestedManyWithoutStoreInput
+  coupons?: Prisma.CouponCreateNestedManyWithoutStoreInput
+  couponRedemptions?: Prisma.CouponRedemptionCreateNestedManyWithoutStoreInput
+  carts?: Prisma.CartCreateNestedManyWithoutStoreInput
+  cartItems?: Prisma.CartItemCreateNestedManyWithoutStoreInput
+  shippingQuotes?: Prisma.ShippingQuoteCreateNestedManyWithoutStoreInput
+  checkoutSessions?: Prisma.CheckoutSessionCreateNestedManyWithoutStoreInput
+  orders?: Prisma.OrderCreateNestedManyWithoutStoreInput
+  orderItems?: Prisma.OrderItemCreateNestedManyWithoutStoreInput
+  orderStatusHistory?: Prisma.OrderStatusHistoryCreateNestedManyWithoutStoreInput
+  shipments?: Prisma.ShipmentCreateNestedManyWithoutStoreInput
+  payments?: Prisma.PaymentCreateNestedManyWithoutStoreInput
+  paymentAttempts?: Prisma.PaymentAttemptCreateNestedManyWithoutStoreInput
+  paymentWebhookEvents?: Prisma.PaymentWebhookEventCreateNestedManyWithoutStoreInput
+  refunds?: Prisma.RefundCreateNestedManyWithoutStoreInput
+  integrationClients?: Prisma.IntegrationClientCreateNestedManyWithoutStoreInput
+  importSources?: Prisma.ImportSourceCreateNestedManyWithoutStoreInput
+  importBatches?: Prisma.ImportBatchCreateNestedManyWithoutStoreInput
+  importItems?: Prisma.ImportItemCreateNestedManyWithoutStoreInput
+  importFieldOverrides?: Prisma.ImportFieldOverrideCreateNestedManyWithoutStoreInput
+  externalIdentities?: Prisma.ExternalIdentityCreateNestedManyWithoutStoreInput
+  idempotencyRecords?: Prisma.IdempotencyRecordCreateNestedManyWithoutStoreInput
+  auditLogs?: Prisma.AuditLogCreateNestedManyWithoutStoreInput
+  consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
+  storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
+  storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
+}
+
+export type StoreUncheckedCreateWithoutShippingRulesInput = {
+  id?: string
+  slug: string
+  displayName: string
+  status?: $Enums.StoreStatus
+  currency?: string
+  timezone?: string
+  settings?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  domains?: Prisma.StoreDomainUncheckedCreateNestedManyWithoutStoreInput
+  brands?: Prisma.BrandUncheckedCreateNestedManyWithoutStoreInput
+  categories?: Prisma.CategoryUncheckedCreateNestedManyWithoutStoreInput
+  products?: Prisma.ProductUncheckedCreateNestedManyWithoutStoreInput
+  variants?: Prisma.ProductVariantUncheckedCreateNestedManyWithoutStoreInput
+  productCategories?: Prisma.ProductCategoryUncheckedCreateNestedManyWithoutStoreInput
+  inventoryLocations?: Prisma.InventoryLocationUncheckedCreateNestedManyWithoutStoreInput
+  inventory?: Prisma.InventoryUncheckedCreateNestedManyWithoutStoreInput
+  prices?: Prisma.PriceUncheckedCreateNestedManyWithoutStoreInput
+  outboxEvents?: Prisma.OutboxEventUncheckedCreateNestedManyWithoutStoreInput
+  roles?: Prisma.RoleUncheckedCreateNestedManyWithoutStoreInput
+  adminMemberships?: Prisma.AdminMembershipUncheckedCreateNestedManyWithoutStoreInput
+  customers?: Prisma.CustomerUncheckedCreateNestedManyWithoutStoreInput
+  customerSessions?: Prisma.CustomerSessionUncheckedCreateNestedManyWithoutStoreInput
+  addresses?: Prisma.AddressUncheckedCreateNestedManyWithoutStoreInput
+  attributeDefinitions?: Prisma.AttributeDefinitionUncheckedCreateNestedManyWithoutStoreInput
+  categoryAttributes?: Prisma.CategoryAttributeUncheckedCreateNestedManyWithoutStoreInput
+  productAttributeValues?: Prisma.ProductAttributeValueUncheckedCreateNestedManyWithoutStoreInput
+  variantAttributeValues?: Prisma.VariantAttributeValueUncheckedCreateNestedManyWithoutStoreInput
+  mediaAssets?: Prisma.MediaAssetUncheckedCreateNestedManyWithoutStoreInput
+  productMedia?: Prisma.ProductMediaUncheckedCreateNestedManyWithoutStoreInput
+  variantMedia?: Prisma.VariantMediaUncheckedCreateNestedManyWithoutStoreInput
+  inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutStoreInput
+  inventoryMovements?: Prisma.InventoryMovementUncheckedCreateNestedManyWithoutStoreInput
+  priceHistory?: Prisma.PriceHistoryUncheckedCreateNestedManyWithoutStoreInput
+  promotions?: Prisma.PromotionUncheckedCreateNestedManyWithoutStoreInput
+  promotionTargets?: Prisma.PromotionTargetUncheckedCreateNestedManyWithoutStoreInput
+  coupons?: Prisma.CouponUncheckedCreateNestedManyWithoutStoreInput
+  couponRedemptions?: Prisma.CouponRedemptionUncheckedCreateNestedManyWithoutStoreInput
+  carts?: Prisma.CartUncheckedCreateNestedManyWithoutStoreInput
+  cartItems?: Prisma.CartItemUncheckedCreateNestedManyWithoutStoreInput
+  shippingQuotes?: Prisma.ShippingQuoteUncheckedCreateNestedManyWithoutStoreInput
+  checkoutSessions?: Prisma.CheckoutSessionUncheckedCreateNestedManyWithoutStoreInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutStoreInput
+  orderItems?: Prisma.OrderItemUncheckedCreateNestedManyWithoutStoreInput
+  orderStatusHistory?: Prisma.OrderStatusHistoryUncheckedCreateNestedManyWithoutStoreInput
+  shipments?: Prisma.ShipmentUncheckedCreateNestedManyWithoutStoreInput
+  payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutStoreInput
+  paymentAttempts?: Prisma.PaymentAttemptUncheckedCreateNestedManyWithoutStoreInput
+  paymentWebhookEvents?: Prisma.PaymentWebhookEventUncheckedCreateNestedManyWithoutStoreInput
+  refunds?: Prisma.RefundUncheckedCreateNestedManyWithoutStoreInput
+  integrationClients?: Prisma.IntegrationClientUncheckedCreateNestedManyWithoutStoreInput
+  importSources?: Prisma.ImportSourceUncheckedCreateNestedManyWithoutStoreInput
+  importBatches?: Prisma.ImportBatchUncheckedCreateNestedManyWithoutStoreInput
+  importItems?: Prisma.ImportItemUncheckedCreateNestedManyWithoutStoreInput
+  importFieldOverrides?: Prisma.ImportFieldOverrideUncheckedCreateNestedManyWithoutStoreInput
+  externalIdentities?: Prisma.ExternalIdentityUncheckedCreateNestedManyWithoutStoreInput
+  idempotencyRecords?: Prisma.IdempotencyRecordUncheckedCreateNestedManyWithoutStoreInput
+  auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutStoreInput
+  consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
+  storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
+  storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
+}
+
+export type StoreCreateOrConnectWithoutShippingRulesInput = {
+  where: Prisma.StoreWhereUniqueInput
+  create: Prisma.XOR<Prisma.StoreCreateWithoutShippingRulesInput, Prisma.StoreUncheckedCreateWithoutShippingRulesInput>
+}
+
+export type StoreUpsertWithoutShippingRulesInput = {
+  update: Prisma.XOR<Prisma.StoreUpdateWithoutShippingRulesInput, Prisma.StoreUncheckedUpdateWithoutShippingRulesInput>
+  create: Prisma.XOR<Prisma.StoreCreateWithoutShippingRulesInput, Prisma.StoreUncheckedCreateWithoutShippingRulesInput>
+  where?: Prisma.StoreWhereInput
+}
+
+export type StoreUpdateToOneWithWhereWithoutShippingRulesInput = {
+  where?: Prisma.StoreWhereInput
+  data: Prisma.XOR<Prisma.StoreUpdateWithoutShippingRulesInput, Prisma.StoreUncheckedUpdateWithoutShippingRulesInput>
+}
+
+export type StoreUpdateWithoutShippingRulesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumStoreStatusFieldUpdateOperationsInput | $Enums.StoreStatus
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  settings?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  domains?: Prisma.StoreDomainUpdateManyWithoutStoreNestedInput
+  brands?: Prisma.BrandUpdateManyWithoutStoreNestedInput
+  categories?: Prisma.CategoryUpdateManyWithoutStoreNestedInput
+  products?: Prisma.ProductUpdateManyWithoutStoreNestedInput
+  variants?: Prisma.ProductVariantUpdateManyWithoutStoreNestedInput
+  productCategories?: Prisma.ProductCategoryUpdateManyWithoutStoreNestedInput
+  inventoryLocations?: Prisma.InventoryLocationUpdateManyWithoutStoreNestedInput
+  inventory?: Prisma.InventoryUpdateManyWithoutStoreNestedInput
+  prices?: Prisma.PriceUpdateManyWithoutStoreNestedInput
+  outboxEvents?: Prisma.OutboxEventUpdateManyWithoutStoreNestedInput
+  roles?: Prisma.RoleUpdateManyWithoutStoreNestedInput
+  adminMemberships?: Prisma.AdminMembershipUpdateManyWithoutStoreNestedInput
+  customers?: Prisma.CustomerUpdateManyWithoutStoreNestedInput
+  customerSessions?: Prisma.CustomerSessionUpdateManyWithoutStoreNestedInput
+  addresses?: Prisma.AddressUpdateManyWithoutStoreNestedInput
+  attributeDefinitions?: Prisma.AttributeDefinitionUpdateManyWithoutStoreNestedInput
+  categoryAttributes?: Prisma.CategoryAttributeUpdateManyWithoutStoreNestedInput
+  productAttributeValues?: Prisma.ProductAttributeValueUpdateManyWithoutStoreNestedInput
+  variantAttributeValues?: Prisma.VariantAttributeValueUpdateManyWithoutStoreNestedInput
+  mediaAssets?: Prisma.MediaAssetUpdateManyWithoutStoreNestedInput
+  productMedia?: Prisma.ProductMediaUpdateManyWithoutStoreNestedInput
+  variantMedia?: Prisma.VariantMediaUpdateManyWithoutStoreNestedInput
+  inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutStoreNestedInput
+  inventoryMovements?: Prisma.InventoryMovementUpdateManyWithoutStoreNestedInput
+  priceHistory?: Prisma.PriceHistoryUpdateManyWithoutStoreNestedInput
+  promotions?: Prisma.PromotionUpdateManyWithoutStoreNestedInput
+  promotionTargets?: Prisma.PromotionTargetUpdateManyWithoutStoreNestedInput
+  coupons?: Prisma.CouponUpdateManyWithoutStoreNestedInput
+  couponRedemptions?: Prisma.CouponRedemptionUpdateManyWithoutStoreNestedInput
+  carts?: Prisma.CartUpdateManyWithoutStoreNestedInput
+  cartItems?: Prisma.CartItemUpdateManyWithoutStoreNestedInput
+  shippingQuotes?: Prisma.ShippingQuoteUpdateManyWithoutStoreNestedInput
+  checkoutSessions?: Prisma.CheckoutSessionUpdateManyWithoutStoreNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutStoreNestedInput
+  orderItems?: Prisma.OrderItemUpdateManyWithoutStoreNestedInput
+  orderStatusHistory?: Prisma.OrderStatusHistoryUpdateManyWithoutStoreNestedInput
+  shipments?: Prisma.ShipmentUpdateManyWithoutStoreNestedInput
+  payments?: Prisma.PaymentUpdateManyWithoutStoreNestedInput
+  paymentAttempts?: Prisma.PaymentAttemptUpdateManyWithoutStoreNestedInput
+  paymentWebhookEvents?: Prisma.PaymentWebhookEventUpdateManyWithoutStoreNestedInput
+  refunds?: Prisma.RefundUpdateManyWithoutStoreNestedInput
+  integrationClients?: Prisma.IntegrationClientUpdateManyWithoutStoreNestedInput
+  importSources?: Prisma.ImportSourceUpdateManyWithoutStoreNestedInput
+  importBatches?: Prisma.ImportBatchUpdateManyWithoutStoreNestedInput
+  importItems?: Prisma.ImportItemUpdateManyWithoutStoreNestedInput
+  importFieldOverrides?: Prisma.ImportFieldOverrideUpdateManyWithoutStoreNestedInput
+  externalIdentities?: Prisma.ExternalIdentityUpdateManyWithoutStoreNestedInput
+  idempotencyRecords?: Prisma.IdempotencyRecordUpdateManyWithoutStoreNestedInput
+  auditLogs?: Prisma.AuditLogUpdateManyWithoutStoreNestedInput
+  consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
+  storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
+  storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
+}
+
+export type StoreUncheckedUpdateWithoutShippingRulesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumStoreStatusFieldUpdateOperationsInput | $Enums.StoreStatus
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  settings?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  domains?: Prisma.StoreDomainUncheckedUpdateManyWithoutStoreNestedInput
+  brands?: Prisma.BrandUncheckedUpdateManyWithoutStoreNestedInput
+  categories?: Prisma.CategoryUncheckedUpdateManyWithoutStoreNestedInput
+  products?: Prisma.ProductUncheckedUpdateManyWithoutStoreNestedInput
+  variants?: Prisma.ProductVariantUncheckedUpdateManyWithoutStoreNestedInput
+  productCategories?: Prisma.ProductCategoryUncheckedUpdateManyWithoutStoreNestedInput
+  inventoryLocations?: Prisma.InventoryLocationUncheckedUpdateManyWithoutStoreNestedInput
+  inventory?: Prisma.InventoryUncheckedUpdateManyWithoutStoreNestedInput
+  prices?: Prisma.PriceUncheckedUpdateManyWithoutStoreNestedInput
+  outboxEvents?: Prisma.OutboxEventUncheckedUpdateManyWithoutStoreNestedInput
+  roles?: Prisma.RoleUncheckedUpdateManyWithoutStoreNestedInput
+  adminMemberships?: Prisma.AdminMembershipUncheckedUpdateManyWithoutStoreNestedInput
+  customers?: Prisma.CustomerUncheckedUpdateManyWithoutStoreNestedInput
+  customerSessions?: Prisma.CustomerSessionUncheckedUpdateManyWithoutStoreNestedInput
+  addresses?: Prisma.AddressUncheckedUpdateManyWithoutStoreNestedInput
+  attributeDefinitions?: Prisma.AttributeDefinitionUncheckedUpdateManyWithoutStoreNestedInput
+  categoryAttributes?: Prisma.CategoryAttributeUncheckedUpdateManyWithoutStoreNestedInput
+  productAttributeValues?: Prisma.ProductAttributeValueUncheckedUpdateManyWithoutStoreNestedInput
+  variantAttributeValues?: Prisma.VariantAttributeValueUncheckedUpdateManyWithoutStoreNestedInput
+  mediaAssets?: Prisma.MediaAssetUncheckedUpdateManyWithoutStoreNestedInput
+  productMedia?: Prisma.ProductMediaUncheckedUpdateManyWithoutStoreNestedInput
+  variantMedia?: Prisma.VariantMediaUncheckedUpdateManyWithoutStoreNestedInput
+  inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutStoreNestedInput
+  inventoryMovements?: Prisma.InventoryMovementUncheckedUpdateManyWithoutStoreNestedInput
+  priceHistory?: Prisma.PriceHistoryUncheckedUpdateManyWithoutStoreNestedInput
+  promotions?: Prisma.PromotionUncheckedUpdateManyWithoutStoreNestedInput
+  promotionTargets?: Prisma.PromotionTargetUncheckedUpdateManyWithoutStoreNestedInput
+  coupons?: Prisma.CouponUncheckedUpdateManyWithoutStoreNestedInput
+  couponRedemptions?: Prisma.CouponRedemptionUncheckedUpdateManyWithoutStoreNestedInput
+  carts?: Prisma.CartUncheckedUpdateManyWithoutStoreNestedInput
+  cartItems?: Prisma.CartItemUncheckedUpdateManyWithoutStoreNestedInput
+  shippingQuotes?: Prisma.ShippingQuoteUncheckedUpdateManyWithoutStoreNestedInput
+  checkoutSessions?: Prisma.CheckoutSessionUncheckedUpdateManyWithoutStoreNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutStoreNestedInput
+  orderItems?: Prisma.OrderItemUncheckedUpdateManyWithoutStoreNestedInput
+  orderStatusHistory?: Prisma.OrderStatusHistoryUncheckedUpdateManyWithoutStoreNestedInput
+  shipments?: Prisma.ShipmentUncheckedUpdateManyWithoutStoreNestedInput
+  payments?: Prisma.PaymentUncheckedUpdateManyWithoutStoreNestedInput
+  paymentAttempts?: Prisma.PaymentAttemptUncheckedUpdateManyWithoutStoreNestedInput
+  paymentWebhookEvents?: Prisma.PaymentWebhookEventUncheckedUpdateManyWithoutStoreNestedInput
+  refunds?: Prisma.RefundUncheckedUpdateManyWithoutStoreNestedInput
+  integrationClients?: Prisma.IntegrationClientUncheckedUpdateManyWithoutStoreNestedInput
+  importSources?: Prisma.ImportSourceUncheckedUpdateManyWithoutStoreNestedInput
+  importBatches?: Prisma.ImportBatchUncheckedUpdateManyWithoutStoreNestedInput
+  importItems?: Prisma.ImportItemUncheckedUpdateManyWithoutStoreNestedInput
+  importFieldOverrides?: Prisma.ImportFieldOverrideUncheckedUpdateManyWithoutStoreNestedInput
+  externalIdentities?: Prisma.ExternalIdentityUncheckedUpdateManyWithoutStoreNestedInput
+  idempotencyRecords?: Prisma.IdempotencyRecordUncheckedUpdateManyWithoutStoreNestedInput
+  auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutStoreNestedInput
+  consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
+  storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
+  storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
+}
+
+export type StoreCreateWithoutWebhookEndpointsInput = {
+  id?: string
+  slug: string
+  displayName: string
+  status?: $Enums.StoreStatus
+  currency?: string
+  timezone?: string
+  settings?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  domains?: Prisma.StoreDomainCreateNestedManyWithoutStoreInput
+  brands?: Prisma.BrandCreateNestedManyWithoutStoreInput
+  categories?: Prisma.CategoryCreateNestedManyWithoutStoreInput
+  products?: Prisma.ProductCreateNestedManyWithoutStoreInput
+  variants?: Prisma.ProductVariantCreateNestedManyWithoutStoreInput
+  productCategories?: Prisma.ProductCategoryCreateNestedManyWithoutStoreInput
+  inventoryLocations?: Prisma.InventoryLocationCreateNestedManyWithoutStoreInput
+  inventory?: Prisma.InventoryCreateNestedManyWithoutStoreInput
+  prices?: Prisma.PriceCreateNestedManyWithoutStoreInput
+  outboxEvents?: Prisma.OutboxEventCreateNestedManyWithoutStoreInput
+  roles?: Prisma.RoleCreateNestedManyWithoutStoreInput
+  adminMemberships?: Prisma.AdminMembershipCreateNestedManyWithoutStoreInput
+  customers?: Prisma.CustomerCreateNestedManyWithoutStoreInput
+  customerSessions?: Prisma.CustomerSessionCreateNestedManyWithoutStoreInput
+  addresses?: Prisma.AddressCreateNestedManyWithoutStoreInput
+  attributeDefinitions?: Prisma.AttributeDefinitionCreateNestedManyWithoutStoreInput
+  categoryAttributes?: Prisma.CategoryAttributeCreateNestedManyWithoutStoreInput
+  productAttributeValues?: Prisma.ProductAttributeValueCreateNestedManyWithoutStoreInput
+  variantAttributeValues?: Prisma.VariantAttributeValueCreateNestedManyWithoutStoreInput
+  mediaAssets?: Prisma.MediaAssetCreateNestedManyWithoutStoreInput
+  productMedia?: Prisma.ProductMediaCreateNestedManyWithoutStoreInput
+  variantMedia?: Prisma.VariantMediaCreateNestedManyWithoutStoreInput
+  inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutStoreInput
+  inventoryMovements?: Prisma.InventoryMovementCreateNestedManyWithoutStoreInput
+  priceHistory?: Prisma.PriceHistoryCreateNestedManyWithoutStoreInput
+  promotions?: Prisma.PromotionCreateNestedManyWithoutStoreInput
+  promotionTargets?: Prisma.PromotionTargetCreateNestedManyWithoutStoreInput
+  coupons?: Prisma.CouponCreateNestedManyWithoutStoreInput
+  couponRedemptions?: Prisma.CouponRedemptionCreateNestedManyWithoutStoreInput
+  carts?: Prisma.CartCreateNestedManyWithoutStoreInput
+  cartItems?: Prisma.CartItemCreateNestedManyWithoutStoreInput
+  shippingQuotes?: Prisma.ShippingQuoteCreateNestedManyWithoutStoreInput
+  checkoutSessions?: Prisma.CheckoutSessionCreateNestedManyWithoutStoreInput
+  orders?: Prisma.OrderCreateNestedManyWithoutStoreInput
+  orderItems?: Prisma.OrderItemCreateNestedManyWithoutStoreInput
+  orderStatusHistory?: Prisma.OrderStatusHistoryCreateNestedManyWithoutStoreInput
+  shipments?: Prisma.ShipmentCreateNestedManyWithoutStoreInput
+  payments?: Prisma.PaymentCreateNestedManyWithoutStoreInput
+  paymentAttempts?: Prisma.PaymentAttemptCreateNestedManyWithoutStoreInput
+  paymentWebhookEvents?: Prisma.PaymentWebhookEventCreateNestedManyWithoutStoreInput
+  refunds?: Prisma.RefundCreateNestedManyWithoutStoreInput
+  integrationClients?: Prisma.IntegrationClientCreateNestedManyWithoutStoreInput
+  importSources?: Prisma.ImportSourceCreateNestedManyWithoutStoreInput
+  importBatches?: Prisma.ImportBatchCreateNestedManyWithoutStoreInput
+  importItems?: Prisma.ImportItemCreateNestedManyWithoutStoreInput
+  importFieldOverrides?: Prisma.ImportFieldOverrideCreateNestedManyWithoutStoreInput
+  externalIdentities?: Prisma.ExternalIdentityCreateNestedManyWithoutStoreInput
+  idempotencyRecords?: Prisma.IdempotencyRecordCreateNestedManyWithoutStoreInput
+  auditLogs?: Prisma.AuditLogCreateNestedManyWithoutStoreInput
+  consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
+  storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
+  storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
+}
+
+export type StoreUncheckedCreateWithoutWebhookEndpointsInput = {
+  id?: string
+  slug: string
+  displayName: string
+  status?: $Enums.StoreStatus
+  currency?: string
+  timezone?: string
+  settings?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  domains?: Prisma.StoreDomainUncheckedCreateNestedManyWithoutStoreInput
+  brands?: Prisma.BrandUncheckedCreateNestedManyWithoutStoreInput
+  categories?: Prisma.CategoryUncheckedCreateNestedManyWithoutStoreInput
+  products?: Prisma.ProductUncheckedCreateNestedManyWithoutStoreInput
+  variants?: Prisma.ProductVariantUncheckedCreateNestedManyWithoutStoreInput
+  productCategories?: Prisma.ProductCategoryUncheckedCreateNestedManyWithoutStoreInput
+  inventoryLocations?: Prisma.InventoryLocationUncheckedCreateNestedManyWithoutStoreInput
+  inventory?: Prisma.InventoryUncheckedCreateNestedManyWithoutStoreInput
+  prices?: Prisma.PriceUncheckedCreateNestedManyWithoutStoreInput
+  outboxEvents?: Prisma.OutboxEventUncheckedCreateNestedManyWithoutStoreInput
+  roles?: Prisma.RoleUncheckedCreateNestedManyWithoutStoreInput
+  adminMemberships?: Prisma.AdminMembershipUncheckedCreateNestedManyWithoutStoreInput
+  customers?: Prisma.CustomerUncheckedCreateNestedManyWithoutStoreInput
+  customerSessions?: Prisma.CustomerSessionUncheckedCreateNestedManyWithoutStoreInput
+  addresses?: Prisma.AddressUncheckedCreateNestedManyWithoutStoreInput
+  attributeDefinitions?: Prisma.AttributeDefinitionUncheckedCreateNestedManyWithoutStoreInput
+  categoryAttributes?: Prisma.CategoryAttributeUncheckedCreateNestedManyWithoutStoreInput
+  productAttributeValues?: Prisma.ProductAttributeValueUncheckedCreateNestedManyWithoutStoreInput
+  variantAttributeValues?: Prisma.VariantAttributeValueUncheckedCreateNestedManyWithoutStoreInput
+  mediaAssets?: Prisma.MediaAssetUncheckedCreateNestedManyWithoutStoreInput
+  productMedia?: Prisma.ProductMediaUncheckedCreateNestedManyWithoutStoreInput
+  variantMedia?: Prisma.VariantMediaUncheckedCreateNestedManyWithoutStoreInput
+  inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutStoreInput
+  inventoryMovements?: Prisma.InventoryMovementUncheckedCreateNestedManyWithoutStoreInput
+  priceHistory?: Prisma.PriceHistoryUncheckedCreateNestedManyWithoutStoreInput
+  promotions?: Prisma.PromotionUncheckedCreateNestedManyWithoutStoreInput
+  promotionTargets?: Prisma.PromotionTargetUncheckedCreateNestedManyWithoutStoreInput
+  coupons?: Prisma.CouponUncheckedCreateNestedManyWithoutStoreInput
+  couponRedemptions?: Prisma.CouponRedemptionUncheckedCreateNestedManyWithoutStoreInput
+  carts?: Prisma.CartUncheckedCreateNestedManyWithoutStoreInput
+  cartItems?: Prisma.CartItemUncheckedCreateNestedManyWithoutStoreInput
+  shippingQuotes?: Prisma.ShippingQuoteUncheckedCreateNestedManyWithoutStoreInput
+  checkoutSessions?: Prisma.CheckoutSessionUncheckedCreateNestedManyWithoutStoreInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutStoreInput
+  orderItems?: Prisma.OrderItemUncheckedCreateNestedManyWithoutStoreInput
+  orderStatusHistory?: Prisma.OrderStatusHistoryUncheckedCreateNestedManyWithoutStoreInput
+  shipments?: Prisma.ShipmentUncheckedCreateNestedManyWithoutStoreInput
+  payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutStoreInput
+  paymentAttempts?: Prisma.PaymentAttemptUncheckedCreateNestedManyWithoutStoreInput
+  paymentWebhookEvents?: Prisma.PaymentWebhookEventUncheckedCreateNestedManyWithoutStoreInput
+  refunds?: Prisma.RefundUncheckedCreateNestedManyWithoutStoreInput
+  integrationClients?: Prisma.IntegrationClientUncheckedCreateNestedManyWithoutStoreInput
+  importSources?: Prisma.ImportSourceUncheckedCreateNestedManyWithoutStoreInput
+  importBatches?: Prisma.ImportBatchUncheckedCreateNestedManyWithoutStoreInput
+  importItems?: Prisma.ImportItemUncheckedCreateNestedManyWithoutStoreInput
+  importFieldOverrides?: Prisma.ImportFieldOverrideUncheckedCreateNestedManyWithoutStoreInput
+  externalIdentities?: Prisma.ExternalIdentityUncheckedCreateNestedManyWithoutStoreInput
+  idempotencyRecords?: Prisma.IdempotencyRecordUncheckedCreateNestedManyWithoutStoreInput
+  auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutStoreInput
+  consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
+  storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
+  storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
+}
+
+export type StoreCreateOrConnectWithoutWebhookEndpointsInput = {
+  where: Prisma.StoreWhereUniqueInput
+  create: Prisma.XOR<Prisma.StoreCreateWithoutWebhookEndpointsInput, Prisma.StoreUncheckedCreateWithoutWebhookEndpointsInput>
+}
+
+export type StoreUpsertWithoutWebhookEndpointsInput = {
+  update: Prisma.XOR<Prisma.StoreUpdateWithoutWebhookEndpointsInput, Prisma.StoreUncheckedUpdateWithoutWebhookEndpointsInput>
+  create: Prisma.XOR<Prisma.StoreCreateWithoutWebhookEndpointsInput, Prisma.StoreUncheckedCreateWithoutWebhookEndpointsInput>
+  where?: Prisma.StoreWhereInput
+}
+
+export type StoreUpdateToOneWithWhereWithoutWebhookEndpointsInput = {
+  where?: Prisma.StoreWhereInput
+  data: Prisma.XOR<Prisma.StoreUpdateWithoutWebhookEndpointsInput, Prisma.StoreUncheckedUpdateWithoutWebhookEndpointsInput>
+}
+
+export type StoreUpdateWithoutWebhookEndpointsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumStoreStatusFieldUpdateOperationsInput | $Enums.StoreStatus
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  settings?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  domains?: Prisma.StoreDomainUpdateManyWithoutStoreNestedInput
+  brands?: Prisma.BrandUpdateManyWithoutStoreNestedInput
+  categories?: Prisma.CategoryUpdateManyWithoutStoreNestedInput
+  products?: Prisma.ProductUpdateManyWithoutStoreNestedInput
+  variants?: Prisma.ProductVariantUpdateManyWithoutStoreNestedInput
+  productCategories?: Prisma.ProductCategoryUpdateManyWithoutStoreNestedInput
+  inventoryLocations?: Prisma.InventoryLocationUpdateManyWithoutStoreNestedInput
+  inventory?: Prisma.InventoryUpdateManyWithoutStoreNestedInput
+  prices?: Prisma.PriceUpdateManyWithoutStoreNestedInput
+  outboxEvents?: Prisma.OutboxEventUpdateManyWithoutStoreNestedInput
+  roles?: Prisma.RoleUpdateManyWithoutStoreNestedInput
+  adminMemberships?: Prisma.AdminMembershipUpdateManyWithoutStoreNestedInput
+  customers?: Prisma.CustomerUpdateManyWithoutStoreNestedInput
+  customerSessions?: Prisma.CustomerSessionUpdateManyWithoutStoreNestedInput
+  addresses?: Prisma.AddressUpdateManyWithoutStoreNestedInput
+  attributeDefinitions?: Prisma.AttributeDefinitionUpdateManyWithoutStoreNestedInput
+  categoryAttributes?: Prisma.CategoryAttributeUpdateManyWithoutStoreNestedInput
+  productAttributeValues?: Prisma.ProductAttributeValueUpdateManyWithoutStoreNestedInput
+  variantAttributeValues?: Prisma.VariantAttributeValueUpdateManyWithoutStoreNestedInput
+  mediaAssets?: Prisma.MediaAssetUpdateManyWithoutStoreNestedInput
+  productMedia?: Prisma.ProductMediaUpdateManyWithoutStoreNestedInput
+  variantMedia?: Prisma.VariantMediaUpdateManyWithoutStoreNestedInput
+  inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutStoreNestedInput
+  inventoryMovements?: Prisma.InventoryMovementUpdateManyWithoutStoreNestedInput
+  priceHistory?: Prisma.PriceHistoryUpdateManyWithoutStoreNestedInput
+  promotions?: Prisma.PromotionUpdateManyWithoutStoreNestedInput
+  promotionTargets?: Prisma.PromotionTargetUpdateManyWithoutStoreNestedInput
+  coupons?: Prisma.CouponUpdateManyWithoutStoreNestedInput
+  couponRedemptions?: Prisma.CouponRedemptionUpdateManyWithoutStoreNestedInput
+  carts?: Prisma.CartUpdateManyWithoutStoreNestedInput
+  cartItems?: Prisma.CartItemUpdateManyWithoutStoreNestedInput
+  shippingQuotes?: Prisma.ShippingQuoteUpdateManyWithoutStoreNestedInput
+  checkoutSessions?: Prisma.CheckoutSessionUpdateManyWithoutStoreNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutStoreNestedInput
+  orderItems?: Prisma.OrderItemUpdateManyWithoutStoreNestedInput
+  orderStatusHistory?: Prisma.OrderStatusHistoryUpdateManyWithoutStoreNestedInput
+  shipments?: Prisma.ShipmentUpdateManyWithoutStoreNestedInput
+  payments?: Prisma.PaymentUpdateManyWithoutStoreNestedInput
+  paymentAttempts?: Prisma.PaymentAttemptUpdateManyWithoutStoreNestedInput
+  paymentWebhookEvents?: Prisma.PaymentWebhookEventUpdateManyWithoutStoreNestedInput
+  refunds?: Prisma.RefundUpdateManyWithoutStoreNestedInput
+  integrationClients?: Prisma.IntegrationClientUpdateManyWithoutStoreNestedInput
+  importSources?: Prisma.ImportSourceUpdateManyWithoutStoreNestedInput
+  importBatches?: Prisma.ImportBatchUpdateManyWithoutStoreNestedInput
+  importItems?: Prisma.ImportItemUpdateManyWithoutStoreNestedInput
+  importFieldOverrides?: Prisma.ImportFieldOverrideUpdateManyWithoutStoreNestedInput
+  externalIdentities?: Prisma.ExternalIdentityUpdateManyWithoutStoreNestedInput
+  idempotencyRecords?: Prisma.IdempotencyRecordUpdateManyWithoutStoreNestedInput
+  auditLogs?: Prisma.AuditLogUpdateManyWithoutStoreNestedInput
+  consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
+  storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
+  storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
+}
+
+export type StoreUncheckedUpdateWithoutWebhookEndpointsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumStoreStatusFieldUpdateOperationsInput | $Enums.StoreStatus
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  settings?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  domains?: Prisma.StoreDomainUncheckedUpdateManyWithoutStoreNestedInput
+  brands?: Prisma.BrandUncheckedUpdateManyWithoutStoreNestedInput
+  categories?: Prisma.CategoryUncheckedUpdateManyWithoutStoreNestedInput
+  products?: Prisma.ProductUncheckedUpdateManyWithoutStoreNestedInput
+  variants?: Prisma.ProductVariantUncheckedUpdateManyWithoutStoreNestedInput
+  productCategories?: Prisma.ProductCategoryUncheckedUpdateManyWithoutStoreNestedInput
+  inventoryLocations?: Prisma.InventoryLocationUncheckedUpdateManyWithoutStoreNestedInput
+  inventory?: Prisma.InventoryUncheckedUpdateManyWithoutStoreNestedInput
+  prices?: Prisma.PriceUncheckedUpdateManyWithoutStoreNestedInput
+  outboxEvents?: Prisma.OutboxEventUncheckedUpdateManyWithoutStoreNestedInput
+  roles?: Prisma.RoleUncheckedUpdateManyWithoutStoreNestedInput
+  adminMemberships?: Prisma.AdminMembershipUncheckedUpdateManyWithoutStoreNestedInput
+  customers?: Prisma.CustomerUncheckedUpdateManyWithoutStoreNestedInput
+  customerSessions?: Prisma.CustomerSessionUncheckedUpdateManyWithoutStoreNestedInput
+  addresses?: Prisma.AddressUncheckedUpdateManyWithoutStoreNestedInput
+  attributeDefinitions?: Prisma.AttributeDefinitionUncheckedUpdateManyWithoutStoreNestedInput
+  categoryAttributes?: Prisma.CategoryAttributeUncheckedUpdateManyWithoutStoreNestedInput
+  productAttributeValues?: Prisma.ProductAttributeValueUncheckedUpdateManyWithoutStoreNestedInput
+  variantAttributeValues?: Prisma.VariantAttributeValueUncheckedUpdateManyWithoutStoreNestedInput
+  mediaAssets?: Prisma.MediaAssetUncheckedUpdateManyWithoutStoreNestedInput
+  productMedia?: Prisma.ProductMediaUncheckedUpdateManyWithoutStoreNestedInput
+  variantMedia?: Prisma.VariantMediaUncheckedUpdateManyWithoutStoreNestedInput
+  inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutStoreNestedInput
+  inventoryMovements?: Prisma.InventoryMovementUncheckedUpdateManyWithoutStoreNestedInput
+  priceHistory?: Prisma.PriceHistoryUncheckedUpdateManyWithoutStoreNestedInput
+  promotions?: Prisma.PromotionUncheckedUpdateManyWithoutStoreNestedInput
+  promotionTargets?: Prisma.PromotionTargetUncheckedUpdateManyWithoutStoreNestedInput
+  coupons?: Prisma.CouponUncheckedUpdateManyWithoutStoreNestedInput
+  couponRedemptions?: Prisma.CouponRedemptionUncheckedUpdateManyWithoutStoreNestedInput
+  carts?: Prisma.CartUncheckedUpdateManyWithoutStoreNestedInput
+  cartItems?: Prisma.CartItemUncheckedUpdateManyWithoutStoreNestedInput
+  shippingQuotes?: Prisma.ShippingQuoteUncheckedUpdateManyWithoutStoreNestedInput
+  checkoutSessions?: Prisma.CheckoutSessionUncheckedUpdateManyWithoutStoreNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutStoreNestedInput
+  orderItems?: Prisma.OrderItemUncheckedUpdateManyWithoutStoreNestedInput
+  orderStatusHistory?: Prisma.OrderStatusHistoryUncheckedUpdateManyWithoutStoreNestedInput
+  shipments?: Prisma.ShipmentUncheckedUpdateManyWithoutStoreNestedInput
+  payments?: Prisma.PaymentUncheckedUpdateManyWithoutStoreNestedInput
+  paymentAttempts?: Prisma.PaymentAttemptUncheckedUpdateManyWithoutStoreNestedInput
+  paymentWebhookEvents?: Prisma.PaymentWebhookEventUncheckedUpdateManyWithoutStoreNestedInput
+  refunds?: Prisma.RefundUncheckedUpdateManyWithoutStoreNestedInput
+  integrationClients?: Prisma.IntegrationClientUncheckedUpdateManyWithoutStoreNestedInput
+  importSources?: Prisma.ImportSourceUncheckedUpdateManyWithoutStoreNestedInput
+  importBatches?: Prisma.ImportBatchUncheckedUpdateManyWithoutStoreNestedInput
+  importItems?: Prisma.ImportItemUncheckedUpdateManyWithoutStoreNestedInput
+  importFieldOverrides?: Prisma.ImportFieldOverrideUncheckedUpdateManyWithoutStoreNestedInput
+  externalIdentities?: Prisma.ExternalIdentityUncheckedUpdateManyWithoutStoreNestedInput
+  idempotencyRecords?: Prisma.IdempotencyRecordUncheckedUpdateManyWithoutStoreNestedInput
+  auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutStoreNestedInput
+  consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
+  storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
+  storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
+}
+
+export type StoreCreateWithoutWebhookDeliveriesInput = {
+  id?: string
+  slug: string
+  displayName: string
+  status?: $Enums.StoreStatus
+  currency?: string
+  timezone?: string
+  settings?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  domains?: Prisma.StoreDomainCreateNestedManyWithoutStoreInput
+  brands?: Prisma.BrandCreateNestedManyWithoutStoreInput
+  categories?: Prisma.CategoryCreateNestedManyWithoutStoreInput
+  products?: Prisma.ProductCreateNestedManyWithoutStoreInput
+  variants?: Prisma.ProductVariantCreateNestedManyWithoutStoreInput
+  productCategories?: Prisma.ProductCategoryCreateNestedManyWithoutStoreInput
+  inventoryLocations?: Prisma.InventoryLocationCreateNestedManyWithoutStoreInput
+  inventory?: Prisma.InventoryCreateNestedManyWithoutStoreInput
+  prices?: Prisma.PriceCreateNestedManyWithoutStoreInput
+  outboxEvents?: Prisma.OutboxEventCreateNestedManyWithoutStoreInput
+  roles?: Prisma.RoleCreateNestedManyWithoutStoreInput
+  adminMemberships?: Prisma.AdminMembershipCreateNestedManyWithoutStoreInput
+  customers?: Prisma.CustomerCreateNestedManyWithoutStoreInput
+  customerSessions?: Prisma.CustomerSessionCreateNestedManyWithoutStoreInput
+  addresses?: Prisma.AddressCreateNestedManyWithoutStoreInput
+  attributeDefinitions?: Prisma.AttributeDefinitionCreateNestedManyWithoutStoreInput
+  categoryAttributes?: Prisma.CategoryAttributeCreateNestedManyWithoutStoreInput
+  productAttributeValues?: Prisma.ProductAttributeValueCreateNestedManyWithoutStoreInput
+  variantAttributeValues?: Prisma.VariantAttributeValueCreateNestedManyWithoutStoreInput
+  mediaAssets?: Prisma.MediaAssetCreateNestedManyWithoutStoreInput
+  productMedia?: Prisma.ProductMediaCreateNestedManyWithoutStoreInput
+  variantMedia?: Prisma.VariantMediaCreateNestedManyWithoutStoreInput
+  inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutStoreInput
+  inventoryMovements?: Prisma.InventoryMovementCreateNestedManyWithoutStoreInput
+  priceHistory?: Prisma.PriceHistoryCreateNestedManyWithoutStoreInput
+  promotions?: Prisma.PromotionCreateNestedManyWithoutStoreInput
+  promotionTargets?: Prisma.PromotionTargetCreateNestedManyWithoutStoreInput
+  coupons?: Prisma.CouponCreateNestedManyWithoutStoreInput
+  couponRedemptions?: Prisma.CouponRedemptionCreateNestedManyWithoutStoreInput
+  carts?: Prisma.CartCreateNestedManyWithoutStoreInput
+  cartItems?: Prisma.CartItemCreateNestedManyWithoutStoreInput
+  shippingQuotes?: Prisma.ShippingQuoteCreateNestedManyWithoutStoreInput
+  checkoutSessions?: Prisma.CheckoutSessionCreateNestedManyWithoutStoreInput
+  orders?: Prisma.OrderCreateNestedManyWithoutStoreInput
+  orderItems?: Prisma.OrderItemCreateNestedManyWithoutStoreInput
+  orderStatusHistory?: Prisma.OrderStatusHistoryCreateNestedManyWithoutStoreInput
+  shipments?: Prisma.ShipmentCreateNestedManyWithoutStoreInput
+  payments?: Prisma.PaymentCreateNestedManyWithoutStoreInput
+  paymentAttempts?: Prisma.PaymentAttemptCreateNestedManyWithoutStoreInput
+  paymentWebhookEvents?: Prisma.PaymentWebhookEventCreateNestedManyWithoutStoreInput
+  refunds?: Prisma.RefundCreateNestedManyWithoutStoreInput
+  integrationClients?: Prisma.IntegrationClientCreateNestedManyWithoutStoreInput
+  importSources?: Prisma.ImportSourceCreateNestedManyWithoutStoreInput
+  importBatches?: Prisma.ImportBatchCreateNestedManyWithoutStoreInput
+  importItems?: Prisma.ImportItemCreateNestedManyWithoutStoreInput
+  importFieldOverrides?: Prisma.ImportFieldOverrideCreateNestedManyWithoutStoreInput
+  externalIdentities?: Prisma.ExternalIdentityCreateNestedManyWithoutStoreInput
+  idempotencyRecords?: Prisma.IdempotencyRecordCreateNestedManyWithoutStoreInput
+  auditLogs?: Prisma.AuditLogCreateNestedManyWithoutStoreInput
+  consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
+  storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
+  storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
+}
+
+export type StoreUncheckedCreateWithoutWebhookDeliveriesInput = {
+  id?: string
+  slug: string
+  displayName: string
+  status?: $Enums.StoreStatus
+  currency?: string
+  timezone?: string
+  settings?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  domains?: Prisma.StoreDomainUncheckedCreateNestedManyWithoutStoreInput
+  brands?: Prisma.BrandUncheckedCreateNestedManyWithoutStoreInput
+  categories?: Prisma.CategoryUncheckedCreateNestedManyWithoutStoreInput
+  products?: Prisma.ProductUncheckedCreateNestedManyWithoutStoreInput
+  variants?: Prisma.ProductVariantUncheckedCreateNestedManyWithoutStoreInput
+  productCategories?: Prisma.ProductCategoryUncheckedCreateNestedManyWithoutStoreInput
+  inventoryLocations?: Prisma.InventoryLocationUncheckedCreateNestedManyWithoutStoreInput
+  inventory?: Prisma.InventoryUncheckedCreateNestedManyWithoutStoreInput
+  prices?: Prisma.PriceUncheckedCreateNestedManyWithoutStoreInput
+  outboxEvents?: Prisma.OutboxEventUncheckedCreateNestedManyWithoutStoreInput
+  roles?: Prisma.RoleUncheckedCreateNestedManyWithoutStoreInput
+  adminMemberships?: Prisma.AdminMembershipUncheckedCreateNestedManyWithoutStoreInput
+  customers?: Prisma.CustomerUncheckedCreateNestedManyWithoutStoreInput
+  customerSessions?: Prisma.CustomerSessionUncheckedCreateNestedManyWithoutStoreInput
+  addresses?: Prisma.AddressUncheckedCreateNestedManyWithoutStoreInput
+  attributeDefinitions?: Prisma.AttributeDefinitionUncheckedCreateNestedManyWithoutStoreInput
+  categoryAttributes?: Prisma.CategoryAttributeUncheckedCreateNestedManyWithoutStoreInput
+  productAttributeValues?: Prisma.ProductAttributeValueUncheckedCreateNestedManyWithoutStoreInput
+  variantAttributeValues?: Prisma.VariantAttributeValueUncheckedCreateNestedManyWithoutStoreInput
+  mediaAssets?: Prisma.MediaAssetUncheckedCreateNestedManyWithoutStoreInput
+  productMedia?: Prisma.ProductMediaUncheckedCreateNestedManyWithoutStoreInput
+  variantMedia?: Prisma.VariantMediaUncheckedCreateNestedManyWithoutStoreInput
+  inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutStoreInput
+  inventoryMovements?: Prisma.InventoryMovementUncheckedCreateNestedManyWithoutStoreInput
+  priceHistory?: Prisma.PriceHistoryUncheckedCreateNestedManyWithoutStoreInput
+  promotions?: Prisma.PromotionUncheckedCreateNestedManyWithoutStoreInput
+  promotionTargets?: Prisma.PromotionTargetUncheckedCreateNestedManyWithoutStoreInput
+  coupons?: Prisma.CouponUncheckedCreateNestedManyWithoutStoreInput
+  couponRedemptions?: Prisma.CouponRedemptionUncheckedCreateNestedManyWithoutStoreInput
+  carts?: Prisma.CartUncheckedCreateNestedManyWithoutStoreInput
+  cartItems?: Prisma.CartItemUncheckedCreateNestedManyWithoutStoreInput
+  shippingQuotes?: Prisma.ShippingQuoteUncheckedCreateNestedManyWithoutStoreInput
+  checkoutSessions?: Prisma.CheckoutSessionUncheckedCreateNestedManyWithoutStoreInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutStoreInput
+  orderItems?: Prisma.OrderItemUncheckedCreateNestedManyWithoutStoreInput
+  orderStatusHistory?: Prisma.OrderStatusHistoryUncheckedCreateNestedManyWithoutStoreInput
+  shipments?: Prisma.ShipmentUncheckedCreateNestedManyWithoutStoreInput
+  payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutStoreInput
+  paymentAttempts?: Prisma.PaymentAttemptUncheckedCreateNestedManyWithoutStoreInput
+  paymentWebhookEvents?: Prisma.PaymentWebhookEventUncheckedCreateNestedManyWithoutStoreInput
+  refunds?: Prisma.RefundUncheckedCreateNestedManyWithoutStoreInput
+  integrationClients?: Prisma.IntegrationClientUncheckedCreateNestedManyWithoutStoreInput
+  importSources?: Prisma.ImportSourceUncheckedCreateNestedManyWithoutStoreInput
+  importBatches?: Prisma.ImportBatchUncheckedCreateNestedManyWithoutStoreInput
+  importItems?: Prisma.ImportItemUncheckedCreateNestedManyWithoutStoreInput
+  importFieldOverrides?: Prisma.ImportFieldOverrideUncheckedCreateNestedManyWithoutStoreInput
+  externalIdentities?: Prisma.ExternalIdentityUncheckedCreateNestedManyWithoutStoreInput
+  idempotencyRecords?: Prisma.IdempotencyRecordUncheckedCreateNestedManyWithoutStoreInput
+  auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutStoreInput
+  consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
+  storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
+  storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
+}
+
+export type StoreCreateOrConnectWithoutWebhookDeliveriesInput = {
+  where: Prisma.StoreWhereUniqueInput
+  create: Prisma.XOR<Prisma.StoreCreateWithoutWebhookDeliveriesInput, Prisma.StoreUncheckedCreateWithoutWebhookDeliveriesInput>
+}
+
+export type StoreUpsertWithoutWebhookDeliveriesInput = {
+  update: Prisma.XOR<Prisma.StoreUpdateWithoutWebhookDeliveriesInput, Prisma.StoreUncheckedUpdateWithoutWebhookDeliveriesInput>
+  create: Prisma.XOR<Prisma.StoreCreateWithoutWebhookDeliveriesInput, Prisma.StoreUncheckedCreateWithoutWebhookDeliveriesInput>
+  where?: Prisma.StoreWhereInput
+}
+
+export type StoreUpdateToOneWithWhereWithoutWebhookDeliveriesInput = {
+  where?: Prisma.StoreWhereInput
+  data: Prisma.XOR<Prisma.StoreUpdateWithoutWebhookDeliveriesInput, Prisma.StoreUncheckedUpdateWithoutWebhookDeliveriesInput>
+}
+
+export type StoreUpdateWithoutWebhookDeliveriesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumStoreStatusFieldUpdateOperationsInput | $Enums.StoreStatus
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  settings?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  domains?: Prisma.StoreDomainUpdateManyWithoutStoreNestedInput
+  brands?: Prisma.BrandUpdateManyWithoutStoreNestedInput
+  categories?: Prisma.CategoryUpdateManyWithoutStoreNestedInput
+  products?: Prisma.ProductUpdateManyWithoutStoreNestedInput
+  variants?: Prisma.ProductVariantUpdateManyWithoutStoreNestedInput
+  productCategories?: Prisma.ProductCategoryUpdateManyWithoutStoreNestedInput
+  inventoryLocations?: Prisma.InventoryLocationUpdateManyWithoutStoreNestedInput
+  inventory?: Prisma.InventoryUpdateManyWithoutStoreNestedInput
+  prices?: Prisma.PriceUpdateManyWithoutStoreNestedInput
+  outboxEvents?: Prisma.OutboxEventUpdateManyWithoutStoreNestedInput
+  roles?: Prisma.RoleUpdateManyWithoutStoreNestedInput
+  adminMemberships?: Prisma.AdminMembershipUpdateManyWithoutStoreNestedInput
+  customers?: Prisma.CustomerUpdateManyWithoutStoreNestedInput
+  customerSessions?: Prisma.CustomerSessionUpdateManyWithoutStoreNestedInput
+  addresses?: Prisma.AddressUpdateManyWithoutStoreNestedInput
+  attributeDefinitions?: Prisma.AttributeDefinitionUpdateManyWithoutStoreNestedInput
+  categoryAttributes?: Prisma.CategoryAttributeUpdateManyWithoutStoreNestedInput
+  productAttributeValues?: Prisma.ProductAttributeValueUpdateManyWithoutStoreNestedInput
+  variantAttributeValues?: Prisma.VariantAttributeValueUpdateManyWithoutStoreNestedInput
+  mediaAssets?: Prisma.MediaAssetUpdateManyWithoutStoreNestedInput
+  productMedia?: Prisma.ProductMediaUpdateManyWithoutStoreNestedInput
+  variantMedia?: Prisma.VariantMediaUpdateManyWithoutStoreNestedInput
+  inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutStoreNestedInput
+  inventoryMovements?: Prisma.InventoryMovementUpdateManyWithoutStoreNestedInput
+  priceHistory?: Prisma.PriceHistoryUpdateManyWithoutStoreNestedInput
+  promotions?: Prisma.PromotionUpdateManyWithoutStoreNestedInput
+  promotionTargets?: Prisma.PromotionTargetUpdateManyWithoutStoreNestedInput
+  coupons?: Prisma.CouponUpdateManyWithoutStoreNestedInput
+  couponRedemptions?: Prisma.CouponRedemptionUpdateManyWithoutStoreNestedInput
+  carts?: Prisma.CartUpdateManyWithoutStoreNestedInput
+  cartItems?: Prisma.CartItemUpdateManyWithoutStoreNestedInput
+  shippingQuotes?: Prisma.ShippingQuoteUpdateManyWithoutStoreNestedInput
+  checkoutSessions?: Prisma.CheckoutSessionUpdateManyWithoutStoreNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutStoreNestedInput
+  orderItems?: Prisma.OrderItemUpdateManyWithoutStoreNestedInput
+  orderStatusHistory?: Prisma.OrderStatusHistoryUpdateManyWithoutStoreNestedInput
+  shipments?: Prisma.ShipmentUpdateManyWithoutStoreNestedInput
+  payments?: Prisma.PaymentUpdateManyWithoutStoreNestedInput
+  paymentAttempts?: Prisma.PaymentAttemptUpdateManyWithoutStoreNestedInput
+  paymentWebhookEvents?: Prisma.PaymentWebhookEventUpdateManyWithoutStoreNestedInput
+  refunds?: Prisma.RefundUpdateManyWithoutStoreNestedInput
+  integrationClients?: Prisma.IntegrationClientUpdateManyWithoutStoreNestedInput
+  importSources?: Prisma.ImportSourceUpdateManyWithoutStoreNestedInput
+  importBatches?: Prisma.ImportBatchUpdateManyWithoutStoreNestedInput
+  importItems?: Prisma.ImportItemUpdateManyWithoutStoreNestedInput
+  importFieldOverrides?: Prisma.ImportFieldOverrideUpdateManyWithoutStoreNestedInput
+  externalIdentities?: Prisma.ExternalIdentityUpdateManyWithoutStoreNestedInput
+  idempotencyRecords?: Prisma.IdempotencyRecordUpdateManyWithoutStoreNestedInput
+  auditLogs?: Prisma.AuditLogUpdateManyWithoutStoreNestedInput
+  consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
+  storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
+  storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
+}
+
+export type StoreUncheckedUpdateWithoutWebhookDeliveriesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumStoreStatusFieldUpdateOperationsInput | $Enums.StoreStatus
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  settings?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  domains?: Prisma.StoreDomainUncheckedUpdateManyWithoutStoreNestedInput
+  brands?: Prisma.BrandUncheckedUpdateManyWithoutStoreNestedInput
+  categories?: Prisma.CategoryUncheckedUpdateManyWithoutStoreNestedInput
+  products?: Prisma.ProductUncheckedUpdateManyWithoutStoreNestedInput
+  variants?: Prisma.ProductVariantUncheckedUpdateManyWithoutStoreNestedInput
+  productCategories?: Prisma.ProductCategoryUncheckedUpdateManyWithoutStoreNestedInput
+  inventoryLocations?: Prisma.InventoryLocationUncheckedUpdateManyWithoutStoreNestedInput
+  inventory?: Prisma.InventoryUncheckedUpdateManyWithoutStoreNestedInput
+  prices?: Prisma.PriceUncheckedUpdateManyWithoutStoreNestedInput
+  outboxEvents?: Prisma.OutboxEventUncheckedUpdateManyWithoutStoreNestedInput
+  roles?: Prisma.RoleUncheckedUpdateManyWithoutStoreNestedInput
+  adminMemberships?: Prisma.AdminMembershipUncheckedUpdateManyWithoutStoreNestedInput
+  customers?: Prisma.CustomerUncheckedUpdateManyWithoutStoreNestedInput
+  customerSessions?: Prisma.CustomerSessionUncheckedUpdateManyWithoutStoreNestedInput
+  addresses?: Prisma.AddressUncheckedUpdateManyWithoutStoreNestedInput
+  attributeDefinitions?: Prisma.AttributeDefinitionUncheckedUpdateManyWithoutStoreNestedInput
+  categoryAttributes?: Prisma.CategoryAttributeUncheckedUpdateManyWithoutStoreNestedInput
+  productAttributeValues?: Prisma.ProductAttributeValueUncheckedUpdateManyWithoutStoreNestedInput
+  variantAttributeValues?: Prisma.VariantAttributeValueUncheckedUpdateManyWithoutStoreNestedInput
+  mediaAssets?: Prisma.MediaAssetUncheckedUpdateManyWithoutStoreNestedInput
+  productMedia?: Prisma.ProductMediaUncheckedUpdateManyWithoutStoreNestedInput
+  variantMedia?: Prisma.VariantMediaUncheckedUpdateManyWithoutStoreNestedInput
+  inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutStoreNestedInput
+  inventoryMovements?: Prisma.InventoryMovementUncheckedUpdateManyWithoutStoreNestedInput
+  priceHistory?: Prisma.PriceHistoryUncheckedUpdateManyWithoutStoreNestedInput
+  promotions?: Prisma.PromotionUncheckedUpdateManyWithoutStoreNestedInput
+  promotionTargets?: Prisma.PromotionTargetUncheckedUpdateManyWithoutStoreNestedInput
+  coupons?: Prisma.CouponUncheckedUpdateManyWithoutStoreNestedInput
+  couponRedemptions?: Prisma.CouponRedemptionUncheckedUpdateManyWithoutStoreNestedInput
+  carts?: Prisma.CartUncheckedUpdateManyWithoutStoreNestedInput
+  cartItems?: Prisma.CartItemUncheckedUpdateManyWithoutStoreNestedInput
+  shippingQuotes?: Prisma.ShippingQuoteUncheckedUpdateManyWithoutStoreNestedInput
+  checkoutSessions?: Prisma.CheckoutSessionUncheckedUpdateManyWithoutStoreNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutStoreNestedInput
+  orderItems?: Prisma.OrderItemUncheckedUpdateManyWithoutStoreNestedInput
+  orderStatusHistory?: Prisma.OrderStatusHistoryUncheckedUpdateManyWithoutStoreNestedInput
+  shipments?: Prisma.ShipmentUncheckedUpdateManyWithoutStoreNestedInput
+  payments?: Prisma.PaymentUncheckedUpdateManyWithoutStoreNestedInput
+  paymentAttempts?: Prisma.PaymentAttemptUncheckedUpdateManyWithoutStoreNestedInput
+  paymentWebhookEvents?: Prisma.PaymentWebhookEventUncheckedUpdateManyWithoutStoreNestedInput
+  refunds?: Prisma.RefundUncheckedUpdateManyWithoutStoreNestedInput
+  integrationClients?: Prisma.IntegrationClientUncheckedUpdateManyWithoutStoreNestedInput
+  importSources?: Prisma.ImportSourceUncheckedUpdateManyWithoutStoreNestedInput
+  importBatches?: Prisma.ImportBatchUncheckedUpdateManyWithoutStoreNestedInput
+  importItems?: Prisma.ImportItemUncheckedUpdateManyWithoutStoreNestedInput
+  importFieldOverrides?: Prisma.ImportFieldOverrideUncheckedUpdateManyWithoutStoreNestedInput
+  externalIdentities?: Prisma.ExternalIdentityUncheckedUpdateManyWithoutStoreNestedInput
+  idempotencyRecords?: Prisma.IdempotencyRecordUncheckedUpdateManyWithoutStoreNestedInput
+  auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutStoreNestedInput
+  consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
+  storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
+  storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
+}
+
+export type StoreCreateWithoutNotificationTemplatesInput = {
+  id?: string
+  slug: string
+  displayName: string
+  status?: $Enums.StoreStatus
+  currency?: string
+  timezone?: string
+  settings?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  domains?: Prisma.StoreDomainCreateNestedManyWithoutStoreInput
+  brands?: Prisma.BrandCreateNestedManyWithoutStoreInput
+  categories?: Prisma.CategoryCreateNestedManyWithoutStoreInput
+  products?: Prisma.ProductCreateNestedManyWithoutStoreInput
+  variants?: Prisma.ProductVariantCreateNestedManyWithoutStoreInput
+  productCategories?: Prisma.ProductCategoryCreateNestedManyWithoutStoreInput
+  inventoryLocations?: Prisma.InventoryLocationCreateNestedManyWithoutStoreInput
+  inventory?: Prisma.InventoryCreateNestedManyWithoutStoreInput
+  prices?: Prisma.PriceCreateNestedManyWithoutStoreInput
+  outboxEvents?: Prisma.OutboxEventCreateNestedManyWithoutStoreInput
+  roles?: Prisma.RoleCreateNestedManyWithoutStoreInput
+  adminMemberships?: Prisma.AdminMembershipCreateNestedManyWithoutStoreInput
+  customers?: Prisma.CustomerCreateNestedManyWithoutStoreInput
+  customerSessions?: Prisma.CustomerSessionCreateNestedManyWithoutStoreInput
+  addresses?: Prisma.AddressCreateNestedManyWithoutStoreInput
+  attributeDefinitions?: Prisma.AttributeDefinitionCreateNestedManyWithoutStoreInput
+  categoryAttributes?: Prisma.CategoryAttributeCreateNestedManyWithoutStoreInput
+  productAttributeValues?: Prisma.ProductAttributeValueCreateNestedManyWithoutStoreInput
+  variantAttributeValues?: Prisma.VariantAttributeValueCreateNestedManyWithoutStoreInput
+  mediaAssets?: Prisma.MediaAssetCreateNestedManyWithoutStoreInput
+  productMedia?: Prisma.ProductMediaCreateNestedManyWithoutStoreInput
+  variantMedia?: Prisma.VariantMediaCreateNestedManyWithoutStoreInput
+  inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutStoreInput
+  inventoryMovements?: Prisma.InventoryMovementCreateNestedManyWithoutStoreInput
+  priceHistory?: Prisma.PriceHistoryCreateNestedManyWithoutStoreInput
+  promotions?: Prisma.PromotionCreateNestedManyWithoutStoreInput
+  promotionTargets?: Prisma.PromotionTargetCreateNestedManyWithoutStoreInput
+  coupons?: Prisma.CouponCreateNestedManyWithoutStoreInput
+  couponRedemptions?: Prisma.CouponRedemptionCreateNestedManyWithoutStoreInput
+  carts?: Prisma.CartCreateNestedManyWithoutStoreInput
+  cartItems?: Prisma.CartItemCreateNestedManyWithoutStoreInput
+  shippingQuotes?: Prisma.ShippingQuoteCreateNestedManyWithoutStoreInput
+  checkoutSessions?: Prisma.CheckoutSessionCreateNestedManyWithoutStoreInput
+  orders?: Prisma.OrderCreateNestedManyWithoutStoreInput
+  orderItems?: Prisma.OrderItemCreateNestedManyWithoutStoreInput
+  orderStatusHistory?: Prisma.OrderStatusHistoryCreateNestedManyWithoutStoreInput
+  shipments?: Prisma.ShipmentCreateNestedManyWithoutStoreInput
+  payments?: Prisma.PaymentCreateNestedManyWithoutStoreInput
+  paymentAttempts?: Prisma.PaymentAttemptCreateNestedManyWithoutStoreInput
+  paymentWebhookEvents?: Prisma.PaymentWebhookEventCreateNestedManyWithoutStoreInput
+  refunds?: Prisma.RefundCreateNestedManyWithoutStoreInput
+  integrationClients?: Prisma.IntegrationClientCreateNestedManyWithoutStoreInput
+  importSources?: Prisma.ImportSourceCreateNestedManyWithoutStoreInput
+  importBatches?: Prisma.ImportBatchCreateNestedManyWithoutStoreInput
+  importItems?: Prisma.ImportItemCreateNestedManyWithoutStoreInput
+  importFieldOverrides?: Prisma.ImportFieldOverrideCreateNestedManyWithoutStoreInput
+  externalIdentities?: Prisma.ExternalIdentityCreateNestedManyWithoutStoreInput
+  idempotencyRecords?: Prisma.IdempotencyRecordCreateNestedManyWithoutStoreInput
+  auditLogs?: Prisma.AuditLogCreateNestedManyWithoutStoreInput
+  consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
+  storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
+  storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
+}
+
+export type StoreUncheckedCreateWithoutNotificationTemplatesInput = {
+  id?: string
+  slug: string
+  displayName: string
+  status?: $Enums.StoreStatus
+  currency?: string
+  timezone?: string
+  settings?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  domains?: Prisma.StoreDomainUncheckedCreateNestedManyWithoutStoreInput
+  brands?: Prisma.BrandUncheckedCreateNestedManyWithoutStoreInput
+  categories?: Prisma.CategoryUncheckedCreateNestedManyWithoutStoreInput
+  products?: Prisma.ProductUncheckedCreateNestedManyWithoutStoreInput
+  variants?: Prisma.ProductVariantUncheckedCreateNestedManyWithoutStoreInput
+  productCategories?: Prisma.ProductCategoryUncheckedCreateNestedManyWithoutStoreInput
+  inventoryLocations?: Prisma.InventoryLocationUncheckedCreateNestedManyWithoutStoreInput
+  inventory?: Prisma.InventoryUncheckedCreateNestedManyWithoutStoreInput
+  prices?: Prisma.PriceUncheckedCreateNestedManyWithoutStoreInput
+  outboxEvents?: Prisma.OutboxEventUncheckedCreateNestedManyWithoutStoreInput
+  roles?: Prisma.RoleUncheckedCreateNestedManyWithoutStoreInput
+  adminMemberships?: Prisma.AdminMembershipUncheckedCreateNestedManyWithoutStoreInput
+  customers?: Prisma.CustomerUncheckedCreateNestedManyWithoutStoreInput
+  customerSessions?: Prisma.CustomerSessionUncheckedCreateNestedManyWithoutStoreInput
+  addresses?: Prisma.AddressUncheckedCreateNestedManyWithoutStoreInput
+  attributeDefinitions?: Prisma.AttributeDefinitionUncheckedCreateNestedManyWithoutStoreInput
+  categoryAttributes?: Prisma.CategoryAttributeUncheckedCreateNestedManyWithoutStoreInput
+  productAttributeValues?: Prisma.ProductAttributeValueUncheckedCreateNestedManyWithoutStoreInput
+  variantAttributeValues?: Prisma.VariantAttributeValueUncheckedCreateNestedManyWithoutStoreInput
+  mediaAssets?: Prisma.MediaAssetUncheckedCreateNestedManyWithoutStoreInput
+  productMedia?: Prisma.ProductMediaUncheckedCreateNestedManyWithoutStoreInput
+  variantMedia?: Prisma.VariantMediaUncheckedCreateNestedManyWithoutStoreInput
+  inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutStoreInput
+  inventoryMovements?: Prisma.InventoryMovementUncheckedCreateNestedManyWithoutStoreInput
+  priceHistory?: Prisma.PriceHistoryUncheckedCreateNestedManyWithoutStoreInput
+  promotions?: Prisma.PromotionUncheckedCreateNestedManyWithoutStoreInput
+  promotionTargets?: Prisma.PromotionTargetUncheckedCreateNestedManyWithoutStoreInput
+  coupons?: Prisma.CouponUncheckedCreateNestedManyWithoutStoreInput
+  couponRedemptions?: Prisma.CouponRedemptionUncheckedCreateNestedManyWithoutStoreInput
+  carts?: Prisma.CartUncheckedCreateNestedManyWithoutStoreInput
+  cartItems?: Prisma.CartItemUncheckedCreateNestedManyWithoutStoreInput
+  shippingQuotes?: Prisma.ShippingQuoteUncheckedCreateNestedManyWithoutStoreInput
+  checkoutSessions?: Prisma.CheckoutSessionUncheckedCreateNestedManyWithoutStoreInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutStoreInput
+  orderItems?: Prisma.OrderItemUncheckedCreateNestedManyWithoutStoreInput
+  orderStatusHistory?: Prisma.OrderStatusHistoryUncheckedCreateNestedManyWithoutStoreInput
+  shipments?: Prisma.ShipmentUncheckedCreateNestedManyWithoutStoreInput
+  payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutStoreInput
+  paymentAttempts?: Prisma.PaymentAttemptUncheckedCreateNestedManyWithoutStoreInput
+  paymentWebhookEvents?: Prisma.PaymentWebhookEventUncheckedCreateNestedManyWithoutStoreInput
+  refunds?: Prisma.RefundUncheckedCreateNestedManyWithoutStoreInput
+  integrationClients?: Prisma.IntegrationClientUncheckedCreateNestedManyWithoutStoreInput
+  importSources?: Prisma.ImportSourceUncheckedCreateNestedManyWithoutStoreInput
+  importBatches?: Prisma.ImportBatchUncheckedCreateNestedManyWithoutStoreInput
+  importItems?: Prisma.ImportItemUncheckedCreateNestedManyWithoutStoreInput
+  importFieldOverrides?: Prisma.ImportFieldOverrideUncheckedCreateNestedManyWithoutStoreInput
+  externalIdentities?: Prisma.ExternalIdentityUncheckedCreateNestedManyWithoutStoreInput
+  idempotencyRecords?: Prisma.IdempotencyRecordUncheckedCreateNestedManyWithoutStoreInput
+  auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutStoreInput
+  consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
+  storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
+  storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
+}
+
+export type StoreCreateOrConnectWithoutNotificationTemplatesInput = {
+  where: Prisma.StoreWhereUniqueInput
+  create: Prisma.XOR<Prisma.StoreCreateWithoutNotificationTemplatesInput, Prisma.StoreUncheckedCreateWithoutNotificationTemplatesInput>
+}
+
+export type StoreUpsertWithoutNotificationTemplatesInput = {
+  update: Prisma.XOR<Prisma.StoreUpdateWithoutNotificationTemplatesInput, Prisma.StoreUncheckedUpdateWithoutNotificationTemplatesInput>
+  create: Prisma.XOR<Prisma.StoreCreateWithoutNotificationTemplatesInput, Prisma.StoreUncheckedCreateWithoutNotificationTemplatesInput>
+  where?: Prisma.StoreWhereInput
+}
+
+export type StoreUpdateToOneWithWhereWithoutNotificationTemplatesInput = {
+  where?: Prisma.StoreWhereInput
+  data: Prisma.XOR<Prisma.StoreUpdateWithoutNotificationTemplatesInput, Prisma.StoreUncheckedUpdateWithoutNotificationTemplatesInput>
+}
+
+export type StoreUpdateWithoutNotificationTemplatesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumStoreStatusFieldUpdateOperationsInput | $Enums.StoreStatus
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  settings?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  domains?: Prisma.StoreDomainUpdateManyWithoutStoreNestedInput
+  brands?: Prisma.BrandUpdateManyWithoutStoreNestedInput
+  categories?: Prisma.CategoryUpdateManyWithoutStoreNestedInput
+  products?: Prisma.ProductUpdateManyWithoutStoreNestedInput
+  variants?: Prisma.ProductVariantUpdateManyWithoutStoreNestedInput
+  productCategories?: Prisma.ProductCategoryUpdateManyWithoutStoreNestedInput
+  inventoryLocations?: Prisma.InventoryLocationUpdateManyWithoutStoreNestedInput
+  inventory?: Prisma.InventoryUpdateManyWithoutStoreNestedInput
+  prices?: Prisma.PriceUpdateManyWithoutStoreNestedInput
+  outboxEvents?: Prisma.OutboxEventUpdateManyWithoutStoreNestedInput
+  roles?: Prisma.RoleUpdateManyWithoutStoreNestedInput
+  adminMemberships?: Prisma.AdminMembershipUpdateManyWithoutStoreNestedInput
+  customers?: Prisma.CustomerUpdateManyWithoutStoreNestedInput
+  customerSessions?: Prisma.CustomerSessionUpdateManyWithoutStoreNestedInput
+  addresses?: Prisma.AddressUpdateManyWithoutStoreNestedInput
+  attributeDefinitions?: Prisma.AttributeDefinitionUpdateManyWithoutStoreNestedInput
+  categoryAttributes?: Prisma.CategoryAttributeUpdateManyWithoutStoreNestedInput
+  productAttributeValues?: Prisma.ProductAttributeValueUpdateManyWithoutStoreNestedInput
+  variantAttributeValues?: Prisma.VariantAttributeValueUpdateManyWithoutStoreNestedInput
+  mediaAssets?: Prisma.MediaAssetUpdateManyWithoutStoreNestedInput
+  productMedia?: Prisma.ProductMediaUpdateManyWithoutStoreNestedInput
+  variantMedia?: Prisma.VariantMediaUpdateManyWithoutStoreNestedInput
+  inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutStoreNestedInput
+  inventoryMovements?: Prisma.InventoryMovementUpdateManyWithoutStoreNestedInput
+  priceHistory?: Prisma.PriceHistoryUpdateManyWithoutStoreNestedInput
+  promotions?: Prisma.PromotionUpdateManyWithoutStoreNestedInput
+  promotionTargets?: Prisma.PromotionTargetUpdateManyWithoutStoreNestedInput
+  coupons?: Prisma.CouponUpdateManyWithoutStoreNestedInput
+  couponRedemptions?: Prisma.CouponRedemptionUpdateManyWithoutStoreNestedInput
+  carts?: Prisma.CartUpdateManyWithoutStoreNestedInput
+  cartItems?: Prisma.CartItemUpdateManyWithoutStoreNestedInput
+  shippingQuotes?: Prisma.ShippingQuoteUpdateManyWithoutStoreNestedInput
+  checkoutSessions?: Prisma.CheckoutSessionUpdateManyWithoutStoreNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutStoreNestedInput
+  orderItems?: Prisma.OrderItemUpdateManyWithoutStoreNestedInput
+  orderStatusHistory?: Prisma.OrderStatusHistoryUpdateManyWithoutStoreNestedInput
+  shipments?: Prisma.ShipmentUpdateManyWithoutStoreNestedInput
+  payments?: Prisma.PaymentUpdateManyWithoutStoreNestedInput
+  paymentAttempts?: Prisma.PaymentAttemptUpdateManyWithoutStoreNestedInput
+  paymentWebhookEvents?: Prisma.PaymentWebhookEventUpdateManyWithoutStoreNestedInput
+  refunds?: Prisma.RefundUpdateManyWithoutStoreNestedInput
+  integrationClients?: Prisma.IntegrationClientUpdateManyWithoutStoreNestedInput
+  importSources?: Prisma.ImportSourceUpdateManyWithoutStoreNestedInput
+  importBatches?: Prisma.ImportBatchUpdateManyWithoutStoreNestedInput
+  importItems?: Prisma.ImportItemUpdateManyWithoutStoreNestedInput
+  importFieldOverrides?: Prisma.ImportFieldOverrideUpdateManyWithoutStoreNestedInput
+  externalIdentities?: Prisma.ExternalIdentityUpdateManyWithoutStoreNestedInput
+  idempotencyRecords?: Prisma.IdempotencyRecordUpdateManyWithoutStoreNestedInput
+  auditLogs?: Prisma.AuditLogUpdateManyWithoutStoreNestedInput
+  consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
+  storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
+  storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
+}
+
+export type StoreUncheckedUpdateWithoutNotificationTemplatesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumStoreStatusFieldUpdateOperationsInput | $Enums.StoreStatus
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  settings?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  domains?: Prisma.StoreDomainUncheckedUpdateManyWithoutStoreNestedInput
+  brands?: Prisma.BrandUncheckedUpdateManyWithoutStoreNestedInput
+  categories?: Prisma.CategoryUncheckedUpdateManyWithoutStoreNestedInput
+  products?: Prisma.ProductUncheckedUpdateManyWithoutStoreNestedInput
+  variants?: Prisma.ProductVariantUncheckedUpdateManyWithoutStoreNestedInput
+  productCategories?: Prisma.ProductCategoryUncheckedUpdateManyWithoutStoreNestedInput
+  inventoryLocations?: Prisma.InventoryLocationUncheckedUpdateManyWithoutStoreNestedInput
+  inventory?: Prisma.InventoryUncheckedUpdateManyWithoutStoreNestedInput
+  prices?: Prisma.PriceUncheckedUpdateManyWithoutStoreNestedInput
+  outboxEvents?: Prisma.OutboxEventUncheckedUpdateManyWithoutStoreNestedInput
+  roles?: Prisma.RoleUncheckedUpdateManyWithoutStoreNestedInput
+  adminMemberships?: Prisma.AdminMembershipUncheckedUpdateManyWithoutStoreNestedInput
+  customers?: Prisma.CustomerUncheckedUpdateManyWithoutStoreNestedInput
+  customerSessions?: Prisma.CustomerSessionUncheckedUpdateManyWithoutStoreNestedInput
+  addresses?: Prisma.AddressUncheckedUpdateManyWithoutStoreNestedInput
+  attributeDefinitions?: Prisma.AttributeDefinitionUncheckedUpdateManyWithoutStoreNestedInput
+  categoryAttributes?: Prisma.CategoryAttributeUncheckedUpdateManyWithoutStoreNestedInput
+  productAttributeValues?: Prisma.ProductAttributeValueUncheckedUpdateManyWithoutStoreNestedInput
+  variantAttributeValues?: Prisma.VariantAttributeValueUncheckedUpdateManyWithoutStoreNestedInput
+  mediaAssets?: Prisma.MediaAssetUncheckedUpdateManyWithoutStoreNestedInput
+  productMedia?: Prisma.ProductMediaUncheckedUpdateManyWithoutStoreNestedInput
+  variantMedia?: Prisma.VariantMediaUncheckedUpdateManyWithoutStoreNestedInput
+  inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutStoreNestedInput
+  inventoryMovements?: Prisma.InventoryMovementUncheckedUpdateManyWithoutStoreNestedInput
+  priceHistory?: Prisma.PriceHistoryUncheckedUpdateManyWithoutStoreNestedInput
+  promotions?: Prisma.PromotionUncheckedUpdateManyWithoutStoreNestedInput
+  promotionTargets?: Prisma.PromotionTargetUncheckedUpdateManyWithoutStoreNestedInput
+  coupons?: Prisma.CouponUncheckedUpdateManyWithoutStoreNestedInput
+  couponRedemptions?: Prisma.CouponRedemptionUncheckedUpdateManyWithoutStoreNestedInput
+  carts?: Prisma.CartUncheckedUpdateManyWithoutStoreNestedInput
+  cartItems?: Prisma.CartItemUncheckedUpdateManyWithoutStoreNestedInput
+  shippingQuotes?: Prisma.ShippingQuoteUncheckedUpdateManyWithoutStoreNestedInput
+  checkoutSessions?: Prisma.CheckoutSessionUncheckedUpdateManyWithoutStoreNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutStoreNestedInput
+  orderItems?: Prisma.OrderItemUncheckedUpdateManyWithoutStoreNestedInput
+  orderStatusHistory?: Prisma.OrderStatusHistoryUncheckedUpdateManyWithoutStoreNestedInput
+  shipments?: Prisma.ShipmentUncheckedUpdateManyWithoutStoreNestedInput
+  payments?: Prisma.PaymentUncheckedUpdateManyWithoutStoreNestedInput
+  paymentAttempts?: Prisma.PaymentAttemptUncheckedUpdateManyWithoutStoreNestedInput
+  paymentWebhookEvents?: Prisma.PaymentWebhookEventUncheckedUpdateManyWithoutStoreNestedInput
+  refunds?: Prisma.RefundUncheckedUpdateManyWithoutStoreNestedInput
+  integrationClients?: Prisma.IntegrationClientUncheckedUpdateManyWithoutStoreNestedInput
+  importSources?: Prisma.ImportSourceUncheckedUpdateManyWithoutStoreNestedInput
+  importBatches?: Prisma.ImportBatchUncheckedUpdateManyWithoutStoreNestedInput
+  importItems?: Prisma.ImportItemUncheckedUpdateManyWithoutStoreNestedInput
+  importFieldOverrides?: Prisma.ImportFieldOverrideUncheckedUpdateManyWithoutStoreNestedInput
+  externalIdentities?: Prisma.ExternalIdentityUncheckedUpdateManyWithoutStoreNestedInput
+  idempotencyRecords?: Prisma.IdempotencyRecordUncheckedUpdateManyWithoutStoreNestedInput
+  auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutStoreNestedInput
+  consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
+  storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
+  storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
+}
+
+export type StoreCreateWithoutMarketingCampaignsInput = {
+  id?: string
+  slug: string
+  displayName: string
+  status?: $Enums.StoreStatus
+  currency?: string
+  timezone?: string
+  settings?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  domains?: Prisma.StoreDomainCreateNestedManyWithoutStoreInput
+  brands?: Prisma.BrandCreateNestedManyWithoutStoreInput
+  categories?: Prisma.CategoryCreateNestedManyWithoutStoreInput
+  products?: Prisma.ProductCreateNestedManyWithoutStoreInput
+  variants?: Prisma.ProductVariantCreateNestedManyWithoutStoreInput
+  productCategories?: Prisma.ProductCategoryCreateNestedManyWithoutStoreInput
+  inventoryLocations?: Prisma.InventoryLocationCreateNestedManyWithoutStoreInput
+  inventory?: Prisma.InventoryCreateNestedManyWithoutStoreInput
+  prices?: Prisma.PriceCreateNestedManyWithoutStoreInput
+  outboxEvents?: Prisma.OutboxEventCreateNestedManyWithoutStoreInput
+  roles?: Prisma.RoleCreateNestedManyWithoutStoreInput
+  adminMemberships?: Prisma.AdminMembershipCreateNestedManyWithoutStoreInput
+  customers?: Prisma.CustomerCreateNestedManyWithoutStoreInput
+  customerSessions?: Prisma.CustomerSessionCreateNestedManyWithoutStoreInput
+  addresses?: Prisma.AddressCreateNestedManyWithoutStoreInput
+  attributeDefinitions?: Prisma.AttributeDefinitionCreateNestedManyWithoutStoreInput
+  categoryAttributes?: Prisma.CategoryAttributeCreateNestedManyWithoutStoreInput
+  productAttributeValues?: Prisma.ProductAttributeValueCreateNestedManyWithoutStoreInput
+  variantAttributeValues?: Prisma.VariantAttributeValueCreateNestedManyWithoutStoreInput
+  mediaAssets?: Prisma.MediaAssetCreateNestedManyWithoutStoreInput
+  productMedia?: Prisma.ProductMediaCreateNestedManyWithoutStoreInput
+  variantMedia?: Prisma.VariantMediaCreateNestedManyWithoutStoreInput
+  inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutStoreInput
+  inventoryMovements?: Prisma.InventoryMovementCreateNestedManyWithoutStoreInput
+  priceHistory?: Prisma.PriceHistoryCreateNestedManyWithoutStoreInput
+  promotions?: Prisma.PromotionCreateNestedManyWithoutStoreInput
+  promotionTargets?: Prisma.PromotionTargetCreateNestedManyWithoutStoreInput
+  coupons?: Prisma.CouponCreateNestedManyWithoutStoreInput
+  couponRedemptions?: Prisma.CouponRedemptionCreateNestedManyWithoutStoreInput
+  carts?: Prisma.CartCreateNestedManyWithoutStoreInput
+  cartItems?: Prisma.CartItemCreateNestedManyWithoutStoreInput
+  shippingQuotes?: Prisma.ShippingQuoteCreateNestedManyWithoutStoreInput
+  checkoutSessions?: Prisma.CheckoutSessionCreateNestedManyWithoutStoreInput
+  orders?: Prisma.OrderCreateNestedManyWithoutStoreInput
+  orderItems?: Prisma.OrderItemCreateNestedManyWithoutStoreInput
+  orderStatusHistory?: Prisma.OrderStatusHistoryCreateNestedManyWithoutStoreInput
+  shipments?: Prisma.ShipmentCreateNestedManyWithoutStoreInput
+  payments?: Prisma.PaymentCreateNestedManyWithoutStoreInput
+  paymentAttempts?: Prisma.PaymentAttemptCreateNestedManyWithoutStoreInput
+  paymentWebhookEvents?: Prisma.PaymentWebhookEventCreateNestedManyWithoutStoreInput
+  refunds?: Prisma.RefundCreateNestedManyWithoutStoreInput
+  integrationClients?: Prisma.IntegrationClientCreateNestedManyWithoutStoreInput
+  importSources?: Prisma.ImportSourceCreateNestedManyWithoutStoreInput
+  importBatches?: Prisma.ImportBatchCreateNestedManyWithoutStoreInput
+  importItems?: Prisma.ImportItemCreateNestedManyWithoutStoreInput
+  importFieldOverrides?: Prisma.ImportFieldOverrideCreateNestedManyWithoutStoreInput
+  externalIdentities?: Prisma.ExternalIdentityCreateNestedManyWithoutStoreInput
+  idempotencyRecords?: Prisma.IdempotencyRecordCreateNestedManyWithoutStoreInput
+  auditLogs?: Prisma.AuditLogCreateNestedManyWithoutStoreInput
+  consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
+  storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
+  storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+}
+
+export type StoreUncheckedCreateWithoutMarketingCampaignsInput = {
+  id?: string
+  slug: string
+  displayName: string
+  status?: $Enums.StoreStatus
+  currency?: string
+  timezone?: string
+  settings?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  domains?: Prisma.StoreDomainUncheckedCreateNestedManyWithoutStoreInput
+  brands?: Prisma.BrandUncheckedCreateNestedManyWithoutStoreInput
+  categories?: Prisma.CategoryUncheckedCreateNestedManyWithoutStoreInput
+  products?: Prisma.ProductUncheckedCreateNestedManyWithoutStoreInput
+  variants?: Prisma.ProductVariantUncheckedCreateNestedManyWithoutStoreInput
+  productCategories?: Prisma.ProductCategoryUncheckedCreateNestedManyWithoutStoreInput
+  inventoryLocations?: Prisma.InventoryLocationUncheckedCreateNestedManyWithoutStoreInput
+  inventory?: Prisma.InventoryUncheckedCreateNestedManyWithoutStoreInput
+  prices?: Prisma.PriceUncheckedCreateNestedManyWithoutStoreInput
+  outboxEvents?: Prisma.OutboxEventUncheckedCreateNestedManyWithoutStoreInput
+  roles?: Prisma.RoleUncheckedCreateNestedManyWithoutStoreInput
+  adminMemberships?: Prisma.AdminMembershipUncheckedCreateNestedManyWithoutStoreInput
+  customers?: Prisma.CustomerUncheckedCreateNestedManyWithoutStoreInput
+  customerSessions?: Prisma.CustomerSessionUncheckedCreateNestedManyWithoutStoreInput
+  addresses?: Prisma.AddressUncheckedCreateNestedManyWithoutStoreInput
+  attributeDefinitions?: Prisma.AttributeDefinitionUncheckedCreateNestedManyWithoutStoreInput
+  categoryAttributes?: Prisma.CategoryAttributeUncheckedCreateNestedManyWithoutStoreInput
+  productAttributeValues?: Prisma.ProductAttributeValueUncheckedCreateNestedManyWithoutStoreInput
+  variantAttributeValues?: Prisma.VariantAttributeValueUncheckedCreateNestedManyWithoutStoreInput
+  mediaAssets?: Prisma.MediaAssetUncheckedCreateNestedManyWithoutStoreInput
+  productMedia?: Prisma.ProductMediaUncheckedCreateNestedManyWithoutStoreInput
+  variantMedia?: Prisma.VariantMediaUncheckedCreateNestedManyWithoutStoreInput
+  inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutStoreInput
+  inventoryMovements?: Prisma.InventoryMovementUncheckedCreateNestedManyWithoutStoreInput
+  priceHistory?: Prisma.PriceHistoryUncheckedCreateNestedManyWithoutStoreInput
+  promotions?: Prisma.PromotionUncheckedCreateNestedManyWithoutStoreInput
+  promotionTargets?: Prisma.PromotionTargetUncheckedCreateNestedManyWithoutStoreInput
+  coupons?: Prisma.CouponUncheckedCreateNestedManyWithoutStoreInput
+  couponRedemptions?: Prisma.CouponRedemptionUncheckedCreateNestedManyWithoutStoreInput
+  carts?: Prisma.CartUncheckedCreateNestedManyWithoutStoreInput
+  cartItems?: Prisma.CartItemUncheckedCreateNestedManyWithoutStoreInput
+  shippingQuotes?: Prisma.ShippingQuoteUncheckedCreateNestedManyWithoutStoreInput
+  checkoutSessions?: Prisma.CheckoutSessionUncheckedCreateNestedManyWithoutStoreInput
+  orders?: Prisma.OrderUncheckedCreateNestedManyWithoutStoreInput
+  orderItems?: Prisma.OrderItemUncheckedCreateNestedManyWithoutStoreInput
+  orderStatusHistory?: Prisma.OrderStatusHistoryUncheckedCreateNestedManyWithoutStoreInput
+  shipments?: Prisma.ShipmentUncheckedCreateNestedManyWithoutStoreInput
+  payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutStoreInput
+  paymentAttempts?: Prisma.PaymentAttemptUncheckedCreateNestedManyWithoutStoreInput
+  paymentWebhookEvents?: Prisma.PaymentWebhookEventUncheckedCreateNestedManyWithoutStoreInput
+  refunds?: Prisma.RefundUncheckedCreateNestedManyWithoutStoreInput
+  integrationClients?: Prisma.IntegrationClientUncheckedCreateNestedManyWithoutStoreInput
+  importSources?: Prisma.ImportSourceUncheckedCreateNestedManyWithoutStoreInput
+  importBatches?: Prisma.ImportBatchUncheckedCreateNestedManyWithoutStoreInput
+  importItems?: Prisma.ImportItemUncheckedCreateNestedManyWithoutStoreInput
+  importFieldOverrides?: Prisma.ImportFieldOverrideUncheckedCreateNestedManyWithoutStoreInput
+  externalIdentities?: Prisma.ExternalIdentityUncheckedCreateNestedManyWithoutStoreInput
+  idempotencyRecords?: Prisma.IdempotencyRecordUncheckedCreateNestedManyWithoutStoreInput
+  auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutStoreInput
+  consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
+  storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
+  storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+}
+
+export type StoreCreateOrConnectWithoutMarketingCampaignsInput = {
+  where: Prisma.StoreWhereUniqueInput
+  create: Prisma.XOR<Prisma.StoreCreateWithoutMarketingCampaignsInput, Prisma.StoreUncheckedCreateWithoutMarketingCampaignsInput>
+}
+
+export type StoreUpsertWithoutMarketingCampaignsInput = {
+  update: Prisma.XOR<Prisma.StoreUpdateWithoutMarketingCampaignsInput, Prisma.StoreUncheckedUpdateWithoutMarketingCampaignsInput>
+  create: Prisma.XOR<Prisma.StoreCreateWithoutMarketingCampaignsInput, Prisma.StoreUncheckedCreateWithoutMarketingCampaignsInput>
+  where?: Prisma.StoreWhereInput
+}
+
+export type StoreUpdateToOneWithWhereWithoutMarketingCampaignsInput = {
+  where?: Prisma.StoreWhereInput
+  data: Prisma.XOR<Prisma.StoreUpdateWithoutMarketingCampaignsInput, Prisma.StoreUncheckedUpdateWithoutMarketingCampaignsInput>
+}
+
+export type StoreUpdateWithoutMarketingCampaignsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumStoreStatusFieldUpdateOperationsInput | $Enums.StoreStatus
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  settings?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  domains?: Prisma.StoreDomainUpdateManyWithoutStoreNestedInput
+  brands?: Prisma.BrandUpdateManyWithoutStoreNestedInput
+  categories?: Prisma.CategoryUpdateManyWithoutStoreNestedInput
+  products?: Prisma.ProductUpdateManyWithoutStoreNestedInput
+  variants?: Prisma.ProductVariantUpdateManyWithoutStoreNestedInput
+  productCategories?: Prisma.ProductCategoryUpdateManyWithoutStoreNestedInput
+  inventoryLocations?: Prisma.InventoryLocationUpdateManyWithoutStoreNestedInput
+  inventory?: Prisma.InventoryUpdateManyWithoutStoreNestedInput
+  prices?: Prisma.PriceUpdateManyWithoutStoreNestedInput
+  outboxEvents?: Prisma.OutboxEventUpdateManyWithoutStoreNestedInput
+  roles?: Prisma.RoleUpdateManyWithoutStoreNestedInput
+  adminMemberships?: Prisma.AdminMembershipUpdateManyWithoutStoreNestedInput
+  customers?: Prisma.CustomerUpdateManyWithoutStoreNestedInput
+  customerSessions?: Prisma.CustomerSessionUpdateManyWithoutStoreNestedInput
+  addresses?: Prisma.AddressUpdateManyWithoutStoreNestedInput
+  attributeDefinitions?: Prisma.AttributeDefinitionUpdateManyWithoutStoreNestedInput
+  categoryAttributes?: Prisma.CategoryAttributeUpdateManyWithoutStoreNestedInput
+  productAttributeValues?: Prisma.ProductAttributeValueUpdateManyWithoutStoreNestedInput
+  variantAttributeValues?: Prisma.VariantAttributeValueUpdateManyWithoutStoreNestedInput
+  mediaAssets?: Prisma.MediaAssetUpdateManyWithoutStoreNestedInput
+  productMedia?: Prisma.ProductMediaUpdateManyWithoutStoreNestedInput
+  variantMedia?: Prisma.VariantMediaUpdateManyWithoutStoreNestedInput
+  inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutStoreNestedInput
+  inventoryMovements?: Prisma.InventoryMovementUpdateManyWithoutStoreNestedInput
+  priceHistory?: Prisma.PriceHistoryUpdateManyWithoutStoreNestedInput
+  promotions?: Prisma.PromotionUpdateManyWithoutStoreNestedInput
+  promotionTargets?: Prisma.PromotionTargetUpdateManyWithoutStoreNestedInput
+  coupons?: Prisma.CouponUpdateManyWithoutStoreNestedInput
+  couponRedemptions?: Prisma.CouponRedemptionUpdateManyWithoutStoreNestedInput
+  carts?: Prisma.CartUpdateManyWithoutStoreNestedInput
+  cartItems?: Prisma.CartItemUpdateManyWithoutStoreNestedInput
+  shippingQuotes?: Prisma.ShippingQuoteUpdateManyWithoutStoreNestedInput
+  checkoutSessions?: Prisma.CheckoutSessionUpdateManyWithoutStoreNestedInput
+  orders?: Prisma.OrderUpdateManyWithoutStoreNestedInput
+  orderItems?: Prisma.OrderItemUpdateManyWithoutStoreNestedInput
+  orderStatusHistory?: Prisma.OrderStatusHistoryUpdateManyWithoutStoreNestedInput
+  shipments?: Prisma.ShipmentUpdateManyWithoutStoreNestedInput
+  payments?: Prisma.PaymentUpdateManyWithoutStoreNestedInput
+  paymentAttempts?: Prisma.PaymentAttemptUpdateManyWithoutStoreNestedInput
+  paymentWebhookEvents?: Prisma.PaymentWebhookEventUpdateManyWithoutStoreNestedInput
+  refunds?: Prisma.RefundUpdateManyWithoutStoreNestedInput
+  integrationClients?: Prisma.IntegrationClientUpdateManyWithoutStoreNestedInput
+  importSources?: Prisma.ImportSourceUpdateManyWithoutStoreNestedInput
+  importBatches?: Prisma.ImportBatchUpdateManyWithoutStoreNestedInput
+  importItems?: Prisma.ImportItemUpdateManyWithoutStoreNestedInput
+  importFieldOverrides?: Prisma.ImportFieldOverrideUpdateManyWithoutStoreNestedInput
+  externalIdentities?: Prisma.ExternalIdentityUpdateManyWithoutStoreNestedInput
+  idempotencyRecords?: Prisma.IdempotencyRecordUpdateManyWithoutStoreNestedInput
+  auditLogs?: Prisma.AuditLogUpdateManyWithoutStoreNestedInput
+  consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
+  storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
+  storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+}
+
+export type StoreUncheckedUpdateWithoutMarketingCampaignsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumStoreStatusFieldUpdateOperationsInput | $Enums.StoreStatus
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  settings?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  domains?: Prisma.StoreDomainUncheckedUpdateManyWithoutStoreNestedInput
+  brands?: Prisma.BrandUncheckedUpdateManyWithoutStoreNestedInput
+  categories?: Prisma.CategoryUncheckedUpdateManyWithoutStoreNestedInput
+  products?: Prisma.ProductUncheckedUpdateManyWithoutStoreNestedInput
+  variants?: Prisma.ProductVariantUncheckedUpdateManyWithoutStoreNestedInput
+  productCategories?: Prisma.ProductCategoryUncheckedUpdateManyWithoutStoreNestedInput
+  inventoryLocations?: Prisma.InventoryLocationUncheckedUpdateManyWithoutStoreNestedInput
+  inventory?: Prisma.InventoryUncheckedUpdateManyWithoutStoreNestedInput
+  prices?: Prisma.PriceUncheckedUpdateManyWithoutStoreNestedInput
+  outboxEvents?: Prisma.OutboxEventUncheckedUpdateManyWithoutStoreNestedInput
+  roles?: Prisma.RoleUncheckedUpdateManyWithoutStoreNestedInput
+  adminMemberships?: Prisma.AdminMembershipUncheckedUpdateManyWithoutStoreNestedInput
+  customers?: Prisma.CustomerUncheckedUpdateManyWithoutStoreNestedInput
+  customerSessions?: Prisma.CustomerSessionUncheckedUpdateManyWithoutStoreNestedInput
+  addresses?: Prisma.AddressUncheckedUpdateManyWithoutStoreNestedInput
+  attributeDefinitions?: Prisma.AttributeDefinitionUncheckedUpdateManyWithoutStoreNestedInput
+  categoryAttributes?: Prisma.CategoryAttributeUncheckedUpdateManyWithoutStoreNestedInput
+  productAttributeValues?: Prisma.ProductAttributeValueUncheckedUpdateManyWithoutStoreNestedInput
+  variantAttributeValues?: Prisma.VariantAttributeValueUncheckedUpdateManyWithoutStoreNestedInput
+  mediaAssets?: Prisma.MediaAssetUncheckedUpdateManyWithoutStoreNestedInput
+  productMedia?: Prisma.ProductMediaUncheckedUpdateManyWithoutStoreNestedInput
+  variantMedia?: Prisma.VariantMediaUncheckedUpdateManyWithoutStoreNestedInput
+  inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutStoreNestedInput
+  inventoryMovements?: Prisma.InventoryMovementUncheckedUpdateManyWithoutStoreNestedInput
+  priceHistory?: Prisma.PriceHistoryUncheckedUpdateManyWithoutStoreNestedInput
+  promotions?: Prisma.PromotionUncheckedUpdateManyWithoutStoreNestedInput
+  promotionTargets?: Prisma.PromotionTargetUncheckedUpdateManyWithoutStoreNestedInput
+  coupons?: Prisma.CouponUncheckedUpdateManyWithoutStoreNestedInput
+  couponRedemptions?: Prisma.CouponRedemptionUncheckedUpdateManyWithoutStoreNestedInput
+  carts?: Prisma.CartUncheckedUpdateManyWithoutStoreNestedInput
+  cartItems?: Prisma.CartItemUncheckedUpdateManyWithoutStoreNestedInput
+  shippingQuotes?: Prisma.ShippingQuoteUncheckedUpdateManyWithoutStoreNestedInput
+  checkoutSessions?: Prisma.CheckoutSessionUncheckedUpdateManyWithoutStoreNestedInput
+  orders?: Prisma.OrderUncheckedUpdateManyWithoutStoreNestedInput
+  orderItems?: Prisma.OrderItemUncheckedUpdateManyWithoutStoreNestedInput
+  orderStatusHistory?: Prisma.OrderStatusHistoryUncheckedUpdateManyWithoutStoreNestedInput
+  shipments?: Prisma.ShipmentUncheckedUpdateManyWithoutStoreNestedInput
+  payments?: Prisma.PaymentUncheckedUpdateManyWithoutStoreNestedInput
+  paymentAttempts?: Prisma.PaymentAttemptUncheckedUpdateManyWithoutStoreNestedInput
+  paymentWebhookEvents?: Prisma.PaymentWebhookEventUncheckedUpdateManyWithoutStoreNestedInput
+  refunds?: Prisma.RefundUncheckedUpdateManyWithoutStoreNestedInput
+  integrationClients?: Prisma.IntegrationClientUncheckedUpdateManyWithoutStoreNestedInput
+  importSources?: Prisma.ImportSourceUncheckedUpdateManyWithoutStoreNestedInput
+  importBatches?: Prisma.ImportBatchUncheckedUpdateManyWithoutStoreNestedInput
+  importItems?: Prisma.ImportItemUncheckedUpdateManyWithoutStoreNestedInput
+  importFieldOverrides?: Prisma.ImportFieldOverrideUncheckedUpdateManyWithoutStoreNestedInput
+  externalIdentities?: Prisma.ExternalIdentityUncheckedUpdateManyWithoutStoreNestedInput
+  idempotencyRecords?: Prisma.IdempotencyRecordUncheckedUpdateManyWithoutStoreNestedInput
+  auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutStoreNestedInput
+  consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
+  storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
+  storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutStorefrontBannersInput = {
@@ -14968,6 +18046,12 @@ export type StoreCreateWithoutStorefrontBannersInput = {
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutStoreInput
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutStorefrontBannersInput = {
@@ -15031,6 +18115,12 @@ export type StoreUncheckedCreateWithoutStorefrontBannersInput = {
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutStoreInput
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutStorefrontBannersInput = {
@@ -15110,6 +18200,12 @@ export type StoreUpdateWithoutStorefrontBannersInput = {
   auditLogs?: Prisma.AuditLogUpdateManyWithoutStoreNestedInput
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutStorefrontBannersInput = {
@@ -15173,6 +18269,12 @@ export type StoreUncheckedUpdateWithoutStorefrontBannersInput = {
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutStoreNestedInput
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontSections?: Prisma.StorefrontSectionUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreCreateWithoutStorefrontSectionsInput = {
@@ -15236,6 +18338,12 @@ export type StoreCreateWithoutStorefrontSectionsInput = {
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutStoreInput
   consentRecords?: Prisma.ConsentRecordCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignCreateNestedManyWithoutStoreInput
 }
 
 export type StoreUncheckedCreateWithoutStorefrontSectionsInput = {
@@ -15299,6 +18407,12 @@ export type StoreUncheckedCreateWithoutStorefrontSectionsInput = {
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutStoreInput
   consentRecords?: Prisma.ConsentRecordUncheckedCreateNestedManyWithoutStoreInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedCreateNestedManyWithoutStoreInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutStoreInput
+  shippingRules?: Prisma.ShippingRuleUncheckedCreateNestedManyWithoutStoreInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedCreateNestedManyWithoutStoreInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedCreateNestedManyWithoutStoreInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedCreateNestedManyWithoutStoreInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedCreateNestedManyWithoutStoreInput
 }
 
 export type StoreCreateOrConnectWithoutStorefrontSectionsInput = {
@@ -15378,6 +18492,12 @@ export type StoreUpdateWithoutStorefrontSectionsInput = {
   auditLogs?: Prisma.AuditLogUpdateManyWithoutStoreNestedInput
   consentRecords?: Prisma.ConsentRecordUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUpdateManyWithoutStoreNestedInput
 }
 
 export type StoreUncheckedUpdateWithoutStorefrontSectionsInput = {
@@ -15441,6 +18561,12 @@ export type StoreUncheckedUpdateWithoutStorefrontSectionsInput = {
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutStoreNestedInput
   consentRecords?: Prisma.ConsentRecordUncheckedUpdateManyWithoutStoreNestedInput
   storefrontBanners?: Prisma.StorefrontBannerUncheckedUpdateManyWithoutStoreNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutStoreNestedInput
+  shippingRules?: Prisma.ShippingRuleUncheckedUpdateManyWithoutStoreNestedInput
+  webhookEndpoints?: Prisma.WebhookEndpointUncheckedUpdateManyWithoutStoreNestedInput
+  webhookDeliveries?: Prisma.WebhookDeliveryUncheckedUpdateManyWithoutStoreNestedInput
+  notificationTemplates?: Prisma.NotificationTemplateUncheckedUpdateManyWithoutStoreNestedInput
+  marketingCampaigns?: Prisma.MarketingCampaignUncheckedUpdateManyWithoutStoreNestedInput
 }
 
 
@@ -15501,6 +18627,12 @@ export type StoreCountOutputType = {
   consentRecords: number
   storefrontBanners: number
   storefrontSections: number
+  favorites: number
+  shippingRules: number
+  webhookEndpoints: number
+  webhookDeliveries: number
+  notificationTemplates: number
+  marketingCampaigns: number
 }
 
 export type StoreCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -15556,6 +18688,12 @@ export type StoreCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.
   consentRecords?: boolean | StoreCountOutputTypeCountConsentRecordsArgs
   storefrontBanners?: boolean | StoreCountOutputTypeCountStorefrontBannersArgs
   storefrontSections?: boolean | StoreCountOutputTypeCountStorefrontSectionsArgs
+  favorites?: boolean | StoreCountOutputTypeCountFavoritesArgs
+  shippingRules?: boolean | StoreCountOutputTypeCountShippingRulesArgs
+  webhookEndpoints?: boolean | StoreCountOutputTypeCountWebhookEndpointsArgs
+  webhookDeliveries?: boolean | StoreCountOutputTypeCountWebhookDeliveriesArgs
+  notificationTemplates?: boolean | StoreCountOutputTypeCountNotificationTemplatesArgs
+  marketingCampaigns?: boolean | StoreCountOutputTypeCountMarketingCampaignsArgs
 }
 
 /**
@@ -15932,6 +19070,48 @@ export type StoreCountOutputTypeCountStorefrontSectionsArgs<ExtArgs extends runt
   where?: Prisma.StorefrontSectionWhereInput
 }
 
+/**
+ * StoreCountOutputType without action
+ */
+export type StoreCountOutputTypeCountFavoritesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.CustomerFavoriteWhereInput
+}
+
+/**
+ * StoreCountOutputType without action
+ */
+export type StoreCountOutputTypeCountShippingRulesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ShippingRuleWhereInput
+}
+
+/**
+ * StoreCountOutputType without action
+ */
+export type StoreCountOutputTypeCountWebhookEndpointsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.WebhookEndpointWhereInput
+}
+
+/**
+ * StoreCountOutputType without action
+ */
+export type StoreCountOutputTypeCountWebhookDeliveriesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.WebhookDeliveryWhereInput
+}
+
+/**
+ * StoreCountOutputType without action
+ */
+export type StoreCountOutputTypeCountNotificationTemplatesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.NotificationTemplateWhereInput
+}
+
+/**
+ * StoreCountOutputType without action
+ */
+export type StoreCountOutputTypeCountMarketingCampaignsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.MarketingCampaignWhereInput
+}
+
 
 export type StoreSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -15995,6 +19175,12 @@ export type StoreSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   consentRecords?: boolean | Prisma.Store$consentRecordsArgs<ExtArgs>
   storefrontBanners?: boolean | Prisma.Store$storefrontBannersArgs<ExtArgs>
   storefrontSections?: boolean | Prisma.Store$storefrontSectionsArgs<ExtArgs>
+  favorites?: boolean | Prisma.Store$favoritesArgs<ExtArgs>
+  shippingRules?: boolean | Prisma.Store$shippingRulesArgs<ExtArgs>
+  webhookEndpoints?: boolean | Prisma.Store$webhookEndpointsArgs<ExtArgs>
+  webhookDeliveries?: boolean | Prisma.Store$webhookDeliveriesArgs<ExtArgs>
+  notificationTemplates?: boolean | Prisma.Store$notificationTemplatesArgs<ExtArgs>
+  marketingCampaigns?: boolean | Prisma.Store$marketingCampaignsArgs<ExtArgs>
   _count?: boolean | Prisma.StoreCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["store"]>
 
@@ -16088,6 +19274,12 @@ export type StoreInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   consentRecords?: boolean | Prisma.Store$consentRecordsArgs<ExtArgs>
   storefrontBanners?: boolean | Prisma.Store$storefrontBannersArgs<ExtArgs>
   storefrontSections?: boolean | Prisma.Store$storefrontSectionsArgs<ExtArgs>
+  favorites?: boolean | Prisma.Store$favoritesArgs<ExtArgs>
+  shippingRules?: boolean | Prisma.Store$shippingRulesArgs<ExtArgs>
+  webhookEndpoints?: boolean | Prisma.Store$webhookEndpointsArgs<ExtArgs>
+  webhookDeliveries?: boolean | Prisma.Store$webhookDeliveriesArgs<ExtArgs>
+  notificationTemplates?: boolean | Prisma.Store$notificationTemplatesArgs<ExtArgs>
+  marketingCampaigns?: boolean | Prisma.Store$marketingCampaignsArgs<ExtArgs>
   _count?: boolean | Prisma.StoreCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type StoreIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -16148,6 +19340,12 @@ export type $StorePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     consentRecords: Prisma.$ConsentRecordPayload<ExtArgs>[]
     storefrontBanners: Prisma.$StorefrontBannerPayload<ExtArgs>[]
     storefrontSections: Prisma.$StorefrontSectionPayload<ExtArgs>[]
+    favorites: Prisma.$CustomerFavoritePayload<ExtArgs>[]
+    shippingRules: Prisma.$ShippingRulePayload<ExtArgs>[]
+    webhookEndpoints: Prisma.$WebhookEndpointPayload<ExtArgs>[]
+    webhookDeliveries: Prisma.$WebhookDeliveryPayload<ExtArgs>[]
+    notificationTemplates: Prisma.$NotificationTemplatePayload<ExtArgs>[]
+    marketingCampaigns: Prisma.$MarketingCampaignPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -16605,6 +19803,12 @@ export interface Prisma__StoreClient<T, Null = never, ExtArgs extends runtime.Ty
   consentRecords<T extends Prisma.Store$consentRecordsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Store$consentRecordsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ConsentRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   storefrontBanners<T extends Prisma.Store$storefrontBannersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Store$storefrontBannersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$StorefrontBannerPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   storefrontSections<T extends Prisma.Store$storefrontSectionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Store$storefrontSectionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$StorefrontSectionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  favorites<T extends Prisma.Store$favoritesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Store$favoritesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CustomerFavoritePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  shippingRules<T extends Prisma.Store$shippingRulesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Store$shippingRulesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ShippingRulePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  webhookEndpoints<T extends Prisma.Store$webhookEndpointsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Store$webhookEndpointsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WebhookEndpointPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  webhookDeliveries<T extends Prisma.Store$webhookDeliveriesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Store$webhookDeliveriesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WebhookDeliveryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  notificationTemplates<T extends Prisma.Store$notificationTemplatesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Store$notificationTemplatesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$NotificationTemplatePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  marketingCampaigns<T extends Prisma.Store$marketingCampaignsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Store$marketingCampaignsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MarketingCampaignPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -18281,6 +21485,150 @@ export type Store$storefrontSectionsArgs<ExtArgs extends runtime.Types.Extension
   take?: number
   skip?: number
   distinct?: Prisma.StorefrontSectionScalarFieldEnum | Prisma.StorefrontSectionScalarFieldEnum[]
+}
+
+/**
+ * Store.favorites
+ */
+export type Store$favoritesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the CustomerFavorite
+   */
+  select?: Prisma.CustomerFavoriteSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the CustomerFavorite
+   */
+  omit?: Prisma.CustomerFavoriteOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.CustomerFavoriteInclude<ExtArgs> | null
+  where?: Prisma.CustomerFavoriteWhereInput
+  orderBy?: Prisma.CustomerFavoriteOrderByWithRelationInput | Prisma.CustomerFavoriteOrderByWithRelationInput[]
+  cursor?: Prisma.CustomerFavoriteWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.CustomerFavoriteScalarFieldEnum | Prisma.CustomerFavoriteScalarFieldEnum[]
+}
+
+/**
+ * Store.shippingRules
+ */
+export type Store$shippingRulesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ShippingRule
+   */
+  select?: Prisma.ShippingRuleSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ShippingRule
+   */
+  omit?: Prisma.ShippingRuleOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ShippingRuleInclude<ExtArgs> | null
+  where?: Prisma.ShippingRuleWhereInput
+  orderBy?: Prisma.ShippingRuleOrderByWithRelationInput | Prisma.ShippingRuleOrderByWithRelationInput[]
+  cursor?: Prisma.ShippingRuleWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ShippingRuleScalarFieldEnum | Prisma.ShippingRuleScalarFieldEnum[]
+}
+
+/**
+ * Store.webhookEndpoints
+ */
+export type Store$webhookEndpointsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the WebhookEndpoint
+   */
+  select?: Prisma.WebhookEndpointSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the WebhookEndpoint
+   */
+  omit?: Prisma.WebhookEndpointOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.WebhookEndpointInclude<ExtArgs> | null
+  where?: Prisma.WebhookEndpointWhereInput
+  orderBy?: Prisma.WebhookEndpointOrderByWithRelationInput | Prisma.WebhookEndpointOrderByWithRelationInput[]
+  cursor?: Prisma.WebhookEndpointWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.WebhookEndpointScalarFieldEnum | Prisma.WebhookEndpointScalarFieldEnum[]
+}
+
+/**
+ * Store.webhookDeliveries
+ */
+export type Store$webhookDeliveriesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the WebhookDelivery
+   */
+  select?: Prisma.WebhookDeliverySelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the WebhookDelivery
+   */
+  omit?: Prisma.WebhookDeliveryOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.WebhookDeliveryInclude<ExtArgs> | null
+  where?: Prisma.WebhookDeliveryWhereInput
+  orderBy?: Prisma.WebhookDeliveryOrderByWithRelationInput | Prisma.WebhookDeliveryOrderByWithRelationInput[]
+  cursor?: Prisma.WebhookDeliveryWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.WebhookDeliveryScalarFieldEnum | Prisma.WebhookDeliveryScalarFieldEnum[]
+}
+
+/**
+ * Store.notificationTemplates
+ */
+export type Store$notificationTemplatesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the NotificationTemplate
+   */
+  select?: Prisma.NotificationTemplateSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the NotificationTemplate
+   */
+  omit?: Prisma.NotificationTemplateOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.NotificationTemplateInclude<ExtArgs> | null
+  where?: Prisma.NotificationTemplateWhereInput
+  orderBy?: Prisma.NotificationTemplateOrderByWithRelationInput | Prisma.NotificationTemplateOrderByWithRelationInput[]
+  cursor?: Prisma.NotificationTemplateWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.NotificationTemplateScalarFieldEnum | Prisma.NotificationTemplateScalarFieldEnum[]
+}
+
+/**
+ * Store.marketingCampaigns
+ */
+export type Store$marketingCampaignsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the MarketingCampaign
+   */
+  select?: Prisma.MarketingCampaignSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the MarketingCampaign
+   */
+  omit?: Prisma.MarketingCampaignOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.MarketingCampaignInclude<ExtArgs> | null
+  where?: Prisma.MarketingCampaignWhereInput
+  orderBy?: Prisma.MarketingCampaignOrderByWithRelationInput | Prisma.MarketingCampaignOrderByWithRelationInput[]
+  cursor?: Prisma.MarketingCampaignWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.MarketingCampaignScalarFieldEnum | Prisma.MarketingCampaignScalarFieldEnum[]
 }
 
 /**

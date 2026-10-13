@@ -1,11 +1,41 @@
 import { applyPercentageDiscount, cappedDiscount, multiplyMoney, selectPromotion } from '@ecommerce/commerce';
 import { BadRequestException, Inject, Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../prisma.service';
-import type { ChangePriceInput, CreateCouponInput, CreatePromotionInput, PriceQuoteInput } from './schemas';
+import type { ChangePriceInput, CreateCouponInput, CreatePromotionInput, PriceQuoteInput, UpdateCouponInput, UpdatePromotionInput } from './schemas';
+import { cursorPage, type CursorPage, type PaginationInput } from '../platform/pagination';
 
 @Injectable()
 export class PricingService {
   constructor(@Inject(PrismaService) private readonly prisma: PrismaService) {}
+
+  async promotions(storeId: string, query: PaginationInput): Promise<CursorPage<Record<string, unknown> & { id: string }>> {
+    const items = await this.prisma.client.promotion.findMany({ where: { storeId, ...(query.status ? { status: query.status as never } : {}), ...(query.q ? { name: { contains: query.q, mode: 'insensitive' } } : {}) }, orderBy: [{ createdAt: 'desc' }, { id: 'desc' }], take: query.limit + 1, ...(query.cursor ? { cursor: { id: query.cursor }, skip: 1 } : {}), include: { targets: true } }); return cursorPage(items, query.limit);
+  }
+
+  async coupons(storeId: string, query: PaginationInput): Promise<CursorPage<Record<string, unknown> & { id: string }>> {
+    const items = await this.prisma.client.coupon.findMany({ where: { storeId, ...(query.status ? { active: query.status === 'ACTIVE' } : {}), ...(query.q ? { code: { contains: query.q, mode: 'insensitive' } } : {}) }, orderBy: [{ createdAt: 'desc' }, { id: 'desc' }], take: query.limit + 1, ...(query.cursor ? { cursor: { id: query.cursor }, skip: 1 } : {}), include: { _count: { select: { redemptions: true } } } }); return cursorPage(items, query.limit);
+  }
+
+  async priceHistory(storeId: string, query: PaginationInput) {
+    const history = await this.prisma.client.priceHistory.findMany({ where: { storeId, ...(query.q ? { variant: { OR: [{ sku: { contains: query.q, mode: 'insensitive' } }, { product: { title: { contains: query.q, mode: 'insensitive' } } }] } } : {}) }, orderBy: [{ changedAt: 'desc' }, { id: 'desc' }], take: query.limit + 1, ...(query.cursor ? { cursor: { id: query.cursor }, skip: 1 } : {}), include: { variant: { select: { sku: true, product: { select: { title: true } } } } } });
+    return cursorPage(history.map((entry) => ({ ...entry, previousCents: entry.previousCents === null ? null : Number(entry.previousCents), newCents: Number(entry.newCents) })), query.limit);
+  }
+
+  async updatePromotion(storeId: string, promotionId: string, input: UpdatePromotionInput): Promise<unknown> {
+    const promotion = await this.prisma.client.promotion.findFirst({ where: { id: promotionId, storeId } });
+    if (!promotion) throw new NotFoundException('PROMOTION_NOT_FOUND');
+    const data = Object.fromEntries(Object.entries(input).filter(([, value]) => value !== undefined));
+    return this.prisma.client.promotion.update({ where: { id: promotion.id }, data });
+  }
+
+  async updateCoupon(storeId: string, couponId: string, input: UpdateCouponInput): Promise<unknown> {
+    const coupon = await this.prisma.client.coupon.findFirst({ where: { id: couponId, storeId } });
+    if (!coupon) throw new NotFoundException('COUPON_NOT_FOUND');
+    const data = Object.fromEntries(Object.entries(input).filter(([, value]) => value !== undefined));
+    return this.prisma.client.coupon.update({ where: { id: coupon.id }, data });
+  }
+  async archivePromotion(storeId: string, promotionId: string): Promise<unknown> { const item = await this.prisma.client.promotion.findFirst({ where: { id: promotionId, storeId } }); if (!item) throw new NotFoundException('PROMOTION_NOT_FOUND'); return this.prisma.client.promotion.update({ where: { id: item.id }, data: { status: 'ENDED', endsAt: new Date() } }); }
+  async disableCoupon(storeId: string, couponId: string): Promise<unknown> { const item = await this.prisma.client.coupon.findFirst({ where: { id: couponId, storeId } }); if (!item) throw new NotFoundException('COUPON_NOT_FOUND'); return this.prisma.client.coupon.update({ where: { id: item.id }, data: { active: false } }); }
 
   async createPromotion(storeId: string, input: CreatePromotionInput): Promise<unknown> {
     return this.prisma.client.$transaction(async (tx) => {

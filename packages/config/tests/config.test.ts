@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { parseApiEnvironment } from '../src';
+import { assertApiProductionEnvironment, assertWorkerProductionEnvironment, parseApiEnvironment } from '../src';
 
 describe('parseApiEnvironment', () => {
   it('applies safe local defaults', () => {
@@ -12,5 +12,14 @@ describe('parseApiEnvironment', () => {
 
   it('rejects invalid ports', () => {
     expect(() => parseApiEnvironment({ API_PORT: '70000' })).toThrow();
+  });
+
+  it('fails closed when production secrets and managed storage are absent', () => {
+    expect(() => assertApiProductionEnvironment({ NODE_ENV: 'production' })).toThrow();
+    expect(() => assertWorkerProductionEnvironment({ NODE_ENV: 'production' })).toThrow();
+  });
+
+  it('does not require production-only settings in local development', () => {
+    expect(() => assertApiProductionEnvironment({ NODE_ENV: 'development' })).not.toThrow();
   });
 });

@@ -251,6 +251,7 @@ export type ProductWhereInput = {
   media?: Prisma.ProductMediaListRelationFilter
   importFieldOverrides?: Prisma.ImportFieldOverrideListRelationFilter
   externalIdentities?: Prisma.ExternalIdentityListRelationFilter
+  favorites?: Prisma.CustomerFavoriteListRelationFilter
 }
 
 export type ProductOrderByWithRelationInput = {
@@ -276,6 +277,7 @@ export type ProductOrderByWithRelationInput = {
   media?: Prisma.ProductMediaOrderByRelationAggregateInput
   importFieldOverrides?: Prisma.ImportFieldOverrideOrderByRelationAggregateInput
   externalIdentities?: Prisma.ExternalIdentityOrderByRelationAggregateInput
+  favorites?: Prisma.CustomerFavoriteOrderByRelationAggregateInput
 }
 
 export type ProductWhereUniqueInput = Prisma.AtLeast<{
@@ -306,6 +308,7 @@ export type ProductWhereUniqueInput = Prisma.AtLeast<{
   media?: Prisma.ProductMediaListRelationFilter
   importFieldOverrides?: Prisma.ImportFieldOverrideListRelationFilter
   externalIdentities?: Prisma.ExternalIdentityListRelationFilter
+  favorites?: Prisma.CustomerFavoriteListRelationFilter
 }, "id" | "storeId_slug" | "id_storeId">
 
 export type ProductOrderByWithAggregationInput = {
@@ -366,6 +369,7 @@ export type ProductCreateInput = {
   media?: Prisma.ProductMediaCreateNestedManyWithoutProductInput
   importFieldOverrides?: Prisma.ImportFieldOverrideCreateNestedManyWithoutProductInput
   externalIdentities?: Prisma.ExternalIdentityCreateNestedManyWithoutProductInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutProductInput
 }
 
 export type ProductUncheckedCreateInput = {
@@ -388,6 +392,7 @@ export type ProductUncheckedCreateInput = {
   media?: Prisma.ProductMediaUncheckedCreateNestedManyWithoutProductInput
   importFieldOverrides?: Prisma.ImportFieldOverrideUncheckedCreateNestedManyWithoutProductInput
   externalIdentities?: Prisma.ExternalIdentityUncheckedCreateNestedManyWithoutProductInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutProductInput
 }
 
 export type ProductUpdateInput = {
@@ -410,6 +415,7 @@ export type ProductUpdateInput = {
   media?: Prisma.ProductMediaUpdateManyWithoutProductNestedInput
   importFieldOverrides?: Prisma.ImportFieldOverrideUpdateManyWithoutProductNestedInput
   externalIdentities?: Prisma.ExternalIdentityUpdateManyWithoutProductNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutProductNestedInput
 }
 
 export type ProductUncheckedUpdateInput = {
@@ -432,6 +438,7 @@ export type ProductUncheckedUpdateInput = {
   media?: Prisma.ProductMediaUncheckedUpdateManyWithoutProductNestedInput
   importFieldOverrides?: Prisma.ImportFieldOverrideUncheckedUpdateManyWithoutProductNestedInput
   externalIdentities?: Prisma.ExternalIdentityUncheckedUpdateManyWithoutProductNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutProductNestedInput
 }
 
 export type ProductCreateManyInput = {
@@ -775,6 +782,20 @@ export type ProductUpdateOneWithoutExternalIdentitiesNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.ProductUpdateToOneWithWhereWithoutExternalIdentitiesInput, Prisma.ProductUpdateWithoutExternalIdentitiesInput>, Prisma.ProductUncheckedUpdateWithoutExternalIdentitiesInput>
 }
 
+export type ProductCreateNestedOneWithoutFavoritesInput = {
+  create?: Prisma.XOR<Prisma.ProductCreateWithoutFavoritesInput, Prisma.ProductUncheckedCreateWithoutFavoritesInput>
+  connectOrCreate?: Prisma.ProductCreateOrConnectWithoutFavoritesInput
+  connect?: Prisma.ProductWhereUniqueInput
+}
+
+export type ProductUpdateOneRequiredWithoutFavoritesNestedInput = {
+  create?: Prisma.XOR<Prisma.ProductCreateWithoutFavoritesInput, Prisma.ProductUncheckedCreateWithoutFavoritesInput>
+  connectOrCreate?: Prisma.ProductCreateOrConnectWithoutFavoritesInput
+  upsert?: Prisma.ProductUpsertWithoutFavoritesInput
+  connect?: Prisma.ProductWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ProductUpdateToOneWithWhereWithoutFavoritesInput, Prisma.ProductUpdateWithoutFavoritesInput>, Prisma.ProductUncheckedUpdateWithoutFavoritesInput>
+}
+
 export type ProductCreateWithoutStoreInput = {
   id?: string
   slug: string
@@ -794,6 +815,7 @@ export type ProductCreateWithoutStoreInput = {
   media?: Prisma.ProductMediaCreateNestedManyWithoutProductInput
   importFieldOverrides?: Prisma.ImportFieldOverrideCreateNestedManyWithoutProductInput
   externalIdentities?: Prisma.ExternalIdentityCreateNestedManyWithoutProductInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutProductInput
 }
 
 export type ProductUncheckedCreateWithoutStoreInput = {
@@ -815,6 +837,7 @@ export type ProductUncheckedCreateWithoutStoreInput = {
   media?: Prisma.ProductMediaUncheckedCreateNestedManyWithoutProductInput
   importFieldOverrides?: Prisma.ImportFieldOverrideUncheckedCreateNestedManyWithoutProductInput
   externalIdentities?: Prisma.ExternalIdentityUncheckedCreateNestedManyWithoutProductInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutProductInput
 }
 
 export type ProductCreateOrConnectWithoutStoreInput = {
@@ -881,6 +904,7 @@ export type ProductCreateWithoutBrandInput = {
   media?: Prisma.ProductMediaCreateNestedManyWithoutProductInput
   importFieldOverrides?: Prisma.ImportFieldOverrideCreateNestedManyWithoutProductInput
   externalIdentities?: Prisma.ExternalIdentityCreateNestedManyWithoutProductInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutProductInput
 }
 
 export type ProductUncheckedCreateWithoutBrandInput = {
@@ -901,6 +925,7 @@ export type ProductUncheckedCreateWithoutBrandInput = {
   media?: Prisma.ProductMediaUncheckedCreateNestedManyWithoutProductInput
   importFieldOverrides?: Prisma.ImportFieldOverrideUncheckedCreateNestedManyWithoutProductInput
   externalIdentities?: Prisma.ExternalIdentityUncheckedCreateNestedManyWithoutProductInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutProductInput
 }
 
 export type ProductCreateOrConnectWithoutBrandInput = {
@@ -948,6 +973,7 @@ export type ProductCreateWithoutPrimaryCategoryInput = {
   media?: Prisma.ProductMediaCreateNestedManyWithoutProductInput
   importFieldOverrides?: Prisma.ImportFieldOverrideCreateNestedManyWithoutProductInput
   externalIdentities?: Prisma.ExternalIdentityCreateNestedManyWithoutProductInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutProductInput
 }
 
 export type ProductUncheckedCreateWithoutPrimaryCategoryInput = {
@@ -968,6 +994,7 @@ export type ProductUncheckedCreateWithoutPrimaryCategoryInput = {
   media?: Prisma.ProductMediaUncheckedCreateNestedManyWithoutProductInput
   importFieldOverrides?: Prisma.ImportFieldOverrideUncheckedCreateNestedManyWithoutProductInput
   externalIdentities?: Prisma.ExternalIdentityUncheckedCreateNestedManyWithoutProductInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutProductInput
 }
 
 export type ProductCreateOrConnectWithoutPrimaryCategoryInput = {
@@ -1015,6 +1042,7 @@ export type ProductCreateWithoutCategoriesInput = {
   media?: Prisma.ProductMediaCreateNestedManyWithoutProductInput
   importFieldOverrides?: Prisma.ImportFieldOverrideCreateNestedManyWithoutProductInput
   externalIdentities?: Prisma.ExternalIdentityCreateNestedManyWithoutProductInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutProductInput
 }
 
 export type ProductUncheckedCreateWithoutCategoriesInput = {
@@ -1036,6 +1064,7 @@ export type ProductUncheckedCreateWithoutCategoriesInput = {
   media?: Prisma.ProductMediaUncheckedCreateNestedManyWithoutProductInput
   importFieldOverrides?: Prisma.ImportFieldOverrideUncheckedCreateNestedManyWithoutProductInput
   externalIdentities?: Prisma.ExternalIdentityUncheckedCreateNestedManyWithoutProductInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutProductInput
 }
 
 export type ProductCreateOrConnectWithoutCategoriesInput = {
@@ -1073,6 +1102,7 @@ export type ProductUpdateWithoutCategoriesInput = {
   media?: Prisma.ProductMediaUpdateManyWithoutProductNestedInput
   importFieldOverrides?: Prisma.ImportFieldOverrideUpdateManyWithoutProductNestedInput
   externalIdentities?: Prisma.ExternalIdentityUpdateManyWithoutProductNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutProductNestedInput
 }
 
 export type ProductUncheckedUpdateWithoutCategoriesInput = {
@@ -1094,6 +1124,7 @@ export type ProductUncheckedUpdateWithoutCategoriesInput = {
   media?: Prisma.ProductMediaUncheckedUpdateManyWithoutProductNestedInput
   importFieldOverrides?: Prisma.ImportFieldOverrideUncheckedUpdateManyWithoutProductNestedInput
   externalIdentities?: Prisma.ExternalIdentityUncheckedUpdateManyWithoutProductNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutProductNestedInput
 }
 
 export type ProductCreateWithoutVariantsInput = {
@@ -1115,6 +1146,7 @@ export type ProductCreateWithoutVariantsInput = {
   media?: Prisma.ProductMediaCreateNestedManyWithoutProductInput
   importFieldOverrides?: Prisma.ImportFieldOverrideCreateNestedManyWithoutProductInput
   externalIdentities?: Prisma.ExternalIdentityCreateNestedManyWithoutProductInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutProductInput
 }
 
 export type ProductUncheckedCreateWithoutVariantsInput = {
@@ -1136,6 +1168,7 @@ export type ProductUncheckedCreateWithoutVariantsInput = {
   media?: Prisma.ProductMediaUncheckedCreateNestedManyWithoutProductInput
   importFieldOverrides?: Prisma.ImportFieldOverrideUncheckedCreateNestedManyWithoutProductInput
   externalIdentities?: Prisma.ExternalIdentityUncheckedCreateNestedManyWithoutProductInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutProductInput
 }
 
 export type ProductCreateOrConnectWithoutVariantsInput = {
@@ -1173,6 +1206,7 @@ export type ProductUpdateWithoutVariantsInput = {
   media?: Prisma.ProductMediaUpdateManyWithoutProductNestedInput
   importFieldOverrides?: Prisma.ImportFieldOverrideUpdateManyWithoutProductNestedInput
   externalIdentities?: Prisma.ExternalIdentityUpdateManyWithoutProductNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutProductNestedInput
 }
 
 export type ProductUncheckedUpdateWithoutVariantsInput = {
@@ -1194,6 +1228,7 @@ export type ProductUncheckedUpdateWithoutVariantsInput = {
   media?: Prisma.ProductMediaUncheckedUpdateManyWithoutProductNestedInput
   importFieldOverrides?: Prisma.ImportFieldOverrideUncheckedUpdateManyWithoutProductNestedInput
   externalIdentities?: Prisma.ExternalIdentityUncheckedUpdateManyWithoutProductNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutProductNestedInput
 }
 
 export type ProductCreateWithoutAttributeValuesInput = {
@@ -1215,6 +1250,7 @@ export type ProductCreateWithoutAttributeValuesInput = {
   media?: Prisma.ProductMediaCreateNestedManyWithoutProductInput
   importFieldOverrides?: Prisma.ImportFieldOverrideCreateNestedManyWithoutProductInput
   externalIdentities?: Prisma.ExternalIdentityCreateNestedManyWithoutProductInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutProductInput
 }
 
 export type ProductUncheckedCreateWithoutAttributeValuesInput = {
@@ -1236,6 +1272,7 @@ export type ProductUncheckedCreateWithoutAttributeValuesInput = {
   media?: Prisma.ProductMediaUncheckedCreateNestedManyWithoutProductInput
   importFieldOverrides?: Prisma.ImportFieldOverrideUncheckedCreateNestedManyWithoutProductInput
   externalIdentities?: Prisma.ExternalIdentityUncheckedCreateNestedManyWithoutProductInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutProductInput
 }
 
 export type ProductCreateOrConnectWithoutAttributeValuesInput = {
@@ -1273,6 +1310,7 @@ export type ProductUpdateWithoutAttributeValuesInput = {
   media?: Prisma.ProductMediaUpdateManyWithoutProductNestedInput
   importFieldOverrides?: Prisma.ImportFieldOverrideUpdateManyWithoutProductNestedInput
   externalIdentities?: Prisma.ExternalIdentityUpdateManyWithoutProductNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutProductNestedInput
 }
 
 export type ProductUncheckedUpdateWithoutAttributeValuesInput = {
@@ -1294,6 +1332,7 @@ export type ProductUncheckedUpdateWithoutAttributeValuesInput = {
   media?: Prisma.ProductMediaUncheckedUpdateManyWithoutProductNestedInput
   importFieldOverrides?: Prisma.ImportFieldOverrideUncheckedUpdateManyWithoutProductNestedInput
   externalIdentities?: Prisma.ExternalIdentityUncheckedUpdateManyWithoutProductNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutProductNestedInput
 }
 
 export type ProductCreateWithoutMediaInput = {
@@ -1315,6 +1354,7 @@ export type ProductCreateWithoutMediaInput = {
   attributeValues?: Prisma.ProductAttributeValueCreateNestedManyWithoutProductInput
   importFieldOverrides?: Prisma.ImportFieldOverrideCreateNestedManyWithoutProductInput
   externalIdentities?: Prisma.ExternalIdentityCreateNestedManyWithoutProductInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutProductInput
 }
 
 export type ProductUncheckedCreateWithoutMediaInput = {
@@ -1336,6 +1376,7 @@ export type ProductUncheckedCreateWithoutMediaInput = {
   attributeValues?: Prisma.ProductAttributeValueUncheckedCreateNestedManyWithoutProductInput
   importFieldOverrides?: Prisma.ImportFieldOverrideUncheckedCreateNestedManyWithoutProductInput
   externalIdentities?: Prisma.ExternalIdentityUncheckedCreateNestedManyWithoutProductInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutProductInput
 }
 
 export type ProductCreateOrConnectWithoutMediaInput = {
@@ -1373,6 +1414,7 @@ export type ProductUpdateWithoutMediaInput = {
   attributeValues?: Prisma.ProductAttributeValueUpdateManyWithoutProductNestedInput
   importFieldOverrides?: Prisma.ImportFieldOverrideUpdateManyWithoutProductNestedInput
   externalIdentities?: Prisma.ExternalIdentityUpdateManyWithoutProductNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutProductNestedInput
 }
 
 export type ProductUncheckedUpdateWithoutMediaInput = {
@@ -1394,6 +1436,7 @@ export type ProductUncheckedUpdateWithoutMediaInput = {
   attributeValues?: Prisma.ProductAttributeValueUncheckedUpdateManyWithoutProductNestedInput
   importFieldOverrides?: Prisma.ImportFieldOverrideUncheckedUpdateManyWithoutProductNestedInput
   externalIdentities?: Prisma.ExternalIdentityUncheckedUpdateManyWithoutProductNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutProductNestedInput
 }
 
 export type ProductCreateWithoutImportFieldOverridesInput = {
@@ -1415,6 +1458,7 @@ export type ProductCreateWithoutImportFieldOverridesInput = {
   attributeValues?: Prisma.ProductAttributeValueCreateNestedManyWithoutProductInput
   media?: Prisma.ProductMediaCreateNestedManyWithoutProductInput
   externalIdentities?: Prisma.ExternalIdentityCreateNestedManyWithoutProductInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutProductInput
 }
 
 export type ProductUncheckedCreateWithoutImportFieldOverridesInput = {
@@ -1436,6 +1480,7 @@ export type ProductUncheckedCreateWithoutImportFieldOverridesInput = {
   attributeValues?: Prisma.ProductAttributeValueUncheckedCreateNestedManyWithoutProductInput
   media?: Prisma.ProductMediaUncheckedCreateNestedManyWithoutProductInput
   externalIdentities?: Prisma.ExternalIdentityUncheckedCreateNestedManyWithoutProductInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutProductInput
 }
 
 export type ProductCreateOrConnectWithoutImportFieldOverridesInput = {
@@ -1473,6 +1518,7 @@ export type ProductUpdateWithoutImportFieldOverridesInput = {
   attributeValues?: Prisma.ProductAttributeValueUpdateManyWithoutProductNestedInput
   media?: Prisma.ProductMediaUpdateManyWithoutProductNestedInput
   externalIdentities?: Prisma.ExternalIdentityUpdateManyWithoutProductNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutProductNestedInput
 }
 
 export type ProductUncheckedUpdateWithoutImportFieldOverridesInput = {
@@ -1494,6 +1540,7 @@ export type ProductUncheckedUpdateWithoutImportFieldOverridesInput = {
   attributeValues?: Prisma.ProductAttributeValueUncheckedUpdateManyWithoutProductNestedInput
   media?: Prisma.ProductMediaUncheckedUpdateManyWithoutProductNestedInput
   externalIdentities?: Prisma.ExternalIdentityUncheckedUpdateManyWithoutProductNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutProductNestedInput
 }
 
 export type ProductCreateWithoutExternalIdentitiesInput = {
@@ -1515,6 +1562,7 @@ export type ProductCreateWithoutExternalIdentitiesInput = {
   attributeValues?: Prisma.ProductAttributeValueCreateNestedManyWithoutProductInput
   media?: Prisma.ProductMediaCreateNestedManyWithoutProductInput
   importFieldOverrides?: Prisma.ImportFieldOverrideCreateNestedManyWithoutProductInput
+  favorites?: Prisma.CustomerFavoriteCreateNestedManyWithoutProductInput
 }
 
 export type ProductUncheckedCreateWithoutExternalIdentitiesInput = {
@@ -1536,6 +1584,7 @@ export type ProductUncheckedCreateWithoutExternalIdentitiesInput = {
   attributeValues?: Prisma.ProductAttributeValueUncheckedCreateNestedManyWithoutProductInput
   media?: Prisma.ProductMediaUncheckedCreateNestedManyWithoutProductInput
   importFieldOverrides?: Prisma.ImportFieldOverrideUncheckedCreateNestedManyWithoutProductInput
+  favorites?: Prisma.CustomerFavoriteUncheckedCreateNestedManyWithoutProductInput
 }
 
 export type ProductCreateOrConnectWithoutExternalIdentitiesInput = {
@@ -1573,6 +1622,7 @@ export type ProductUpdateWithoutExternalIdentitiesInput = {
   attributeValues?: Prisma.ProductAttributeValueUpdateManyWithoutProductNestedInput
   media?: Prisma.ProductMediaUpdateManyWithoutProductNestedInput
   importFieldOverrides?: Prisma.ImportFieldOverrideUpdateManyWithoutProductNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutProductNestedInput
 }
 
 export type ProductUncheckedUpdateWithoutExternalIdentitiesInput = {
@@ -1594,6 +1644,111 @@ export type ProductUncheckedUpdateWithoutExternalIdentitiesInput = {
   attributeValues?: Prisma.ProductAttributeValueUncheckedUpdateManyWithoutProductNestedInput
   media?: Prisma.ProductMediaUncheckedUpdateManyWithoutProductNestedInput
   importFieldOverrides?: Prisma.ImportFieldOverrideUncheckedUpdateManyWithoutProductNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutProductNestedInput
+}
+
+export type ProductCreateWithoutFavoritesInput = {
+  id?: string
+  slug: string
+  title: string
+  description?: string
+  seo?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  publicationStatus?: $Enums.ProductPublicationStatus
+  sourceMode?: $Enums.ProductSourceMode
+  publishedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  store: Prisma.StoreCreateNestedOneWithoutProductsInput
+  brand?: Prisma.BrandCreateNestedOneWithoutProductsInput
+  primaryCategory: Prisma.CategoryCreateNestedOneWithoutPrimaryProductsInput
+  categories?: Prisma.ProductCategoryCreateNestedManyWithoutProductInput
+  variants?: Prisma.ProductVariantCreateNestedManyWithoutProductInput
+  attributeValues?: Prisma.ProductAttributeValueCreateNestedManyWithoutProductInput
+  media?: Prisma.ProductMediaCreateNestedManyWithoutProductInput
+  importFieldOverrides?: Prisma.ImportFieldOverrideCreateNestedManyWithoutProductInput
+  externalIdentities?: Prisma.ExternalIdentityCreateNestedManyWithoutProductInput
+}
+
+export type ProductUncheckedCreateWithoutFavoritesInput = {
+  id?: string
+  storeId: string
+  brandId?: string | null
+  primaryCategoryId: string
+  slug: string
+  title: string
+  description?: string
+  seo?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  publicationStatus?: $Enums.ProductPublicationStatus
+  sourceMode?: $Enums.ProductSourceMode
+  publishedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  categories?: Prisma.ProductCategoryUncheckedCreateNestedManyWithoutProductInput
+  variants?: Prisma.ProductVariantUncheckedCreateNestedManyWithoutProductInput
+  attributeValues?: Prisma.ProductAttributeValueUncheckedCreateNestedManyWithoutProductInput
+  media?: Prisma.ProductMediaUncheckedCreateNestedManyWithoutProductInput
+  importFieldOverrides?: Prisma.ImportFieldOverrideUncheckedCreateNestedManyWithoutProductInput
+  externalIdentities?: Prisma.ExternalIdentityUncheckedCreateNestedManyWithoutProductInput
+}
+
+export type ProductCreateOrConnectWithoutFavoritesInput = {
+  where: Prisma.ProductWhereUniqueInput
+  create: Prisma.XOR<Prisma.ProductCreateWithoutFavoritesInput, Prisma.ProductUncheckedCreateWithoutFavoritesInput>
+}
+
+export type ProductUpsertWithoutFavoritesInput = {
+  update: Prisma.XOR<Prisma.ProductUpdateWithoutFavoritesInput, Prisma.ProductUncheckedUpdateWithoutFavoritesInput>
+  create: Prisma.XOR<Prisma.ProductCreateWithoutFavoritesInput, Prisma.ProductUncheckedCreateWithoutFavoritesInput>
+  where?: Prisma.ProductWhereInput
+}
+
+export type ProductUpdateToOneWithWhereWithoutFavoritesInput = {
+  where?: Prisma.ProductWhereInput
+  data: Prisma.XOR<Prisma.ProductUpdateWithoutFavoritesInput, Prisma.ProductUncheckedUpdateWithoutFavoritesInput>
+}
+
+export type ProductUpdateWithoutFavoritesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  title?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  seo?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  publicationStatus?: Prisma.EnumProductPublicationStatusFieldUpdateOperationsInput | $Enums.ProductPublicationStatus
+  sourceMode?: Prisma.EnumProductSourceModeFieldUpdateOperationsInput | $Enums.ProductSourceMode
+  publishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  store?: Prisma.StoreUpdateOneRequiredWithoutProductsNestedInput
+  brand?: Prisma.BrandUpdateOneWithoutProductsNestedInput
+  primaryCategory?: Prisma.CategoryUpdateOneRequiredWithoutPrimaryProductsNestedInput
+  categories?: Prisma.ProductCategoryUpdateManyWithoutProductNestedInput
+  variants?: Prisma.ProductVariantUpdateManyWithoutProductNestedInput
+  attributeValues?: Prisma.ProductAttributeValueUpdateManyWithoutProductNestedInput
+  media?: Prisma.ProductMediaUpdateManyWithoutProductNestedInput
+  importFieldOverrides?: Prisma.ImportFieldOverrideUpdateManyWithoutProductNestedInput
+  externalIdentities?: Prisma.ExternalIdentityUpdateManyWithoutProductNestedInput
+}
+
+export type ProductUncheckedUpdateWithoutFavoritesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  storeId?: Prisma.StringFieldUpdateOperationsInput | string
+  brandId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  primaryCategoryId?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  title?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  seo?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  publicationStatus?: Prisma.EnumProductPublicationStatusFieldUpdateOperationsInput | $Enums.ProductPublicationStatus
+  sourceMode?: Prisma.EnumProductSourceModeFieldUpdateOperationsInput | $Enums.ProductSourceMode
+  publishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  categories?: Prisma.ProductCategoryUncheckedUpdateManyWithoutProductNestedInput
+  variants?: Prisma.ProductVariantUncheckedUpdateManyWithoutProductNestedInput
+  attributeValues?: Prisma.ProductAttributeValueUncheckedUpdateManyWithoutProductNestedInput
+  media?: Prisma.ProductMediaUncheckedUpdateManyWithoutProductNestedInput
+  importFieldOverrides?: Prisma.ImportFieldOverrideUncheckedUpdateManyWithoutProductNestedInput
+  externalIdentities?: Prisma.ExternalIdentityUncheckedUpdateManyWithoutProductNestedInput
 }
 
 export type ProductCreateManyStoreInput = {
@@ -1630,6 +1785,7 @@ export type ProductUpdateWithoutStoreInput = {
   media?: Prisma.ProductMediaUpdateManyWithoutProductNestedInput
   importFieldOverrides?: Prisma.ImportFieldOverrideUpdateManyWithoutProductNestedInput
   externalIdentities?: Prisma.ExternalIdentityUpdateManyWithoutProductNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutProductNestedInput
 }
 
 export type ProductUncheckedUpdateWithoutStoreInput = {
@@ -1651,6 +1807,7 @@ export type ProductUncheckedUpdateWithoutStoreInput = {
   media?: Prisma.ProductMediaUncheckedUpdateManyWithoutProductNestedInput
   importFieldOverrides?: Prisma.ImportFieldOverrideUncheckedUpdateManyWithoutProductNestedInput
   externalIdentities?: Prisma.ExternalIdentityUncheckedUpdateManyWithoutProductNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutProductNestedInput
 }
 
 export type ProductUncheckedUpdateManyWithoutStoreInput = {
@@ -1701,6 +1858,7 @@ export type ProductUpdateWithoutBrandInput = {
   media?: Prisma.ProductMediaUpdateManyWithoutProductNestedInput
   importFieldOverrides?: Prisma.ImportFieldOverrideUpdateManyWithoutProductNestedInput
   externalIdentities?: Prisma.ExternalIdentityUpdateManyWithoutProductNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutProductNestedInput
 }
 
 export type ProductUncheckedUpdateWithoutBrandInput = {
@@ -1721,6 +1879,7 @@ export type ProductUncheckedUpdateWithoutBrandInput = {
   media?: Prisma.ProductMediaUncheckedUpdateManyWithoutProductNestedInput
   importFieldOverrides?: Prisma.ImportFieldOverrideUncheckedUpdateManyWithoutProductNestedInput
   externalIdentities?: Prisma.ExternalIdentityUncheckedUpdateManyWithoutProductNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutProductNestedInput
 }
 
 export type ProductUncheckedUpdateManyWithoutBrandInput = {
@@ -1770,6 +1929,7 @@ export type ProductUpdateWithoutPrimaryCategoryInput = {
   media?: Prisma.ProductMediaUpdateManyWithoutProductNestedInput
   importFieldOverrides?: Prisma.ImportFieldOverrideUpdateManyWithoutProductNestedInput
   externalIdentities?: Prisma.ExternalIdentityUpdateManyWithoutProductNestedInput
+  favorites?: Prisma.CustomerFavoriteUpdateManyWithoutProductNestedInput
 }
 
 export type ProductUncheckedUpdateWithoutPrimaryCategoryInput = {
@@ -1790,6 +1950,7 @@ export type ProductUncheckedUpdateWithoutPrimaryCategoryInput = {
   media?: Prisma.ProductMediaUncheckedUpdateManyWithoutProductNestedInput
   importFieldOverrides?: Prisma.ImportFieldOverrideUncheckedUpdateManyWithoutProductNestedInput
   externalIdentities?: Prisma.ExternalIdentityUncheckedUpdateManyWithoutProductNestedInput
+  favorites?: Prisma.CustomerFavoriteUncheckedUpdateManyWithoutProductNestedInput
 }
 
 export type ProductUncheckedUpdateManyWithoutPrimaryCategoryInput = {
@@ -1818,6 +1979,7 @@ export type ProductCountOutputType = {
   media: number
   importFieldOverrides: number
   externalIdentities: number
+  favorites: number
 }
 
 export type ProductCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1827,6 +1989,7 @@ export type ProductCountOutputTypeSelect<ExtArgs extends runtime.Types.Extension
   media?: boolean | ProductCountOutputTypeCountMediaArgs
   importFieldOverrides?: boolean | ProductCountOutputTypeCountImportFieldOverridesArgs
   externalIdentities?: boolean | ProductCountOutputTypeCountExternalIdentitiesArgs
+  favorites?: boolean | ProductCountOutputTypeCountFavoritesArgs
 }
 
 /**
@@ -1881,6 +2044,13 @@ export type ProductCountOutputTypeCountExternalIdentitiesArgs<ExtArgs extends ru
   where?: Prisma.ExternalIdentityWhereInput
 }
 
+/**
+ * ProductCountOutputType without action
+ */
+export type ProductCountOutputTypeCountFavoritesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.CustomerFavoriteWhereInput
+}
+
 
 export type ProductSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -1905,6 +2075,7 @@ export type ProductSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   media?: boolean | Prisma.Product$mediaArgs<ExtArgs>
   importFieldOverrides?: boolean | Prisma.Product$importFieldOverridesArgs<ExtArgs>
   externalIdentities?: boolean | Prisma.Product$externalIdentitiesArgs<ExtArgs>
+  favorites?: boolean | Prisma.Product$favoritesArgs<ExtArgs>
   _count?: boolean | Prisma.ProductCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["product"]>
 
@@ -1973,6 +2144,7 @@ export type ProductInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs
   media?: boolean | Prisma.Product$mediaArgs<ExtArgs>
   importFieldOverrides?: boolean | Prisma.Product$importFieldOverridesArgs<ExtArgs>
   externalIdentities?: boolean | Prisma.Product$externalIdentitiesArgs<ExtArgs>
+  favorites?: boolean | Prisma.Product$favoritesArgs<ExtArgs>
   _count?: boolean | Prisma.ProductCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type ProductIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1998,6 +2170,7 @@ export type $ProductPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     media: Prisma.$ProductMediaPayload<ExtArgs>[]
     importFieldOverrides: Prisma.$ImportFieldOverridePayload<ExtArgs>[]
     externalIdentities: Prisma.$ExternalIdentityPayload<ExtArgs>[]
+    favorites: Prisma.$CustomerFavoritePayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -2416,6 +2589,7 @@ export interface Prisma__ProductClient<T, Null = never, ExtArgs extends runtime.
   media<T extends Prisma.Product$mediaArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Product$mediaArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProductMediaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   importFieldOverrides<T extends Prisma.Product$importFieldOverridesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Product$importFieldOverridesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ImportFieldOverridePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   externalIdentities<T extends Prisma.Product$externalIdentitiesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Product$externalIdentitiesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ExternalIdentityPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  favorites<T extends Prisma.Product$favoritesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Product$favoritesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CustomerFavoritePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3019,6 +3193,30 @@ export type Product$externalIdentitiesArgs<ExtArgs extends runtime.Types.Extensi
   take?: number
   skip?: number
   distinct?: Prisma.ExternalIdentityScalarFieldEnum | Prisma.ExternalIdentityScalarFieldEnum[]
+}
+
+/**
+ * Product.favorites
+ */
+export type Product$favoritesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the CustomerFavorite
+   */
+  select?: Prisma.CustomerFavoriteSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the CustomerFavorite
+   */
+  omit?: Prisma.CustomerFavoriteOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.CustomerFavoriteInclude<ExtArgs> | null
+  where?: Prisma.CustomerFavoriteWhereInput
+  orderBy?: Prisma.CustomerFavoriteOrderByWithRelationInput | Prisma.CustomerFavoriteOrderByWithRelationInput[]
+  cursor?: Prisma.CustomerFavoriteWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.CustomerFavoriteScalarFieldEnum | Prisma.CustomerFavoriteScalarFieldEnum[]
 }
 
 /**

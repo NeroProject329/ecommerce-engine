@@ -1,0 +1,25 @@
+name: ecommerce-storefront
+
+services:
+  storefront:
+    image: ${STOREFRONT_IMAGE:?Defina STOREFRONT_IMAGE com uma imagem imutavel}
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      HOSTNAME: 0.0.0.0
+      NEXT_PUBLIC_API_BASE_URL: ${PUBLIC_API_BASE_URL:?Defina PUBLIC_API_BASE_URL}
+      NEXT_PUBLIC_STORE_SLUG: ${STORE_SLUG:?Defina STORE_SLUG}
+    expose: ["3000"]
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+    security_opt: ["no-new-privileges:true"]
+    networks: [frontend]
+
+networks:
+  frontend:
+    driver: bridge

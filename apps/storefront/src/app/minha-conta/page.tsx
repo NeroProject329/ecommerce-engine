@@ -1,0 +1,1 @@
+import { AccountPage } from '../../components/account-page';import { getStorefrontBootstrap } from '../../lib/commerce';export const dynamic='force-dynamic';export default async function Page(){const {store,categories,products}=await getStorefrontBootstrap();return <AccountPage store={store} categories={categories} products={products}/>;}

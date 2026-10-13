@@ -34,7 +34,24 @@ export const changePriceSchema = z.object({
   reason: z.string().trim().max(500).optional(),
 });
 
+export const updatePromotionSchema = z.object({
+  name: z.string().trim().min(1).max(180).optional(),
+  status: z.enum(['DRAFT', 'ACTIVE', 'PAUSED', 'ENDED']).optional(),
+  priority: z.number().int().min(-10_000).max(10_000).optional(),
+  startsAt: z.coerce.date().nullable().optional(),
+  endsAt: z.coerce.date().nullable().optional(),
+}).refine((value) => Object.keys(value).length > 0);
+
+export const updateCouponSchema = z.object({
+  active: z.boolean().optional(),
+  maxUses: z.number().int().positive().nullable().optional(),
+  startsAt: z.coerce.date().nullable().optional(),
+  endsAt: z.coerce.date().nullable().optional(),
+}).refine((value) => Object.keys(value).length > 0);
+
 export type CreatePromotionInput = z.infer<typeof createPromotionSchema>;
 export type CreateCouponInput = z.infer<typeof createCouponSchema>;
 export type PriceQuoteInput = z.infer<typeof priceQuoteSchema>;
 export type ChangePriceInput = z.infer<typeof changePriceSchema>;
+export type UpdatePromotionInput = z.infer<typeof updatePromotionSchema>;
+export type UpdateCouponInput = z.infer<typeof updateCouponSchema>;

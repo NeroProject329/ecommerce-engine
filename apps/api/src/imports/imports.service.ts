@@ -5,6 +5,7 @@ import type { OnModuleDestroy } from '@nestjs/common';
 import { Queue } from 'bullmq';
 import { PrismaService } from '../prisma.service';
 import type { CreateImportSourceInput } from './schemas';
+import { cursorPage, type CursorPage, type PaginationInput } from '../platform/pagination';
 
 function redisConnection(redisUrl: string) {
   const url = new URL(redisUrl);
@@ -70,6 +71,30 @@ export class ImportsService implements OnModuleDestroy {
     });
     if (!batch) throw new NotFoundException('IMPORT_BATCH_NOT_FOUND');
     return batch;
+  }
+
+  async listBatches(storeId: string, query: PaginationInput) {
+    const items = await this.prisma.client.importBatch.findMany({ where: { storeId, ...(query.status ? { status: query.status as never } : {}), ...(query.q ? { externalBatchId: { contains: query.q, mode: 'insensitive' } } : {}) }, orderBy: [{ submittedAt: 'desc' }, { id: 'desc' }], take: query.limit + 1, ...(query.cursor ? { cursor: { id: query.cursor }, skip: 1 } : {}), include: { source: { select: { code: true, name: true } } } });
+    return cursorPage(items, query.limit);
+  }
+
+  async items(storeId: string, batchId: string, query: PaginationInput = { limit: 50 }): Promise<CursorPage<Record<string, unknown> & { id: string }>> {
+    if (!(await this.prisma.client.importBatch.findFirst({ where: { id: batchId, storeId } }))) throw new NotFoundException('IMPORT_BATCH_NOT_FOUND');
+    const items = await this.prisma.client.importItem.findMany({ where: { storeId, batchId, ...(query.status ? { status: query.status as never } : {}), ...(query.q ? { externalProductId: { contains: query.q, mode: 'insensitive' } } : {}) }, orderBy: [{ createdAt: 'desc' }, { id: 'desc' }], take: query.limit + 1, ...(query.cursor ? { cursor: { id: query.cursor }, skip: 1 } : {}), select: { id: true, externalProductId: true, status: true, attempts: true, errorCode: true, errorDetailsSafe: true, updatedAt: true } });
+    return cursorPage(items, query.limit);
+  }
+
+  async retry(storeId: string, batchId: string): Promise<unknown> {
+    if (!this.queue) throw new ServiceUnavailableException('IMPORT_QUEUE_NOT_CONFIGURED');
+    const batch = await this.prisma.client.importBatch.findFirst({ where: { id: batchId, storeId }, include: { items: { where: { status: 'FAILED' }, select: { id: true } } } });
+    if (!batch) throw new NotFoundException('IMPORT_BATCH_NOT_FOUND');
+    if (batch.items.length === 0) throw new ConflictException('IMPORT_BATCH_HAS_NO_FAILED_ITEMS');
+    await this.prisma.client.$transaction([
+      this.prisma.client.importItem.updateMany({ where: { storeId, batchId, status: 'FAILED' }, data: { status: 'PENDING', errorCode: null, errorDetailsSafe: {} } }),
+      this.prisma.client.importBatch.update({ where: { id: batch.id }, data: { status: 'RETRYING', completedAt: null } }),
+    ]);
+    await this.queue.addBulk(batch.items.map((item) => ({ name: 'catalog.import.item', data: { itemId: item.id }, opts: { jobId: `${item.id}:retry:${Date.now()}`, attempts: 3, backoff: { type: 'exponential', delay: 1000 }, removeOnComplete: 1000, removeOnFail: 5000 } })));
+    return { batchId, retriedItems: batch.items.length, status: 'RETRYING' };
   }
 
   parse(raw: unknown): CatalogImportBatchV1 {

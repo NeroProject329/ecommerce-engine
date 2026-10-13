@@ -276,6 +276,12 @@ model Store {
   consentRecords ConsentRecord[]
   storefrontBanners StorefrontBanner[]
   storefrontSections StorefrontSection[]
+  favorites CustomerFavorite[]
+  shippingRules ShippingRule[]
+  webhookEndpoints WebhookEndpoint[]
+  webhookDeliveries WebhookDelivery[]
+  notificationTemplates NotificationTemplate[]
+  marketingCampaigns MarketingCampaign[]
 
   @@index([status, createdAt])
   @@map("stores")
@@ -361,6 +367,7 @@ model Product {
   media             ProductMedia[]
   importFieldOverrides ImportFieldOverride[]
   externalIdentities ExternalIdentity[]
+  favorites CustomerFavorite[]
 
   @@unique([storeId, slug])
   @@unique([id, storeId])
@@ -429,6 +436,7 @@ model InventoryLocation {
   store     Store       @relation(fields: [storeId], references: [id], onDelete: Restrict)
   inventory Inventory[]
   movements InventoryMovement[]
+  reservations InventoryReservation[]
 
   @@unique([storeId, code])
   @@unique([id, storeId])
@@ -485,6 +493,9 @@ model OutboxEvent {
   attempts      Int          @default(0)
   availableAt   DateTime     @default(now()) @db.Timestamptz(3)
   publishedAt   DateTime?    @db.Timestamptz(3)
+  lastError     String?      @db.VarChar(1000)
+  lockedAt      DateTime?    @db.Timestamptz(3)
+  deadLetteredAt DateTime?   @db.Timestamptz(3)
   createdAt     DateTime     @default(now()) @db.Timestamptz(3)
   store         Store?       @relation(fields: [storeId], references: [id], onDelete: Restrict)
 
@@ -598,6 +609,7 @@ model Customer {
   orders          Order[]
   couponRedemptions CouponRedemption[]
   consentRecords ConsentRecord[]
+  favorites CustomerFavorite[]
 
   @@unique([storeId, emailNormalized])
   @@unique([id, storeId])
@@ -806,6 +818,7 @@ model InventoryReservation {
   id         String                     @id @default(uuid()) @db.Uuid
   storeId    String                     @db.Uuid
   variantId  String                     @db.Uuid
+  locationId String                     @db.Uuid
   orderId    String?                    @db.Uuid
   cartId     String?                    @db.Uuid
   quantity   Int
@@ -816,11 +829,13 @@ model InventoryReservation {
   updatedAt  DateTime                   @updatedAt @db.Timestamptz(3)
   store      Store                      @relation(fields: [storeId], references: [id], onDelete: Restrict)
   variant    ProductVariant             @relation(fields: [variantId, storeId], references: [id, storeId], onDelete: Restrict)
+  location   InventoryLocation          @relation(fields: [locationId, storeId], references: [id, storeId], onDelete: Restrict)
   order      Order?                      @relation(fields: [orderId, storeId], references: [id, storeId], onDelete: Restrict)
   cart       Cart?                       @relation(fields: [cartId, storeId], references: [id, storeId], onDelete: Restrict)
 
   @@index([storeId, status, expiresAt, id])
   @@index([storeId, variantId, status])
+  @@index([storeId, locationId, status])
   @@map("inventory_reservations")
 }
 
@@ -1018,6 +1033,7 @@ model Order {
   id String @id @default(uuid()) @db.Uuid
   storeId String @db.Uuid
   number String @db.VarChar(80)
+  accessKeyHash String? @unique @db.VarChar(255)
   customerId String? @db.Uuid
   status OrderStatus @default(PENDING_PAYMENT)
   subtotalCents BigInt
@@ -1099,6 +1115,7 @@ model Shipment {
   status ShipmentStatus @default(PENDING)
   shippedAt DateTime? @db.Timestamptz(3)
   deliveredAt DateTime? @db.Timestamptz(3)
+  estimatedDeliveryAt DateTime? @db.Timestamptz(3)
   createdAt DateTime @default(now()) @db.Timestamptz(3)
   updatedAt DateTime @updatedAt @db.Timestamptz(3)
   store Store @relation(fields: [storeId], references: [id], onDelete: Restrict)
@@ -1362,6 +1379,121 @@ model ConsentRecord {
 
   @@index([storeId, customerId, purpose, channel, recordedAt])
   @@map("consent_records")
+}
+
+model CustomerFavorite {
+  id String @id @default(uuid()) @db.Uuid
+  storeId String @db.Uuid
+  customerId String @db.Uuid
+  productId String @db.Uuid
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  store Store @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  customer Customer @relation(fields: [customerId, storeId], references: [id, storeId], onDelete: Cascade)
+  product Product @relation(fields: [productId, storeId], references: [id, storeId], onDelete: Cascade)
+
+  @@unique([storeId, customerId, productId])
+  @@index([storeId, customerId, createdAt])
+  @@map("customer_favorites")
+}
+
+model ShippingRule {
+  id String @id @default(uuid()) @db.Uuid
+  storeId String @db.Uuid
+  name String @db.VarChar(160)
+  code String @db.VarChar(100)
+  enabled Boolean @default(true)
+  priority Int @default(0)
+  type String @db.VarChar(40)
+  carrier String @db.VarChar(120)
+  service String @db.VarChar(120)
+  amountCents BigInt @default(0)
+  freeAboveCents BigInt?
+  minSubtotalCents BigInt?
+  maxSubtotalCents BigInt?
+  postalCodePrefixes Json @default("[]")
+  estimatedDaysMin Int @default(1)
+  estimatedDaysMax Int @default(7)
+  handlingDays Int @default(0)
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt @db.Timestamptz(3)
+  store Store @relation(fields: [storeId], references: [id], onDelete: Restrict)
+
+  @@unique([storeId, code])
+  @@index([storeId, enabled, priority])
+  @@map("shipping_rules")
+}
+
+model WebhookEndpoint {
+  id String @id @default(uuid()) @db.Uuid
+  storeId String @db.Uuid
+  name String @db.VarChar(160)
+  url String @db.VarChar(2048)
+  secretEncrypted String @db.VarChar(2048)
+  eventTypes Json @default("[]")
+  enabled Boolean @default(true)
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt @db.Timestamptz(3)
+  store Store @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  deliveries WebhookDelivery[]
+
+  @@index([storeId, enabled])
+  @@map("webhook_endpoints")
+}
+
+model WebhookDelivery {
+  id String @id @default(uuid()) @db.Uuid
+  storeId String @db.Uuid
+  endpointId String @db.Uuid
+  outboxEventId String @db.Uuid
+  status String @default("PENDING") @db.VarChar(40)
+  attempts Int @default(0)
+  responseStatus Int?
+  lastError String? @db.VarChar(1000)
+  nextAttemptAt DateTime @default(now()) @db.Timestamptz(3)
+  deliveredAt DateTime? @db.Timestamptz(3)
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt @db.Timestamptz(3)
+  store Store @relation(fields: [storeId], references: [id], onDelete: Restrict)
+  endpoint WebhookEndpoint @relation(fields: [endpointId], references: [id], onDelete: Cascade)
+
+  @@unique([endpointId, outboxEventId])
+  @@index([storeId, status, nextAttemptAt])
+  @@map("webhook_deliveries")
+}
+
+model NotificationTemplate {
+  id String @id @default(uuid()) @db.Uuid
+  storeId String @db.Uuid
+  code String @db.VarChar(120)
+  channel String @default("EMAIL") @db.VarChar(40)
+  subject String @db.VarChar(240)
+  bodyMarkdown String @db.Text
+  enabled Boolean @default(true)
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt @db.Timestamptz(3)
+  store Store @relation(fields: [storeId], references: [id], onDelete: Restrict)
+
+  @@unique([storeId, code, channel])
+  @@index([storeId, enabled])
+  @@map("notification_templates")
+}
+
+model MarketingCampaign {
+  id String @id @default(uuid()) @db.Uuid
+  storeId String @db.Uuid
+  name String @db.VarChar(180)
+  channel String @default("EMAIL") @db.VarChar(40)
+  subject String @db.VarChar(240)
+  bodyMarkdown String @db.Text
+  status String @default("DRAFT") @db.VarChar(40)
+  scheduledAt DateTime? @db.Timestamptz(3)
+  sentAt DateTime? @db.Timestamptz(3)
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt @db.Timestamptz(3)
+  store Store @relation(fields: [storeId], references: [id], onDelete: Restrict)
+
+  @@index([storeId, status, scheduledAt])
+  @@map("marketing_campaigns")
 }
 
 model StorefrontBanner {

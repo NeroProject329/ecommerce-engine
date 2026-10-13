@@ -1,8 +1,9 @@
-import { BadRequestException, Body, Controller, Headers, Inject, Param, Post, Put } from '@nestjs/common';
+import { BadRequestException, Body, Controller, Delete, Get, Headers, Inject, Param, Patch, Post, Put, Query } from '@nestjs/common';
 import { ZodError } from 'zod';
 import { AdminAuthService } from '../auth/admin-auth.service';
 import { PricingService } from './pricing.service';
-import { changePriceSchema, createCouponSchema, createPromotionSchema, priceQuoteSchema } from './schemas';
+import { changePriceSchema, createCouponSchema, createPromotionSchema, priceQuoteSchema, updateCouponSchema, updatePromotionSchema } from './schemas';
+import { pageEnvelope, pagination } from '../platform/pagination';
 
 function bearer(value: string | undefined): string {
   if (!value?.startsWith('Bearer ') || value.length <= 7) throw new BadRequestException('BEARER_TOKEN_REQUIRED');
@@ -19,6 +20,23 @@ function validated<T>(schema: { parse(value: unknown): T }, value: unknown): T {
 @Controller('v1/admin/stores/:storeId/pricing')
 export class AdminPricingController {
   constructor(@Inject(PricingService) private readonly pricing: PricingService, @Inject(AdminAuthService) private readonly auth: AdminAuthService) {}
+
+  @Get('promotions')
+  async promotions(@Param('storeId') storeId: string, @Headers('authorization') authorization: string | undefined, @Query() query: unknown): Promise<{ data: unknown; meta: { nextCursor: string | null; hasMore: boolean } }> { await this.auth.authorize(bearer(authorization), storeId, 'pricing:read', false); return pageEnvelope(await this.pricing.promotions(storeId, pagination(query))); }
+
+  @Patch('promotions/:promotionId')
+  async updatePromotion(@Param('storeId') storeId: string, @Param('promotionId') promotionId: string, @Headers('authorization') authorization: string | undefined, @Body() body: unknown): Promise<{ data: unknown }> { await this.auth.authorize(bearer(authorization), storeId, 'pricing:write'); return { data: await this.pricing.updatePromotion(storeId, promotionId, validated(updatePromotionSchema, body)) }; }
+  @Delete('promotions/:promotionId') async archivePromotion(@Param('storeId') storeId: string, @Param('promotionId') promotionId: string, @Headers('authorization') authorization?: string): Promise<{ data: unknown }> { await this.auth.authorize(bearer(authorization), storeId, 'pricing:write'); return { data: await this.pricing.archivePromotion(storeId, promotionId) }; }
+
+  @Get('coupons')
+  async coupons(@Param('storeId') storeId: string, @Headers('authorization') authorization: string | undefined, @Query() query: unknown): Promise<{ data: unknown; meta: { nextCursor: string | null; hasMore: boolean } }> { await this.auth.authorize(bearer(authorization), storeId, 'pricing:read', false); return pageEnvelope(await this.pricing.coupons(storeId, pagination(query))); }
+
+  @Patch('coupons/:couponId')
+  async updateCoupon(@Param('storeId') storeId: string, @Param('couponId') couponId: string, @Headers('authorization') authorization: string | undefined, @Body() body: unknown): Promise<{ data: unknown }> { await this.auth.authorize(bearer(authorization), storeId, 'pricing:write'); return { data: await this.pricing.updateCoupon(storeId, couponId, validated(updateCouponSchema, body)) }; }
+  @Delete('coupons/:couponId') async disableCoupon(@Param('storeId') storeId: string, @Param('couponId') couponId: string, @Headers('authorization') authorization?: string): Promise<{ data: unknown }> { await this.auth.authorize(bearer(authorization), storeId, 'pricing:write'); return { data: await this.pricing.disableCoupon(storeId, couponId) }; }
+
+  @Get('history')
+  async history(@Param('storeId') storeId: string, @Headers('authorization') authorization: string | undefined, @Query() query: unknown) { await this.auth.authorize(bearer(authorization), storeId, 'pricing:read', false); return pageEnvelope(await this.pricing.priceHistory(storeId, pagination(query))); }
 
   @Post('promotions')
   async createPromotion(@Param('storeId') storeId: string, @Headers('authorization') authorization: string | undefined, @Body() body: unknown): Promise<{ data: unknown }> {

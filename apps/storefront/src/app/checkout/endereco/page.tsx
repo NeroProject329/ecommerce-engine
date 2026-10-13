@@ -1,0 +1,1 @@
+import { AddressCheckout } from '../../../components/checkout-pages';import { getStorefrontBootstrap } from '../../../lib/commerce';export const dynamic='force-dynamic';export default async function Page(){const {store}=await getStorefrontBootstrap();return <AddressCheckout store={store}/>;}

@@ -1,0 +1,1 @@
+'use client';export default function ErrorPage({reset}:{reset:()=>void}){return <main className="error-page"><span>!</span><h1>Algo não saiu como esperado</h1><p>Tente carregar esta página novamente. Seu carrinho e sua conta continuam preservados.</p><button className="blue-button" onClick={reset}>Tentar novamente</button></main>;}

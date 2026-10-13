@@ -78,6 +78,60 @@ export const setAttributeValueSchema = z.object({
   value: z.union([z.string(), z.number(), z.boolean(), z.array(z.string())]),
 });
 
+export const publicSearchSchema = z.object({
+  q: z.string().trim().max(200).default(''),
+  category: z.string().trim().min(1).max(140).optional(),
+  brand: z.string().trim().min(1).max(140).optional(),
+  minPriceCents: z.coerce.number().int().nonnegative().optional(),
+  maxPriceCents: z.coerce.number().int().nonnegative().optional(),
+  sort: z.enum(['relevance', 'price-asc', 'price-desc', 'newest']).default('relevance'),
+  page: z.coerce.number().int().min(1).default(1),
+  limit: z.coerce.number().int().min(1).max(100).default(24),
+}).refine((value) => value.minPriceCents === undefined || value.maxPriceCents === undefined || value.maxPriceCents >= value.minPriceCents, { message: 'PRICE_RANGE_INVALID' });
+
+export const updateCategorySchema = z.object({
+  name: z.string().trim().min(1).max(160).optional(),
+  slug,
+  position: z.number().int().min(0).optional(),
+  status: z.enum(['ACTIVE', 'INACTIVE', 'ARCHIVED']).optional(),
+}).refine((value) => Object.keys(value).length > 0);
+
+export const updateBrandSchema = z.object({
+  name: z.string().trim().min(1).max(160).optional(),
+  slug,
+  status: z.enum(['ACTIVE', 'INACTIVE', 'ARCHIVED']).optional(),
+}).refine((value) => Object.keys(value).length > 0);
+
+export const updateAttributeSchema = z.object({
+  name: z.string().trim().min(1).max(160).optional(),
+  unit: z.string().trim().min(1).max(40).nullable().optional(),
+  options: z.array(z.string().trim().min(1).max(160)).max(500).optional(),
+  active: z.boolean().optional(),
+}).refine((value) => Object.keys(value).length > 0);
+
+export const updateProductSchema = z.object({
+  title: z.string().trim().min(1).max(240).optional(),
+  slug,
+  description: z.string().max(100_000).optional(),
+  brandId: uuid.nullable().optional(),
+  primaryCategoryId: uuid.optional(),
+  categoryIds: z.array(uuid).max(50).optional(),
+  seo: z.record(z.string(), z.unknown()).optional(),
+}).refine((value) => Object.keys(value).length > 0);
+
+export const updateVariantSchema = createVariantSchema.partial().extend({
+  status: z.enum(['ACTIVE', 'INACTIVE', 'ARCHIVED']).optional(),
+}).refine((value) => Object.keys(value).length > 0);
+
+export const inventoryAdjustmentSchema = z.object({
+  variantId: uuid,
+  locationId: uuid,
+  delta: z.number().int().min(-1_000_000).max(1_000_000).refine((value) => value !== 0),
+  reason: z.string().trim().min(3).max(120),
+  deduplicationKey: z.string().trim().min(8).max(180),
+});
+export const bulkIdsSchema = z.object({ ids: z.array(z.string().uuid()).min(1).max(500) });
+
 export type CreateCategoryInput = z.infer<typeof createCategorySchema>;
 export type CreateBrandInput = z.infer<typeof createBrandSchema>;
 export type CreateProductInput = z.infer<typeof createProductSchema>;
@@ -88,3 +142,10 @@ export type CreateInventoryLocationInput = z.infer<typeof createInventoryLocatio
 export type CreateAttributeInput = z.infer<typeof createAttributeSchema>;
 export type AssignCategoryAttributeInput = z.infer<typeof assignCategoryAttributeSchema>;
 export type SetAttributeValueInput = z.infer<typeof setAttributeValueSchema>;
+export type PublicSearchInput = z.infer<typeof publicSearchSchema>;
+export type UpdateCategoryInput = z.infer<typeof updateCategorySchema>;
+export type UpdateBrandInput = z.infer<typeof updateBrandSchema>;
+export type UpdateAttributeInput = z.infer<typeof updateAttributeSchema>;
+export type UpdateProductInput = z.infer<typeof updateProductSchema>;
+export type UpdateVariantInput = z.infer<typeof updateVariantSchema>;
+export type InventoryAdjustmentInput = z.infer<typeof inventoryAdjustmentSchema>;

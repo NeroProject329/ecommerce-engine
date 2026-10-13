@@ -1,0 +1,77 @@
+name: ecommerce-core
+
+services:
+  api:
+    image: ${API_IMAGE:?Defina API_IMAGE com uma imagem imutavel}
+    restart: unless-stopped
+    env_file: [".env.production"]
+    environment:
+      NODE_ENV: production
+      API_PORT: 4000
+      REDIS_URL: redis://redis:6379
+    expose: ["4000"]
+    depends_on:
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:4000/health/ready').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+    security_opt: ["no-new-privileges:true"]
+    networks: [backend]
+
+  admin:
+    image: ${ADMIN_IMAGE:?Defina ADMIN_IMAGE com uma imagem imutavel}
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      PORT: 3001
+      HOSTNAME: 0.0.0.0
+      NEXT_PUBLIC_API_BASE_URL: ${PUBLIC_API_BASE_URL:?Defina PUBLIC_API_BASE_URL}
+    expose: ["3001"]
+    depends_on:
+      api:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3001/').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+    security_opt: ["no-new-privileges:true"]
+    networks: [backend]
+
+  worker:
+    image: ${WORKER_IMAGE:?Defina WORKER_IMAGE com uma imagem imutavel}
+    restart: unless-stopped
+    env_file: [".env.production"]
+    environment:
+      NODE_ENV: production
+      REDIS_URL: redis://redis:6379
+    depends_on:
+      redis:
+        condition: service_healthy
+    security_opt: ["no-new-privileges:true"]
+    networks: [backend]
+
+  redis:
+    image: redis:8.2.1-alpine
+    restart: unless-stopped
+    command: ["redis-server", "--appendonly", "yes", "--maxmemory-policy", "noeviction"]
+    volumes: ["redis_data:/data"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+    security_opt: ["no-new-privileges:true"]
+    networks: [backend]
+
+volumes:
+  redis_data:
+
+networks:
+  backend:
+    driver: bridge

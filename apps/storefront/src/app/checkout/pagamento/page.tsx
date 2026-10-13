@@ -1,0 +1,1 @@
+import { PaymentCheckout } from '../../../components/checkout-pages';import { getStorefrontBootstrap } from '../../../lib/commerce';export const dynamic='force-dynamic';export default async function Page(){const {store}=await getStorefrontBootstrap();return <PaymentCheckout store={store}/>;}

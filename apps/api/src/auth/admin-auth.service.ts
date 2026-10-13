@@ -11,14 +11,16 @@ import {
   authorizeStoreAction,
 } from '@ecommerce/auth';
 import type { Permission } from '@ecommerce/auth';
-import { Inject, Injectable, InternalServerErrorException, UnauthorizedException } from '@nestjs/common';
+import { BadRequestException, Inject, Injectable, InternalServerErrorException, NotFoundException, UnauthorizedException } from '@nestjs/common';
 import { PrismaService } from '../prisma.service';
 import type {
   AdminLoginInput,
+  AdminPasswordChangeInput,
   AdminRecoveryRequestInput,
   AdminRecoveryResetInput,
   TotpVerificationInput,
 } from './schemas';
+import { EmailService } from './email.service';
 
 const SESSION_DURATION_MS = 12 * 60 * 60 * 1000;
 const RECOVERY_DURATION_MS = 30 * 60 * 1000;
@@ -35,9 +37,15 @@ function readString(value: unknown, key: string): string | undefined {
   return typeof candidate === 'string' ? candidate : undefined;
 }
 
+function readObject(value: unknown): Record<string, unknown> {
+  return value && typeof value === 'object' && !Array.isArray(value)
+    ? (value as Record<string, unknown>)
+    : {};
+}
+
 @Injectable()
 export class AdminAuthService {
-  constructor(@Inject(PrismaService) private readonly prisma: PrismaService) {}
+  constructor(@Inject(PrismaService) private readonly prisma: PrismaService, @Inject(EmailService) private readonly email: EmailService) {}
 
   async login(input: AdminLoginInput) {
     const user = await this.prisma.client.adminUser.findUnique({
@@ -91,9 +99,18 @@ export class AdminAuthService {
     const secret = generateTotpSecret();
     await this.prisma.client.adminUser.update({
       where: { id: session.adminUserId },
-      data: { mfaState: { pendingTotpSecretEncrypted: sealSecret(secret, encryptionKey()) } },
+      data: {
+        mfaState: {
+          ...readObject(session.adminUser.mfaState),
+          pendingTotpSecretEncrypted: sealSecret(secret, encryptionKey()),
+        },
+      },
     });
-    return { secret, algorithm: 'SHA1', digits: 6, period: 30 };
+    const issuer = 'Ecommerce Engine';
+    const accountName = session.adminUser.emailNormalized;
+    const label = encodeURIComponent(`${issuer}:${accountName}`);
+    const otpauthUrl = `otpauth://totp/${label}?secret=${secret}&issuer=${encodeURIComponent(issuer)}&algorithm=SHA1&digits=6&period=30`;
+    return { secret, otpauthUrl, issuer, accountName, algorithm: 'SHA1', digits: 6, period: 30 };
   }
 
   async verifyTotpEnrollment(rawToken: string, input: TotpVerificationInput): Promise<void> {
@@ -118,6 +135,48 @@ export class AdminAuthService {
     ]);
   }
 
+  async sessions(rawToken: string) {
+    const current = await this.requireSession(rawToken);
+    const sessions = await this.prisma.client.adminSession.findMany({
+      where: { adminUserId: current.adminUserId, revokedAt: null, expiresAt: { gt: new Date() } },
+      orderBy: { createdAt: 'desc' },
+    });
+    return sessions.map((session) => ({
+      id: session.id,
+      current: session.id === current.id,
+      createdAt: session.createdAt.toISOString(),
+      expiresAt: session.expiresAt.toISOString(),
+      mfaVerified: Boolean(session.mfaVerifiedAt),
+    }));
+  }
+
+  async revokeSession(rawToken: string, sessionId: string): Promise<void> {
+    const current = await this.requireSession(rawToken);
+    if (sessionId === current.id) throw new BadRequestException('CURRENT_SESSION_USE_LOGOUT');
+    const result = await this.prisma.client.adminSession.updateMany({
+      where: { id: sessionId, adminUserId: current.adminUserId, revokedAt: null },
+      data: { revokedAt: new Date() },
+    });
+    if (result.count === 0) throw new NotFoundException('SESSION_NOT_FOUND');
+  }
+
+  async changePassword(rawToken: string, input: AdminPasswordChangeInput): Promise<void> {
+    const session = await this.requireSession(rawToken);
+    if (!session.mfaVerifiedAt) throw new UnauthorizedException('MFA_REQUIRED');
+    if (!(await verifyPassword(input.currentPassword, session.adminUser.passwordHash))) {
+      throw new UnauthorizedException('CURRENT_PASSWORD_INVALID');
+    }
+    const passwordHash = await hashPassword(input.newPassword);
+    const now = new Date();
+    await this.prisma.client.$transaction([
+      this.prisma.client.adminUser.update({ where: { id: session.adminUserId }, data: { passwordHash } }),
+      this.prisma.client.adminSession.updateMany({
+        where: { adminUserId: session.adminUserId, id: { not: session.id }, revokedAt: null },
+        data: { revokedAt: now },
+      }),
+    ]);
+  }
+
   async requestRecovery(input: AdminRecoveryRequestInput): Promise<void> {
     const user = await this.prisma.client.adminUser.findUnique({
       where: { emailNormalized: normalizeEmail(input.email) },
@@ -128,7 +187,7 @@ export class AdminAuthService {
     await this.prisma.client.adminRecoveryToken.create({
       data: { adminUserId: user.id, tokenHash: token.hash, expiresAt: new Date(Date.now() + RECOVERY_DURATION_MS) },
     });
-    // The raw token exists only in memory and is handed to the communication adapter in Etapa 13.
+    await this.email.sendRecovery(user.memberships[0]!.storeId, user.emailNormalized, token.raw, 'admin').catch(() => false);
   }
 
   async resetPassword(input: AdminRecoveryResetInput): Promise<void> {

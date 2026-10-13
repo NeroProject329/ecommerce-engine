@@ -12,6 +12,7 @@
     "test": "vitest run"
   },
   "dependencies": {
+    "@ecommerce/auth": "workspace:*",
     "@ecommerce/catalog": "workspace:*",
     "@ecommerce/config": "workspace:*",
     "@ecommerce/contracts": "workspace:*",

@@ -47,6 +47,9 @@ export type OutboxEventMinAggregateOutputType = {
   attempts: number | null
   availableAt: Date | null
   publishedAt: Date | null
+  lastError: string | null
+  lockedAt: Date | null
+  deadLetteredAt: Date | null
   createdAt: Date | null
 }
 
@@ -61,6 +64,9 @@ export type OutboxEventMaxAggregateOutputType = {
   attempts: number | null
   availableAt: Date | null
   publishedAt: Date | null
+  lastError: string | null
+  lockedAt: Date | null
+  deadLetteredAt: Date | null
   createdAt: Date | null
 }
 
@@ -76,6 +82,9 @@ export type OutboxEventCountAggregateOutputType = {
   attempts: number
   availableAt: number
   publishedAt: number
+  lastError: number
+  lockedAt: number
+  deadLetteredAt: number
   createdAt: number
   _all: number
 }
@@ -102,6 +111,9 @@ export type OutboxEventMinAggregateInputType = {
   attempts?: true
   availableAt?: true
   publishedAt?: true
+  lastError?: true
+  lockedAt?: true
+  deadLetteredAt?: true
   createdAt?: true
 }
 
@@ -116,6 +128,9 @@ export type OutboxEventMaxAggregateInputType = {
   attempts?: true
   availableAt?: true
   publishedAt?: true
+  lastError?: true
+  lockedAt?: true
+  deadLetteredAt?: true
   createdAt?: true
 }
 
@@ -131,6 +146,9 @@ export type OutboxEventCountAggregateInputType = {
   attempts?: true
   availableAt?: true
   publishedAt?: true
+  lastError?: true
+  lockedAt?: true
+  deadLetteredAt?: true
   createdAt?: true
   _all?: true
 }
@@ -233,6 +251,9 @@ export type OutboxEventGroupByOutputType = {
   attempts: number
   availableAt: Date
   publishedAt: Date | null
+  lastError: string | null
+  lockedAt: Date | null
+  deadLetteredAt: Date | null
   createdAt: Date
   _count: OutboxEventCountAggregateOutputType | null
   _avg: OutboxEventAvgAggregateOutputType | null
@@ -271,6 +292,9 @@ export type OutboxEventWhereInput = {
   attempts?: Prisma.IntFilter<"OutboxEvent"> | number
   availableAt?: Prisma.DateTimeFilter<"OutboxEvent"> | Date | string
   publishedAt?: Prisma.DateTimeNullableFilter<"OutboxEvent"> | Date | string | null
+  lastError?: Prisma.StringNullableFilter<"OutboxEvent"> | string | null
+  lockedAt?: Prisma.DateTimeNullableFilter<"OutboxEvent"> | Date | string | null
+  deadLetteredAt?: Prisma.DateTimeNullableFilter<"OutboxEvent"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"OutboxEvent"> | Date | string
   store?: Prisma.XOR<Prisma.StoreNullableScalarRelationFilter, Prisma.StoreWhereInput> | null
 }
@@ -287,6 +311,9 @@ export type OutboxEventOrderByWithRelationInput = {
   attempts?: Prisma.SortOrder
   availableAt?: Prisma.SortOrder
   publishedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  lastError?: Prisma.SortOrderInput | Prisma.SortOrder
+  lockedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  deadLetteredAt?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   store?: Prisma.StoreOrderByWithRelationInput
 }
@@ -306,6 +333,9 @@ export type OutboxEventWhereUniqueInput = Prisma.AtLeast<{
   attempts?: Prisma.IntFilter<"OutboxEvent"> | number
   availableAt?: Prisma.DateTimeFilter<"OutboxEvent"> | Date | string
   publishedAt?: Prisma.DateTimeNullableFilter<"OutboxEvent"> | Date | string | null
+  lastError?: Prisma.StringNullableFilter<"OutboxEvent"> | string | null
+  lockedAt?: Prisma.DateTimeNullableFilter<"OutboxEvent"> | Date | string | null
+  deadLetteredAt?: Prisma.DateTimeNullableFilter<"OutboxEvent"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"OutboxEvent"> | Date | string
   store?: Prisma.XOR<Prisma.StoreNullableScalarRelationFilter, Prisma.StoreWhereInput> | null
 }, "id">
@@ -322,6 +352,9 @@ export type OutboxEventOrderByWithAggregationInput = {
   attempts?: Prisma.SortOrder
   availableAt?: Prisma.SortOrder
   publishedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  lastError?: Prisma.SortOrderInput | Prisma.SortOrder
+  lockedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  deadLetteredAt?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   _count?: Prisma.OutboxEventCountOrderByAggregateInput
   _avg?: Prisma.OutboxEventAvgOrderByAggregateInput
@@ -345,6 +378,9 @@ export type OutboxEventScalarWhereWithAggregatesInput = {
   attempts?: Prisma.IntWithAggregatesFilter<"OutboxEvent"> | number
   availableAt?: Prisma.DateTimeWithAggregatesFilter<"OutboxEvent"> | Date | string
   publishedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"OutboxEvent"> | Date | string | null
+  lastError?: Prisma.StringNullableWithAggregatesFilter<"OutboxEvent"> | string | null
+  lockedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"OutboxEvent"> | Date | string | null
+  deadLetteredAt?: Prisma.DateTimeNullableWithAggregatesFilter<"OutboxEvent"> | Date | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"OutboxEvent"> | Date | string
 }
 
@@ -359,6 +395,9 @@ export type OutboxEventCreateInput = {
   attempts?: number
   availableAt?: Date | string
   publishedAt?: Date | string | null
+  lastError?: string | null
+  lockedAt?: Date | string | null
+  deadLetteredAt?: Date | string | null
   createdAt?: Date | string
   store?: Prisma.StoreCreateNestedOneWithoutOutboxEventsInput
 }
@@ -375,6 +414,9 @@ export type OutboxEventUncheckedCreateInput = {
   attempts?: number
   availableAt?: Date | string
   publishedAt?: Date | string | null
+  lastError?: string | null
+  lockedAt?: Date | string | null
+  deadLetteredAt?: Date | string | null
   createdAt?: Date | string
 }
 
@@ -389,6 +431,9 @@ export type OutboxEventUpdateInput = {
   attempts?: Prisma.IntFieldUpdateOperationsInput | number
   availableAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   publishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastError?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lockedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  deadLetteredAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   store?: Prisma.StoreUpdateOneWithoutOutboxEventsNestedInput
 }
@@ -405,6 +450,9 @@ export type OutboxEventUncheckedUpdateInput = {
   attempts?: Prisma.IntFieldUpdateOperationsInput | number
   availableAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   publishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastError?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lockedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  deadLetteredAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -420,6 +468,9 @@ export type OutboxEventCreateManyInput = {
   attempts?: number
   availableAt?: Date | string
   publishedAt?: Date | string | null
+  lastError?: string | null
+  lockedAt?: Date | string | null
+  deadLetteredAt?: Date | string | null
   createdAt?: Date | string
 }
 
@@ -434,6 +485,9 @@ export type OutboxEventUpdateManyMutationInput = {
   attempts?: Prisma.IntFieldUpdateOperationsInput | number
   availableAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   publishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastError?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lockedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  deadLetteredAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -449,6 +503,9 @@ export type OutboxEventUncheckedUpdateManyInput = {
   attempts?: Prisma.IntFieldUpdateOperationsInput | number
   availableAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   publishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastError?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lockedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  deadLetteredAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -474,6 +531,9 @@ export type OutboxEventCountOrderByAggregateInput = {
   attempts?: Prisma.SortOrder
   availableAt?: Prisma.SortOrder
   publishedAt?: Prisma.SortOrder
+  lastError?: Prisma.SortOrder
+  lockedAt?: Prisma.SortOrder
+  deadLetteredAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
 
@@ -493,6 +553,9 @@ export type OutboxEventMaxOrderByAggregateInput = {
   attempts?: Prisma.SortOrder
   availableAt?: Prisma.SortOrder
   publishedAt?: Prisma.SortOrder
+  lastError?: Prisma.SortOrder
+  lockedAt?: Prisma.SortOrder
+  deadLetteredAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
 
@@ -507,6 +570,9 @@ export type OutboxEventMinOrderByAggregateInput = {
   attempts?: Prisma.SortOrder
   availableAt?: Prisma.SortOrder
   publishedAt?: Prisma.SortOrder
+  lastError?: Prisma.SortOrder
+  lockedAt?: Prisma.SortOrder
+  deadLetteredAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
 
@@ -572,6 +638,9 @@ export type OutboxEventCreateWithoutStoreInput = {
   attempts?: number
   availableAt?: Date | string
   publishedAt?: Date | string | null
+  lastError?: string | null
+  lockedAt?: Date | string | null
+  deadLetteredAt?: Date | string | null
   createdAt?: Date | string
 }
 
@@ -586,6 +655,9 @@ export type OutboxEventUncheckedCreateWithoutStoreInput = {
   attempts?: number
   availableAt?: Date | string
   publishedAt?: Date | string | null
+  lastError?: string | null
+  lockedAt?: Date | string | null
+  deadLetteredAt?: Date | string | null
   createdAt?: Date | string
 }
 
@@ -630,6 +702,9 @@ export type OutboxEventScalarWhereInput = {
   attempts?: Prisma.IntFilter<"OutboxEvent"> | number
   availableAt?: Prisma.DateTimeFilter<"OutboxEvent"> | Date | string
   publishedAt?: Prisma.DateTimeNullableFilter<"OutboxEvent"> | Date | string | null
+  lastError?: Prisma.StringNullableFilter<"OutboxEvent"> | string | null
+  lockedAt?: Prisma.DateTimeNullableFilter<"OutboxEvent"> | Date | string | null
+  deadLetteredAt?: Prisma.DateTimeNullableFilter<"OutboxEvent"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"OutboxEvent"> | Date | string
 }
 
@@ -644,6 +719,9 @@ export type OutboxEventCreateManyStoreInput = {
   attempts?: number
   availableAt?: Date | string
   publishedAt?: Date | string | null
+  lastError?: string | null
+  lockedAt?: Date | string | null
+  deadLetteredAt?: Date | string | null
   createdAt?: Date | string
 }
 
@@ -658,6 +736,9 @@ export type OutboxEventUpdateWithoutStoreInput = {
   attempts?: Prisma.IntFieldUpdateOperationsInput | number
   availableAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   publishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastError?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lockedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  deadLetteredAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -672,6 +753,9 @@ export type OutboxEventUncheckedUpdateWithoutStoreInput = {
   attempts?: Prisma.IntFieldUpdateOperationsInput | number
   availableAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   publishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastError?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lockedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  deadLetteredAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -686,6 +770,9 @@ export type OutboxEventUncheckedUpdateManyWithoutStoreInput = {
   attempts?: Prisma.IntFieldUpdateOperationsInput | number
   availableAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   publishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastError?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lockedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  deadLetteredAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -703,6 +790,9 @@ export type OutboxEventSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   attempts?: boolean
   availableAt?: boolean
   publishedAt?: boolean
+  lastError?: boolean
+  lockedAt?: boolean
+  deadLetteredAt?: boolean
   createdAt?: boolean
   store?: boolean | Prisma.OutboxEvent$storeArgs<ExtArgs>
 }, ExtArgs["result"]["outboxEvent"]>
@@ -719,6 +809,9 @@ export type OutboxEventSelectCreateManyAndReturn<ExtArgs extends runtime.Types.E
   attempts?: boolean
   availableAt?: boolean
   publishedAt?: boolean
+  lastError?: boolean
+  lockedAt?: boolean
+  deadLetteredAt?: boolean
   createdAt?: boolean
   store?: boolean | Prisma.OutboxEvent$storeArgs<ExtArgs>
 }, ExtArgs["result"]["outboxEvent"]>
@@ -735,6 +828,9 @@ export type OutboxEventSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.E
   attempts?: boolean
   availableAt?: boolean
   publishedAt?: boolean
+  lastError?: boolean
+  lockedAt?: boolean
+  deadLetteredAt?: boolean
   createdAt?: boolean
   store?: boolean | Prisma.OutboxEvent$storeArgs<ExtArgs>
 }, ExtArgs["result"]["outboxEvent"]>
@@ -751,10 +847,13 @@ export type OutboxEventSelectScalar = {
   attempts?: boolean
   availableAt?: boolean
   publishedAt?: boolean
+  lastError?: boolean
+  lockedAt?: boolean
+  deadLetteredAt?: boolean
   createdAt?: boolean
 }
 
-export type OutboxEventOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "storeId" | "aggregateType" | "aggregateId" | "eventType" | "eventVersion" | "payloadJson" | "status" | "attempts" | "availableAt" | "publishedAt" | "createdAt", ExtArgs["result"]["outboxEvent"]>
+export type OutboxEventOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "storeId" | "aggregateType" | "aggregateId" | "eventType" | "eventVersion" | "payloadJson" | "status" | "attempts" | "availableAt" | "publishedAt" | "lastError" | "lockedAt" | "deadLetteredAt" | "createdAt", ExtArgs["result"]["outboxEvent"]>
 export type OutboxEventInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   store?: boolean | Prisma.OutboxEvent$storeArgs<ExtArgs>
 }
@@ -782,6 +881,9 @@ export type $OutboxEventPayload<ExtArgs extends runtime.Types.Extensions.Interna
     attempts: number
     availableAt: Date
     publishedAt: Date | null
+    lastError: string | null
+    lockedAt: Date | null
+    deadLetteredAt: Date | null
     createdAt: Date
   }, ExtArgs["result"]["outboxEvent"]>
   composites: {}
@@ -1218,6 +1320,9 @@ export interface OutboxEventFieldRefs {
   readonly attempts: Prisma.FieldRef<"OutboxEvent", 'Int'>
   readonly availableAt: Prisma.FieldRef<"OutboxEvent", 'DateTime'>
   readonly publishedAt: Prisma.FieldRef<"OutboxEvent", 'DateTime'>
+  readonly lastError: Prisma.FieldRef<"OutboxEvent", 'String'>
+  readonly lockedAt: Prisma.FieldRef<"OutboxEvent", 'DateTime'>
+  readonly deadLetteredAt: Prisma.FieldRef<"OutboxEvent", 'DateTime'>
   readonly createdAt: Prisma.FieldRef<"OutboxEvent", 'DateTime'>
 }
     

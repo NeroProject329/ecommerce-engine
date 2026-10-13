@@ -4,10 +4,11 @@ import { CustomerAuthController } from './customer-auth.controller';
 import { CustomerAuthService } from './customer-auth.service';
 import { AdminAuthController } from './admin-auth.controller';
 import { AdminAuthService } from './admin-auth.service';
+import { EmailService } from './email.service';
 
 @Module({
   controllers: [CustomerAuthController, AdminAuthController],
-  providers: [PrismaService, CustomerAuthService, AdminAuthService],
+  providers: [PrismaService, EmailService, CustomerAuthService, AdminAuthService],
   exports: [CustomerAuthService, AdminAuthService],
 })
 export class AuthModule {}

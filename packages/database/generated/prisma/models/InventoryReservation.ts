@@ -38,6 +38,7 @@ export type InventoryReservationMinAggregateOutputType = {
   id: string | null
   storeId: string | null
   variantId: string | null
+  locationId: string | null
   orderId: string | null
   cartId: string | null
   quantity: number | null
@@ -52,6 +53,7 @@ export type InventoryReservationMaxAggregateOutputType = {
   id: string | null
   storeId: string | null
   variantId: string | null
+  locationId: string | null
   orderId: string | null
   cartId: string | null
   quantity: number | null
@@ -66,6 +68,7 @@ export type InventoryReservationCountAggregateOutputType = {
   id: number
   storeId: number
   variantId: number
+  locationId: number
   orderId: number
   cartId: number
   quantity: number
@@ -90,6 +93,7 @@ export type InventoryReservationMinAggregateInputType = {
   id?: true
   storeId?: true
   variantId?: true
+  locationId?: true
   orderId?: true
   cartId?: true
   quantity?: true
@@ -104,6 +108,7 @@ export type InventoryReservationMaxAggregateInputType = {
   id?: true
   storeId?: true
   variantId?: true
+  locationId?: true
   orderId?: true
   cartId?: true
   quantity?: true
@@ -118,6 +123,7 @@ export type InventoryReservationCountAggregateInputType = {
   id?: true
   storeId?: true
   variantId?: true
+  locationId?: true
   orderId?: true
   cartId?: true
   quantity?: true
@@ -219,6 +225,7 @@ export type InventoryReservationGroupByOutputType = {
   id: string
   storeId: string
   variantId: string
+  locationId: string
   orderId: string | null
   cartId: string | null
   quantity: number
@@ -256,6 +263,7 @@ export type InventoryReservationWhereInput = {
   id?: Prisma.UuidFilter<"InventoryReservation"> | string
   storeId?: Prisma.UuidFilter<"InventoryReservation"> | string
   variantId?: Prisma.UuidFilter<"InventoryReservation"> | string
+  locationId?: Prisma.UuidFilter<"InventoryReservation"> | string
   orderId?: Prisma.UuidNullableFilter<"InventoryReservation"> | string | null
   cartId?: Prisma.UuidNullableFilter<"InventoryReservation"> | string | null
   quantity?: Prisma.IntFilter<"InventoryReservation"> | number
@@ -266,6 +274,7 @@ export type InventoryReservationWhereInput = {
   updatedAt?: Prisma.DateTimeFilter<"InventoryReservation"> | Date | string
   store?: Prisma.XOR<Prisma.StoreScalarRelationFilter, Prisma.StoreWhereInput>
   variant?: Prisma.XOR<Prisma.ProductVariantScalarRelationFilter, Prisma.ProductVariantWhereInput>
+  location?: Prisma.XOR<Prisma.InventoryLocationScalarRelationFilter, Prisma.InventoryLocationWhereInput>
   order?: Prisma.XOR<Prisma.OrderNullableScalarRelationFilter, Prisma.OrderWhereInput> | null
   cart?: Prisma.XOR<Prisma.CartNullableScalarRelationFilter, Prisma.CartWhereInput> | null
 }
@@ -274,6 +283,7 @@ export type InventoryReservationOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   storeId?: Prisma.SortOrder
   variantId?: Prisma.SortOrder
+  locationId?: Prisma.SortOrder
   orderId?: Prisma.SortOrderInput | Prisma.SortOrder
   cartId?: Prisma.SortOrderInput | Prisma.SortOrder
   quantity?: Prisma.SortOrder
@@ -284,6 +294,7 @@ export type InventoryReservationOrderByWithRelationInput = {
   updatedAt?: Prisma.SortOrder
   store?: Prisma.StoreOrderByWithRelationInput
   variant?: Prisma.ProductVariantOrderByWithRelationInput
+  location?: Prisma.InventoryLocationOrderByWithRelationInput
   order?: Prisma.OrderOrderByWithRelationInput
   cart?: Prisma.CartOrderByWithRelationInput
 }
@@ -295,6 +306,7 @@ export type InventoryReservationWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.InventoryReservationWhereInput | Prisma.InventoryReservationWhereInput[]
   storeId?: Prisma.UuidFilter<"InventoryReservation"> | string
   variantId?: Prisma.UuidFilter<"InventoryReservation"> | string
+  locationId?: Prisma.UuidFilter<"InventoryReservation"> | string
   orderId?: Prisma.UuidNullableFilter<"InventoryReservation"> | string | null
   cartId?: Prisma.UuidNullableFilter<"InventoryReservation"> | string | null
   quantity?: Prisma.IntFilter<"InventoryReservation"> | number
@@ -305,6 +317,7 @@ export type InventoryReservationWhereUniqueInput = Prisma.AtLeast<{
   updatedAt?: Prisma.DateTimeFilter<"InventoryReservation"> | Date | string
   store?: Prisma.XOR<Prisma.StoreScalarRelationFilter, Prisma.StoreWhereInput>
   variant?: Prisma.XOR<Prisma.ProductVariantScalarRelationFilter, Prisma.ProductVariantWhereInput>
+  location?: Prisma.XOR<Prisma.InventoryLocationScalarRelationFilter, Prisma.InventoryLocationWhereInput>
   order?: Prisma.XOR<Prisma.OrderNullableScalarRelationFilter, Prisma.OrderWhereInput> | null
   cart?: Prisma.XOR<Prisma.CartNullableScalarRelationFilter, Prisma.CartWhereInput> | null
 }, "id">
@@ -313,6 +326,7 @@ export type InventoryReservationOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   storeId?: Prisma.SortOrder
   variantId?: Prisma.SortOrder
+  locationId?: Prisma.SortOrder
   orderId?: Prisma.SortOrderInput | Prisma.SortOrder
   cartId?: Prisma.SortOrderInput | Prisma.SortOrder
   quantity?: Prisma.SortOrder
@@ -335,6 +349,7 @@ export type InventoryReservationScalarWhereWithAggregatesInput = {
   id?: Prisma.UuidWithAggregatesFilter<"InventoryReservation"> | string
   storeId?: Prisma.UuidWithAggregatesFilter<"InventoryReservation"> | string
   variantId?: Prisma.UuidWithAggregatesFilter<"InventoryReservation"> | string
+  locationId?: Prisma.UuidWithAggregatesFilter<"InventoryReservation"> | string
   orderId?: Prisma.UuidNullableWithAggregatesFilter<"InventoryReservation"> | string | null
   cartId?: Prisma.UuidNullableWithAggregatesFilter<"InventoryReservation"> | string | null
   quantity?: Prisma.IntWithAggregatesFilter<"InventoryReservation"> | number
@@ -355,6 +370,7 @@ export type InventoryReservationCreateInput = {
   updatedAt?: Date | string
   store: Prisma.StoreCreateNestedOneWithoutInventoryReservationsInput
   variant: Prisma.ProductVariantCreateNestedOneWithoutReservationsInput
+  location: Prisma.InventoryLocationCreateNestedOneWithoutReservationsInput
   order?: Prisma.OrderCreateNestedOneWithoutReservationsInput
   cart?: Prisma.CartCreateNestedOneWithoutReservationsInput
 }
@@ -363,6 +379,7 @@ export type InventoryReservationUncheckedCreateInput = {
   id?: string
   storeId: string
   variantId: string
+  locationId: string
   orderId?: string | null
   cartId?: string | null
   quantity: number
@@ -383,6 +400,7 @@ export type InventoryReservationUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   store?: Prisma.StoreUpdateOneRequiredWithoutInventoryReservationsNestedInput
   variant?: Prisma.ProductVariantUpdateOneRequiredWithoutReservationsNestedInput
+  location?: Prisma.InventoryLocationUpdateOneRequiredWithoutReservationsNestedInput
   order?: Prisma.OrderUpdateOneWithoutReservationsNestedInput
   cart?: Prisma.CartUpdateOneWithoutReservationsNestedInput
 }
@@ -391,6 +409,7 @@ export type InventoryReservationUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   storeId?: Prisma.StringFieldUpdateOperationsInput | string
   variantId?: Prisma.StringFieldUpdateOperationsInput | string
+  locationId?: Prisma.StringFieldUpdateOperationsInput | string
   orderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cartId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
@@ -405,6 +424,7 @@ export type InventoryReservationCreateManyInput = {
   id?: string
   storeId: string
   variantId: string
+  locationId: string
   orderId?: string | null
   cartId?: string | null
   quantity: number
@@ -429,6 +449,7 @@ export type InventoryReservationUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   storeId?: Prisma.StringFieldUpdateOperationsInput | string
   variantId?: Prisma.StringFieldUpdateOperationsInput | string
+  locationId?: Prisma.StringFieldUpdateOperationsInput | string
   orderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cartId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
@@ -453,6 +474,7 @@ export type InventoryReservationCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   storeId?: Prisma.SortOrder
   variantId?: Prisma.SortOrder
+  locationId?: Prisma.SortOrder
   orderId?: Prisma.SortOrder
   cartId?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
@@ -471,6 +493,7 @@ export type InventoryReservationMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   storeId?: Prisma.SortOrder
   variantId?: Prisma.SortOrder
+  locationId?: Prisma.SortOrder
   orderId?: Prisma.SortOrder
   cartId?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
@@ -485,6 +508,7 @@ export type InventoryReservationMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   storeId?: Prisma.SortOrder
   variantId?: Prisma.SortOrder
+  locationId?: Prisma.SortOrder
   orderId?: Prisma.SortOrder
   cartId?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
@@ -580,6 +604,48 @@ export type InventoryReservationUncheckedUpdateManyWithoutVariantNestedInput = {
   connect?: Prisma.InventoryReservationWhereUniqueInput | Prisma.InventoryReservationWhereUniqueInput[]
   update?: Prisma.InventoryReservationUpdateWithWhereUniqueWithoutVariantInput | Prisma.InventoryReservationUpdateWithWhereUniqueWithoutVariantInput[]
   updateMany?: Prisma.InventoryReservationUpdateManyWithWhereWithoutVariantInput | Prisma.InventoryReservationUpdateManyWithWhereWithoutVariantInput[]
+  deleteMany?: Prisma.InventoryReservationScalarWhereInput | Prisma.InventoryReservationScalarWhereInput[]
+}
+
+export type InventoryReservationCreateNestedManyWithoutLocationInput = {
+  create?: Prisma.XOR<Prisma.InventoryReservationCreateWithoutLocationInput, Prisma.InventoryReservationUncheckedCreateWithoutLocationInput> | Prisma.InventoryReservationCreateWithoutLocationInput[] | Prisma.InventoryReservationUncheckedCreateWithoutLocationInput[]
+  connectOrCreate?: Prisma.InventoryReservationCreateOrConnectWithoutLocationInput | Prisma.InventoryReservationCreateOrConnectWithoutLocationInput[]
+  createMany?: Prisma.InventoryReservationCreateManyLocationInputEnvelope
+  connect?: Prisma.InventoryReservationWhereUniqueInput | Prisma.InventoryReservationWhereUniqueInput[]
+}
+
+export type InventoryReservationUncheckedCreateNestedManyWithoutLocationInput = {
+  create?: Prisma.XOR<Prisma.InventoryReservationCreateWithoutLocationInput, Prisma.InventoryReservationUncheckedCreateWithoutLocationInput> | Prisma.InventoryReservationCreateWithoutLocationInput[] | Prisma.InventoryReservationUncheckedCreateWithoutLocationInput[]
+  connectOrCreate?: Prisma.InventoryReservationCreateOrConnectWithoutLocationInput | Prisma.InventoryReservationCreateOrConnectWithoutLocationInput[]
+  createMany?: Prisma.InventoryReservationCreateManyLocationInputEnvelope
+  connect?: Prisma.InventoryReservationWhereUniqueInput | Prisma.InventoryReservationWhereUniqueInput[]
+}
+
+export type InventoryReservationUpdateManyWithoutLocationNestedInput = {
+  create?: Prisma.XOR<Prisma.InventoryReservationCreateWithoutLocationInput, Prisma.InventoryReservationUncheckedCreateWithoutLocationInput> | Prisma.InventoryReservationCreateWithoutLocationInput[] | Prisma.InventoryReservationUncheckedCreateWithoutLocationInput[]
+  connectOrCreate?: Prisma.InventoryReservationCreateOrConnectWithoutLocationInput | Prisma.InventoryReservationCreateOrConnectWithoutLocationInput[]
+  upsert?: Prisma.InventoryReservationUpsertWithWhereUniqueWithoutLocationInput | Prisma.InventoryReservationUpsertWithWhereUniqueWithoutLocationInput[]
+  createMany?: Prisma.InventoryReservationCreateManyLocationInputEnvelope
+  set?: Prisma.InventoryReservationWhereUniqueInput | Prisma.InventoryReservationWhereUniqueInput[]
+  disconnect?: Prisma.InventoryReservationWhereUniqueInput | Prisma.InventoryReservationWhereUniqueInput[]
+  delete?: Prisma.InventoryReservationWhereUniqueInput | Prisma.InventoryReservationWhereUniqueInput[]
+  connect?: Prisma.InventoryReservationWhereUniqueInput | Prisma.InventoryReservationWhereUniqueInput[]
+  update?: Prisma.InventoryReservationUpdateWithWhereUniqueWithoutLocationInput | Prisma.InventoryReservationUpdateWithWhereUniqueWithoutLocationInput[]
+  updateMany?: Prisma.InventoryReservationUpdateManyWithWhereWithoutLocationInput | Prisma.InventoryReservationUpdateManyWithWhereWithoutLocationInput[]
+  deleteMany?: Prisma.InventoryReservationScalarWhereInput | Prisma.InventoryReservationScalarWhereInput[]
+}
+
+export type InventoryReservationUncheckedUpdateManyWithoutLocationNestedInput = {
+  create?: Prisma.XOR<Prisma.InventoryReservationCreateWithoutLocationInput, Prisma.InventoryReservationUncheckedCreateWithoutLocationInput> | Prisma.InventoryReservationCreateWithoutLocationInput[] | Prisma.InventoryReservationUncheckedCreateWithoutLocationInput[]
+  connectOrCreate?: Prisma.InventoryReservationCreateOrConnectWithoutLocationInput | Prisma.InventoryReservationCreateOrConnectWithoutLocationInput[]
+  upsert?: Prisma.InventoryReservationUpsertWithWhereUniqueWithoutLocationInput | Prisma.InventoryReservationUpsertWithWhereUniqueWithoutLocationInput[]
+  createMany?: Prisma.InventoryReservationCreateManyLocationInputEnvelope
+  set?: Prisma.InventoryReservationWhereUniqueInput | Prisma.InventoryReservationWhereUniqueInput[]
+  disconnect?: Prisma.InventoryReservationWhereUniqueInput | Prisma.InventoryReservationWhereUniqueInput[]
+  delete?: Prisma.InventoryReservationWhereUniqueInput | Prisma.InventoryReservationWhereUniqueInput[]
+  connect?: Prisma.InventoryReservationWhereUniqueInput | Prisma.InventoryReservationWhereUniqueInput[]
+  update?: Prisma.InventoryReservationUpdateWithWhereUniqueWithoutLocationInput | Prisma.InventoryReservationUpdateWithWhereUniqueWithoutLocationInput[]
+  updateMany?: Prisma.InventoryReservationUpdateManyWithWhereWithoutLocationInput | Prisma.InventoryReservationUpdateManyWithWhereWithoutLocationInput[]
   deleteMany?: Prisma.InventoryReservationScalarWhereInput | Prisma.InventoryReservationScalarWhereInput[]
 }
 
@@ -680,6 +746,7 @@ export type InventoryReservationCreateWithoutStoreInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   variant: Prisma.ProductVariantCreateNestedOneWithoutReservationsInput
+  location: Prisma.InventoryLocationCreateNestedOneWithoutReservationsInput
   order?: Prisma.OrderCreateNestedOneWithoutReservationsInput
   cart?: Prisma.CartCreateNestedOneWithoutReservationsInput
 }
@@ -687,6 +754,7 @@ export type InventoryReservationCreateWithoutStoreInput = {
 export type InventoryReservationUncheckedCreateWithoutStoreInput = {
   id?: string
   variantId: string
+  locationId: string
   orderId?: string | null
   cartId?: string | null
   quantity: number
@@ -730,6 +798,7 @@ export type InventoryReservationScalarWhereInput = {
   id?: Prisma.UuidFilter<"InventoryReservation"> | string
   storeId?: Prisma.UuidFilter<"InventoryReservation"> | string
   variantId?: Prisma.UuidFilter<"InventoryReservation"> | string
+  locationId?: Prisma.UuidFilter<"InventoryReservation"> | string
   orderId?: Prisma.UuidNullableFilter<"InventoryReservation"> | string | null
   cartId?: Prisma.UuidNullableFilter<"InventoryReservation"> | string | null
   quantity?: Prisma.IntFilter<"InventoryReservation"> | number
@@ -749,12 +818,14 @@ export type InventoryReservationCreateWithoutVariantInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   store: Prisma.StoreCreateNestedOneWithoutInventoryReservationsInput
+  location: Prisma.InventoryLocationCreateNestedOneWithoutReservationsInput
   order?: Prisma.OrderCreateNestedOneWithoutReservationsInput
   cart?: Prisma.CartCreateNestedOneWithoutReservationsInput
 }
 
 export type InventoryReservationUncheckedCreateWithoutVariantInput = {
   id?: string
+  locationId: string
   orderId?: string | null
   cartId?: string | null
   quantity: number
@@ -791,7 +862,7 @@ export type InventoryReservationUpdateManyWithWhereWithoutVariantInput = {
   data: Prisma.XOR<Prisma.InventoryReservationUpdateManyMutationInput, Prisma.InventoryReservationUncheckedUpdateManyWithoutVariantInput>
 }
 
-export type InventoryReservationCreateWithoutCartInput = {
+export type InventoryReservationCreateWithoutLocationInput = {
   id?: string
   quantity: number
   expiresAt: Date | string
@@ -802,11 +873,66 @@ export type InventoryReservationCreateWithoutCartInput = {
   store: Prisma.StoreCreateNestedOneWithoutInventoryReservationsInput
   variant: Prisma.ProductVariantCreateNestedOneWithoutReservationsInput
   order?: Prisma.OrderCreateNestedOneWithoutReservationsInput
+  cart?: Prisma.CartCreateNestedOneWithoutReservationsInput
+}
+
+export type InventoryReservationUncheckedCreateWithoutLocationInput = {
+  id?: string
+  variantId: string
+  orderId?: string | null
+  cartId?: string | null
+  quantity: number
+  expiresAt: Date | string
+  status?: $Enums.InventoryReservationStatus
+  releasedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type InventoryReservationCreateOrConnectWithoutLocationInput = {
+  where: Prisma.InventoryReservationWhereUniqueInput
+  create: Prisma.XOR<Prisma.InventoryReservationCreateWithoutLocationInput, Prisma.InventoryReservationUncheckedCreateWithoutLocationInput>
+}
+
+export type InventoryReservationCreateManyLocationInputEnvelope = {
+  data: Prisma.InventoryReservationCreateManyLocationInput | Prisma.InventoryReservationCreateManyLocationInput[]
+  skipDuplicates?: boolean
+}
+
+export type InventoryReservationUpsertWithWhereUniqueWithoutLocationInput = {
+  where: Prisma.InventoryReservationWhereUniqueInput
+  update: Prisma.XOR<Prisma.InventoryReservationUpdateWithoutLocationInput, Prisma.InventoryReservationUncheckedUpdateWithoutLocationInput>
+  create: Prisma.XOR<Prisma.InventoryReservationCreateWithoutLocationInput, Prisma.InventoryReservationUncheckedCreateWithoutLocationInput>
+}
+
+export type InventoryReservationUpdateWithWhereUniqueWithoutLocationInput = {
+  where: Prisma.InventoryReservationWhereUniqueInput
+  data: Prisma.XOR<Prisma.InventoryReservationUpdateWithoutLocationInput, Prisma.InventoryReservationUncheckedUpdateWithoutLocationInput>
+}
+
+export type InventoryReservationUpdateManyWithWhereWithoutLocationInput = {
+  where: Prisma.InventoryReservationScalarWhereInput
+  data: Prisma.XOR<Prisma.InventoryReservationUpdateManyMutationInput, Prisma.InventoryReservationUncheckedUpdateManyWithoutLocationInput>
+}
+
+export type InventoryReservationCreateWithoutCartInput = {
+  id?: string
+  quantity: number
+  expiresAt: Date | string
+  status?: $Enums.InventoryReservationStatus
+  releasedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  store: Prisma.StoreCreateNestedOneWithoutInventoryReservationsInput
+  variant: Prisma.ProductVariantCreateNestedOneWithoutReservationsInput
+  location: Prisma.InventoryLocationCreateNestedOneWithoutReservationsInput
+  order?: Prisma.OrderCreateNestedOneWithoutReservationsInput
 }
 
 export type InventoryReservationUncheckedCreateWithoutCartInput = {
   id?: string
   variantId: string
+  locationId: string
   orderId?: string | null
   quantity: number
   expiresAt: Date | string
@@ -852,12 +978,14 @@ export type InventoryReservationCreateWithoutOrderInput = {
   updatedAt?: Date | string
   store: Prisma.StoreCreateNestedOneWithoutInventoryReservationsInput
   variant: Prisma.ProductVariantCreateNestedOneWithoutReservationsInput
+  location: Prisma.InventoryLocationCreateNestedOneWithoutReservationsInput
   cart?: Prisma.CartCreateNestedOneWithoutReservationsInput
 }
 
 export type InventoryReservationUncheckedCreateWithoutOrderInput = {
   id?: string
   variantId: string
+  locationId: string
   cartId?: string | null
   quantity: number
   expiresAt: Date | string
@@ -896,6 +1024,7 @@ export type InventoryReservationUpdateManyWithWhereWithoutOrderInput = {
 export type InventoryReservationCreateManyStoreInput = {
   id?: string
   variantId: string
+  locationId: string
   orderId?: string | null
   cartId?: string | null
   quantity: number
@@ -915,6 +1044,7 @@ export type InventoryReservationUpdateWithoutStoreInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   variant?: Prisma.ProductVariantUpdateOneRequiredWithoutReservationsNestedInput
+  location?: Prisma.InventoryLocationUpdateOneRequiredWithoutReservationsNestedInput
   order?: Prisma.OrderUpdateOneWithoutReservationsNestedInput
   cart?: Prisma.CartUpdateOneWithoutReservationsNestedInput
 }
@@ -922,6 +1052,7 @@ export type InventoryReservationUpdateWithoutStoreInput = {
 export type InventoryReservationUncheckedUpdateWithoutStoreInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   variantId?: Prisma.StringFieldUpdateOperationsInput | string
+  locationId?: Prisma.StringFieldUpdateOperationsInput | string
   orderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cartId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
@@ -935,6 +1066,7 @@ export type InventoryReservationUncheckedUpdateWithoutStoreInput = {
 export type InventoryReservationUncheckedUpdateManyWithoutStoreInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   variantId?: Prisma.StringFieldUpdateOperationsInput | string
+  locationId?: Prisma.StringFieldUpdateOperationsInput | string
   orderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cartId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
@@ -947,6 +1079,7 @@ export type InventoryReservationUncheckedUpdateManyWithoutStoreInput = {
 
 export type InventoryReservationCreateManyVariantInput = {
   id?: string
+  locationId: string
   orderId?: string | null
   cartId?: string | null
   quantity: number
@@ -966,12 +1099,14 @@ export type InventoryReservationUpdateWithoutVariantInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   store?: Prisma.StoreUpdateOneRequiredWithoutInventoryReservationsNestedInput
+  location?: Prisma.InventoryLocationUpdateOneRequiredWithoutReservationsNestedInput
   order?: Prisma.OrderUpdateOneWithoutReservationsNestedInput
   cart?: Prisma.CartUpdateOneWithoutReservationsNestedInput
 }
 
 export type InventoryReservationUncheckedUpdateWithoutVariantInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  locationId?: Prisma.StringFieldUpdateOperationsInput | string
   orderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cartId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
@@ -984,6 +1119,60 @@ export type InventoryReservationUncheckedUpdateWithoutVariantInput = {
 
 export type InventoryReservationUncheckedUpdateManyWithoutVariantInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  locationId?: Prisma.StringFieldUpdateOperationsInput | string
+  orderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cartId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  expiresAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  status?: Prisma.EnumInventoryReservationStatusFieldUpdateOperationsInput | $Enums.InventoryReservationStatus
+  releasedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type InventoryReservationCreateManyLocationInput = {
+  id?: string
+  variantId: string
+  orderId?: string | null
+  cartId?: string | null
+  quantity: number
+  expiresAt: Date | string
+  status?: $Enums.InventoryReservationStatus
+  releasedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type InventoryReservationUpdateWithoutLocationInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  expiresAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  status?: Prisma.EnumInventoryReservationStatusFieldUpdateOperationsInput | $Enums.InventoryReservationStatus
+  releasedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  store?: Prisma.StoreUpdateOneRequiredWithoutInventoryReservationsNestedInput
+  variant?: Prisma.ProductVariantUpdateOneRequiredWithoutReservationsNestedInput
+  order?: Prisma.OrderUpdateOneWithoutReservationsNestedInput
+  cart?: Prisma.CartUpdateOneWithoutReservationsNestedInput
+}
+
+export type InventoryReservationUncheckedUpdateWithoutLocationInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  variantId?: Prisma.StringFieldUpdateOperationsInput | string
+  orderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cartId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  expiresAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  status?: Prisma.EnumInventoryReservationStatusFieldUpdateOperationsInput | $Enums.InventoryReservationStatus
+  releasedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type InventoryReservationUncheckedUpdateManyWithoutLocationInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  variantId?: Prisma.StringFieldUpdateOperationsInput | string
   orderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cartId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
@@ -997,6 +1186,7 @@ export type InventoryReservationUncheckedUpdateManyWithoutVariantInput = {
 export type InventoryReservationCreateManyCartInput = {
   id?: string
   variantId: string
+  locationId: string
   orderId?: string | null
   quantity: number
   expiresAt: Date | string
@@ -1016,12 +1206,14 @@ export type InventoryReservationUpdateWithoutCartInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   store?: Prisma.StoreUpdateOneRequiredWithoutInventoryReservationsNestedInput
   variant?: Prisma.ProductVariantUpdateOneRequiredWithoutReservationsNestedInput
+  location?: Prisma.InventoryLocationUpdateOneRequiredWithoutReservationsNestedInput
   order?: Prisma.OrderUpdateOneWithoutReservationsNestedInput
 }
 
 export type InventoryReservationUncheckedUpdateWithoutCartInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   variantId?: Prisma.StringFieldUpdateOperationsInput | string
+  locationId?: Prisma.StringFieldUpdateOperationsInput | string
   orderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   expiresAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1034,6 +1226,7 @@ export type InventoryReservationUncheckedUpdateWithoutCartInput = {
 export type InventoryReservationUncheckedUpdateManyWithoutCartInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   variantId?: Prisma.StringFieldUpdateOperationsInput | string
+  locationId?: Prisma.StringFieldUpdateOperationsInput | string
   orderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   expiresAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1046,6 +1239,7 @@ export type InventoryReservationUncheckedUpdateManyWithoutCartInput = {
 export type InventoryReservationCreateManyOrderInput = {
   id?: string
   variantId: string
+  locationId: string
   cartId?: string | null
   quantity: number
   expiresAt: Date | string
@@ -1065,12 +1259,14 @@ export type InventoryReservationUpdateWithoutOrderInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   store?: Prisma.StoreUpdateOneRequiredWithoutInventoryReservationsNestedInput
   variant?: Prisma.ProductVariantUpdateOneRequiredWithoutReservationsNestedInput
+  location?: Prisma.InventoryLocationUpdateOneRequiredWithoutReservationsNestedInput
   cart?: Prisma.CartUpdateOneWithoutReservationsNestedInput
 }
 
 export type InventoryReservationUncheckedUpdateWithoutOrderInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   variantId?: Prisma.StringFieldUpdateOperationsInput | string
+  locationId?: Prisma.StringFieldUpdateOperationsInput | string
   cartId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   expiresAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1083,6 +1279,7 @@ export type InventoryReservationUncheckedUpdateWithoutOrderInput = {
 export type InventoryReservationUncheckedUpdateManyWithoutOrderInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   variantId?: Prisma.StringFieldUpdateOperationsInput | string
+  locationId?: Prisma.StringFieldUpdateOperationsInput | string
   cartId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   expiresAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1098,6 +1295,7 @@ export type InventoryReservationSelect<ExtArgs extends runtime.Types.Extensions.
   id?: boolean
   storeId?: boolean
   variantId?: boolean
+  locationId?: boolean
   orderId?: boolean
   cartId?: boolean
   quantity?: boolean
@@ -1108,6 +1306,7 @@ export type InventoryReservationSelect<ExtArgs extends runtime.Types.Extensions.
   updatedAt?: boolean
   store?: boolean | Prisma.StoreDefaultArgs<ExtArgs>
   variant?: boolean | Prisma.ProductVariantDefaultArgs<ExtArgs>
+  location?: boolean | Prisma.InventoryLocationDefaultArgs<ExtArgs>
   order?: boolean | Prisma.InventoryReservation$orderArgs<ExtArgs>
   cart?: boolean | Prisma.InventoryReservation$cartArgs<ExtArgs>
 }, ExtArgs["result"]["inventoryReservation"]>
@@ -1116,6 +1315,7 @@ export type InventoryReservationSelectCreateManyAndReturn<ExtArgs extends runtim
   id?: boolean
   storeId?: boolean
   variantId?: boolean
+  locationId?: boolean
   orderId?: boolean
   cartId?: boolean
   quantity?: boolean
@@ -1126,6 +1326,7 @@ export type InventoryReservationSelectCreateManyAndReturn<ExtArgs extends runtim
   updatedAt?: boolean
   store?: boolean | Prisma.StoreDefaultArgs<ExtArgs>
   variant?: boolean | Prisma.ProductVariantDefaultArgs<ExtArgs>
+  location?: boolean | Prisma.InventoryLocationDefaultArgs<ExtArgs>
   order?: boolean | Prisma.InventoryReservation$orderArgs<ExtArgs>
   cart?: boolean | Prisma.InventoryReservation$cartArgs<ExtArgs>
 }, ExtArgs["result"]["inventoryReservation"]>
@@ -1134,6 +1335,7 @@ export type InventoryReservationSelectUpdateManyAndReturn<ExtArgs extends runtim
   id?: boolean
   storeId?: boolean
   variantId?: boolean
+  locationId?: boolean
   orderId?: boolean
   cartId?: boolean
   quantity?: boolean
@@ -1144,6 +1346,7 @@ export type InventoryReservationSelectUpdateManyAndReturn<ExtArgs extends runtim
   updatedAt?: boolean
   store?: boolean | Prisma.StoreDefaultArgs<ExtArgs>
   variant?: boolean | Prisma.ProductVariantDefaultArgs<ExtArgs>
+  location?: boolean | Prisma.InventoryLocationDefaultArgs<ExtArgs>
   order?: boolean | Prisma.InventoryReservation$orderArgs<ExtArgs>
   cart?: boolean | Prisma.InventoryReservation$cartArgs<ExtArgs>
 }, ExtArgs["result"]["inventoryReservation"]>
@@ -1152,6 +1355,7 @@ export type InventoryReservationSelectScalar = {
   id?: boolean
   storeId?: boolean
   variantId?: boolean
+  locationId?: boolean
   orderId?: boolean
   cartId?: boolean
   quantity?: boolean
@@ -1162,22 +1366,25 @@ export type InventoryReservationSelectScalar = {
   updatedAt?: boolean
 }
 
-export type InventoryReservationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "storeId" | "variantId" | "orderId" | "cartId" | "quantity" | "expiresAt" | "status" | "releasedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["inventoryReservation"]>
+export type InventoryReservationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "storeId" | "variantId" | "locationId" | "orderId" | "cartId" | "quantity" | "expiresAt" | "status" | "releasedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["inventoryReservation"]>
 export type InventoryReservationInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   store?: boolean | Prisma.StoreDefaultArgs<ExtArgs>
   variant?: boolean | Prisma.ProductVariantDefaultArgs<ExtArgs>
+  location?: boolean | Prisma.InventoryLocationDefaultArgs<ExtArgs>
   order?: boolean | Prisma.InventoryReservation$orderArgs<ExtArgs>
   cart?: boolean | Prisma.InventoryReservation$cartArgs<ExtArgs>
 }
 export type InventoryReservationIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   store?: boolean | Prisma.StoreDefaultArgs<ExtArgs>
   variant?: boolean | Prisma.ProductVariantDefaultArgs<ExtArgs>
+  location?: boolean | Prisma.InventoryLocationDefaultArgs<ExtArgs>
   order?: boolean | Prisma.InventoryReservation$orderArgs<ExtArgs>
   cart?: boolean | Prisma.InventoryReservation$cartArgs<ExtArgs>
 }
 export type InventoryReservationIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   store?: boolean | Prisma.StoreDefaultArgs<ExtArgs>
   variant?: boolean | Prisma.ProductVariantDefaultArgs<ExtArgs>
+  location?: boolean | Prisma.InventoryLocationDefaultArgs<ExtArgs>
   order?: boolean | Prisma.InventoryReservation$orderArgs<ExtArgs>
   cart?: boolean | Prisma.InventoryReservation$cartArgs<ExtArgs>
 }
@@ -1187,6 +1394,7 @@ export type $InventoryReservationPayload<ExtArgs extends runtime.Types.Extension
   objects: {
     store: Prisma.$StorePayload<ExtArgs>
     variant: Prisma.$ProductVariantPayload<ExtArgs>
+    location: Prisma.$InventoryLocationPayload<ExtArgs>
     order: Prisma.$OrderPayload<ExtArgs> | null
     cart: Prisma.$CartPayload<ExtArgs> | null
   }
@@ -1194,6 +1402,7 @@ export type $InventoryReservationPayload<ExtArgs extends runtime.Types.Extension
     id: string
     storeId: string
     variantId: string
+    locationId: string
     orderId: string | null
     cartId: string | null
     quantity: number
@@ -1598,6 +1807,7 @@ export interface Prisma__InventoryReservationClient<T, Null = never, ExtArgs ext
   readonly [Symbol.toStringTag]: "PrismaPromise"
   store<T extends Prisma.StoreDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.StoreDefaultArgs<ExtArgs>>): Prisma.Prisma__StoreClient<runtime.Types.Result.GetResult<Prisma.$StorePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   variant<T extends Prisma.ProductVariantDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ProductVariantDefaultArgs<ExtArgs>>): Prisma.Prisma__ProductVariantClient<runtime.Types.Result.GetResult<Prisma.$ProductVariantPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  location<T extends Prisma.InventoryLocationDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.InventoryLocationDefaultArgs<ExtArgs>>): Prisma.Prisma__InventoryLocationClient<runtime.Types.Result.GetResult<Prisma.$InventoryLocationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   order<T extends Prisma.InventoryReservation$orderArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.InventoryReservation$orderArgs<ExtArgs>>): Prisma.Prisma__OrderClient<runtime.Types.Result.GetResult<Prisma.$OrderPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   cart<T extends Prisma.InventoryReservation$cartArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.InventoryReservation$cartArgs<ExtArgs>>): Prisma.Prisma__CartClient<runtime.Types.Result.GetResult<Prisma.$CartPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
@@ -1632,6 +1842,7 @@ export interface InventoryReservationFieldRefs {
   readonly id: Prisma.FieldRef<"InventoryReservation", 'String'>
   readonly storeId: Prisma.FieldRef<"InventoryReservation", 'String'>
   readonly variantId: Prisma.FieldRef<"InventoryReservation", 'String'>
+  readonly locationId: Prisma.FieldRef<"InventoryReservation", 'String'>
   readonly orderId: Prisma.FieldRef<"InventoryReservation", 'String'>
   readonly cartId: Prisma.FieldRef<"InventoryReservation", 'String'>
   readonly quantity: Prisma.FieldRef<"InventoryReservation", 'Int'>

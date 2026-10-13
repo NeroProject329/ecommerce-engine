@@ -1,8 +1,9 @@
-import { BadRequestException, Body, Controller, Headers, HttpCode, Inject, Post } from '@nestjs/common';
+import { BadRequestException, Body, Controller, Delete, Get, Headers, HttpCode, Inject, Param, Patch, Post } from '@nestjs/common';
 import { ZodError } from 'zod';
 import { AdminAuthService } from './admin-auth.service';
 import {
   adminLoginSchema,
+  adminPasswordChangeSchema,
   adminRecoveryRequestSchema,
   adminRecoveryResetSchema,
   totpVerificationSchema,
@@ -48,6 +49,23 @@ export class AdminAuthController {
   @HttpCode(204)
   async verify(@Headers('authorization') authorization: string | undefined, @Body() body: unknown): Promise<void> {
     await this.auth.verifyTotpEnrollment(bearer(authorization), validated(totpVerificationSchema, body));
+  }
+
+  @Get('sessions')
+  async sessions(@Headers('authorization') authorization?: string) {
+    return { data: await this.auth.sessions(bearer(authorization)) };
+  }
+
+  @Delete('sessions/:sessionId')
+  @HttpCode(204)
+  async revokeSession(@Headers('authorization') authorization: string | undefined, @Param('sessionId') sessionId: string): Promise<void> {
+    await this.auth.revokeSession(bearer(authorization), sessionId);
+  }
+
+  @Patch('password')
+  @HttpCode(204)
+  async changePassword(@Headers('authorization') authorization: string | undefined, @Body() body: unknown): Promise<void> {
+    await this.auth.changePassword(bearer(authorization), validated(adminPasswordChangeSchema, body));
   }
 
   @Post('recovery/request')

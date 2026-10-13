@@ -46,6 +46,7 @@ export type OrderMinAggregateOutputType = {
   id: string | null
   storeId: string | null
   number: string | null
+  accessKeyHash: string | null
   customerId: string | null
   status: $Enums.OrderStatus | null
   subtotalCents: bigint | null
@@ -63,6 +64,7 @@ export type OrderMaxAggregateOutputType = {
   id: string | null
   storeId: string | null
   number: string | null
+  accessKeyHash: string | null
   customerId: string | null
   status: $Enums.OrderStatus | null
   subtotalCents: bigint | null
@@ -80,6 +82,7 @@ export type OrderCountAggregateOutputType = {
   id: number
   storeId: number
   number: number
+  accessKeyHash: number
   customerId: number
   status: number
   subtotalCents: number
@@ -117,6 +120,7 @@ export type OrderMinAggregateInputType = {
   id?: true
   storeId?: true
   number?: true
+  accessKeyHash?: true
   customerId?: true
   status?: true
   subtotalCents?: true
@@ -134,6 +138,7 @@ export type OrderMaxAggregateInputType = {
   id?: true
   storeId?: true
   number?: true
+  accessKeyHash?: true
   customerId?: true
   status?: true
   subtotalCents?: true
@@ -151,6 +156,7 @@ export type OrderCountAggregateInputType = {
   id?: true
   storeId?: true
   number?: true
+  accessKeyHash?: true
   customerId?: true
   status?: true
   subtotalCents?: true
@@ -257,6 +263,7 @@ export type OrderGroupByOutputType = {
   id: string
   storeId: string
   number: string
+  accessKeyHash: string | null
   customerId: string | null
   status: $Enums.OrderStatus
   subtotalCents: bigint
@@ -299,6 +306,7 @@ export type OrderWhereInput = {
   id?: Prisma.UuidFilter<"Order"> | string
   storeId?: Prisma.UuidFilter<"Order"> | string
   number?: Prisma.StringFilter<"Order"> | string
+  accessKeyHash?: Prisma.StringNullableFilter<"Order"> | string | null
   customerId?: Prisma.UuidNullableFilter<"Order"> | string | null
   status?: Prisma.EnumOrderStatusFilter<"Order"> | $Enums.OrderStatus
   subtotalCents?: Prisma.BigIntFilter<"Order"> | bigint | number
@@ -326,6 +334,7 @@ export type OrderOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   storeId?: Prisma.SortOrder
   number?: Prisma.SortOrder
+  accessKeyHash?: Prisma.SortOrderInput | Prisma.SortOrder
   customerId?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
   subtotalCents?: Prisma.SortOrder
@@ -351,6 +360,7 @@ export type OrderOrderByWithRelationInput = {
 
 export type OrderWhereUniqueInput = Prisma.AtLeast<{
   id?: string
+  accessKeyHash?: string
   storeId_number?: Prisma.OrderStoreIdNumberCompoundUniqueInput
   id_storeId?: Prisma.OrderIdStoreIdCompoundUniqueInput
   AND?: Prisma.OrderWhereInput | Prisma.OrderWhereInput[]
@@ -379,12 +389,13 @@ export type OrderWhereUniqueInput = Prisma.AtLeast<{
   payments?: Prisma.PaymentListRelationFilter
   reservations?: Prisma.InventoryReservationListRelationFilter
   couponRedemptions?: Prisma.CouponRedemptionListRelationFilter
-}, "id" | "storeId_number" | "id_storeId">
+}, "id" | "accessKeyHash" | "storeId_number" | "id_storeId">
 
 export type OrderOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   storeId?: Prisma.SortOrder
   number?: Prisma.SortOrder
+  accessKeyHash?: Prisma.SortOrderInput | Prisma.SortOrder
   customerId?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
   subtotalCents?: Prisma.SortOrder
@@ -412,6 +423,7 @@ export type OrderScalarWhereWithAggregatesInput = {
   id?: Prisma.UuidWithAggregatesFilter<"Order"> | string
   storeId?: Prisma.UuidWithAggregatesFilter<"Order"> | string
   number?: Prisma.StringWithAggregatesFilter<"Order"> | string
+  accessKeyHash?: Prisma.StringNullableWithAggregatesFilter<"Order"> | string | null
   customerId?: Prisma.UuidNullableWithAggregatesFilter<"Order"> | string | null
   status?: Prisma.EnumOrderStatusWithAggregatesFilter<"Order"> | $Enums.OrderStatus
   subtotalCents?: Prisma.BigIntWithAggregatesFilter<"Order"> | bigint | number
@@ -430,6 +442,7 @@ export type OrderScalarWhereWithAggregatesInput = {
 export type OrderCreateInput = {
   id?: string
   number: string
+  accessKeyHash?: string | null
   status?: $Enums.OrderStatus
   subtotalCents: bigint | number
   discountCents?: bigint | number
@@ -456,6 +469,7 @@ export type OrderUncheckedCreateInput = {
   id?: string
   storeId: string
   number: string
+  accessKeyHash?: string | null
   customerId?: string | null
   status?: $Enums.OrderStatus
   subtotalCents: bigint | number
@@ -480,6 +494,7 @@ export type OrderUncheckedCreateInput = {
 export type OrderUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   number?: Prisma.StringFieldUpdateOperationsInput | string
+  accessKeyHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
   subtotalCents?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   discountCents?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
@@ -506,6 +521,7 @@ export type OrderUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   storeId?: Prisma.StringFieldUpdateOperationsInput | string
   number?: Prisma.StringFieldUpdateOperationsInput | string
+  accessKeyHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   customerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
   subtotalCents?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
@@ -531,6 +547,7 @@ export type OrderCreateManyInput = {
   id?: string
   storeId: string
   number: string
+  accessKeyHash?: string | null
   customerId?: string | null
   status?: $Enums.OrderStatus
   subtotalCents: bigint | number
@@ -549,6 +566,7 @@ export type OrderCreateManyInput = {
 export type OrderUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   number?: Prisma.StringFieldUpdateOperationsInput | string
+  accessKeyHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
   subtotalCents?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   discountCents?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
@@ -567,6 +585,7 @@ export type OrderUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   storeId?: Prisma.StringFieldUpdateOperationsInput | string
   number?: Prisma.StringFieldUpdateOperationsInput | string
+  accessKeyHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   customerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
   subtotalCents?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
@@ -616,6 +635,7 @@ export type OrderCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   storeId?: Prisma.SortOrder
   number?: Prisma.SortOrder
+  accessKeyHash?: Prisma.SortOrder
   customerId?: Prisma.SortOrder
   status?: Prisma.SortOrder
   subtotalCents?: Prisma.SortOrder
@@ -643,6 +663,7 @@ export type OrderMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   storeId?: Prisma.SortOrder
   number?: Prisma.SortOrder
+  accessKeyHash?: Prisma.SortOrder
   customerId?: Prisma.SortOrder
   status?: Prisma.SortOrder
   subtotalCents?: Prisma.SortOrder
@@ -660,6 +681,7 @@ export type OrderMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   storeId?: Prisma.SortOrder
   number?: Prisma.SortOrder
+  accessKeyHash?: Prisma.SortOrder
   customerId?: Prisma.SortOrder
   status?: Prisma.SortOrder
   subtotalCents?: Prisma.SortOrder
@@ -858,6 +880,7 @@ export type OrderUpdateOneRequiredWithoutPaymentsNestedInput = {
 export type OrderCreateWithoutStoreInput = {
   id?: string
   number: string
+  accessKeyHash?: string | null
   status?: $Enums.OrderStatus
   subtotalCents: bigint | number
   discountCents?: bigint | number
@@ -882,6 +905,7 @@ export type OrderCreateWithoutStoreInput = {
 export type OrderUncheckedCreateWithoutStoreInput = {
   id?: string
   number: string
+  accessKeyHash?: string | null
   customerId?: string | null
   status?: $Enums.OrderStatus
   subtotalCents: bigint | number
@@ -936,6 +960,7 @@ export type OrderScalarWhereInput = {
   id?: Prisma.UuidFilter<"Order"> | string
   storeId?: Prisma.UuidFilter<"Order"> | string
   number?: Prisma.StringFilter<"Order"> | string
+  accessKeyHash?: Prisma.StringNullableFilter<"Order"> | string | null
   customerId?: Prisma.UuidNullableFilter<"Order"> | string | null
   status?: Prisma.EnumOrderStatusFilter<"Order"> | $Enums.OrderStatus
   subtotalCents?: Prisma.BigIntFilter<"Order"> | bigint | number
@@ -954,6 +979,7 @@ export type OrderScalarWhereInput = {
 export type OrderCreateWithoutCustomerInput = {
   id?: string
   number: string
+  accessKeyHash?: string | null
   status?: $Enums.OrderStatus
   subtotalCents: bigint | number
   discountCents?: bigint | number
@@ -978,6 +1004,7 @@ export type OrderCreateWithoutCustomerInput = {
 export type OrderUncheckedCreateWithoutCustomerInput = {
   id?: string
   number: string
+  accessKeyHash?: string | null
   status?: $Enums.OrderStatus
   subtotalCents: bigint | number
   discountCents?: bigint | number
@@ -1027,6 +1054,7 @@ export type OrderUpdateManyWithWhereWithoutCustomerInput = {
 export type OrderCreateWithoutReservationsInput = {
   id?: string
   number: string
+  accessKeyHash?: string | null
   status?: $Enums.OrderStatus
   subtotalCents: bigint | number
   discountCents?: bigint | number
@@ -1052,6 +1080,7 @@ export type OrderUncheckedCreateWithoutReservationsInput = {
   id?: string
   storeId: string
   number: string
+  accessKeyHash?: string | null
   customerId?: string | null
   status?: $Enums.OrderStatus
   subtotalCents: bigint | number
@@ -1091,6 +1120,7 @@ export type OrderUpdateToOneWithWhereWithoutReservationsInput = {
 export type OrderUpdateWithoutReservationsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   number?: Prisma.StringFieldUpdateOperationsInput | string
+  accessKeyHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
   subtotalCents?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   discountCents?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
@@ -1116,6 +1146,7 @@ export type OrderUncheckedUpdateWithoutReservationsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   storeId?: Prisma.StringFieldUpdateOperationsInput | string
   number?: Prisma.StringFieldUpdateOperationsInput | string
+  accessKeyHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   customerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
   subtotalCents?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
@@ -1139,6 +1170,7 @@ export type OrderUncheckedUpdateWithoutReservationsInput = {
 export type OrderCreateWithoutCouponRedemptionsInput = {
   id?: string
   number: string
+  accessKeyHash?: string | null
   status?: $Enums.OrderStatus
   subtotalCents: bigint | number
   discountCents?: bigint | number
@@ -1164,6 +1196,7 @@ export type OrderUncheckedCreateWithoutCouponRedemptionsInput = {
   id?: string
   storeId: string
   number: string
+  accessKeyHash?: string | null
   customerId?: string | null
   status?: $Enums.OrderStatus
   subtotalCents: bigint | number
@@ -1203,6 +1236,7 @@ export type OrderUpdateToOneWithWhereWithoutCouponRedemptionsInput = {
 export type OrderUpdateWithoutCouponRedemptionsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   number?: Prisma.StringFieldUpdateOperationsInput | string
+  accessKeyHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
   subtotalCents?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   discountCents?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
@@ -1228,6 +1262,7 @@ export type OrderUncheckedUpdateWithoutCouponRedemptionsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   storeId?: Prisma.StringFieldUpdateOperationsInput | string
   number?: Prisma.StringFieldUpdateOperationsInput | string
+  accessKeyHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   customerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
   subtotalCents?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
@@ -1251,6 +1286,7 @@ export type OrderUncheckedUpdateWithoutCouponRedemptionsInput = {
 export type OrderCreateWithoutItemsInput = {
   id?: string
   number: string
+  accessKeyHash?: string | null
   status?: $Enums.OrderStatus
   subtotalCents: bigint | number
   discountCents?: bigint | number
@@ -1276,6 +1312,7 @@ export type OrderUncheckedCreateWithoutItemsInput = {
   id?: string
   storeId: string
   number: string
+  accessKeyHash?: string | null
   customerId?: string | null
   status?: $Enums.OrderStatus
   subtotalCents: bigint | number
@@ -1315,6 +1352,7 @@ export type OrderUpdateToOneWithWhereWithoutItemsInput = {
 export type OrderUpdateWithoutItemsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   number?: Prisma.StringFieldUpdateOperationsInput | string
+  accessKeyHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
   subtotalCents?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   discountCents?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
@@ -1340,6 +1378,7 @@ export type OrderUncheckedUpdateWithoutItemsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   storeId?: Prisma.StringFieldUpdateOperationsInput | string
   number?: Prisma.StringFieldUpdateOperationsInput | string
+  accessKeyHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   customerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
   subtotalCents?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
@@ -1363,6 +1402,7 @@ export type OrderUncheckedUpdateWithoutItemsInput = {
 export type OrderCreateWithoutStatusHistoryInput = {
   id?: string
   number: string
+  accessKeyHash?: string | null
   status?: $Enums.OrderStatus
   subtotalCents: bigint | number
   discountCents?: bigint | number
@@ -1388,6 +1428,7 @@ export type OrderUncheckedCreateWithoutStatusHistoryInput = {
   id?: string
   storeId: string
   number: string
+  accessKeyHash?: string | null
   customerId?: string | null
   status?: $Enums.OrderStatus
   subtotalCents: bigint | number
@@ -1427,6 +1468,7 @@ export type OrderUpdateToOneWithWhereWithoutStatusHistoryInput = {
 export type OrderUpdateWithoutStatusHistoryInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   number?: Prisma.StringFieldUpdateOperationsInput | string
+  accessKeyHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
   subtotalCents?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   discountCents?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
@@ -1452,6 +1494,7 @@ export type OrderUncheckedUpdateWithoutStatusHistoryInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   storeId?: Prisma.StringFieldUpdateOperationsInput | string
   number?: Prisma.StringFieldUpdateOperationsInput | string
+  accessKeyHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   customerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
   subtotalCents?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
@@ -1475,6 +1518,7 @@ export type OrderUncheckedUpdateWithoutStatusHistoryInput = {
 export type OrderCreateWithoutShipmentsInput = {
   id?: string
   number: string
+  accessKeyHash?: string | null
   status?: $Enums.OrderStatus
   subtotalCents: bigint | number
   discountCents?: bigint | number
@@ -1500,6 +1544,7 @@ export type OrderUncheckedCreateWithoutShipmentsInput = {
   id?: string
   storeId: string
   number: string
+  accessKeyHash?: string | null
   customerId?: string | null
   status?: $Enums.OrderStatus
   subtotalCents: bigint | number
@@ -1539,6 +1584,7 @@ export type OrderUpdateToOneWithWhereWithoutShipmentsInput = {
 export type OrderUpdateWithoutShipmentsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   number?: Prisma.StringFieldUpdateOperationsInput | string
+  accessKeyHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
   subtotalCents?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   discountCents?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
@@ -1564,6 +1610,7 @@ export type OrderUncheckedUpdateWithoutShipmentsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   storeId?: Prisma.StringFieldUpdateOperationsInput | string
   number?: Prisma.StringFieldUpdateOperationsInput | string
+  accessKeyHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   customerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
   subtotalCents?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
@@ -1587,6 +1634,7 @@ export type OrderUncheckedUpdateWithoutShipmentsInput = {
 export type OrderCreateWithoutPaymentsInput = {
   id?: string
   number: string
+  accessKeyHash?: string | null
   status?: $Enums.OrderStatus
   subtotalCents: bigint | number
   discountCents?: bigint | number
@@ -1612,6 +1660,7 @@ export type OrderUncheckedCreateWithoutPaymentsInput = {
   id?: string
   storeId: string
   number: string
+  accessKeyHash?: string | null
   customerId?: string | null
   status?: $Enums.OrderStatus
   subtotalCents: bigint | number
@@ -1651,6 +1700,7 @@ export type OrderUpdateToOneWithWhereWithoutPaymentsInput = {
 export type OrderUpdateWithoutPaymentsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   number?: Prisma.StringFieldUpdateOperationsInput | string
+  accessKeyHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
   subtotalCents?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   discountCents?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
@@ -1676,6 +1726,7 @@ export type OrderUncheckedUpdateWithoutPaymentsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   storeId?: Prisma.StringFieldUpdateOperationsInput | string
   number?: Prisma.StringFieldUpdateOperationsInput | string
+  accessKeyHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   customerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
   subtotalCents?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
@@ -1699,6 +1750,7 @@ export type OrderUncheckedUpdateWithoutPaymentsInput = {
 export type OrderCreateManyStoreInput = {
   id?: string
   number: string
+  accessKeyHash?: string | null
   customerId?: string | null
   status?: $Enums.OrderStatus
   subtotalCents: bigint | number
@@ -1717,6 +1769,7 @@ export type OrderCreateManyStoreInput = {
 export type OrderUpdateWithoutStoreInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   number?: Prisma.StringFieldUpdateOperationsInput | string
+  accessKeyHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
   subtotalCents?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   discountCents?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
@@ -1741,6 +1794,7 @@ export type OrderUpdateWithoutStoreInput = {
 export type OrderUncheckedUpdateWithoutStoreInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   number?: Prisma.StringFieldUpdateOperationsInput | string
+  accessKeyHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   customerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
   subtotalCents?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
@@ -1765,6 +1819,7 @@ export type OrderUncheckedUpdateWithoutStoreInput = {
 export type OrderUncheckedUpdateManyWithoutStoreInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   number?: Prisma.StringFieldUpdateOperationsInput | string
+  accessKeyHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   customerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
   subtotalCents?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
@@ -1783,6 +1838,7 @@ export type OrderUncheckedUpdateManyWithoutStoreInput = {
 export type OrderCreateManyCustomerInput = {
   id?: string
   number: string
+  accessKeyHash?: string | null
   status?: $Enums.OrderStatus
   subtotalCents: bigint | number
   discountCents?: bigint | number
@@ -1800,6 +1856,7 @@ export type OrderCreateManyCustomerInput = {
 export type OrderUpdateWithoutCustomerInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   number?: Prisma.StringFieldUpdateOperationsInput | string
+  accessKeyHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
   subtotalCents?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   discountCents?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
@@ -1824,6 +1881,7 @@ export type OrderUpdateWithoutCustomerInput = {
 export type OrderUncheckedUpdateWithoutCustomerInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   number?: Prisma.StringFieldUpdateOperationsInput | string
+  accessKeyHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
   subtotalCents?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   discountCents?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
@@ -1847,6 +1905,7 @@ export type OrderUncheckedUpdateWithoutCustomerInput = {
 export type OrderUncheckedUpdateManyWithoutCustomerInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   number?: Prisma.StringFieldUpdateOperationsInput | string
+  accessKeyHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
   subtotalCents?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   discountCents?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
@@ -1941,6 +2000,7 @@ export type OrderSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   id?: boolean
   storeId?: boolean
   number?: boolean
+  accessKeyHash?: boolean
   customerId?: boolean
   status?: boolean
   subtotalCents?: boolean
@@ -1969,6 +2029,7 @@ export type OrderSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   id?: boolean
   storeId?: boolean
   number?: boolean
+  accessKeyHash?: boolean
   customerId?: boolean
   status?: boolean
   subtotalCents?: boolean
@@ -1990,6 +2051,7 @@ export type OrderSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   id?: boolean
   storeId?: boolean
   number?: boolean
+  accessKeyHash?: boolean
   customerId?: boolean
   status?: boolean
   subtotalCents?: boolean
@@ -2011,6 +2073,7 @@ export type OrderSelectScalar = {
   id?: boolean
   storeId?: boolean
   number?: boolean
+  accessKeyHash?: boolean
   customerId?: boolean
   status?: boolean
   subtotalCents?: boolean
@@ -2026,7 +2089,7 @@ export type OrderSelectScalar = {
   updatedAt?: boolean
 }
 
-export type OrderOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "storeId" | "number" | "customerId" | "status" | "subtotalCents" | "discountCents" | "shippingCents" | "taxCents" | "totalCents" | "currency" | "addressSnapshotJson" | "pricingSnapshotJson" | "placedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["order"]>
+export type OrderOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "storeId" | "number" | "accessKeyHash" | "customerId" | "status" | "subtotalCents" | "discountCents" | "shippingCents" | "taxCents" | "totalCents" | "currency" | "addressSnapshotJson" | "pricingSnapshotJson" | "placedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["order"]>
 export type OrderInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   store?: boolean | Prisma.StoreDefaultArgs<ExtArgs>
   customer?: boolean | Prisma.Order$customerArgs<ExtArgs>
@@ -2063,6 +2126,7 @@ export type $OrderPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     id: string
     storeId: string
     number: string
+    accessKeyHash: string | null
     customerId: string | null
     status: $Enums.OrderStatus
     subtotalCents: bigint
@@ -2510,6 +2574,7 @@ export interface OrderFieldRefs {
   readonly id: Prisma.FieldRef<"Order", 'String'>
   readonly storeId: Prisma.FieldRef<"Order", 'String'>
   readonly number: Prisma.FieldRef<"Order", 'String'>
+  readonly accessKeyHash: Prisma.FieldRef<"Order", 'String'>
   readonly customerId: Prisma.FieldRef<"Order", 'String'>
   readonly status: Prisma.FieldRef<"Order", 'OrderStatus'>
   readonly subtotalCents: Prisma.FieldRef<"Order", 'BigInt'>

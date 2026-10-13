@@ -1,0 +1,1 @@
+import { AuthPage } from '../../components/auth-page';import { getStorefrontBootstrap } from '../../lib/commerce';export const dynamic='force-dynamic';export default async function Page(){const {store}=await getStorefrontBootstrap();return <AuthPage store={store} initialMode="recovery"/>;}

@@ -1,4 +1,4 @@
-import { BadRequestException, Body, Controller, Get, Headers, HttpCode, Inject, Param, Post, Put } from '@nestjs/common';
+import { BadRequestException, Body, Controller, Delete, Get, Headers, HttpCode, Inject, Param, Patch, Post, Put, Query } from '@nestjs/common';
 import { ZodError } from 'zod';
 import { AdminAuthService } from '../auth/admin-auth.service';
 import { CatalogService } from './catalog.service';
@@ -13,7 +13,15 @@ import {
   setInventorySchema,
   setPriceSchema,
   setAttributeValueSchema,
+  updateCategorySchema,
+  updateBrandSchema,
+  updateAttributeSchema,
+  updateProductSchema,
+  updateVariantSchema,
+  inventoryAdjustmentSchema,
+  bulkIdsSchema,
 } from './schemas';
+import { pageEnvelope, pagination } from '../platform/pagination';
 
 function bearer(value: string | undefined): string {
   if (!value?.startsWith('Bearer ') || value.length <= 7) throw new BadRequestException('BEARER_TOKEN_REQUIRED');
@@ -37,10 +45,56 @@ export class AdminCatalogController {
   ) {}
 
   @Get('products')
-  async products(@Param('storeId') storeId: string, @Headers('authorization') authorization?: string): Promise<{ data: unknown }> {
+  async products(@Param('storeId') storeId: string, @Headers('authorization') authorization: string | undefined, @Query() query: unknown) {
     await this.auth.authorize(bearer(authorization), storeId, 'catalog:read', false);
-    return { data: await this.catalog.adminProducts(storeId) };
+    return pageEnvelope(await this.catalog.adminProducts(storeId, pagination(query)));
   }
+
+  @Get('products/:productId')
+  async product(@Param('storeId') storeId: string, @Param('productId') productId: string, @Headers('authorization') authorization?: string): Promise<{ data: unknown }> {
+    await this.auth.authorize(bearer(authorization), storeId, 'catalog:read', false);
+    return { data: await this.catalog.adminProduct(storeId, productId) };
+  }
+
+  @Get('categories')
+  async categories(@Param('storeId') storeId: string, @Headers('authorization') authorization?: string): Promise<{ data: unknown }> { await this.auth.authorize(bearer(authorization), storeId, 'catalog:read', false); return { data: await this.catalog.adminCategories(storeId) }; }
+
+  @Patch('categories/:categoryId')
+  async updateCategory(@Param('storeId') storeId: string, @Param('categoryId') categoryId: string, @Headers('authorization') authorization: string | undefined, @Body() body: unknown): Promise<{ data: unknown }> { await this.auth.authorize(bearer(authorization), storeId, 'catalog:write'); return { data: await this.catalog.updateCategory(storeId, categoryId, validated(updateCategorySchema, body)) }; }
+  @Delete('categories/:categoryId') async archiveCategory(@Param('storeId') storeId: string, @Param('categoryId') categoryId: string, @Headers('authorization') authorization?: string): Promise<{ data: unknown }> { await this.auth.authorize(bearer(authorization), storeId, 'catalog:write'); return { data: await this.catalog.archiveCategory(storeId, categoryId) }; }
+
+  @Get('brands')
+  async brands(@Param('storeId') storeId: string, @Headers('authorization') authorization?: string): Promise<{ data: unknown }> { await this.auth.authorize(bearer(authorization), storeId, 'catalog:read', false); return { data: await this.catalog.adminBrands(storeId) }; }
+
+  @Patch('brands/:brandId')
+  async updateBrand(@Param('storeId') storeId: string, @Param('brandId') brandId: string, @Headers('authorization') authorization: string | undefined, @Body() body: unknown): Promise<{ data: unknown }> { await this.auth.authorize(bearer(authorization), storeId, 'catalog:write'); return { data: await this.catalog.updateBrand(storeId, brandId, validated(updateBrandSchema, body)) }; }
+  @Delete('brands/:brandId') async archiveBrand(@Param('storeId') storeId: string, @Param('brandId') brandId: string, @Headers('authorization') authorization?: string): Promise<{ data: unknown }> { await this.auth.authorize(bearer(authorization), storeId, 'catalog:write'); return { data: await this.catalog.archiveBrand(storeId, brandId) }; }
+
+  @Get('attributes')
+  async attributes(@Param('storeId') storeId: string, @Headers('authorization') authorization?: string): Promise<{ data: unknown }> { await this.auth.authorize(bearer(authorization), storeId, 'catalog:read', false); return { data: await this.catalog.adminAttributes(storeId) }; }
+
+  @Patch('attributes/:attributeId')
+  async updateAttribute(@Param('storeId') storeId: string, @Param('attributeId') attributeId: string, @Headers('authorization') authorization: string | undefined, @Body() body: unknown): Promise<{ data: unknown }> { await this.auth.authorize(bearer(authorization), storeId, 'catalog:write'); return { data: await this.catalog.updateAttribute(storeId, attributeId, validated(updateAttributeSchema, body)) }; }
+  @Delete('attributes/:attributeId') async archiveAttribute(@Param('storeId') storeId: string, @Param('attributeId') attributeId: string, @Headers('authorization') authorization?: string): Promise<{ data: unknown }> { await this.auth.authorize(bearer(authorization), storeId, 'catalog:write'); return { data: await this.catalog.archiveAttribute(storeId, attributeId) }; }
+
+  @Patch('products/:productId')
+  async updateProduct(@Param('storeId') storeId: string, @Param('productId') productId: string, @Headers('authorization') authorization: string | undefined, @Body() body: unknown): Promise<{ data: unknown }> { await this.auth.authorize(bearer(authorization), storeId, 'catalog:write'); return { data: await this.catalog.updateProduct(storeId, productId, validated(updateProductSchema, body)) }; }
+
+  @Delete('products/:productId')
+  async archiveProduct(@Param('storeId') storeId: string, @Param('productId') productId: string, @Headers('authorization') authorization?: string): Promise<{ data: unknown }> { await this.auth.authorize(bearer(authorization), storeId, 'catalog:write'); return { data: await this.catalog.archiveProduct(storeId, productId) }; }
+  @Post('products/bulk/archive') async bulkArchiveProducts(@Param('storeId') storeId: string, @Headers('authorization') authorization: string | undefined, @Body() body: unknown): Promise<{ data: unknown }> { await this.auth.authorize(bearer(authorization), storeId, 'catalog:write'); return { data: await this.catalog.bulkArchiveProducts(storeId, validated(bulkIdsSchema, body).ids) }; }
+
+  @Patch('variants/:variantId')
+  async updateVariant(@Param('storeId') storeId: string, @Param('variantId') variantId: string, @Headers('authorization') authorization: string | undefined, @Body() body: unknown): Promise<{ data: unknown }> { await this.auth.authorize(bearer(authorization), storeId, 'catalog:write'); return { data: await this.catalog.updateVariant(storeId, variantId, validated(updateVariantSchema, body)) }; }
+
+  @Get('inventory')
+  async inventory(@Param('storeId') storeId: string, @Headers('authorization') authorization?: string): Promise<{ data: unknown }> { await this.auth.authorize(bearer(authorization), storeId, 'inventory:read', false); return { data: await this.catalog.inventory(storeId) }; }
+
+  @Get('inventory/movements')
+  async inventoryMovements(@Param('storeId') storeId: string, @Headers('authorization') authorization?: string): Promise<{ data: unknown }> { await this.auth.authorize(bearer(authorization), storeId, 'inventory:read', false); return { data: await this.catalog.inventoryMovements(storeId) }; }
+
+  @Post('inventory/adjustments')
+  async adjustInventory(@Param('storeId') storeId: string, @Headers('authorization') authorization: string | undefined, @Body() body: unknown): Promise<{ data: unknown }> { const actor = await this.auth.authorize(bearer(authorization), storeId, 'inventory:write'); return { data: await this.catalog.adjustInventory(storeId, actor.adminUserId, validated(inventoryAdjustmentSchema, body)) }; }
 
   @Post('categories')
   async createCategory(@Param('storeId') storeId: string, @Headers('authorization') authorization: string | undefined, @Body() body: unknown) {
@@ -106,6 +160,12 @@ export class AdminCatalogController {
   async createInventoryLocation(@Param('storeId') storeId: string, @Headers('authorization') authorization: string | undefined, @Body() body: unknown): Promise<{ data: unknown }> {
     await this.auth.authorize(bearer(authorization), storeId, 'inventory:write');
     return { data: await this.catalog.createInventoryLocation(storeId, validated(createInventoryLocationSchema, body)) };
+  }
+
+  @Get('inventory-locations')
+  async inventoryLocations(@Param('storeId') storeId: string, @Headers('authorization') authorization?: string): Promise<{ data: unknown }> {
+    await this.auth.authorize(bearer(authorization), storeId, 'inventory:read', false);
+    return { data: await this.catalog.inventoryLocations(storeId) };
   }
 
   @Post('products/:productId/publish')

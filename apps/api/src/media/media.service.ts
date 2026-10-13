@@ -11,6 +11,7 @@ import {
 import { BadRequestException, Inject, Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../prisma.service';
 import type { AttachMediaInput, ImportMediaInput, UploadMediaInput } from './schemas';
+import { cursorPage, type CursorPage, type PaginationInput } from '../platform/pagination';
 
 const MAXIMUM_BYTES = 10 * 1024 * 1024;
 
@@ -47,6 +48,13 @@ export class MediaService {
   private readonly storage = storageFromEnvironment();
 
   constructor(@Inject(PrismaService) private readonly prisma: PrismaService) {}
+
+  async list(storeId: string, query: PaginationInput): Promise<CursorPage<Record<string, unknown> & { id: string }>> {
+    const assets = await this.prisma.client.mediaAsset.findMany({ where: { storeId, ...(query.status ? { processingStatus: query.status as never } : {}), ...(query.q ? { OR: [{ sha256: { contains: query.q } }, { mimeType: { contains: query.q, mode: 'insensitive' } }] } : {}) }, orderBy: [{ createdAt: 'desc' }, { id: 'desc' }], take: query.limit + 1, ...(query.cursor ? { cursor: { id: query.cursor }, skip: 1 } : {}), include: { renditions: true, _count: { select: { products: true, variants: true, storefrontBanners: true } } } });
+    return cursorPage(assets.map((asset) => this.response(asset, false)), query.limit);
+  }
+
+  async delete(storeId: string, mediaId: string): Promise<void> { const asset = await this.prisma.client.mediaAsset.findFirst({ where: { id: mediaId, storeId }, include: { renditions: true, _count: { select: { products: true, variants: true, storefrontBanners: true } } } }); if (!asset) throw new NotFoundException('MEDIA_NOT_FOUND'); if (asset._count.products || asset._count.variants || asset._count.storefrontBanners) throw new BadRequestException('MEDIA_IN_USE'); await this.prisma.client.mediaAsset.delete({ where: { id: asset.id } }); await Promise.allSettled([this.storage.delete(asset.storageKey), ...asset.renditions.map((item) => this.storage.delete(item.storageKey))]); }
 
   async upload(storeId: string, input: UploadMediaInput) {
     const body = Buffer.from(input.contentBase64, 'base64');

@@ -8,5 +8,6 @@ import { ImportsService } from './imports.service';
   imports: [AuthModule],
   controllers: [ImportsController],
   providers: [ImportsService, PrismaService],
+  exports: [ImportsService],
 })
 export class ImportsModule {}

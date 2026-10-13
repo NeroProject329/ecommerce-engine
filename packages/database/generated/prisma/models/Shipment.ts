@@ -46,6 +46,7 @@ export type ShipmentMinAggregateOutputType = {
   status: $Enums.ShipmentStatus | null
   shippedAt: Date | null
   deliveredAt: Date | null
+  estimatedDeliveryAt: Date | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -62,6 +63,7 @@ export type ShipmentMaxAggregateOutputType = {
   status: $Enums.ShipmentStatus | null
   shippedAt: Date | null
   deliveredAt: Date | null
+  estimatedDeliveryAt: Date | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -78,6 +80,7 @@ export type ShipmentCountAggregateOutputType = {
   status: number
   shippedAt: number
   deliveredAt: number
+  estimatedDeliveryAt: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -104,6 +107,7 @@ export type ShipmentMinAggregateInputType = {
   status?: true
   shippedAt?: true
   deliveredAt?: true
+  estimatedDeliveryAt?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -120,6 +124,7 @@ export type ShipmentMaxAggregateInputType = {
   status?: true
   shippedAt?: true
   deliveredAt?: true
+  estimatedDeliveryAt?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -136,6 +141,7 @@ export type ShipmentCountAggregateInputType = {
   status?: true
   shippedAt?: true
   deliveredAt?: true
+  estimatedDeliveryAt?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -239,6 +245,7 @@ export type ShipmentGroupByOutputType = {
   status: $Enums.ShipmentStatus
   shippedAt: Date | null
   deliveredAt: Date | null
+  estimatedDeliveryAt: Date | null
   createdAt: Date
   updatedAt: Date
   _count: ShipmentCountAggregateOutputType | null
@@ -278,6 +285,7 @@ export type ShipmentWhereInput = {
   status?: Prisma.EnumShipmentStatusFilter<"Shipment"> | $Enums.ShipmentStatus
   shippedAt?: Prisma.DateTimeNullableFilter<"Shipment"> | Date | string | null
   deliveredAt?: Prisma.DateTimeNullableFilter<"Shipment"> | Date | string | null
+  estimatedDeliveryAt?: Prisma.DateTimeNullableFilter<"Shipment"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"Shipment"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Shipment"> | Date | string
   store?: Prisma.XOR<Prisma.StoreScalarRelationFilter, Prisma.StoreWhereInput>
@@ -296,6 +304,7 @@ export type ShipmentOrderByWithRelationInput = {
   status?: Prisma.SortOrder
   shippedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   deliveredAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  estimatedDeliveryAt?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   store?: Prisma.StoreOrderByWithRelationInput
@@ -317,6 +326,7 @@ export type ShipmentWhereUniqueInput = Prisma.AtLeast<{
   status?: Prisma.EnumShipmentStatusFilter<"Shipment"> | $Enums.ShipmentStatus
   shippedAt?: Prisma.DateTimeNullableFilter<"Shipment"> | Date | string | null
   deliveredAt?: Prisma.DateTimeNullableFilter<"Shipment"> | Date | string | null
+  estimatedDeliveryAt?: Prisma.DateTimeNullableFilter<"Shipment"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"Shipment"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Shipment"> | Date | string
   store?: Prisma.XOR<Prisma.StoreScalarRelationFilter, Prisma.StoreWhereInput>
@@ -335,6 +345,7 @@ export type ShipmentOrderByWithAggregationInput = {
   status?: Prisma.SortOrder
   shippedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   deliveredAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  estimatedDeliveryAt?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.ShipmentCountOrderByAggregateInput
@@ -359,6 +370,7 @@ export type ShipmentScalarWhereWithAggregatesInput = {
   status?: Prisma.EnumShipmentStatusWithAggregatesFilter<"Shipment"> | $Enums.ShipmentStatus
   shippedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Shipment"> | Date | string | null
   deliveredAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Shipment"> | Date | string | null
+  estimatedDeliveryAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Shipment"> | Date | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Shipment"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Shipment"> | Date | string
 }
@@ -373,6 +385,7 @@ export type ShipmentCreateInput = {
   status?: $Enums.ShipmentStatus
   shippedAt?: Date | string | null
   deliveredAt?: Date | string | null
+  estimatedDeliveryAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   store: Prisma.StoreCreateNestedOneWithoutShipmentsInput
@@ -391,6 +404,7 @@ export type ShipmentUncheckedCreateInput = {
   status?: $Enums.ShipmentStatus
   shippedAt?: Date | string | null
   deliveredAt?: Date | string | null
+  estimatedDeliveryAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -405,6 +419,7 @@ export type ShipmentUpdateInput = {
   status?: Prisma.EnumShipmentStatusFieldUpdateOperationsInput | $Enums.ShipmentStatus
   shippedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   deliveredAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  estimatedDeliveryAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   store?: Prisma.StoreUpdateOneRequiredWithoutShipmentsNestedInput
@@ -423,6 +438,7 @@ export type ShipmentUncheckedUpdateInput = {
   status?: Prisma.EnumShipmentStatusFieldUpdateOperationsInput | $Enums.ShipmentStatus
   shippedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   deliveredAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  estimatedDeliveryAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -439,6 +455,7 @@ export type ShipmentCreateManyInput = {
   status?: $Enums.ShipmentStatus
   shippedAt?: Date | string | null
   deliveredAt?: Date | string | null
+  estimatedDeliveryAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -453,6 +470,7 @@ export type ShipmentUpdateManyMutationInput = {
   status?: Prisma.EnumShipmentStatusFieldUpdateOperationsInput | $Enums.ShipmentStatus
   shippedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   deliveredAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  estimatedDeliveryAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -469,6 +487,7 @@ export type ShipmentUncheckedUpdateManyInput = {
   status?: Prisma.EnumShipmentStatusFieldUpdateOperationsInput | $Enums.ShipmentStatus
   shippedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   deliveredAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  estimatedDeliveryAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -495,6 +514,7 @@ export type ShipmentCountOrderByAggregateInput = {
   status?: Prisma.SortOrder
   shippedAt?: Prisma.SortOrder
   deliveredAt?: Prisma.SortOrder
+  estimatedDeliveryAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -515,6 +535,7 @@ export type ShipmentMaxOrderByAggregateInput = {
   status?: Prisma.SortOrder
   shippedAt?: Prisma.SortOrder
   deliveredAt?: Prisma.SortOrder
+  estimatedDeliveryAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -531,6 +552,7 @@ export type ShipmentMinOrderByAggregateInput = {
   status?: Prisma.SortOrder
   shippedAt?: Prisma.SortOrder
   deliveredAt?: Prisma.SortOrder
+  estimatedDeliveryAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -637,6 +659,7 @@ export type ShipmentCreateWithoutStoreInput = {
   status?: $Enums.ShipmentStatus
   shippedAt?: Date | string | null
   deliveredAt?: Date | string | null
+  estimatedDeliveryAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   order: Prisma.OrderCreateNestedOneWithoutShipmentsInput
@@ -653,6 +676,7 @@ export type ShipmentUncheckedCreateWithoutStoreInput = {
   status?: $Enums.ShipmentStatus
   shippedAt?: Date | string | null
   deliveredAt?: Date | string | null
+  estimatedDeliveryAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -698,6 +722,7 @@ export type ShipmentScalarWhereInput = {
   status?: Prisma.EnumShipmentStatusFilter<"Shipment"> | $Enums.ShipmentStatus
   shippedAt?: Prisma.DateTimeNullableFilter<"Shipment"> | Date | string | null
   deliveredAt?: Prisma.DateTimeNullableFilter<"Shipment"> | Date | string | null
+  estimatedDeliveryAt?: Prisma.DateTimeNullableFilter<"Shipment"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"Shipment"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Shipment"> | Date | string
 }
@@ -712,6 +737,7 @@ export type ShipmentCreateWithoutOrderInput = {
   status?: $Enums.ShipmentStatus
   shippedAt?: Date | string | null
   deliveredAt?: Date | string | null
+  estimatedDeliveryAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   store: Prisma.StoreCreateNestedOneWithoutShipmentsInput
@@ -727,6 +753,7 @@ export type ShipmentUncheckedCreateWithoutOrderInput = {
   status?: $Enums.ShipmentStatus
   shippedAt?: Date | string | null
   deliveredAt?: Date | string | null
+  estimatedDeliveryAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -768,6 +795,7 @@ export type ShipmentCreateManyStoreInput = {
   status?: $Enums.ShipmentStatus
   shippedAt?: Date | string | null
   deliveredAt?: Date | string | null
+  estimatedDeliveryAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -782,6 +810,7 @@ export type ShipmentUpdateWithoutStoreInput = {
   status?: Prisma.EnumShipmentStatusFieldUpdateOperationsInput | $Enums.ShipmentStatus
   shippedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   deliveredAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  estimatedDeliveryAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   order?: Prisma.OrderUpdateOneRequiredWithoutShipmentsNestedInput
@@ -798,6 +827,7 @@ export type ShipmentUncheckedUpdateWithoutStoreInput = {
   status?: Prisma.EnumShipmentStatusFieldUpdateOperationsInput | $Enums.ShipmentStatus
   shippedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   deliveredAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  estimatedDeliveryAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -813,6 +843,7 @@ export type ShipmentUncheckedUpdateManyWithoutStoreInput = {
   status?: Prisma.EnumShipmentStatusFieldUpdateOperationsInput | $Enums.ShipmentStatus
   shippedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   deliveredAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  estimatedDeliveryAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -827,6 +858,7 @@ export type ShipmentCreateManyOrderInput = {
   status?: $Enums.ShipmentStatus
   shippedAt?: Date | string | null
   deliveredAt?: Date | string | null
+  estimatedDeliveryAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -841,6 +873,7 @@ export type ShipmentUpdateWithoutOrderInput = {
   status?: Prisma.EnumShipmentStatusFieldUpdateOperationsInput | $Enums.ShipmentStatus
   shippedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   deliveredAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  estimatedDeliveryAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   store?: Prisma.StoreUpdateOneRequiredWithoutShipmentsNestedInput
@@ -856,6 +889,7 @@ export type ShipmentUncheckedUpdateWithoutOrderInput = {
   status?: Prisma.EnumShipmentStatusFieldUpdateOperationsInput | $Enums.ShipmentStatus
   shippedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   deliveredAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  estimatedDeliveryAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -870,6 +904,7 @@ export type ShipmentUncheckedUpdateManyWithoutOrderInput = {
   status?: Prisma.EnumShipmentStatusFieldUpdateOperationsInput | $Enums.ShipmentStatus
   shippedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   deliveredAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  estimatedDeliveryAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -888,6 +923,7 @@ export type ShipmentSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   status?: boolean
   shippedAt?: boolean
   deliveredAt?: boolean
+  estimatedDeliveryAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   store?: boolean | Prisma.StoreDefaultArgs<ExtArgs>
@@ -906,6 +942,7 @@ export type ShipmentSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exte
   status?: boolean
   shippedAt?: boolean
   deliveredAt?: boolean
+  estimatedDeliveryAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   store?: boolean | Prisma.StoreDefaultArgs<ExtArgs>
@@ -924,6 +961,7 @@ export type ShipmentSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exte
   status?: boolean
   shippedAt?: boolean
   deliveredAt?: boolean
+  estimatedDeliveryAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   store?: boolean | Prisma.StoreDefaultArgs<ExtArgs>
@@ -942,11 +980,12 @@ export type ShipmentSelectScalar = {
   status?: boolean
   shippedAt?: boolean
   deliveredAt?: boolean
+  estimatedDeliveryAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type ShipmentOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "storeId" | "orderId" | "carrier" | "service" | "shippingAmountCents" | "trackingCode" | "trackingUrl" | "status" | "shippedAt" | "deliveredAt" | "createdAt" | "updatedAt", ExtArgs["result"]["shipment"]>
+export type ShipmentOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "storeId" | "orderId" | "carrier" | "service" | "shippingAmountCents" | "trackingCode" | "trackingUrl" | "status" | "shippedAt" | "deliveredAt" | "estimatedDeliveryAt" | "createdAt" | "updatedAt", ExtArgs["result"]["shipment"]>
 export type ShipmentInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   store?: boolean | Prisma.StoreDefaultArgs<ExtArgs>
   order?: boolean | Prisma.OrderDefaultArgs<ExtArgs>
@@ -978,6 +1017,7 @@ export type $ShipmentPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     status: $Enums.ShipmentStatus
     shippedAt: Date | null
     deliveredAt: Date | null
+    estimatedDeliveryAt: Date | null
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["shipment"]>
@@ -1416,6 +1456,7 @@ export interface ShipmentFieldRefs {
   readonly status: Prisma.FieldRef<"Shipment", 'ShipmentStatus'>
   readonly shippedAt: Prisma.FieldRef<"Shipment", 'DateTime'>
   readonly deliveredAt: Prisma.FieldRef<"Shipment", 'DateTime'>
+  readonly estimatedDeliveryAt: Prisma.FieldRef<"Shipment", 'DateTime'>
   readonly createdAt: Prisma.FieldRef<"Shipment", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Shipment", 'DateTime'>
 }
