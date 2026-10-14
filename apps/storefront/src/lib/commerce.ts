@@ -43,6 +43,7 @@ export type Product = {
   isDemo?: boolean;
   card?: {
     reviewCount?: number;
+    ratingAverage?: number;
     installmentCount?: number;
     installmentTotalCents?: number;
     installmentAmountCents?: number;
@@ -50,6 +51,8 @@ export type Product = {
     promo?: 'exclusive' | '10-off' | '15-off' | '20-off';
     flags?: string[];
     sponsored?: boolean;
+    cbFull?: boolean;
+    fastPickup?: boolean;
   };
 };
 
@@ -137,9 +140,17 @@ export const money = new Intl.NumberFormat('pt-BR', {
 });
 
 export function mediaUrl(product: Product, variant?: Variant, index = 0): string | undefined {
-  const source = variant?.media[index] ?? product.media[index] ?? variant?.media[0] ?? product.media[0];
+  const source =
+    variant?.media[index] ?? product.media[index] ?? variant?.media[0] ?? product.media[0];
   const raw = source?.renditions?.[0]?.url ?? source?.url;
-  if (raw?.startsWith('/demo-products/') || raw?.startsWith('/category-assets/')) return raw;
+  if (
+    raw?.startsWith('/demo-products/') ||
+    raw?.startsWith('/category-assets/') ||
+    raw?.startsWith('/product-assets/') ||
+    raw?.startsWith('/insurance-assets/') ||
+    raw?.startsWith('/cart-assets/')
+  )
+    return raw;
   return raw?.startsWith('/') ? `${API_BASE}${raw}` : raw;
 }
 

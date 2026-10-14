@@ -1,13 +1,13 @@
 # CONTINUAR DESENVOLVIMENTO
 
-**Atualizado em:** 2026-10-13
+**Atualizado em:** 2026-10-14
 
 ## Estado de retomada
 
 - Última etapa integralmente validada: **Etapa 14**.
 - Etapas 15 e 16: implementação concluída, com gates externos documentados.
 - Etapa 17: backend homologado no escopo combinado, sem autorização de publicação.
-- Última atividade concluída: reconstrução do storefront desktop pela referência Casas Bahia, com 22 rotas, fluxo completo de catálogo/conta/carrinho/checkout, 47 assets fornecidos, busca pública paginada, SEO e estados de carregamento/erro/vazio.
+- Última atividade concluída: template completo do carrinho em `/carrinho`, conectado à seleção da tela de proteção e validado contra a gravação em 1920 × 1080.
 
 ## Bloqueios reais
 
@@ -49,6 +49,12 @@
 - Os gates integrais posteriores ao storefront passaram novamente: lint 15/15, typecheck 25/25, testes 25/25 tarefas com 82 testes e build 15/15. Busca pública, `sitemap.xml` e `robots.txt` responderam HTTP 200 no smoke final.
 - O template compartilhado de categoria foi implementado em `/categoria/[slug]`; `Telefones e Celulares` recebeu os assets e conteúdos da referência, filtros funcionais, carrossel, vitrines, FAQ e ofertas relâmpago. A validação visual confirmou 19 cards, filtro Samsung 19 → 3 → 19, footer expansível e console limpo.
 - Após essa entrega, os gates integrais passaram novamente: lint 15/15, typecheck 25/25, testes 25/25 tarefas e build 15/15.
+- O template individual de produto foi validado visualmente em 1920 × 1080 e funcionalmente no navegador: galeria, lightbox, características, especificações, pagamentos e CEP `01001-000`. O console permaneceu sem erros; lint, typecheck, testes e build passaram integralmente.
+- Em 14/10/2026, a regressão visual final do produto confirmou favorito/compartilhamento, quatro miniaturas, carrossel patrocinado com ida e volta, modal técnico com abas, modal de pagamento com Pix, descrição expansível e os quatro conjuntos de cards da referência. Os quatro gates integrais passaram novamente.
+- Em 14/10/2026, o fluxo `Comprar` passou a encaminhar o `slug` do produto para a tela de proteção. No navegador foram testados: expansão da garantia, troca para 12 meses, expansão do seguro, abas Completa/Roubo/Quebra, seleção de 24 meses, expansão/seleção do suporte e informações adicionais. Cada alteração recalculou os itens e o subtotal do resumo fixo. O storefront passou em 10 testes, incluindo os preços de referência, escala por preço e variação por nicho; os quatro gates integrais fecharam em lint 15/15, typecheck 25/25, testes 25/25 e build 15/15.
+- A gravação de regressão de 15:51 revelou dois detalhes adicionais: radios duplicados no mesmo grupo faziam o indicador verde do cartão recolhido ser aplicado ao input oculto, e a expansão terminava sem respiro antes das informações legais. Os grupos foram separados semanticamente e o container recebeu 24 px de espaçamento inferior no desktop (32 px no breakpoint estreito); ambos os resultados foram conferidos no navegador.
+- Em 14/10/2026, `/carrinho` recebeu o template visual completo da referência. Foram percorridos quantidade, seleção de itens/serviços, CEP/frete, exclusão, edição de garantia, edição e expansão de seguro, os quatro documentos e o carrossel de dez produtos. Uma sessão limpa terminou sem erros de console. Os gates integrais passaram em lint 15/15, typecheck 25/25, testes 25/25 com 95 testes totais e build 15/15.
+- A revisão final do carrinho pela gravação de 16:39 corrigiu o separador do header, pin vermelho, proximidade entre checkbox e imagem, alinhamento dos controles, quantidade funcional também no suporte, setas de expansão e “ver mais/ver menos” dos modais. Produto `01 → 02` atualizou o resumo para 03 produtos, 04 seguros/serviços e `R$ 37.415,21`; suporte `01 → 02` atualizou para 03 produtos e `R$ 18.919,06`. A tela foi novamente validada em 1920 × 1080 sem erros de console e todos os gates passaram.
 
 ## Testes pendentes
 
@@ -71,7 +77,7 @@ pnpm build
 
 ## Próxima tarefa exata
 
-Com a home e o template-base de categoria concluídos, a próxima ação visual é configurar as demais categorias reaproveitando `CategoryTemplatePage` e trocando somente título, breadcrumb, banner, filtros e produtos. Em paralelo, o conteúdo definitivo da `loja-2` deve ser publicado pelo painel para substituir os fallbacks locais. Depois vêm E2E automatizado, carga de catálogo/checkout, drill de restauração e imagens Docker.
+Com a home, o template-base de categoria, o produto individual, a proteção e o carrinho concluídos, a próxima ação visual é reproduzir a etapa de endereço/pagamento ou configurar as demais categorias reutilizando os templates existentes. Em paralelo, o conteúdo definitivo da `loja-2` deve ser publicado pelo painel para substituir os fallbacks locais. Depois vêm E2E automatizado, carga de catálogo/checkout, drill de restauração e imagens Docker.
 
 ## Decisões imutáveis sem ADR
 

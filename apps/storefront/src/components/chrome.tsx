@@ -255,8 +255,8 @@ export function SiteFooter({ store }: { store: Store }) {
   );
 }
 
-export function PageFrame({ store, categories, children, checkout = false }: { store: Store; categories?: Category[]; children: ReactNode; checkout?: boolean }) {
-  if (checkout) return <div className="checkout-frame"><div className="brand-rule"/><header className="checkout-header container"><Logo/><span>♿</span></header>{children}<CheckoutFooter store={store}/></div>;
+export function PageFrame({ store, categories, children, checkout = false, checkoutFooter = true }: { store: Store; categories?: Category[]; children: ReactNode; checkout?: boolean; checkoutFooter?: boolean }) {
+  if (checkout) return <div className="checkout-frame"><div className="brand-rule"/><header className="checkout-header container"><Logo/><Link href="/institucional/acessibilidade" aria-label="Acessibilidade"><Image src="/insurance-assets/accessibility.svg" alt="" width={20} height={20}/></Link></header>{children}{checkoutFooter && <CheckoutFooter store={store}/>}</div>;
   return <><SiteHeader {...(categories ? { categories } : {})}/>{children}<SiteFooter store={store}/></>;
 }
 
